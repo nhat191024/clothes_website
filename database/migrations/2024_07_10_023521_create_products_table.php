@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 64);
             $table->string('img');
-            $table->foreignId('img_id')->constrained('imgs');
+            $table->foreignId('img_id')->constrained('images');
             $table->string('description', 255);
             $table->integer('price');
             $table->integer('sale_price');
