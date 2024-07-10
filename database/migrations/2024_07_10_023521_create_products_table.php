@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name', 64);
             $table->string('img');
-            $table->unsignedBigInteger('img_id');
+            $table->foreignId('img_id')->constrained('imgs');
             $table->string('description', 255);
             $table->integer('price');
             $table->integer('sale_price');
             $table->softDeletes();
             $table->timestamps();
-            $table->primary(['id', 'img', 'img_id']);
         });
     }
 

@@ -199,7 +199,7 @@
             "id": 1,
             "name": "Summer Dress",
             "img": "summer_dress.jpg",
-            "img_id": 12345,
+            "img_id": 1,
             "description": "Flowy floral dress for summer",
             "price": 50,
             "sale_price": 35
@@ -208,7 +208,7 @@
             "id": 2,
             "name": "Denim Jeans",
             "img": "jeans.jpg",
-            "img_id": 67890,
+            "img_id": 2,
             "description": "Classic blue denim jeans",
             "price": 80,
             "sale_price": 50
@@ -217,7 +217,7 @@
             "id": 3,
             "name": "Leather Jacket",
             "img": "jacket.jpg",
-            "img_id": 111213,
+            "img_id": 3,
             "description": "Black leather biker jacket",
             "price": 150,
             "sale_price": 120
