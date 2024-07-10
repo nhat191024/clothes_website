@@ -144,16 +144,16 @@
     ],
     "categories":[
         {
-            "name": "Bread",
-            "image": "bread.jpg"
+            "name": "Adult",
+            "image": "adult.jpg"
         },
         {
-            "name": "Cakes",
-            "image": "cakes.jpg"
+            "name": "Kids",
+            "image": "kid.jpg"
         },
         {
-            "name": "Cookies",
-            "image": "cookies.jpg"
+            "name": "Woman",
+            "image": "woman.jpg"
         }
     ],
     "bills":[
