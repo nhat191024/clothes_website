@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('bill_id')->constrained('bills');
             $table->integer('quantity');
             $table->integer('price');
-            $table->integer('total_price');
             $table->timestamps();
         });
     }
