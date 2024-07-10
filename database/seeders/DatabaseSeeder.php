@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
             ContactUs::create($row);
         }
 
-        foreach ($dataArray['imgs'] as $row) {
+        foreach ($dataArray['images'] as $row) {
             Image::create($row);
         }
 
