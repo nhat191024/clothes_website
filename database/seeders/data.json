@@ -343,20 +343,6 @@
             "discount_percentage": 10
         }
     ],
-    "product_imgs": [
-        {
-            "img_id": 1,
-            "product_id": 1
-        },
-        {
-            "img_id": 2,
-            "product_id": 1
-        },
-        {
-            "img_id": 3,
-            "product_id": 2
-        }
-    ],
     "product_details": [
         {
             "product_id": 1,
