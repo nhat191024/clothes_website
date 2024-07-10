@@ -20,24 +20,26 @@ class ProductDetail extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsTo(Product::class);
     }
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
-    }
-    public function size()
-    {
-        return $this->belongsTo(Size::class, 'size_id');
-    }
-    public function color()
-    {
-        return $this->belongsTo(Color::class, 'color_id');
+        return $this->belongsTo(Category::class, 'product_categories', 'product_id', 'category_id');
     }
 
-    public function bill_details()
+    public function size()
     {
-        return $this->hasMany(BillDetail::class, 'product_detail_id');
+        return $this->belongsTo(Size::class);
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(Color::class);
+    }
+
+    public function billDetail()
+    {
+        return $this->hasMany(BillDetail::class);
     }
 }

@@ -19,11 +19,11 @@ class BillDetail extends Model
 
     public function bill()
     {
-        return $this->belongsTo(Bill::class, 'bill_id');
+        return $this->belongsTo(Bill::class);
     }
 
     public function productDetail()
     {
-        return $this->belongsTo(ProductDetail::class, 'product_detail_id');
+        return $this->belongsTo(ProductDetail::class);
     }
 }

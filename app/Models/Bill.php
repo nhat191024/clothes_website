@@ -23,6 +23,6 @@ class Bill extends Model
 
     public function billDetail()
     {
-        return $this->hasMany(BillDetail::class, 'bill_id');
+        return $this->hasMany(BillDetail::class);
     }
 }

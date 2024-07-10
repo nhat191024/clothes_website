@@ -22,21 +22,11 @@ class Product extends Model
 
     public function img()
     {
-        return $this->belongsTo(Image::class, 'img_id');
-    }
-
-    public function promotion()
-    {
-        return $this->hasMany(Promotion::class, 'product_id');
+        return $this->belongsTo(Image::class);
     }
 
     public function productDetail()
     {
-        return $this->hasMany(ProductDetail::class, 'product_id');
-    }
-
-    public function productCategory()
-    {
-        return $this->hasMany(ProductCategory::class, 'product_id');
+        return $this->hasMany(ProductDetail::class);
     }
 }

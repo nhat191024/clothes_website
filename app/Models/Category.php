@@ -16,13 +16,8 @@ class Category extends Model
         'image'
     ];
 
-    public function productDetail()
+    public function product()
     {
-        return $this->hasMany(ProductDetail::class, 'category_id');
-    }
-
-    public function productCategory()
-    {
-        return $this->hasMany(ProductCategory::class, 'category_id');
+        return $this->belongsToMany(ProductDetail::class, 'product_categories', 'category_id', 'product_id');
     }
 }

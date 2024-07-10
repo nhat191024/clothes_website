@@ -17,6 +17,6 @@ class Size extends Model
 
     public function productDetail()
     {
-        return $this->hasMany(ProductDetail::class, 'size_id');
+        return $this->hasMany(ProductDetail::class);
     }
 }

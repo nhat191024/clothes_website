@@ -16,9 +16,4 @@ class Promotion extends Model
         'end_time',
         'discount_percentage'
     ];
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class, 'product_id');
-    }
 }
