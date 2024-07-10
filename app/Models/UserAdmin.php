@@ -11,7 +11,14 @@ class UserAdmin extends Model
 
     protected $fillable = [
         'username',
+        'password',
         'email',
+        'status'
     ];
+
+    protected $hidden = [
+        'password'
+    ];
+    protected $guarded = ['status'];
 
 }

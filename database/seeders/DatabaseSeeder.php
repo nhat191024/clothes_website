@@ -53,16 +53,9 @@ class DatabaseSeeder extends Seeder
                 "username" => $row['username'],
                 "password" => Hash::make($row['password']),
                 "email" => $row['email'],
-                "address" => $row['address'],
-                "phone" => $row['phone'],
-                "role" => $row['role'],
                 "status" => $row['status'],
             ]);
         }
-
-        // foreach ($dataArray['user_admins'] as $row) {
-        //     UserAdmin::create($row);
-        // }
 
         foreach ($dataArray['vouchers'] as $row) {
             Voucher::create($row);
