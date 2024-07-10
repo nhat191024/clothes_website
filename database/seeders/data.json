@@ -258,6 +258,7 @@
             {
                 "name": "áo vàng",
                 "img": "img/product/product-1.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 1000,
                 "sale_price": 900
@@ -265,6 +266,7 @@
             {
                 "name": "áo xanh",
                 "img": "img/product/product-2.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 2000,
                 "sale_price": 1800
@@ -272,6 +274,7 @@
             {
                 "name": "áo đỏ",
                 "img": "img/product/product-3.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 3000,
                 "sale_price": 2700
@@ -279,6 +282,7 @@
             {
                 "name": "áo trắng",
                 "img": "img/product/product-4.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 4000,
                 "sale_price": 3600
@@ -286,6 +290,7 @@
             {
                 "name": "áo đen",
                 "img": "img/product/product-5.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 5000,
                 "sale_price": 4500
@@ -293,6 +298,7 @@
             {
                 "name": "áo cam",
                 "img": "img/product/product-6.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 1500,
                 "sale_price": 1350
@@ -300,6 +306,7 @@
             {
                 "name": "áo hồng",
                 "img": "img/product/product-7.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 2500,
                 "sale_price": 2250
@@ -307,6 +314,7 @@
             {
                 "name": "áo tím",
                 "img": "img/product/product-8.webp",
+                "img_id": 1,
                 "description": "this is a fckin description",
                 "price": 3500,
                 "sale_price": 3150
