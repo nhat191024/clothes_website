@@ -19,14 +19,14 @@
     ],
     "user_admins":[
         {
-            "username": "admin1",
-            "password": "hashed_password1",
+            "username": "admin",
+            "password": "admin",
             "email": "admin1@example.com",
             "status": 1
         },
         {
-            "username": "admin2",
-            "password": "hashed_password2",
+            "username": "staff",
+            "password": "staff",
             "email": "admin2@example.com",
             "status": 1
         }
