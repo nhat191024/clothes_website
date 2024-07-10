@@ -19,4 +19,9 @@ class Product extends Model
         'price',
         'sale_price'
     ];
+
+    public function imgs()
+    {
+        return $this->belongsTo(Img::class, 'img_id');
+    }
 }

@@ -13,4 +13,14 @@ class ProductCategory extends Model
         'product_id',
         'category_id'
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

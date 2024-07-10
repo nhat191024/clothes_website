@@ -16,4 +16,14 @@ class BillDetail extends Model
         'price',
         'total_price'
     ];
+
+    public function bills()
+    {
+        return $this->belongsTo(Bill::class, 'bill_id');
+    }
+
+    public function product_details()
+    {
+        return $this->belongsTo(ProductDetail::class, 'product_detail_id');
+    }
 }
