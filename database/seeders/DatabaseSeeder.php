@@ -38,13 +38,12 @@ class DatabaseSeeder extends Seeder
 
         foreach ($dataArray['users'] as $row) {
             User::create([
+                "avt" => $row['avt'],
                 "username" => $row['username'],
                 "password" => Hash::make($row['password']),
                 "email" => $row['email'],
                 "address" => $row['address'],
-                "phone" => $row['phone'],
-                "role" => $row['role'],
-                "status" => $row['status'],
+                "phone" => $row['phone']
             ]);
         }
 
