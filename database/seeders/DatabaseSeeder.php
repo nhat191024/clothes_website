@@ -9,14 +9,13 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductDetail;
-use App\Models\ProductImg;
 use App\Models\Bill;
 use App\Models\BillDetail;
 use App\Models\Category;
 use App\Models\ContactInfo;
 use App\Models\ContactUs;
 use App\Models\CustomerRequest;
-use App\Models\Img;
+use App\Models\Image;
 use App\Models\Promotion;
 use App\Models\Size;
 use App\Models\Voucher;
@@ -73,7 +72,7 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach ($dataArray['imgs'] as $row) {
-            Img::create($row);
+            Image::create($row);
         }
 
         foreach ($dataArray['colors'] as $row) {
@@ -106,10 +105,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($dataArray['promotions'] as $row) {
             Promotion::create($row);
-        }
-
-        foreach ($dataArray['product_imgs'] as $row) {
-            ProductImg::create($row);
         }
 
         foreach ($dataArray['product_details'] as $row) {

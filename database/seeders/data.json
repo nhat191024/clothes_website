@@ -1,5 +1,5 @@
 {
-    "users":[
+    "users": [
         {
             "avt": "avatar1.jpg",
             "username": "user123",
@@ -17,7 +17,7 @@
             "phone": "9876543210"
         }
     ],
-    "user_admins":[
+    "user_admins": [
         {
             "username": "admin",
             "password": "admin",
@@ -31,7 +31,7 @@
             "status": 1
         }
     ],
-    "vouchers":[
+    "vouchers": [
         {
             "code": "SUMMER20",
             "discount_percentage": 20,
@@ -62,43 +62,36 @@
             "end_date": "2023-07-15 23:59:59",
             "status": 1
         }
-    ]
-    ,
+    ],
     "banners": [
         {
             "title": "Summer Sale",
             "subtitle": "Up to 50% off on selected items",
-            "image": "summer_sale.jpg",
+            "image": "img/banner/banner-1.webp",
             "link": "/sale"
         },
         {
             "title": "New Arrivals",
             "subtitle": "Check out our latest collection",
-            "image": "new_arrivals.jpg",
+            "image": "img/banner/banner-2.webp",
             "link": "/new"
-        },
-        {
-            "title": "Free Shipping",
-            "subtitle": "On orders over $50",
-            "image": "free_shipping.jpg",
-            "link": "/shipping"
         }
     ],
-    "contact_infos":[
+    "contact_infos": [
         {
-            "name": "John Doe",
+            "name": "facebook.com",
             "type": "facebook"
         },
         {
-            "name": "Jane Smith",
-            "type": "twitter"
+            "name": "x.com",
+            "type": "x"
         },
         {
-            "name": "Acme Corporation",
+            "name": "instagram.com",
             "type": "instagram"
         }
     ],
-    "contact_us":[
+    "contact_us": [
         {
             "phone": "+84123456789",
             "email": "contact@example.com",
@@ -106,18 +99,41 @@
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4968265661774!2d106.69824547382001!3d10.775815061960945!2d-74.0059413203125!3d40.71278371215625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire+State+Building!5e0!3m2!1sen!2sus!4v1505252043578"
         }
     ],
-    "imgs":[
+    "images": [
         {
-            "img": "image1.jpg"
+            "img": "img/product/product-1.webp",
+            "product_id": 1
         },
         {
-            "img": "image2.png"
+            "img": "img/product/product-2.webp",
+            "product_id": 2
         },
         {
-            "img": "image3.webp"
+            "img": "img/product/product-3.webp",
+            "product_id": 3
+        },
+        {
+            "img": "img/product/product-4.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-5.webp",
+            "product_id": 5
+        },
+        {
+            "img": "img/product/product-6.webp",
+            "product_id": 6
+        },
+        {
+            "img": "img/product/product-7.webp",
+            "product_id": 7
+        },
+        {
+            "img": "img/product/product-8.webp",
+            "product_id": 8
         }
     ],
-    "colors":[
+    "colors": [
         {
             "name": "red"
         },
@@ -128,7 +144,7 @@
             "name": "blue"
         }
     ],
-    "customer_requests":[
+    "customer_requests": [
         {
             "name": "Nguyen Van A",
             "phone": "0987654321",
@@ -142,88 +158,161 @@
             "message": "Xin hỏi cửa hàng có giao hàng tận nơi không?"
         }
     ],
-    "categories":[
-        {
-            "name": "Adult",
-            "image": "adult.jpg"
-        },
-        {
-            "name": "Kids",
-            "image": "kid.jpg"
-        },
+    "categories": [
         {
             "name": "Woman",
-            "image": "woman.jpg"
+            "image": "img/category/category-1.webp"
+        },
+        {
+            "name": "Men",
+            "image": "img/category/category-2.webp"
+        },
+        {
+            "name": "kid",
+            "image": "img/category/category-3.webp"
+        },
+        {
+            "name": "Adult",
+            "image": "img/category/category-6.webp"
+        },
+        {
+            "name": "Spring",
+            "image": ""
+        },
+        {
+            "name": "Summer",
+            "image": ""
+        },
+        {
+            "name": "Autumn",
+            "image": ""
+        },
+        {
+            "name": "Winter",
+            "image": ""
+        },
+        {
+            "name": "Shirt",
+            "image": ""
+        },
+        {
+            "name": "T-shirt",
+            "image": ""
+        },
+        {
+            "name": "Pants",
+            "image": ""
+        },
+        {
+            "name": "Shorts",
+            "image": ""
+        },
+        {
+            "name": "Dress",
+            "image": ""
+        },
+        {
+            "name": "Skirt",
+            "image": ""
         }
     ],
-    "bills":[
+    "bills": [
         {
-            "full_name": "Nguyen Van A",
+            "full_name": "Nguyễn Thị Mẹ",
             "address": "123 Nguyen Hue Street, District 1",
             "postcode": 70000,
             "phone": "0987654321",
             "email": "nguyenvana@gmail.com",
             "delivery_method": 1,
             "checkout_method": 0,
-            "total_amount": 500000,
+            "total_amount": 0,
             "status": 0
         },
         {
-            "full_name": "Tran Thi B",
+            "full_name": "Trần Thị Bố",
             "address": "456 Le Loi Street, District 3",
             "postcode": 700000,
             "phone": "0912345678",
             "email": "tranthib@yahoo.com",
             "delivery_method": 0,
             "checkout_method": 1,
-            "total_amount": 350000,
-            "status": 1
+            "total_amount": 0,
+            "status": 0
         }
     ],
-    "product_categories":[
+    "product_categories": [
         {
             "product_id": 1,
-            "category_id": 2
+            "category_id": 1
         },
         {
-            "product_id": 3,
-            "category_id": 1
+            "product_id": 1,
+            "category_id": 4
         },
         {
             "product_id": 2,
             "category_id": 3
         }
     ],
-    "products":[
-        {
-            "id": 1,
-            "name": "Summer Dress",
-            "img": "summer_dress.jpg",
-            "img_id": 1,
-            "description": "Flowy floral dress for summer",
-            "price": 50,
-            "sale_price": 35
-        },
-        {
-            "id": 2,
-            "name": "Denim Jeans",
-            "img": "jeans.jpg",
-            "img_id": 2,
-            "description": "Classic blue denim jeans",
-            "price": 80,
-            "sale_price": 50
-        },
-        {
-            "id": 3,
-            "name": "Leather Jacket",
-            "img": "jacket.jpg",
-            "img_id": 3,
-            "description": "Black leather biker jacket",
-            "price": 150,
-            "sale_price": 120
-        }
-    ],
-    "promotions":[
+    "products": [
+            {
+                "name": "áo vàng",
+                "img": "img/product/product-1.webp",
+                "description": "this is a fckin description",
+                "price": 1000,
+                "sale_price": 900
+            },
+            {
+                "name": "áo xanh",
+                "img": "img/product/product-2.webp",
+                "description": "this is a fckin description",
+                "price": 2000,
+                "sale_price": 1800
+            },
+            {
+                "name": "áo đỏ",
+                "img": "img/product/product-3.webp",
+                "description": "this is a fckin description",
+                "price": 3000,
+                "sale_price": 2700
+            },
+            {
+                "name": "áo trắng",
+                "img": "img/product/product-4.webp",
+                "description": "this is a fckin description",
+                "price": 4000,
+                "sale_price": 3600
+            },
+            {
+                "name": "áo đen",
+                "img": "img/product/product-5.webp",
+                "description": "this is a fckin description",
+                "price": 5000,
+                "sale_price": 4500
+            },
+            {
+                "name": "áo cam",
+                "img": "img/product/product-6.webp",
+                "description": "this is a fckin description",
+                "price": 1500,
+                "sale_price": 1350
+            },
+            {
+                "name": "áo hồng",
+                "img": "img/product/product-7.webp",
+                "description": "this is a fckin description",
+                "price": 2500,
+                "sale_price": 2250
+            },
+            {
+                "name": "áo tím",
+                "img": "img/product/product-8.webp",
+                "description": "this is a fckin description",
+                "price": 3500,
+                "sale_price": 3150
+            }
+        ],
+    "promotions": [
         {
             "product_id": 1,
             "description": "Summer sale",
@@ -246,7 +335,7 @@
             "discount_percentage": 10
         }
     ],
-    "product_imgs":[
+    "product_imgs": [
         {
             "img_id": 1,
             "product_id": 1
@@ -260,7 +349,7 @@
             "product_id": 2
         }
     ],
-    "product_details":[
+    "product_details": [
         {
             "product_id": 1,
             "category_id": 1,
@@ -280,7 +369,7 @@
             "color_id": 1
         }
     ],
-    "bill_details":[
+    "bill_details": [
         {
             "product_detail_id": 1,
             "bill_id": 1,
@@ -296,7 +385,7 @@
             "total_price": 350000
         }
     ],
-    "sizes":[
+    "sizes": [
         {
             "name": "S"
         },

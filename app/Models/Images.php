@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Img extends Model
+class image extends Model
 {
-    protected $table = 'imgs';
+    protected $table = 'images';
 
     protected $fillable = [
         'img'
