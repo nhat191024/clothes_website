@@ -20,27 +20,22 @@ class Product extends Model
         'sale_price'
     ];
 
-    public function imgs()
+    public function img()
     {
-        return $this->belongsTo(Img::class, 'img_id');
+        return $this->belongsTo(Image::class, 'img_id');
     }
 
-    public function promotions()
+    public function promotion()
     {
         return $this->hasMany(Promotion::class, 'product_id');
     }
 
-    public function product_imgs()
-    {
-        return $this->hasMany(ProductImg::class, 'product_id');
-    }
-
-    public function product_details()
+    public function productDetail()
     {
         return $this->hasMany(ProductDetail::class, 'product_id');
     }
 
-    public function product_categories()
+    public function productCategory()
     {
         return $this->hasMany(ProductCategory::class, 'product_id');
     }

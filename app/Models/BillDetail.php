@@ -17,12 +17,12 @@ class BillDetail extends Model
         'total_price'
     ];
 
-    public function bills()
+    public function bill()
     {
         return $this->belongsTo(Bill::class, 'bill_id');
     }
 
-    public function product_details()
+    public function productDetail()
     {
         return $this->belongsTo(ProductDetail::class, 'product_detail_id');
     }

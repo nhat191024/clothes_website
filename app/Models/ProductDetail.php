@@ -18,20 +18,20 @@ class ProductDetail extends Model
         'color_id'
     ];
 
-    public function products()
+    public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-    public function sizes()
+    public function size()
     {
         return $this->belongsTo(Size::class, 'size_id');
     }
-    public function colors()
+    public function color()
     {
         return $this->belongsTo(Color::class, 'color_id');
     }

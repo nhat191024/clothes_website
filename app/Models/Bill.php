@@ -21,7 +21,7 @@ class Bill extends Model
         'status'
     ];
 
-    public function bill_details()
+    public function billDetail()
     {
         return $this->hasMany(BillDetail::class, 'bill_id');
     }
