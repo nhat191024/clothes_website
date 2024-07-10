@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('size_id')->constrained('sizes');
             $table->foreignId('color_id')->constrained('colors');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
