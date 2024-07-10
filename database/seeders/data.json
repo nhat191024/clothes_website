@@ -1,0 +1,245 @@
+{
+    "banners": [
+        {
+            "title": "Summer Sale",
+            "subtitle": "Up to 50% off on selected items",
+            "image": "summer_sale.jpg",
+            "link": "/sale"
+        },
+        {
+            "title": "New Arrivals",
+            "subtitle": "Check out our latest collection",
+            "image": "new_arrivals.jpg",
+            "link": "/new"
+        },
+        {
+            "title": "Free Shipping",
+            "subtitle": "On orders over $50",
+            "image": "free_shipping.jpg",
+            "link": "/shipping"
+        }
+    ],
+    "contact_info":[
+        {
+            "name": "John Doe",
+            "type": "email"
+        },
+        {
+            "name": "Jane Smith",
+            "type": "phone"
+        },
+        {
+            "name": "Acme Corporation",
+            "type": "address"
+        }
+    ],
+    "contact_us":[
+        {
+            "phone_number": "+84123456789",
+            "email": "contact@example.com",
+            "address": "123 Nguyen Hue Street, District 1, Ho Chi Minh City",
+            "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4968265661774!2d106.69824547382001!3d10.775815061960945!2d-74.0059413203125!3d40.71278371215625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire+State+Building!5e0!3m2!1sen!2sus!4v1505252043578"
+        }
+    ],
+    "imgs":[
+        {
+            "img": "image1.jpg"
+        },
+        {
+            "img": "image2.png"
+        },
+        {
+            "img": "image3.webp"
+        }
+    ],
+    "colors":[
+        {
+            "name": "red"
+        },
+        {
+            "name": "green"
+        },
+        {
+            "name": "blue"
+        }
+    ],
+    "customer_requests":[
+        {
+            "name": "Nguyen Van A",
+            "phone_number": "0987654321",
+            "email": "nguyenvana@gmail.com",
+            "message": "Tôi muốn đặt một chiếc ao."
+        },
+        {
+            "name": "Tran Thi B",
+            "phone_number": "0912345678",
+            "email": "tranthib@yahoo.com",
+            "message": "Xin hỏi cửa hàng có giao hàng tận nơi không?"
+        }
+    ],
+    "categories":[
+        {
+            "name": "Bread",
+            "image": "bread.jpg"
+        },
+        {
+            "name": "Cakes",
+            "image": "cakes.jpg"
+        },
+        {
+            "name": "Cookies",
+            "image": "cookies.jpg"
+        }
+    ],
+    "bills":[
+        {
+            "full_name": "Nguyen Van A",
+            "address": "123 Nguyen Hue Street, District 1",
+            "postcode": 70000,
+            "phone_number": "0987654321",
+            "email": "nguyenvana@gmail.com",
+            "delivery_method": 1,
+            "checkout_method": 0,
+            "total_amount": 500000,
+            "status": 0
+        },
+        {
+            "full_name": "Tran Thi B",
+            "address": "456 Le Loi Street, District 3",
+            "postcode": 700000,
+            "phone_number": "0912345678",
+            "email": "tranthib@yahoo.com",
+            "delivery_method": 0,
+            "checkout_method": 1,
+            "total_amount": 350000,
+            "status": 1
+        }
+    ],
+    "product_categories":[
+        {
+            "product_id": 1,
+            "category_id": 2
+        },
+        {
+            "product_id": 3,
+            "category_id": 1
+        },
+        {
+            "product_id": 2,
+            "category_id": 3
+        }
+    ],
+    "products":[
+        {
+            "id": 1,
+            "name": "Summer Dress",
+            "img": "summer_dress.jpg",
+            "img_id": 12345,
+            "description": "Flowy floral dress for summer",
+            "price": 50,
+            "sale_price": 35
+        },
+        {
+            "id": 2,
+            "name": "Denim Jeans",
+            "img": "jeans.jpg",
+            "img_id": 67890,
+            "description": "Classic blue denim jeans",
+            "price": 80,
+            "sale_price": null
+        },
+        {
+            "id": 3,
+            "name": "Leather Jacket",
+            "img": "jacket.jpg",
+            "img_id": 111213,
+            "description": "Black leather biker jacket",
+            "price": 150,
+            "sale_price": 120
+        }
+    ],
+    "promotions":[
+        {
+            "product_id": 1,
+            "description": "Summer sale",
+            "start_time": "2023-06-01 00:00:00",
+            "end_time": "2023-08-31 23:59:59",
+            "discount_percentage": 20
+        },
+        {
+            "product_id": 2,
+            "description": "Clearance sale",
+            "start_time": "2023-07-15 00:00:00",
+            "end_time": "2023-07-31 23:59:59",
+            "discount_percentage": 50
+        },
+        {
+            "product_id": 3,
+            "description": "New product launch promotion",
+            "start_time": "2023-08-01 00:00:00",
+            "end_time": "2023-08-15 23:59:59",
+            "discount_percentage": 10
+        }
+    ],
+    "product_imgs":[
+        {
+            "img_id": 1,
+            "product_id": 1
+        },
+        {
+            "img_id": 2,
+            "product_id": 1
+        },
+        {
+            "img_id": 3,
+            "product_id": 2
+        }
+    ],
+    "product_details":[
+        {
+            "product_id": 1,
+            "category_id": 1,
+            "size_id": 1,
+            "color_id": 1
+        },
+        {
+            "product_id": 1,
+            "category_id": 1,
+            "size_id": 2,
+            "color_id": 2
+        },
+        {
+            "product_id": 2,
+            "category_id": 2,
+            "size_id": 3,
+            "color_id": 1
+        }
+    ],
+    "bill_details":[
+        {
+            "product_detail_id": 1,
+            "bill_id": 1,
+            "quantity": 2,
+            "price": 250000,
+            "total_price": 500000
+        },
+        {
+            "product_detail_id": 2,
+            "bill_id": 2,
+            "quantity": 1,
+            "price": 350000,
+            "total_price": 350000
+        }
+    ]
+
+
+
+
+
+
+
+
+
+
+
+}
