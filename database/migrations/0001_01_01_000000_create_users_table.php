@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('email')->unique();
             $table->string('address')->nullable();
-            $table->string('phone_number', 16);
+            $table->string('phone', 16);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

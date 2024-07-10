@@ -13,7 +13,7 @@ class Bill extends Model
         'full_name',
         'address',
         'postcode',
-        'phone_number',
+        'phone',
         'email',
         'delivery_method',
         'checkout_method',

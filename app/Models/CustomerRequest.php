@@ -11,7 +11,7 @@ class CustomerRequest extends Model
 
     protected $fillable = [
         'name',
-        'phone_number',
+        'phone',
         'email',
         'message'
     ];

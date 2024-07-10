@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('full_name',15);
             $table->string('address', 64);
             $table->integer('postcode');
-            $table->string('phone_number', 10);
+            $table->string('phone', 10);
             $table->string('email', 50);
             $table->tinyInteger('delivery_method');
             $table->tinyInteger('checkout_method');
