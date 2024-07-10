@@ -20,4 +20,9 @@ class Bill extends Model
         'total_amount',
         'status'
     ];
+
+    public function bill_details()
+    {
+        return $this->hasMany(BillDetail::class, 'bill_id');
+    }
 }

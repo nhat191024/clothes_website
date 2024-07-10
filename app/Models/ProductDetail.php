@@ -33,4 +33,9 @@ class ProductDetail extends Model
     {
         return $this->belongsTo(Color::class, 'color_id');
     }
+
+    public function bill_details()
+    {
+        return $this->hasMany(BillDetail::class, 'product_detail_id');
+    }
 }

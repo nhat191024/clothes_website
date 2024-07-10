@@ -14,4 +14,9 @@ class Size extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function product_details()
+    {
+        return $this->hasMany(ProductDetail::class, 'size_id');
+    }
 }
