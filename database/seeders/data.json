@@ -142,6 +142,81 @@
         },
         {
             "name": "blue"
+        },
+        {
+            "name": "yellow"
+        },
+        {
+            "name": "orange"
+        },
+        {
+            "name": "purple"
+        },
+        {
+            "name": "pink"
+        },
+        {
+            "name": "brown"
+        },
+        {
+            "name": "black"
+        },
+        {
+            "name": "white"
+        },
+        {
+            "name": "gray"
+        },
+        {
+            "name": "beige"
+        },
+        {
+            "name": "ivory"
+        },
+        {
+            "name": "cream"
+        },
+        {
+            "name": "tan"
+        },
+        {
+            "name": "navy"
+        },
+        {
+            "name": "olive"
+        },
+        {
+            "name": "teal"
+        },
+        {
+            "name": "coral"
+        },
+        {
+            "name": "lavender"
+        },
+        {
+            "name": "turquoise"
+        },
+        {
+            "name": "fuchsia"
+        },
+        {
+            "name": "magenta"
+        },
+        {
+            "name": "maroon"
+        },
+        {
+            "name": "charcoal"
+        },
+        {
+            "name": "gold"
+        },
+        {
+            "name": "silver"
+        },
+        {
+            "name": "multicolor"
         }
     ],
     "customer_requests": [
@@ -168,12 +243,20 @@
             "image": "img/category/category-2.webp"
         },
         {
-            "name": "kid",
+            "name": "Children",
             "image": "img/category/category-3.webp"
         },
         {
             "name": "Adult",
             "image": "img/category/category-6.webp"
+        },
+        {
+            "name": "Luxury",
+            "image": ""
+        },
+        {
+            "name": "Unisex",
+            "image": ""
         },
         {
             "name": "Spring",
@@ -212,7 +295,59 @@
             "image": ""
         },
         {
-            "name": "Skirt",
+            "name": "Tops",
+            "image": ""
+        },
+        {
+            "name": "Bottoms",
+            "image": ""
+        },
+        {
+            "name": "Sweater",
+            "image": ""
+        },
+        {
+            "name": "Jacket",
+            "image": ""
+        },
+        {
+            "name": "Sleepwear",
+            "image": ""
+        },
+        {
+            "name": "Hoodies",
+            "image": ""
+        },
+        {
+            "name": "Bikinis",
+            "image": ""
+        },
+        {
+            "name": "Vests",
+            "image": ""
+        },
+        {
+            "name": "Suits",
+            "image": ""
+        },
+        {
+            "name": "Tank Tops",
+            "image": ""
+        },
+        {
+            "name": "Underwear",
+            "image": ""
+        },
+        {
+            "name": "Bras",
+            "image": ""
+        },
+        {
+            "name": "Socks",
+            "image": ""
+        },
+        {
+            "name": "Tights",
             "image": ""
         }
     ],
@@ -255,71 +390,71 @@
         }
     ],
     "products": [
-            {
-                "name": "áo vàng",
-                "img": "img/product/product-1.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 1000,
-                "sale_price": 900
-            },
-            {
-                "name": "áo xanh",
-                "img": "img/product/product-2.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 2000,
-                "sale_price": 1800
-            },
-            {
-                "name": "áo đỏ",
-                "img": "img/product/product-3.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 3000,
-                "sale_price": 2700
-            },
-            {
-                "name": "áo trắng",
-                "img": "img/product/product-4.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 4000,
-                "sale_price": 3600
-            },
-            {
-                "name": "áo đen",
-                "img": "img/product/product-5.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 5000,
-                "sale_price": 4500
-            },
-            {
-                "name": "áo cam",
-                "img": "img/product/product-6.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 1500,
-                "sale_price": 1350
-            },
-            {
-                "name": "áo hồng",
-                "img": "img/product/product-7.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 2500,
-                "sale_price": 2250
-            },
-            {
-                "name": "áo tím",
-                "img": "img/product/product-8.webp",
-                "img_id": 1,
-                "description": "this is a fckin description",
-                "price": 3500,
-                "sale_price": 3150
-            }
-        ],
+        {
+            "name": "áo vàng",
+            "img": "img/product/product-1.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 1000,
+            "sale_price": 900
+        },
+        {
+            "name": "áo xanh",
+            "img": "img/product/product-2.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 2000,
+            "sale_price": 1800
+        },
+        {
+            "name": "áo đỏ",
+            "img": "img/product/product-3.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3000,
+            "sale_price": 2700
+        },
+        {
+            "name": "áo trắng",
+            "img": "img/product/product-4.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 4000,
+            "sale_price": 3600
+        },
+        {
+            "name": "áo đen",
+            "img": "img/product/product-5.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 5000,
+            "sale_price": 4500
+        },
+        {
+            "name": "áo cam",
+            "img": "img/product/product-6.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 1500,
+            "sale_price": 1350
+        },
+        {
+            "name": "áo hồng",
+            "img": "img/product/product-7.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 2500,
+            "sale_price": 2250
+        },
+        {
+            "name": "áo tím",
+            "img": "img/product/product-8.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        }
+    ],
     "promotions": [
         {
             "product_id": 1,
@@ -368,18 +503,19 @@
             "product_detail_id": 1,
             "bill_id": 1,
             "quantity": 2,
-            "price": 250000,
-            "total_price": 500000
+            "price": 250000
         },
         {
             "product_detail_id": 2,
             "bill_id": 2,
             "quantity": 1,
-            "price": 350000,
-            "total_price": 350000
+            "price": 350000
         }
     ],
     "sizes": [
+        {
+            "name": "XS"
+        },
         {
             "name": "S"
         },
@@ -388,6 +524,15 @@
         },
         {
             "name": "L"
+        },
+        {
+            "name": "XL"
+        },
+        {
+            "name": "XXL"
+        },
+        {
+            "name": "3XL"
         }
     ]
 }
