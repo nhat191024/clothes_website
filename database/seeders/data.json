@@ -1,4 +1,69 @@
 {
+    "users":[
+        {
+            "avt": "avatar1.jpg",
+            "username": "user123",
+            "password": "hashed_password1",
+            "email": "user123@example.com",
+            "address": "123 Main Street",
+            "phone": "1234567890"
+        },
+        {
+            "avt": "avatar2.png",
+            "username": "user456",
+            "password": "hashed_password2",
+            "email": "user456@example.com",
+            "address": "456 Elm Street",
+            "phone": "9876543210"
+        }
+    ],
+    "user_admins":[
+        {
+            "username": "admin1",
+            "password": "hashed_password1",
+            "email": "admin1@example.com",
+            "status": 1
+        },
+        {
+            "username": "admin2",
+            "password": "hashed_password2",
+            "email": "admin2@example.com",
+            "status": 1
+        }
+    ],
+    "vouchers":[
+        {
+            "code": "SUMMER20",
+            "discount_percentage": 20,
+            "description": "20% off on summer collection",
+            "min_price": 500000,
+            "quantity": 100,
+            "start_date": "2023-07-01 00:00:00",
+            "end_date": "2023-08-31 23:59:59",
+            "status": 1
+        },
+        {
+            "code": "WELCOME10",
+            "discount_percentage": 10,
+            "description": "10% off for new customers",
+            "min_price": 0,
+            "quantity": 0,
+            "start_date": "2023-01-01 00:00:00",
+            "end_date": null,
+            "status": 1
+        },
+        {
+            "code": "FLASH30",
+            "discount_percentage": 30,
+            "description": "30% off on flash sale items",
+            "min_price": 200000,
+            "quantity": 50,
+            "start_date": "2023-07-15 10:00:00",
+            "end_date": "2023-07-15 23:59:59",
+            "status": 1
+        }
+    ]
+    ,
     "banners": [
         {
             "title": "Summer Sale",
@@ -19,23 +84,23 @@
             "link": "/shipping"
         }
     ],
-    "contact_info":[
+    "contact_infos":[
         {
             "name": "John Doe",
-            "type": "email"
+            "type": "facebook"
         },
         {
             "name": "Jane Smith",
-            "type": "phone"
+            "type": "twitter"
         },
         {
             "name": "Acme Corporation",
-            "type": "address"
+            "type": "instagram"
         }
     ],
     "contact_us":[
         {
-            "phone_number": "+84123456789",
+            "phone": "+84123456789",
             "email": "contact@example.com",
             "address": "123 Nguyen Hue Street, District 1, Ho Chi Minh City",
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4968265661774!2d106.69824547382001!3d10.775815061960945!2d-74.0059413203125!3d40.71278371215625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire+State+Building!5e0!3m2!1sen!2sus!4v1505252043578"
@@ -66,13 +131,13 @@
     "customer_requests":[
         {
             "name": "Nguyen Van A",
-            "phone_number": "0987654321",
+            "phone": "0987654321",
             "email": "nguyenvana@gmail.com",
             "message": "Tôi muốn đặt một chiếc ao."
         },
         {
             "name": "Tran Thi B",
-            "phone_number": "0912345678",
+            "phone": "0912345678",
             "email": "tranthib@yahoo.com",
             "message": "Xin hỏi cửa hàng có giao hàng tận nơi không?"
         }
@@ -96,7 +161,7 @@
             "full_name": "Nguyen Van A",
             "address": "123 Nguyen Hue Street, District 1",
             "postcode": 70000,
-            "phone_number": "0987654321",
+            "phone": "0987654321",
             "email": "nguyenvana@gmail.com",
             "delivery_method": 1,
             "checkout_method": 0,
@@ -107,7 +172,7 @@
             "full_name": "Tran Thi B",
             "address": "456 Le Loi Street, District 3",
             "postcode": 700000,
-            "phone_number": "0912345678",
+            "phone": "0912345678",
             "email": "tranthib@yahoo.com",
             "delivery_method": 0,
             "checkout_method": 1,
@@ -146,7 +211,7 @@
             "img_id": 67890,
             "description": "Classic blue denim jeans",
             "price": 80,
-            "sale_price": null
+            "sale_price": 50
         },
         {
             "id": 3,
@@ -229,6 +294,17 @@
             "quantity": 1,
             "price": 350000,
             "total_price": 350000
+        }
+    ],
+    "sizes":[
+        {
+            "name": "S"
+        },
+        {
+            "name": "M"
+        },
+        {
+            "name": "L"
         }
     ]
 }
