@@ -446,180 +446,164 @@
     ],
     "products": [
         {
-            "name": "áo vàng",
+            "name": "Classic Cotton T-Shirt",
             "img": "img/product/product-1.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 1000,
-            "sale_price": 900
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 1999,
+            "sale_price": 1499
         },
         {
-            "name": "áo xadnh",
+            "name": "Slim Fit Denim Jeans",
             "img": "img/product/product-2.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 2000,
-            "sale_price": 1800
+            "description": "Stylish and modern jeans with a comfortable fit.",
+            "price": 4999,
+            "sale_price": 3999
         },
         {
-            "name": "áo đỏ",
+            "name": "Lightweight Summer Dress",
             "img": "img/product/product-3.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3000,
-            "sale_price": 2700
+            "description": "Perfect for a sunny day, this dress is both chic and breezy.",
+            "price": 3499,
+            "sale_price": 2799
         },
         {
-            "name": "áo trắng",
+            "name": "Hooded Fleece Sweatshirt",
             "img": "img/product/product-4.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 4000,
-            "sale_price": 3600
+            "description": "Cozy and warm sweatshirt for colder days.",
+            "price": 2999,
+            "sale_price": 2499
         },
         {
-            "name": "áo đen",
+            "name": "Leather Ankle Boots",
             "img": "img/product/product-5.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 5000,
-            "sale_price": 4500
+            "description": "Durable and fashionable boots for a stylish look.",
+            "price": 7999,
+            "sale_price": 6999
         },
         {
-            "name": "áo cam",
+            "name": "Printed Scarf",
             "img": "img/product/product-6.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 1500,
-            "sale_price": 1350
+            "description": "Add a touch of personality to any outfit with this colorful scarf.",
+            "price": 1499,
+            "sale_price": 999
         },
         {
-            "name": "áo hồng",
+            "name": "Sports Bra",
             "img": "img/product/product-7.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 2500,
-            "sale_price": 2250
+            "description": "Supportive and comfortable sports bra for active women.",
+            "price": 2499,
+            "sale_price": 2199
         },
         {
-            "name": "áo hồng",
-            "img": "img/product/product-1.webp",
-            "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
-        },
-        {
-            "name": "áo quần",
-            "img": "img/product/product-2.webp",
-            "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
-        },
-        {
-            "name": "áo xanh",
-            "img": "img/product/product-3.webp",
-            "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
-        },
-        {
-            "name": "áo vàng",
-            "img": "img/product/product-4.webp",
-            "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
-        },
-        {
-            "name": "áo đỏ",
-            "img": "img/product/product-5.webp",
-            "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
-        },
-        {
-            "name": "áo cam",
-            "img": "img/product/product-6.webp",
-            "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
-        },
-        {
-            "name": "áo nâu",
-            "img": "img/product/product-7.webp",
-            "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
-        },
-        {
-            "name": "áo đen",
+            "name": "Chino Shorts",
             "img": "img/product/product-8.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Classic chino shorts perfect for casual outings.",
+            "price": 1999,
+            "sale_price": 1499
         },
         {
-            "name": "áo trắng",
+            "name": "Wool Blend Coat",
             "img": "img/product/product-9.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Elegant and warm coat for the winter season.",
+            "price": 9999,
+            "sale_price": 8999
         },
         {
-            "name": "áo xanh",
-            "img": "img/product/product-10.webp",
+            "name": "Swim Trunks",
+            "img": "img/product/product-17.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Quick-drying and stylish swim trunks for the beach or pool.",
+            "price": 2999,
+            "sale_price": 2899
         },
         {
-            "name": "áo đỏ",
-            "img": "img/product/product-11.webp",
+            "name": "Yoga Pants",
+            "img": "img/product/product-18.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Flexible and breathable yoga pants for your practice.",
+            "price": 3999,
+            "sale_price": 3799
         },
         {
-            "name": "áo vàng",
-            "img": "img/product/product-12.webp",
+            "name": "Knit Beanie",
+            "img": "img/product/product-19.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Keep your head warm with this stylish knit beanie.",
+            "price": 1299,
+            "sale_price": 1199
         },
         {
-            "name": "áo tím",
-            "img": "img/product/product-13.webp",
+            "name": "Silk Pajamas",
+            "img": "img/product/product-20.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Luxurious and comfortable silk pajamas for a restful sleep.",
+            "price": 14999,
+            "sale_price": 13999
         },
         {
-            "name": "áo hồng",
-            "img": "img/product/product-14.webp",
+            "name": "Hiking Boots",
+            "img": "img/product/product-21.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Rugged and durable hiking boots for outdoor adventures.",
+            "price": 8999,
+            "sale_price": 8499
         },
         {
-            "name": "áo xanh",
-            "img": "img/product/product-15.webp",
+            "name": "Puffer Vest",
+            "img": "img/product/product-22.webp",
             "img_id": 1,
-            "description": "this is a fckin description",
-            "price": 3500,
-            "sale_price": 3150
+            "description": "Lightweight and warm vest for layering in the fall and winter.",
+            "price": 4999,
+            "sale_price": 4499
+        },
+        {
+            "name": "Casual Blazer",
+            "img": "img/product/product-23.webp",
+            "img_id": 1,
+            "description": "A versatile blazer for both work and casual wear.",
+            "price": 6999,
+            "sale_price": 6499
+        },
+        {
+            "name": "Flannel Shirt",
+            "img": "img/product/product-24.webp",
+            "img_id": 1,
+            "description": "Soft and comfortable flannel shirt for a laid-back style.",
+            "price": 2999,
+            "sale_price": 2699
+        },
+        {
+            "name": "Cargo Pants",
+            "img": "img/product/product-25.webp",
+            "img_id": 1,
+            "description": "Practical and stylish cargo pants with multiple pockets.",
+            "price": 3999,
+            "sale_price": 3699
+        },
+        {
+            "name": "Bikini",
+            "img": "img/product/product-26.webp",
+            "img_id": 1,
+            "description": "Nice and cool bikini.",
+            "price": 4999,
+            "sale_price": 4199
+        },
+        {
+            "name": "Sleep pajamas",
+            "img": "img/product/product-27.webp",
+            "img_id": 1,
+            "description": "Sweet dreams for you!.",
+            "price": 1999,
+            "sale_price": 1299
         }
     ],
     "promotions": [
