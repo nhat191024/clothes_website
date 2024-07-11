@@ -236,119 +236,119 @@
     "categories": [
         {
             "name": "Woman",
-            "image": "img/category/category-1.webp"
+            "image": "img/category/category-woman.webp"
         },
         {
             "name": "Men",
-            "image": "img/category/category-2.webp"
+            "image": "img/category/category-men.webp"
         },
         {
             "name": "Children",
-            "image": "img/category/category-3.webp"
+            "image": "img/category/category-children.webp"
         },
         {
             "name": "Adult",
-            "image": "img/category/category-6.webp"
+            "image": "img/category/category-adult.webp"
         },
         {
             "name": "Luxury",
-            "image": ""
+            "image": "img/category/category-luxury.webp"
         },
         {
             "name": "Unisex",
-            "image": ""
+            "image": "img/category/category-unisex.webp"
         },
         {
             "name": "Spring",
-            "image": ""
+            "image": "img/category/category-spring.webp"
         },
         {
             "name": "Summer",
-            "image": ""
+            "image": "img/category/category-summer.webp"
         },
         {
             "name": "Autumn",
-            "image": ""
+            "image": "img/category/category-autumn.webp"
         },
         {
             "name": "Winter",
-            "image": ""
+            "image": "img/category/category-winter.webp"
         },
         {
             "name": "Shirt",
-            "image": ""
+            "image": "img/category/category-shirt.webp"
         },
         {
             "name": "T-shirt",
-            "image": ""
+            "image": "img/category/category-t-shirt.webp"
         },
         {
             "name": "Pants",
-            "image": ""
+            "image": "img/category/category-pants.webp"
         },
         {
             "name": "Shorts",
-            "image": ""
+            "image": "img/category/category-shorts.webp"
         },
         {
             "name": "Dress",
-            "image": ""
+            "image": "img/category/category-dress.webp"
         },
         {
             "name": "Tops",
-            "image": ""
+            "image": "img/category/category-tops.webp"
         },
         {
             "name": "Bottoms",
-            "image": ""
+            "image": "img/category/category-bottoms.webp"
         },
         {
             "name": "Sweater",
-            "image": ""
+            "image": "img/category/category-sweater.webp"
         },
         {
             "name": "Jacket",
-            "image": ""
+            "image": "img/category/category-jacket.webp"
         },
         {
-            "name": "Sleepwear",
-            "image": ""
+            "name": "Pajamas",
+            "image": "img/category/category-pajamas.webp"
         },
         {
             "name": "Hoodies",
-            "image": ""
+            "image": "img/category/category-hoodies.webp"
         },
         {
             "name": "Bikinis",
-            "image": ""
+            "image": "img/category/category-bikinis.webp"
         },
         {
             "name": "Vests",
-            "image": ""
+            "image": "img/category/category-vests.webp"
         },
         {
             "name": "Suits",
-            "image": ""
+            "image": "img/category/category-suits.webp"
         },
         {
             "name": "Tank Tops",
-            "image": ""
+            "image": "img/category/category-tank-tops.webp"
         },
         {
             "name": "Underwear",
-            "image": ""
+            "image": "img/category/category-underwear.webp"
         },
         {
             "name": "Bras",
-            "image": ""
+            "image": "img/category/category-bras.webp"
         },
         {
             "name": "Socks",
-            "image": ""
+            "image": "img/category/category-socks.webp"
         },
         {
             "name": "Tights",
-            "image": ""
+            "image": "img/category/category-tights.webp"
         }
     ],
     "bills": [
