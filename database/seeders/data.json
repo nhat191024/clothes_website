@@ -360,7 +360,7 @@
             "email": "nguyenvana@gmail.com",
             "delivery_method": 1,
             "checkout_method": 0,
-            "total_amount": 0,
+            "total_amount": 2700,
             "status": 0
         },
         {
@@ -371,7 +371,62 @@
             "email": "tranthib@yahoo.com",
             "delivery_method": 0,
             "checkout_method": 1,
-            "total_amount": 0,
+            "total_amount": 6300,
+            "status": 0
+        },
+        {
+            "full_name": "John Doe",
+            "address": "45 Main St, Anytown USA",
+            "postcode": 12345,
+            "phone": "5551212",
+            "email": "johndoe@example.com",
+            "delivery_method": 0,
+            "checkout_method": 0,
+            "total_amount": 14850,
+            "status": 0
+        },
+        {
+            "full_name": "Jane Smith",
+            "address": "987 Oak Ave, Somecity CA",
+            "postcode": 98765,
+            "phone": "5559876",
+            "email": "janesmith@email.com",
+            "delivery_method": 1,
+            "checkout_method": 1,
+            "total_amount": 11350,
+            "status": 0
+        },
+        {
+            "full_name": "Michael Johnson",
+            "address": "222 Maple Lane, Bigtown TX",
+            "postcode": 78901,
+            "phone": "5554444",
+            "email": "mjohnson@mail.com",
+            "delivery_method": 0,
+            "checkout_method": 0,
+            "total_amount": 11350,
+            "status": 0
+        },
+        {
+            "full_name": "Emily Davis",
+            "address": "654 Pine St, Smallville NY",
+            "postcode": 10001,
+            "phone": "5558888",
+            "email": "edavis@yahoo.com",
+            "delivery_method": 1,
+            "checkout_method": 1,
+            "total_amount": 14850,
+            "status": 0
+        },
+        {
+            "full_name": "David Wilson",
+            "address": "321 Cedar Rd, Midtownton IL",
+            "postcode": 60606,
+            "phone": "5552222",
+            "email": "dwilson@outlook.com",
+            "delivery_method": 0,
+            "checkout_method": 0,
+            "total_amount": 14850,
             "status": 0
         }
     ],
@@ -399,7 +454,7 @@
             "sale_price": 900
         },
         {
-            "name": "áo xanh",
+            "name": "áo xadnh",
             "img": "img/product/product-2.webp",
             "img_id": 1,
             "description": "this is a fckin description",
@@ -447,8 +502,120 @@
             "sale_price": 2250
         },
         {
-            "name": "áo tím",
+            "name": "áo hồng",
+            "img": "img/product/product-1.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo quần",
+            "img": "img/product/product-2.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo xanh",
+            "img": "img/product/product-3.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo vàng",
+            "img": "img/product/product-4.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo đỏ",
+            "img": "img/product/product-5.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo cam",
+            "img": "img/product/product-6.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo nâu",
+            "img": "img/product/product-7.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo đen",
             "img": "img/product/product-8.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo trắng",
+            "img": "img/product/product-9.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo xanh",
+            "img": "img/product/product-10.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo đỏ",
+            "img": "img/product/product-11.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo vàng",
+            "img": "img/product/product-12.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo tím",
+            "img": "img/product/product-13.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo hồng",
+            "img": "img/product/product-14.webp",
+            "img_id": 1,
+            "description": "this is a fckin description",
+            "price": 3500,
+            "sale_price": 3150
+        },
+        {
+            "name": "áo xanh",
+            "img": "img/product/product-15.webp",
             "img_id": 1,
             "description": "this is a fckin description",
             "price": 3500,
@@ -672,7 +839,36 @@
             "bill_id": 2,
             "quantity": 1,
             "price": 350000
-        }
+        },
+        { "bill_id": 1, "product_detail_id": 1, "quantity": 1, "price": 900 },
+        { "bill_id": 1, "product_detail_id": 2, "quantity": 1, "price": 1800 },
+        { "bill_id": 2, "product_detail_id": 5, "quantity": 1, "price": 2700 },
+        { "bill_id": 2, "product_detail_id": 7, "quantity": 1, "price": 3600 },
+        { "bill_id": 3, "product_detail_id": 9, "quantity": 1, "price": 4500 },
+        { "bill_id": 3, "product_detail_id": 11, "quantity": 1, "price": 1350 },
+        { "bill_id": 3, "product_detail_id": 12, "quantity": 1, "price": 2250 },
+        { "bill_id": 3, "product_detail_id": 13, "quantity": 1, "price": 3150 },
+        { "bill_id": 3, "product_detail_id": 1, "quantity": 1, "price": 900 },
+        { "bill_id": 4, "product_detail_id": 2, "quantity": 1, "price": 1800 },
+        { "bill_id": 4, "product_detail_id": 5, "quantity": 1, "price": 2700 },
+        { "bill_id": 4, "product_detail_id": 7, "quantity": 1, "price": 3600 },
+        { "bill_id": 4, "product_detail_id": 9, "quantity": 1, "price": 4500 },
+        { "bill_id": 4, "product_detail_id": 11, "quantity": 1, "price": 1350 },
+        { "bill_id": 5, "product_detail_id": 12, "quantity": 1, "price": 2250 },
+        { "bill_id": 5, "product_detail_id": 13, "quantity": 1, "price": 3150 },
+        { "bill_id": 5, "product_detail_id": 1, "quantity": 1, "price": 900 },
+        { "bill_id": 5, "product_detail_id": 2, "quantity": 1, "price": 1800 },
+        { "bill_id": 5, "product_detail_id": 5, "quantity": 1, "price": 2700 },
+        { "bill_id": 6, "product_detail_id": 13, "quantity": 1, "price": 3150 },
+        { "bill_id": 6, "product_detail_id": 1, "quantity": 1, "price": 900 },
+        { "bill_id": 6, "product_detail_id": 2, "quantity": 1, "price": 1800 },
+        { "bill_id": 6, "product_detail_id": 5, "quantity": 1, "price": 2700 },
+        { "bill_id": 6, "product_detail_id": 7, "quantity": 1, "price": 3600 },
+        { "bill_id": 7, "product_detail_id": 1, "quantity": 1, "price": 900 },
+        { "bill_id": 7, "product_detail_id": 2, "quantity": 1, "price": 1800 },
+        { "bill_id": 7, "product_detail_id": 5, "quantity": 1, "price": 2700 },
+        { "bill_id": 7, "product_detail_id": 7, "quantity": 1, "price": 3600 },
+        { "bill_id": 7, "product_detail_id": 9, "quantity": 1, "price": 4500 }
     ],
     "sizes": [
         {
