@@ -135,88 +135,79 @@
     ],
     "colors": [
         {
-            "name": "red"
+            "name": "Đỏ"
         },
         {
-            "name": "green"
+            "name": "Xanh lá đậm"
         },
         {
-            "name": "blue"
+            "name": "Xanh lá"
         },
         {
-            "name": "yellow"
+            "name": "Xanh dương"
         },
         {
-            "name": "orange"
+            "name": "Xanh dương đậm"
         },
         {
-            "name": "purple"
+            "name": "Cam"
         },
         {
-            "name": "pink"
+            "name": "Tím"
         },
         {
-            "name": "brown"
+            "name": "Hồng"
         },
         {
-            "name": "black"
+            "name": "Nâu"
         },
         {
-            "name": "white"
+            "name": "Đen"
         },
         {
-            "name": "gray"
+            "name": "Trắng"
         },
         {
-            "name": "beige"
+            "name": "Xám"
         },
         {
-            "name": "ivory"
+            "name": "Bạc"
         },
         {
-            "name": "cream"
+            "name": "Be"
         },
         {
-            "name": "tan"
+            "name": "Đen melange"
         },
         {
-            "name": "navy"
+            "name": "Ghi"
         },
         {
-            "name": "olive"
+            "name": "Ghi đậm"
         },
         {
-            "name": "teal"
+            "name": "Vàng"
         },
         {
-            "name": "coral"
+            "name": "Ghi sáng"
         },
         {
-            "name": "lavender"
+            "name": "Cam đỏ"
         },
         {
-            "name": "turquoise"
+            "name": "Xanh dương nhạt"
         },
         {
-            "name": "fuchsia"
+            "name": "Xanh bạc hà"
         },
         {
-            "name": "magenta"
+            "name": "Cam đậm"
         },
         {
-            "name": "maroon"
+            "name": "Trắng Kể"
         },
         {
-            "name": "charcoal"
-        },
-        {
-            "name": "gold"
-        },
-        {
-            "name": "silver"
-        },
-        {
-            "name": "multicolor"
+            "name": "Tím hồng"
         }
     ],
     "customer_requests": [
@@ -235,24 +226,16 @@
     ],
     "categories": [
         {
-            "name": "Woman",
+            "name": "Nữ",
             "image": "img/category/category-woman.webp"
         },
         {
-            "name": "Men",
+            "name": "Nam",
             "image": "img/category/category-men.webp"
         },
         {
-            "name": "Children",
+            "name": "Trẻ em",
             "image": "img/category/category-children.webp"
-        },
-        {
-            "name": "Adult",
-            "image": "img/category/category-adult.webp"
-        },
-        {
-            "name": "Luxury",
-            "image": "img/category/category-luxury.webp"
         },
         {
             "name": "Unisex",
@@ -275,7 +258,7 @@
             "image": "img/category/category-winter.webp"
         },
         {
-            "name": "Shirt",
+            "name": "Áo thun",
             "image": "img/category/category-shirt.webp"
         },
         {
@@ -283,72 +266,8 @@
             "image": "img/category/category-t-shirt.webp"
         },
         {
-            "name": "Pants",
-            "image": "img/category/category-pants.webp"
-        },
-        {
-            "name": "Shorts",
-            "image": "img/category/category-shorts.webp"
-        },
-        {
-            "name": "Dress",
+            "name": "Váy, Đầm",
             "image": "img/category/category-dress.webp"
-        },
-        {
-            "name": "Tops",
-            "image": "img/category/category-tops.webp"
-        },
-        {
-            "name": "Bottoms",
-            "image": "img/category/category-bottoms.webp"
-        },
-        {
-            "name": "Sweater",
-            "image": "img/category/category-sweater.webp"
-        },
-        {
-            "name": "Jacket",
-            "image": "img/category/category-jacket.webp"
-        },
-        {
-            "name": "Pajamas",
-            "image": "img/category/category-pajamas.webp"
-        },
-        {
-            "name": "Hoodies",
-            "image": "img/category/category-hoodies.webp"
-        },
-        {
-            "name": "Bikinis",
-            "image": "img/category/category-bikinis.webp"
-        },
-        {
-            "name": "Vests",
-            "image": "img/category/category-vests.webp"
-        },
-        {
-            "name": "Suits",
-            "image": "img/category/category-suits.webp"
-        },
-        {
-            "name": "Tank Tops",
-            "image": "img/category/category-tank-tops.webp"
-        },
-        {
-            "name": "Underwear",
-            "image": "img/category/category-underwear.webp"
-        },
-        {
-            "name": "Bras",
-            "image": "img/category/category-bras.webp"
-        },
-        {
-            "name": "Socks",
-            "image": "img/category/category-socks.webp"
-        },
-        {
-            "name": "Tights",
-            "image": "img/category/category-tights.webp"
         }
     ],
     "bills": [
@@ -433,177 +352,519 @@
     "product_categories": [
         {
             "product_id": 1,
-            "category_id": 1
-        },
-        {
-            "product_id": 1,
-            "category_id": 4
+            "category_id": 2
         },
         {
             "product_id": 2,
+            "category_id": 2
+        },
+        {
+            "product_id": 3,
+            "category_id": 4
+        },
+        {
+            "product_id": 4,
+            "category_id": 1
+        },
+        {
+            "product_id": 5,
+            "category_id": 3
+        },
+        {
+            "product_id": 6,
+            "category_id": 1
+        },
+        {
+            "product_id": 7,
+            "category_id": 3
+        },
+        {
+            "product_id": 8,
+            "category_id": 2
+        },
+        {
+            "product_id": 9,
+            "category_id": 1
+        },
+        {
+            "product_id": 10,
+            "category_id": 3
+        },
+        {
+            "product_id": 11,
             "category_id": 3
         }
     ],
+
     "products": [
         {
-            "name": "Classic Cotton T-Shirt",
-            "img": "img/product/product-1.webp",
-            "img_id": 1,
+            "name": "Áo thun in trang trí",
+            "img": "img/product/product-1/1.webp",
+            "description": "This is a description for product",
+            "price": 350000,
+            "sale_price": null
+        },
+
+        {
+            "name": "NAM/Áo T-Shirt cổ tim dáng suông C7TSH501M",
+            "img": "img/product/product-2/1.webp",
+            "description": "This is a description for product",
+            "price": 99000,
+            "sale_price": null
+        },
+
+        {
+            "name": "NAM/ Áo len cổ tròn tay dài",
+            "img": "img/product/product-3/1.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
-            "price": 1999,
-            "sale_price": 1499
+            "price": 349000,
+            "sale_price": null
         },
         {
-            "name": "Slim Fit Denim Jeans",
-            "img": "img/product/product-2.webp",
-            "img_id": 1,
-            "description": "Stylish and modern jeans with a comfortable fit.",
-            "price": 4999,
-            "sale_price": 3999
+            "name": "NỮ/Áo T-Shirt cổ tròn dáng ôm C9TSH503M",
+            "img": "img/product/product-4/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 99000,
+            "sale_price": null
         },
         {
-            "name": "Lightweight Summer Dress",
-            "img": "img/product/product-3.webp",
-            "img_id": 1,
-            "description": "Perfect for a sunny day, this dress is both chic and breezy.",
-            "price": 3499,
-            "sale_price": 2799
+            "name": "BÉ GÁI/Đầm nhún eo trang trí sát nách 40000485",
+            "img": "img/product/product-5/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 99000,
+            "sale_price": null
         },
         {
-            "name": "Hooded Fleece Sweatshirt",
-            "img": "img/product/product-4.webp",
-            "img_id": 1,
-            "description": "Cozy and warm sweatshirt for colder days.",
-            "price": 2999,
-            "sale_price": 2499
+            "name": "NỮ/Áo thun 40001198",
+            "img": "img/product/product-6/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 299000,
+            "sale_price": null
         },
         {
-            "name": "Leather Ankle Boots",
-            "img": "img/product/product-5.webp",
-            "img_id": 1,
-            "description": "Durable and fashionable boots for a stylish look.",
-            "price": 7999,
-            "sale_price": 6999
+            "name": "BÉ TRAI/ Áo thun in trang trí sát nách 40000478",
+            "img": "img/product/product-7/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 250000,
+            "sale_price": null
         },
         {
-            "name": "Printed Scarf",
-            "img": "img/product/product-6.webp",
-            "img_id": 1,
-            "description": "Add a touch of personality to any outfit with this colorful scarf.",
-            "price": 1499,
-            "sale_price": 999
+            "name": "NAM/ Quần Jeans 40001221",
+            "img": "img/product/product-8/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 499000,
+            "sale_price": null
         },
         {
-            "name": "Sports Bra",
-            "img": "img/product/product-7.webp",
-            "img_id": 1,
-            "description": "Supportive and comfortable sports bra for active women.",
-            "price": 2499,
-            "sale_price": 2199
+            "name": "NỮ/Quần Shorts C9SHP500M",
+            "img": "img/product/product-9/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 99000,
+            "sale_price": null
         },
         {
-            "name": "Chino Shorts",
-            "img": "img/product/product-8.webp",
-            "img_id": 1,
-            "description": "Classic chino shorts perfect for casual outings.",
-            "price": 1999,
-            "sale_price": 1499
+            "name": "BÉ TRAI/ Bộ quần áo 40000436",
+            "img": "img/product/product-10/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 129000,
+            "sale_price": null
         },
         {
-            "name": "Wool Blend Coat",
-            "img": "img/product/product-9.webp",
-            "img_id": 1,
-            "description": "Elegant and warm coat for the winter season.",
-            "price": 9999,
-            "sale_price": 8999
+            "name": "BÉ GÁI/Quần dài bo gấu",
+            "img": "img/product/product-11/1.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 129000,
+            "sale_price": null
+        }
+
+
+    ],
+    "product_details": [
+        {
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 2
         },
         {
-            "name": "Swim Trunks",
-            "img": "img/product/product-17.webp",
-            "img_id": 1,
-            "description": "Quick-drying and stylish swim trunks for the beach or pool.",
-            "price": 2999,
-            "sale_price": 2899
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 2
         },
         {
-            "name": "Yoga Pants",
-            "img": "img/product/product-18.webp",
-            "img_id": 1,
-            "description": "Flexible and breathable yoga pants for your practice.",
-            "price": 3999,
-            "sale_price": 3799
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 16
         },
         {
-            "name": "Knit Beanie",
-            "img": "img/product/product-19.webp",
-            "img_id": 1,
-            "description": "Keep your head warm with this stylish knit beanie.",
-            "price": 1299,
-            "sale_price": 1199
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 16
         },
         {
-            "name": "Silk Pajamas",
-            "img": "img/product/product-20.webp",
-            "img_id": 1,
-            "description": "Luxurious and comfortable silk pajamas for a restful sleep.",
-            "price": 14999,
-            "sale_price": 13999
+            "product_id": 1,
+            "size_id": 5,
+            "color_id": 16
         },
         {
-            "name": "Hiking Boots",
-            "img": "img/product/product-21.webp",
-            "img_id": 1,
-            "description": "Rugged and durable hiking boots for outdoor adventures.",
-            "price": 8999,
-            "sale_price": 8499
+            "product_id": 2,
+            "size_id": 3,
+            "color_id": 13
         },
         {
-            "name": "Puffer Vest",
-            "img": "img/product/product-22.webp",
-            "img_id": 1,
-            "description": "Lightweight and warm vest for layering in the fall and winter.",
-            "price": 4999,
-            "sale_price": 4499
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 13
         },
         {
-            "name": "Casual Blazer",
-            "img": "img/product/product-23.webp",
-            "img_id": 1,
-            "description": "A versatile blazer for both work and casual wear.",
-            "price": 6999,
-            "sale_price": 6499
+            "product_id": 3,
+            "size_id": 2,
+            "color_id": 5
         },
         {
-            "name": "Flannel Shirt",
-            "img": "img/product/product-24.webp",
-            "img_id": 1,
-            "description": "Soft and comfortable flannel shirt for a laid-back style.",
-            "price": 2999,
-            "sale_price": 2699
+            "product_id": 3,
+            "size_id": 3,
+            "color_id": 5
         },
         {
-            "name": "Cargo Pants",
-            "img": "img/product/product-25.webp",
-            "img_id": 1,
-            "description": "Practical and stylish cargo pants with multiple pockets.",
-            "price": 3999,
-            "sale_price": 3699
+            "product_id": 3,
+            "size_id": 4,
+            "color_id": 5
         },
         {
-            "name": "Bikini",
-            "img": "img/product/product-26.webp",
-            "img_id": 1,
-            "description": "Nice and cool bikini.",
-            "price": 4999,
-            "sale_price": 4199
+            "product_id": 3,
+            "size_id": 2,
+            "color_id": 18
         },
         {
-            "name": "Sleep pajamas",
-            "img": "img/product/product-27.webp",
-            "img_id": 1,
-            "description": "Sweet dreams for you!.",
-            "price": 1999,
-            "sale_price": 1299
+            "product_id": 3,
+            "size_id": 3,
+            "color_id": 18
+        },
+        {
+            "product_id": 3,
+            "size_id": 4,
+            "color_id": 18
+        },
+        {
+            "product_id": 3,
+            "size_id": 2,
+            "color_id": 9
+        },
+        {
+            "product_id": 3,
+            "size_id": 3,
+            "color_id": 9
+        },
+        {
+            "product_id": 3,
+            "size_id": 4,
+            "color_id": 9
+        },
+
+        {
+            "product_id": 4,
+            "size_id": 2,
+            "color_id": 9
+        },
+        {
+            "product_id": 4,
+            "size_id": 3,
+            "color_id": 9
+        },
+        {
+            "product_id": 4,
+            "size_id": 4,
+            "color_id": 9
+        },
+        {
+            "product_id": 4,
+            "size_id": 2,
+            "color_id": 6
+        },
+        {
+            "product_id": 4,
+            "size_id": 3,
+            "color_id": 6
+        },
+        {
+            "product_id": 4,
+            "size_id": 4,
+            "color_id": 6
+        },
+        {
+            "product_id": 4,
+            "size_id": 2,
+            "color_id": 15
+        },
+        {
+            "product_id": 4,
+            "size_id": 3,
+            "color_id": 15
+        },
+        {
+            "product_id": 4,
+            "size_id": 4,
+            "color_id": 15
+        },
+        {
+            "product_id": 5,
+            "size_id": 1,
+            "color_id": 5
+        },
+        {
+            "product_id": 5,
+            "size_id": 2,
+            "color_id": 5
+        },
+        {
+            "product_id": 5,
+            "size_id": 3,
+            "color_id": 5
+        },
+        {
+            "product_id": 5,
+            "size_id": 1,
+            "color_id": 19
+        },
+        {
+            "product_id": 5,
+            "size_id": 2,
+            "color_id": 19
+        },
+        {
+            "product_id": 5,
+            "size_id": 3,
+            "color_id": 19
+        },
+
+
+        {
+            "product_id": 6,
+            "size_id": 2,
+            "color_id": 4
+        },
+        {
+            "product_id": 6,
+            "size_id": 4,
+            "color_id": 4
+        },
+        {
+            "product_id": 6,
+            "size_id": 5,
+            "color_id": 4
+        },
+        {
+            "product_id": 6,
+            "size_id": 2,
+            "color_id": 7
+        },
+        {
+            "product_id": 6,
+            "size_id": 4,
+            "color_id": 7
+        },
+        {
+            "product_id": 6,
+            "size_id": 5,
+            "color_id": 7
+        },
+        {
+            "product_id": 6,
+            "size_id": 2,
+            "color_id": 5
+        },
+        {
+            "product_id": 6,
+            "size_id": 4,
+            "color_id": 5
+        },
+        {
+            "product_id": 6,
+            "size_id": 5,
+            "color_id": 5
+        },
+
+        {
+            "product_id": 7,
+            "size_id": 1,
+            "color_id": 2
+        },
+        {
+            "product_id": 7,
+            "size_id": 2,
+            "color_id": 2
+        },
+        {
+            "product_id": 7,
+            "size_id": 3,
+            "color_id": 2
+        },
+        {
+            "product_id": 7,
+            "size_id": 1,
+            "color_id": 16
+        },
+        {
+            "product_id": 7,
+            "size_id": 2,
+            "color_id": 16
+        },
+        {
+            "product_id": 7,
+            "size_id": 3,
+            "color_id": 16
+        },
+        {
+            "product_id": 7,
+            "size_id": 1,
+            "color_id": 14
+        },
+        {
+            "product_id": 7,
+            "size_id": 2,
+            "color_id": 14
+        },
+        {
+            "product_id": 7,
+            "size_id": 3,
+            "color_id": 14
+        },
+
+        {
+            "product_id": 8,
+            "size_id": 5,
+            "color_id": 20
+        },
+        {
+            "product_id": 8,
+            "size_id": 6,
+            "color_id": 20
+        },
+        {
+            "product_id": 8,
+            "size_id": 7,
+            "color_id": 20
+        },
+        {
+            "product_id": 8,
+            "size_id": 5,
+            "color_id": 5
+        },
+        {
+            "product_id": 8,
+            "size_id": 6,
+            "color_id": 5
+        },
+        {
+            "product_id": 8,
+            "size_id": 7,
+            "color_id": 5
+        },
+        {
+            "product_id": 8,
+            "size_id": 5,
+            "color_id": 9
+        },
+        {
+            "product_id": 8,
+            "size_id": 6,
+            "color_id": 9
+        },
+        {
+            "product_id": 8,
+            "size_id": 7,
+            "color_id": 9
+        },
+
+        {
+            "product_id": 9,
+            "size_id": 2,
+            "color_id": 21
+        },
+        {
+            "product_id": 9,
+            "size_id": 3,
+            "color_id": 21
+        },
+        {
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 21
+        },
+        {
+            "product_id": 10,
+            "size_id": 2,
+            "color_id": 5
+        },
+        {
+            "product_id": 10,
+            "size_id": 3,
+            "color_id": 5
+        },
+        {
+            "product_id": 10,
+            "size_id": 4,
+            "color_id": 5
+        },
+        {
+            "product_id": 10,
+            "size_id": 2,
+            "color_id": 22
+        },
+        {
+            "product_id": 10,
+            "size_id": 3,
+            "color_id": 22
+        },
+        {
+            "product_id": 10,
+            "size_id": 4,
+            "color_id": 22
+        },
+        {
+            "product_id": 10,
+            "size_id": 2,
+            "color_id": 23
+        },
+        {
+            "product_id": 10,
+            "size_id": 3,
+            "color_id": 23
+        },
+        {
+            "product_id": 10,
+            "size_id": 4,
+            "color_id": 23
+        },
+        {
+            "product_id": 11,
+            "size_id": 1,
+            "color_id": 6
+        },
+        {
+            "product_id": 11,
+            "size_id": 2,
+            "color_id": 6
+        },
+        {
+            "product_id": 11,
+            "size_id": 3,
+            "color_id": 6
+        },
+        {
+            "product_id": 11,
+            "size_id": 1,
+            "color_id": 24
+        },
+        {
+            "product_id": 11,
+            "size_id": 2,
+            "color_id": 24
+        },
+        {
+            "product_id": 11,
+            "size_id": 3,
+            "color_id": 24
         }
     ],
     "promotions": [
@@ -629,188 +890,6 @@
             "discount_percentage": 10
         }
     ],
-    "product_details": [
-        {
-            "product_id": 1,
-            "category_id": 1,
-            "size_id": 1,
-            "color_id": 1
-        },
-        {
-            "product_id": 1,
-            "category_id": 1,
-            "size_id": 2,
-            "color_id": 2
-        },
-        {
-            "product_id": 2,
-            "category_id": 2,
-            "size_id": 3,
-            "color_id": 1
-        },
-        {
-            "product_id": 2,
-            "category_id": 2,
-            "size_id": 4,
-            "color_id": 2
-        },
-        {
-            "product_id": 3,
-            "category_id": 3,
-            "size_id": 5,
-            "color_id": 3
-        },
-        {
-            "product_id": 3,
-            "category_id": 3,
-            "size_id": 6,
-            "color_id": 4
-        },
-        {
-            "product_id": 4,
-            "category_id": 4,
-            "size_id": 7,
-            "color_id": 5
-        },
-        {
-            "product_id": 4,
-            "category_id": 4,
-            "size_id": 4,
-            "color_id": 6
-        },
-        {
-            "product_id": 5,
-            "category_id": 5,
-            "size_id": 3,
-            "color_id": 7
-        },
-        {
-            "product_id": 5,
-            "category_id": 5,
-            "size_id": 2,
-            "color_id": 8
-        },
-        {
-            "product_id": 6,
-            "category_id": 29,
-            "size_id": 1,
-            "color_id": 1
-        },
-        {
-            "product_id": 1,
-            "category_id": 12,
-            "size_id": 5,
-            "color_id": 15
-        },
-        {
-            "product_id": 19,
-            "category_id": 21,
-            "size_id": 4,
-            "color_id": 11
-        },
-        {
-            "product_id": 6,
-            "category_id": 22,
-            "size_id": 6,
-            "color_id": 10
-        },
-        {
-            "product_id": 11,
-            "category_id": 13,
-            "size_id": 5,
-            "color_id": 12
-        },
-        {
-            "product_id": 3,
-            "category_id": 20,
-            "size_id": 3,
-            "color_id": 28
-        },
-        {
-            "product_id": 13,
-            "category_id": 27,
-            "size_id": 6,
-            "color_id": 21
-        },
-        {
-            "product_id": 14,
-            "category_id": 27,
-            "size_id": 7,
-            "color_id": 10
-        },
-        {
-            "product_id": 18,
-            "category_id": 2,
-            "size_id": 1,
-            "color_id": 2
-        },
-        {
-            "product_id": 2,
-            "category_id": 20,
-            "size_id": 2,
-            "color_id": 22
-        },
-        {
-            "product_id": 10,
-            "category_id": 26,
-            "size_id": 6,
-            "color_id": 16
-        },
-        {
-            "product_id": 17,
-            "category_id": 7,
-            "size_id": 3,
-            "color_id": 19
-        },
-        {
-            "product_id": 9,
-            "category_id": 2,
-            "size_id": 4,
-            "color_id": 20
-        },
-        {
-            "product_id": 20,
-            "category_id": 7,
-            "size_id": 5,
-            "color_id": 26
-        },
-        {
-            "product_id": 16,
-            "category_id": 11,
-            "size_id": 3,
-            "color_id": 5
-        },
-        {
-            "product_id": 12,
-            "category_id": 7,
-            "size_id": 6,
-            "color_id": 13
-        },
-        {
-            "product_id": 15,
-            "category_id": 21,
-            "size_id": 6,
-            "color_id": 24
-        },
-        {
-            "product_id": 4,
-            "category_id": 18,
-            "size_id": 2,
-            "color_id": 23
-        },
-        {
-            "product_id": 8,
-            "category_id": 2,
-            "size_id": 3,
-            "color_id": 6
-        },
-        {
-            "product_id": 5,
-            "category_id": 26,
-            "size_id": 7,
-            "color_id": 9
-        }
-    ],
     "bill_details": [
         {
             "product_detail_id": 1,
@@ -824,35 +903,180 @@
             "quantity": 1,
             "price": 350000
         },
-        { "bill_id": 1, "product_detail_id": 1, "quantity": 1, "price": 900 },
-        { "bill_id": 1, "product_detail_id": 2, "quantity": 1, "price": 1800 },
-        { "bill_id": 2, "product_detail_id": 5, "quantity": 1, "price": 2700 },
-        { "bill_id": 2, "product_detail_id": 7, "quantity": 1, "price": 3600 },
-        { "bill_id": 3, "product_detail_id": 9, "quantity": 1, "price": 4500 },
-        { "bill_id": 3, "product_detail_id": 11, "quantity": 1, "price": 1350 },
-        { "bill_id": 3, "product_detail_id": 12, "quantity": 1, "price": 2250 },
-        { "bill_id": 3, "product_detail_id": 13, "quantity": 1, "price": 3150 },
-        { "bill_id": 3, "product_detail_id": 1, "quantity": 1, "price": 900 },
-        { "bill_id": 4, "product_detail_id": 2, "quantity": 1, "price": 1800 },
-        { "bill_id": 4, "product_detail_id": 5, "quantity": 1, "price": 2700 },
-        { "bill_id": 4, "product_detail_id": 7, "quantity": 1, "price": 3600 },
-        { "bill_id": 4, "product_detail_id": 9, "quantity": 1, "price": 4500 },
-        { "bill_id": 4, "product_detail_id": 11, "quantity": 1, "price": 1350 },
-        { "bill_id": 5, "product_detail_id": 12, "quantity": 1, "price": 2250 },
-        { "bill_id": 5, "product_detail_id": 13, "quantity": 1, "price": 3150 },
-        { "bill_id": 5, "product_detail_id": 1, "quantity": 1, "price": 900 },
-        { "bill_id": 5, "product_detail_id": 2, "quantity": 1, "price": 1800 },
-        { "bill_id": 5, "product_detail_id": 5, "quantity": 1, "price": 2700 },
-        { "bill_id": 6, "product_detail_id": 13, "quantity": 1, "price": 3150 },
-        { "bill_id": 6, "product_detail_id": 1, "quantity": 1, "price": 900 },
-        { "bill_id": 6, "product_detail_id": 2, "quantity": 1, "price": 1800 },
-        { "bill_id": 6, "product_detail_id": 5, "quantity": 1, "price": 2700 },
-        { "bill_id": 6, "product_detail_id": 7, "quantity": 1, "price": 3600 },
-        { "bill_id": 7, "product_detail_id": 1, "quantity": 1, "price": 900 },
-        { "bill_id": 7, "product_detail_id": 2, "quantity": 1, "price": 1800 },
-        { "bill_id": 7, "product_detail_id": 5, "quantity": 1, "price": 2700 },
-        { "bill_id": 7, "product_detail_id": 7, "quantity": 1, "price": 3600 },
-        { "bill_id": 7, "product_detail_id": 9, "quantity": 1, "price": 4500 }
+        {
+            "bill_id": 1,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 1,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 2,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 2,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 9,
+            "quantity": 1,
+            "price": 4500
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 11,
+            "quantity": 1,
+            "price": 1350
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 12,
+            "quantity": 1,
+            "price": 2250
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 13,
+            "quantity": 1,
+            "price": 3150
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 9,
+            "quantity": 1,
+            "price": 4500
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 11,
+            "quantity": 1,
+            "price": 1350
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 12,
+            "quantity": 1,
+            "price": 2250
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 13,
+            "quantity": 1,
+            "price": 3150
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 13,
+            "quantity": 1,
+            "price": 3150
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 9,
+            "quantity": 1,
+            "price": 4500
+        }
     ],
     "sizes": [
         {
