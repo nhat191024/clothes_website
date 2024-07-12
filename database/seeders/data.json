@@ -397,78 +397,78 @@
     ],
     "products": [
         {
-            "name": "Áo thun in trang trí",
-            "img": "img/product/product-1/1.webp",
+            "name": "Áo thun in trang trí 40000929",
+            "img": "img/product/product-1/ghi_dam.webp",
             "description": "This is a description for product",
             "price": 350000,
             "sale_price": null
         },
         {
             "name": "NAM/Áo T-Shirt cổ tim dáng suông C7TSH501M",
-            "img": "img/product/product-2/1.webp",
+            "img": "img/product/product-2/be.webp",
             "description": "This is a description for product",
             "price": 99000,
             "sale_price": null
         },
         {
-            "name": "NAM/ Áo len cổ tròn tay dài",
-            "img": "img/product/product-3/1.webp",
+            "name": "NAM/ Áo len cổ tròn tay dài 40000194",
+            "img": "img/product/product-3/den.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 349000,
             "sale_price": null
         },
         {
             "name": "NỮ/Áo T-Shirt cổ tròn dáng ôm C9TSH503M",
-            "img": "img/product/product-4/1.webp",
+            "img": "img/product/product-4/reu.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 99000,
             "sale_price": null
         },
         {
             "name": "BÉ GÁI/Đầm nhún eo trang trí sát nách 40000485",
-            "img": "img/product/product-5/1.webp",
+            "img": "img/product/product-5/cam.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 99000,
             "sale_price": null
         },
         {
             "name": "NỮ/Áo thun 40001198",
-            "img": "img/product/product-6/1.webp",
+            "img": "img/product/product-6/hong_nhat.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 299000,
             "sale_price": null
         },
         {
             "name": "BÉ TRAI/ Áo thun in trang trí sát nách 40000478",
-            "img": "img/product/product-7/1.webp",
+            "img": "img/product/product-7/xanh_la_dam.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 250000,
             "sale_price": null
         },
         {
             "name": "NAM/ Quần Jeans 40001221",
-            "img": "img/product/product-8/1.webp",
+            "img": "img/product/product-8/xanh_nhat.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 499000,
             "sale_price": null
         },
         {
             "name": "NỮ/Quần Shorts C9SHP500M",
-            "img": "img/product/product-9/1.webp",
+            "img": "img/product/product-9/xam_tim.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 99000,
             "sale_price": null
         },
         {
             "name": "BÉ TRAI/ Bộ quần áo 40000436",
-            "img": "img/product/product-10/1.webp",
+            "img": "img/product/product-10/trang.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 129000,
             "sale_price": null
         },
         {
-            "name": "BÉ GÁI/Quần dài bo gấu",
-            "img": "img/product/product-11/1.webp",
+            "name": "BÉ GÁI/Quần dài bo gấu 40000211",
+            "img": "img/product/product-11/tim.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 129000,
             "sale_price": null
@@ -488,11 +488,16 @@
         {
             "product_id": 1,
             "size_id": 3,
-            "color_id": 16
+            "color_id": 2
         },
         {
             "product_id": 1,
             "size_id": 4,
+            "color_id": 16
+        },
+        {
+            "product_id": 1,
+            "size_id": 5,
             "color_id": 16
         },
         {
