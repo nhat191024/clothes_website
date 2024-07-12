@@ -12,7 +12,6 @@ class ProductDetail extends Model
 
     protected $fillable = [
         'product_id',
-        'category_id',
         'size_id',
         'color_id'
     ];
@@ -22,10 +21,6 @@ class ProductDetail extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class, 'product_categories', 'product_id', 'category_id');
-    }
 
     public function size()
     {
