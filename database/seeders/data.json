@@ -395,7 +395,6 @@
             "category_id": 3
         }
     ],
-
     "products": [
         {
             "name": "Áo thun in trang trí",
@@ -404,7 +403,6 @@
             "price": 350000,
             "sale_price": null
         },
-
         {
             "name": "NAM/Áo T-Shirt cổ tim dáng suông C7TSH501M",
             "img": "img/product/product-2/1.webp",
@@ -412,7 +410,6 @@
             "price": 99000,
             "sale_price": null
         },
-
         {
             "name": "NAM/ Áo len cổ tròn tay dài",
             "img": "img/product/product-3/1.webp",
@@ -476,8 +473,6 @@
             "price": 129000,
             "sale_price": null
         }
-
-
     ],
     "product_details": [
         {
@@ -560,7 +555,6 @@
             "size_id": 4,
             "color_id": 9
         },
-
         {
             "product_id": 4,
             "size_id": 2,
@@ -636,8 +630,6 @@
             "size_id": 3,
             "color_id": 19
         },
-
-
         {
             "product_id": 6,
             "size_id": 2,
@@ -683,7 +675,6 @@
             "size_id": 5,
             "color_id": 5
         },
-
         {
             "product_id": 7,
             "size_id": 1,
@@ -729,7 +720,6 @@
             "size_id": 3,
             "color_id": 14
         },
-
         {
             "product_id": 8,
             "size_id": 5,
@@ -775,7 +765,6 @@
             "size_id": 7,
             "color_id": 9
         },
-
         {
             "product_id": 9,
             "size_id": 2,
