@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email', 50);
             $table->tinyInteger('delivery_method');
             $table->tinyInteger('checkout_method');
+            $table->integer('point')->nullable();
             $table->integer('total_amount');
             $table->tinyInteger('status');
             $table->timestamps();
