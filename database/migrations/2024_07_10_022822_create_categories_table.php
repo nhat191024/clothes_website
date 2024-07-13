@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('image');
+            $table->tinyInteger('show')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
