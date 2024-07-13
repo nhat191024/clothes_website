@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('address')->nullable();
             $table->string('phone', 16);
+            $table->integer('point')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
