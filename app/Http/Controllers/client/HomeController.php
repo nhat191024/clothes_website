@@ -13,9 +13,9 @@ class HomeController extends Controller
     {
         $this->homeService = $homeService;
     }
-    public function index()
+    public function NewProductsInfo()
     {
-        $homeServiceInfo = $this->homeService->getAll();
-        dd($homeServiceInfo);
+        $newProductInfo = $this->homeService->newProducts();
+        return view('client.home.index', compact('newProductInfo'));
     }
 }

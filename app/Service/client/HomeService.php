@@ -6,8 +6,12 @@ use App\Models\Product;
 
 class HomeService
 {
-    public function getAll()
+    // public function getNewProducts()
+    // {
+    //     return Product::with('categories')->orderBy('created_at', 'desc')->take(8)->get();
+    // }
+    public function newProducts()
     {
-        return Product::all();
+        return Product::with('categories')->orderBy('created_at', 'desc')->take(8)->get();
     }
 }
