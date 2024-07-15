@@ -40,12 +40,13 @@
                         </div>
                         <div class="contact__form">
                             <h5>Phản hồi</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Họ tên">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Địa chỉ website">
-                                <textarea placeholder="Nội dung tin nhắn"></textarea>
-                                <button type="submit" class="site-btn">Gửi phản hồi</button>
+                            <form action="{{ route('customer.requests.store') }}" method="POST">
+                                @csrf
+                                <input type="text" name="name" placeholder="Họ tên" required>
+                                <input type="text" name="email" placeholder="Email" required>
+                                <input type="text" name="phone" placeholder="Số điện thoại" required>
+                                <textarea name="message" placeholder="Nội dung tin nhắn" required></textarea>
+                                <button type="submit" class="site-btn" required>Gửi phản hồi</button>
                             </form>
                         </div>
                     </div>
