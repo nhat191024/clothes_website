@@ -1,0 +1,1238 @@
+{
+    "users": [
+        {
+            "avt": "avatar1.jpg",
+            "username": "user123",
+            "password": "hashed_password1",
+            "email": "user123@example.com",
+            "address": "123 Main Street",
+            "phone": "1234567890"
+        },
+        {
+            "avt": "avatar2.png",
+            "username": "user456",
+            "password": "hashed_password2",
+            "email": "user456@example.com",
+            "address": "456 Elm Street",
+            "phone": "9876543210"
+        }
+    ],
+    "user_admins": [
+        {
+            "username": "admin",
+            "password": "admin",
+            "email": "admin1@example.com",
+            "status": 1
+        },
+        {
+            "username": "staff",
+            "password": "staff",
+            "email": "admin2@example.com",
+            "status": 1
+        }
+    ],
+    "vouchers": [
+        {
+            "code": "SUMMER20",
+            "discount_percentage": 20,
+            "description": "20% off on summer collection",
+            "min_price": 500000,
+            "quantity": 100,
+            "start_date": "2023-07-01 00:00:00",
+            "end_date": "2023-08-31 23:59:59",
+            "status": 1
+        },
+        {
+            "code": "WELCOME10",
+            "discount_percentage": 10,
+            "description": "10% off for new customers",
+            "min_price": 0,
+            "quantity": 0,
+            "start_date": "2023-01-01 00:00:00",
+            "end_date": null,
+            "status": 1
+        },
+        {
+            "code": "FLASH30",
+            "discount_percentage": 30,
+            "description": "30% off on flash sale items",
+            "min_price": 200000,
+            "quantity": 50,
+            "start_date": "2023-07-15 10:00:00",
+            "end_date": "2023-07-15 23:59:59",
+            "status": 1
+        }
+    ],
+    "banners": [
+        {
+            "title": "Summer Sale",
+            "subtitle": "Up to 50% off on selected items",
+            "image": "img/banner/banner-1.webp",
+            "link": "/sale"
+        },
+        {
+            "title": "New Arrivals",
+            "subtitle": "Check out our latest collection",
+            "image": "img/banner/banner-2.webp",
+            "link": "/new"
+        }
+    ],
+    "contact_infos": [
+        {
+            "name": "facebook.com",
+            "type": "facebook"
+        },
+        {
+            "name": "x.com",
+            "type": "x"
+        },
+        {
+            "name": "instagram.com",
+            "type": "instagram"
+        }
+    ],
+    "contact_us": [
+        {
+            "phone": "+84123456789",
+            "email": "contact@example.com",
+            "address": "123 Nguyen Hue Street, District 1, Ho Chi Minh City",
+            "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4968265661774!2d106.69824547382001!3d10.775815061960945!2d-74.0059413203125!3d40.71278371215625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire+State+Building!5e0!3m2!1sen!2sus!4v1505252043578"
+        }
+    ],
+    "images": [
+        {
+            "img": "img/product/product-1.webp",
+            "product_id": 1
+        },
+        {
+            "img": "img/product/product-2.webp",
+            "product_id": 2
+        },
+        {
+            "img": "img/product/product-3.webp",
+            "product_id": 3
+        },
+        {
+            "img": "img/product/product-4.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-5.webp",
+            "product_id": 5
+        },
+        {
+            "img": "img/product/product-6.webp",
+            "product_id": 6
+        },
+        {
+            "img": "img/product/product-7.webp",
+            "product_id": 7
+        },
+        {
+            "img": "img/product/product-8.webp",
+            "product_id": 8
+        }
+    ],
+    "colors": [
+        {
+            "name": "Đỏ"
+        },
+        {
+            "name": "Xanh lá đậm"
+        },
+        {
+            "name": "Xanh lá"
+        },
+        {
+            "name": "Xanh dương"
+        },
+        {
+            "name": "Xanh dương đậm"
+        },
+        {
+            "name": "Cam"
+        },
+        {
+            "name": "Tím"
+        },
+        {
+            "name": "Hồng"
+        },
+        {
+            "name": "Nâu"
+        },
+        {
+            "name": "Đen"
+        },
+        {
+            "name": "Trắng"
+        },
+        {
+            "name": "Xám"
+        },
+        {
+            "name": "Bạc"
+        },
+        {
+            "name": "Be"
+        },
+        {
+            "name": "Đen melange"
+        },
+        {
+            "name": "Ghi"
+        },
+        {
+            "name": "Ghi đậm"
+        },
+        {
+            "name": "Vàng"
+        },
+        {
+            "name": "Ghi sáng"
+        },
+        {
+            "name": "Cam đỏ"
+        },
+        {
+            "name": "Xanh dương nhạt"
+        },
+        {
+            "name": "Xanh bạc hà"
+        },
+        {
+            "name": "Cam đậm"
+        },
+        {
+            "name": "Trắng Kể"
+        },
+        {
+            "name": "Tím hồng"
+        }
+    ],
+    "customer_requests": [
+        {
+            "name": "Nguyen Van A",
+            "phone": "0987654321",
+            "email": "nguyenvana@gmail.com",
+            "message": "Tôi muốn đặt một chiếc ao."
+        },
+        {
+            "name": "Tran Thi B",
+            "phone": "0912345678",
+            "email": "tranthib@yahoo.com",
+            "message": "Xin hỏi cửa hàng có giao hàng tận nơi không?"
+        }
+    ],
+    "categories": [
+        {
+            "name": "Nữ",
+            "image": "img/category/category-woman.webp"
+        },
+        {
+            "name": "Nam",
+            "image": "img/category/category-men.webp"
+        },
+        {
+            "name": "Trẻ em",
+            "image": "img/category/category-children.webp"
+        },
+        {
+            "name": "Unisex",
+            "image": "img/category/category-unisex.webp"
+        },
+        {
+            "name": "Spring",
+            "image": "img/category/category-spring.webp"
+        },
+        {
+            "name": "Summer",
+            "image": "img/category/category-summer.webp"
+        },
+        {
+            "name": "Autumn",
+            "image": "img/category/category-autumn.webp"
+        },
+        {
+            "name": "Winter",
+            "image": "img/category/category-winter.webp"
+        },
+        {
+            "name": "Áo thun",
+            "image": "img/category/category-shirt.webp"
+        },
+        {
+            "name": "T-shirt",
+            "image": "img/category/category-t-shirt.webp"
+        },
+        {
+            "name": "Váy, Đầm",
+            "image": "img/category/category-dress.webp"
+        }
+    ],
+    "bills": [
+        {
+            "full_name": "Nguyễn Thị Mẹ",
+            "address": "123 Nguyen Hue Street, District 1",
+            "postcode": 70000,
+            "phone": "0987654321",
+            "email": "nguyenvana@gmail.com",
+            "delivery_method": 1,
+            "checkout_method": 0,
+            "total_amount": 2700,
+            "status": 0
+        },
+        {
+            "full_name": "Trần Thị Bố",
+            "address": "456 Le Loi Street, District 3",
+            "postcode": 700000,
+            "phone": "0912345678",
+            "email": "tranthib@yahoo.com",
+            "delivery_method": 0,
+            "checkout_method": 1,
+            "total_amount": 6300,
+            "status": 0
+        },
+        {
+            "full_name": "John Doe",
+            "address": "45 Main St, Anytown USA",
+            "postcode": 12345,
+            "phone": "5551212",
+            "email": "johndoe@example.com",
+            "delivery_method": 0,
+            "checkout_method": 0,
+            "total_amount": 14850,
+            "status": 0
+        },
+        {
+            "full_name": "Jane Smith",
+            "address": "987 Oak Ave, Somecity CA",
+            "postcode": 98765,
+            "phone": "5559876",
+            "email": "janesmith@email.com",
+            "delivery_method": 1,
+            "checkout_method": 1,
+            "total_amount": 11350,
+            "status": 0
+        },
+        {
+            "full_name": "Michael Johnson",
+            "address": "222 Maple Lane, Bigtown TX",
+            "postcode": 78901,
+            "phone": "5554444",
+            "email": "mjohnson@mail.com",
+            "delivery_method": 0,
+            "checkout_method": 0,
+            "total_amount": 11350,
+            "status": 0
+        },
+        {
+            "full_name": "Emily Davis",
+            "address": "654 Pine St, Smallville NY",
+            "postcode": 10001,
+            "phone": "5558888",
+            "email": "edavis@yahoo.com",
+            "delivery_method": 1,
+            "checkout_method": 1,
+            "total_amount": 14850,
+            "status": 0
+        },
+        {
+            "full_name": "David Wilson",
+            "address": "321 Cedar Rd, Midtownton IL",
+            "postcode": 60606,
+            "phone": "5552222",
+            "email": "dwilson@outlook.com",
+            "delivery_method": 0,
+            "checkout_method": 0,
+            "total_amount": 14850,
+            "status": 0
+        }
+    ],
+    "product_categories": [
+        {
+            "product_id": 1,
+            "category_id": 2
+        },
+        {
+            "product_id": 1,
+            "category_id": 1
+        },
+        {
+            "product_id": 1,
+            "category_id": 4
+        },
+        {
+            "product_id": 1,
+            "category_id": 5
+        },
+        {
+            "product_id": 1,
+            "category_id": 7
+        },
+        {
+            "product_id": 1,
+            "category_id": 9
+        },
+        {
+            "product_id": 2,
+            "category_id": 2
+        },
+        {
+            "product_id": 2,
+            "category_id": 5
+        },
+        {
+            "product_id": 2,
+            "category_id": 10
+        },
+        {
+            "product_id": 3,
+            "category_id": 4
+        },
+        {
+            "product_id": 3,
+            "category_id": 2
+        },
+        {
+            "product_id": 3,
+            "category_id": 7
+        },
+        {
+            "product_id": 3,
+            "category_id": 8
+        },
+        {
+            "product_id": 4,
+            "category_id": 1
+        },
+        {
+            "product_id": 4,
+            "category_id": 5
+        },
+        {
+            "product_id": 4,
+            "category_id": 7
+        },
+        {
+            "product_id": 4,
+            "category_id": 10
+        },
+        {
+            "product_id": 5,
+            "category_id": 3
+        },
+        {
+            "product_id": 5,
+            "category_id": 11
+        },
+        {
+            "product_id": 5,
+            "category_id": 5
+        },
+        {
+            "product_id": 5,
+            "category_id": 6
+        },
+        {
+            "product_id": 6,
+            "category_id": 1
+        },
+        {
+            "product_id": 6,
+            "category_id": 5
+        },
+        {
+            "product_id": 6,
+            "category_id": 7
+        },
+        {
+            "product_id": 6,
+            "category_id": 8
+        },
+        {
+            "product_id": 6,
+            "category_id": 9
+        },
+        {
+            "product_id": 7,
+            "category_id": 3
+        },
+        {
+            "product_id": 7,
+            "category_id": 9
+        },
+        {
+            "product_id": 7,
+            "category_id": 5
+        },
+        {
+            "product_id": 7,
+            "category_id": 7
+        },
+        {
+            "product_id": 8,
+            "category_id": 2
+        },
+        {
+            "product_id": 8,
+            "category_id": 5
+        },
+        {
+            "product_id": 8,
+            "category_id": 7
+        },
+        {
+            "product_id": 8,
+            "category_id": 8
+        },
+        {
+            "product_id": 9,
+            "category_id": 1
+        },
+        {
+            "product_id": 9,
+            "category_id": 5
+        },
+        {
+            "product_id": 9,
+            "category_id": 6
+        },
+        {
+            "product_id": 9,
+            "category_id": 7
+        },
+        {
+            "product_id": 10,
+            "category_id": 3
+        },
+        {
+            "product_id": 10,
+            "category_id": 5
+        },
+        {
+            "product_id": 10,
+            "category_id": 6
+        },
+        {
+            "product_id": 10,
+            "category_id": 7
+        },
+        {
+            "product_id": 10,
+            "category_id": 10
+        },
+        {
+            "product_id": 11,
+            "category_id": 3
+        },
+        {
+            "product_id": 11,
+            "category_id": 5
+        },
+        {
+            "product_id": 11,
+            "category_id": 7
+        }
+    ],
+    "products": [
+        {
+            "name": "Áo thun in trang trí 40000929",
+            "img": "img/product/product-1/ghi_dam.webp",
+            "description": "This is a description for product",
+            "price": 350000,
+            "sale_price": null
+        },
+        {
+            "name": "NAM/Áo T-Shirt cổ tim dáng suông C7TSH501M",
+            "img": "img/product/product-2/be.webp",
+            "description": "This is a description for product",
+            "price": 99000,
+            "sale_price": null
+        },
+        {
+            "name": "NAM/ Áo len cổ tròn tay dài 40000194",
+            "img": "img/product/product-3/den.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 349000,
+            "sale_price": null
+        },
+        {
+            "name": "NỮ/Áo T-Shirt cổ tròn dáng ôm C9TSH503M",
+            "img": "img/product/product-4/reu.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 99000,
+            "sale_price": null
+        },
+        {
+            "name": "BÉ GÁI/Đầm nhún eo trang trí sát nách 40000485",
+            "img": "img/product/product-5/cam.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 99000,
+            "sale_price": null
+        },
+        {
+            "name": "NỮ/Áo thun 40001198",
+            "img": "img/product/product-6/hong_nhat.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 299000,
+            "sale_price": null
+        },
+        {
+            "name": "BÉ TRAI/ Áo thun in trang trí sát nách 40000478",
+            "img": "img/product/product-7/xanh_la_dam.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 250000,
+            "sale_price": null
+        },
+        {
+            "name": "NAM/ Quần Jeans 40001221",
+            "img": "img/product/product-8/xanh_nhat.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 499000,
+            "sale_price": null
+        },
+        {
+            "name": "NỮ/Quần Shorts C9SHP500M",
+            "img": "img/product/product-9/xam_tim.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 99000,
+            "sale_price": null
+        },
+        {
+            "name": "BÉ TRAI/ Bộ quần áo 40000436",
+            "img": "img/product/product-10/trang.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 129000,
+            "sale_price": null
+        },
+        {
+            "name": "BÉ GÁI/Quần dài bo gấu 40000211",
+            "img": "img/product/product-11/tim.webp",
+            "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
+            "price": 129000,
+            "sale_price": null
+        }
+    ],
+    "product_details": [
+        {
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 2
+        },
+        {
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 2
+        },
+        {
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 2
+        },
+        {
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 16
+        },
+        {
+            "product_id": 1,
+            "size_id": 5,
+            "color_id": 16
+        },
+        {
+            "product_id": 1,
+            "size_id": 5,
+            "color_id": 16
+        },
+        {
+            "product_id": 2,
+            "size_id": 3,
+            "color_id": 13
+        },
+        {
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 13
+        },
+        {
+            "product_id": 3,
+            "size_id": 2,
+            "color_id": 5
+        },
+        {
+            "product_id": 3,
+            "size_id": 3,
+            "color_id": 5
+        },
+        {
+            "product_id": 3,
+            "size_id": 4,
+            "color_id": 5
+        },
+        {
+            "product_id": 3,
+            "size_id": 2,
+            "color_id": 18
+        },
+        {
+            "product_id": 3,
+            "size_id": 3,
+            "color_id": 18
+        },
+        {
+            "product_id": 3,
+            "size_id": 4,
+            "color_id": 18
+        },
+        {
+            "product_id": 3,
+            "size_id": 2,
+            "color_id": 9
+        },
+        {
+            "product_id": 3,
+            "size_id": 3,
+            "color_id": 9
+        },
+        {
+            "product_id": 3,
+            "size_id": 4,
+            "color_id": 9
+        },
+        {
+            "product_id": 4,
+            "size_id": 2,
+            "color_id": 9
+        },
+        {
+            "product_id": 4,
+            "size_id": 3,
+            "color_id": 9
+        },
+        {
+            "product_id": 4,
+            "size_id": 4,
+            "color_id": 9
+        },
+        {
+            "product_id": 4,
+            "size_id": 2,
+            "color_id": 6
+        },
+        {
+            "product_id": 4,
+            "size_id": 3,
+            "color_id": 6
+        },
+        {
+            "product_id": 4,
+            "size_id": 4,
+            "color_id": 6
+        },
+        {
+            "product_id": 4,
+            "size_id": 2,
+            "color_id": 15
+        },
+        {
+            "product_id": 4,
+            "size_id": 3,
+            "color_id": 15
+        },
+        {
+            "product_id": 4,
+            "size_id": 4,
+            "color_id": 15
+        },
+        {
+            "product_id": 5,
+            "size_id": 1,
+            "color_id": 5
+        },
+        {
+            "product_id": 5,
+            "size_id": 2,
+            "color_id": 5
+        },
+        {
+            "product_id": 5,
+            "size_id": 3,
+            "color_id": 5
+        },
+        {
+            "product_id": 5,
+            "size_id": 1,
+            "color_id": 19
+        },
+        {
+            "product_id": 5,
+            "size_id": 2,
+            "color_id": 19
+        },
+        {
+            "product_id": 5,
+            "size_id": 3,
+            "color_id": 19
+        },
+        {
+            "product_id": 6,
+            "size_id": 2,
+            "color_id": 4
+        },
+        {
+            "product_id": 6,
+            "size_id": 4,
+            "color_id": 4
+        },
+        {
+            "product_id": 6,
+            "size_id": 5,
+            "color_id": 4
+        },
+        {
+            "product_id": 6,
+            "size_id": 2,
+            "color_id": 7
+        },
+        {
+            "product_id": 6,
+            "size_id": 4,
+            "color_id": 7
+        },
+        {
+            "product_id": 6,
+            "size_id": 5,
+            "color_id": 7
+        },
+        {
+            "product_id": 6,
+            "size_id": 2,
+            "color_id": 5
+        },
+        {
+            "product_id": 6,
+            "size_id": 4,
+            "color_id": 5
+        },
+        {
+            "product_id": 6,
+            "size_id": 5,
+            "color_id": 5
+        },
+        {
+            "product_id": 7,
+            "size_id": 1,
+            "color_id": 2
+        },
+        {
+            "product_id": 7,
+            "size_id": 2,
+            "color_id": 2
+        },
+        {
+            "product_id": 7,
+            "size_id": 3,
+            "color_id": 2
+        },
+        {
+            "product_id": 7,
+            "size_id": 1,
+            "color_id": 16
+        },
+        {
+            "product_id": 7,
+            "size_id": 2,
+            "color_id": 16
+        },
+        {
+            "product_id": 7,
+            "size_id": 3,
+            "color_id": 16
+        },
+        {
+            "product_id": 7,
+            "size_id": 1,
+            "color_id": 14
+        },
+        {
+            "product_id": 7,
+            "size_id": 2,
+            "color_id": 14
+        },
+        {
+            "product_id": 7,
+            "size_id": 3,
+            "color_id": 14
+        },
+        {
+            "product_id": 8,
+            "size_id": 5,
+            "color_id": 20
+        },
+        {
+            "product_id": 8,
+            "size_id": 6,
+            "color_id": 20
+        },
+        {
+            "product_id": 8,
+            "size_id": 7,
+            "color_id": 20
+        },
+        {
+            "product_id": 8,
+            "size_id": 5,
+            "color_id": 5
+        },
+        {
+            "product_id": 8,
+            "size_id": 6,
+            "color_id": 5
+        },
+        {
+            "product_id": 8,
+            "size_id": 7,
+            "color_id": 5
+        },
+        {
+            "product_id": 8,
+            "size_id": 5,
+            "color_id": 9
+        },
+        {
+            "product_id": 8,
+            "size_id": 6,
+            "color_id": 9
+        },
+        {
+            "product_id": 8,
+            "size_id": 7,
+            "color_id": 9
+        },
+        {
+            "product_id": 9,
+            "size_id": 2,
+            "color_id": 21
+        },
+        {
+            "product_id": 9,
+            "size_id": 3,
+            "color_id": 21
+        },
+        {
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 21
+        },
+        {
+            "product_id": 10,
+            "size_id": 2,
+            "color_id": 5
+        },
+        {
+            "product_id": 10,
+            "size_id": 3,
+            "color_id": 5
+        },
+        {
+            "product_id": 10,
+            "size_id": 4,
+            "color_id": 5
+        },
+        {
+            "product_id": 10,
+            "size_id": 2,
+            "color_id": 22
+        },
+        {
+            "product_id": 10,
+            "size_id": 3,
+            "color_id": 22
+        },
+        {
+            "product_id": 10,
+            "size_id": 4,
+            "color_id": 22
+        },
+        {
+            "product_id": 10,
+            "size_id": 2,
+            "color_id": 23
+        },
+        {
+            "product_id": 10,
+            "size_id": 3,
+            "color_id": 23
+        },
+        {
+            "product_id": 10,
+            "size_id": 4,
+            "color_id": 23
+        },
+        {
+            "product_id": 11,
+            "size_id": 1,
+            "color_id": 6
+        },
+        {
+            "product_id": 11,
+            "size_id": 2,
+            "color_id": 6
+        },
+        {
+            "product_id": 11,
+            "size_id": 3,
+            "color_id": 6
+        },
+        {
+            "product_id": 11,
+            "size_id": 1,
+            "color_id": 24
+        },
+        {
+            "product_id": 11,
+            "size_id": 2,
+            "color_id": 24
+        },
+        {
+            "product_id": 11,
+            "size_id": 3,
+            "color_id": 24
+        }
+    ],
+    "promotions": [
+        {
+            "product_id": 1,
+            "description": "Summer sale",
+            "start_time": "2023-06-01 00:00:00",
+            "end_time": "2023-08-31 23:59:59",
+            "discount_percentage": 20
+        },
+        {
+            "product_id": 2,
+            "description": "Clearance sale",
+            "start_time": "2023-07-15 00:00:00",
+            "end_time": "2023-07-31 23:59:59",
+            "discount_percentage": 50
+        },
+        {
+            "product_id": 3,
+            "description": "New product launch promotion",
+            "start_time": "2023-08-01 00:00:00",
+            "end_time": "2023-08-15 23:59:59",
+            "discount_percentage": 10
+        }
+    ],
+    "bill_details": [
+        {
+            "product_detail_id": 1,
+            "bill_id": 1,
+            "quantity": 2,
+            "price": 250000
+        },
+        {
+            "product_detail_id": 2,
+            "bill_id": 2,
+            "quantity": 1,
+            "price": 350000
+        },
+        {
+            "bill_id": 1,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 1,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 2,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 2,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 9,
+            "quantity": 1,
+            "price": 4500
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 11,
+            "quantity": 1,
+            "price": 1350
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 12,
+            "quantity": 1,
+            "price": 2250
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 13,
+            "quantity": 1,
+            "price": 3150
+        },
+        {
+            "bill_id": 3,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 9,
+            "quantity": 1,
+            "price": 4500
+        },
+        {
+            "bill_id": 4,
+            "product_detail_id": 11,
+            "quantity": 1,
+            "price": 1350
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 12,
+            "quantity": 1,
+            "price": 2250
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 13,
+            "quantity": 1,
+            "price": 3150
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 5,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 13,
+            "quantity": 1,
+            "price": 3150
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 6,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 1,
+            "quantity": 1,
+            "price": 900
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 2,
+            "quantity": 1,
+            "price": 1800
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 5,
+            "quantity": 1,
+            "price": 2700
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 7,
+            "quantity": 1,
+            "price": 3600
+        },
+        {
+            "bill_id": 7,
+            "product_detail_id": 9,
+            "quantity": 1,
+            "price": 4500
+        }
+    ],
+    "sizes": [
+        {
+            "name": "XS"
+        },
+        {
+            "name": "S"
+        },
+        {
+            "name": "M"
+        },
+        {
+            "name": "L"
+        },
+        {
+            "name": "XL"
+        },
+        {
+            "name": "XXL"
+        },
+        {
+            "name": "3XL"
+        }
+    ]
+}
