@@ -7,5 +7,5 @@ use App\Http\Controllers\client\HomeController;
 //     return view('client.home.index');
 // });
 Route::prefix('/')->group(function () {
-    Route::get('/', [HomeController::class, 'NewProductsInfo'])->name('home.index');
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
 });
