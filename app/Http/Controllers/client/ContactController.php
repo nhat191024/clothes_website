@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Service\Client\ContactService;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCustomerMessageRequest;
 
 class ContactController extends Controller
 {
@@ -16,5 +17,10 @@ class ContactController extends Controller
     public function index(){
         $contactUs = $this->contactService->getAll();
         return view('client.contact.index', compact('contactUs'));
+    }
+    public function store(StoreCustomerMessageRequest $request){
+        $data = $this->contactService->prepare($request);
+        $this->contactService->storeCustomerRequest($data);
+        return redirect()->back();
     }
 }
