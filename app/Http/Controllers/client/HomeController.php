@@ -13,9 +13,12 @@ class HomeController extends Controller
     {
         $this->homeService = $homeService;
     }
-    public function NewProductsInfo()
+    public function index()
     {
         $newProductInfo = $this->homeService->newProducts();
-        return view('client.home.index', compact('newProductInfo'));
+        $trendProductInfo = $this->homeService->trendProduct();
+        $favoriteProductInfo = $this->homeService->favoriteProduct();
+        return view('client.home.index', compact('newProductInfo', 'trendProductInfo', 'favoriteProductInfo'));
+        // dd($trendProductInfo);
     }
 }
