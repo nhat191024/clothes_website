@@ -45,17 +45,8 @@ class HomeService
     }
     public function productAmount()
     {
-        $productAmount = [];
         $categories = Category::with('product')->take(5)->get();
-        foreach ($categories as $ct) {
-            $productAmount[] = [
-                'id' => $ct->id,
-                'name' => strtolower($ct->name),
-                'img' => $ct->image,
-                'product_amount' => $ct->product->count()
-            ];
-        }
-        return $productAmount;
+        return $categories;
     }
     public function collectionBanner()
     {

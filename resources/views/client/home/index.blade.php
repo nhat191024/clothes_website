@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
-                    data-setbg="{{ asset($productAmount[0]['img']) }}">
+                    data-setbg="{{ asset($productAmount[0]->img) }}">
                     <div class="categories__text">
                         <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang {{ $productAmount[0]['name'] }}</h1>
-                        <p>{{ $productAmount[0]['product_amount'] }} sản phẩm</p>
+                        <p>{{ $productAmount[0]->product->count() }} sản phẩm</p>
                         <a href="#">Mua ngay</a>
                     </div>
                 </div>
@@ -18,12 +18,12 @@
             @php $productAmount->forget(0) @endphp
             <div class="col-lg-6">
                 <div class="row">
-                    @foreach($productAmount as $category)
+                    @foreach($productAmount as $ct)
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="{{ asset($category['img']) }}">
+                        <div class="categories__item set-bg" data-setbg="{{ asset($ct->image) }}">
                             <div class="categories__text">
-                                <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang {{ $category['name'] }}</h4>
-                                <p>{{ $category['product_amount'] }} sản phẩm</p>
+                                <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang {{ strtolower($ct->name) }}</h4>
+                                <p>{{ $ct->product->count() }} sản phẩm</p>
                                 <a href="#">Mua ngay</a>
                             </div>
                         </div>
