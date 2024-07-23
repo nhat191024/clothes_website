@@ -16,20 +16,9 @@ class HomeService
     }
     public function getPaidProducts($count)
     {
-        return Product::select(
-            'products.id',
-            'products.name',
-            DB::raw('COUNT(bill_details.id) as total_quantity'),
-            'products.price',
-            'products.sale_price',
-            'products.created_at',
-            'products.img'
-        )
-            ->join('product_details', 'products.id', '=', 'product_details.product_id')
-            ->join('bill_details', 'product_details.id', '=', 'bill_details.product_detail_id')
-            ->groupBy('products.id', 'products.name', 'products.price', 'products.sale_price', 'products.created_at', 'products.img')
-            ->take($count)
-            ->get();
+        return Product::whereHas('productDetail', function ($query) {
+            $query->whereHas('billDetail');
+        })->take($count)->get();
     }
     public function trendProduct()
     {
