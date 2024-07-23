@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
-                    data-setbg="{{ asset($productAmount[0]->img) }}">
+                    data-setbg="{{ asset($productAmount[0]['img']) }}">
                     <div class="categories__text">
-                        <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang {{ $productAmount[0]->name }}</h1>
-                        <p>{{ $productAmount[0]->product_amount }} sản phẩm</p>
+                        <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang {{ $productAmount[0]['name'] }}</h1>
+                        <p>{{ $productAmount[0]['product_amount'] }} sản phẩm</p>
                         <a href="#">Mua ngay</a>
                     </div>
                 </div>
@@ -20,10 +20,10 @@
                 <div class="row">
                     @foreach($productAmount as $category)
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="{{ asset($category->img) }}">
+                        <div class="categories__item set-bg" data-setbg="{{ asset($category['img']) }}">
                             <div class="categories__text">
-                                <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang {{ $category->name }}</h4>
-                                <p>{{ $category->product_amount }} sản phẩm</p>
+                                <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang {{ $category['name'] }}</h4>
+                                <p>{{ $category['product_amount'] }} sản phẩm</p>
                                 <a href="#">Mua ngay</a>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
         </div>
         <div class="row property__gallery">
             @foreach($newProductInfo as $product)
-            <div class="col-lg-3 col-md-4 col-sm-6 mix @foreach($product->categories as $category){{ $category->name }} @endforeach ">       
+            <div class="col-lg-3 col-md-4 col-sm-6 mix @foreach($product->categories as $category){{ $category->name }} @endforeach ">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="{{ asset($product->img) }}">
                         <div class="label new">Mới</div>

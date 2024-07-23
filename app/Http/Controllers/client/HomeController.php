@@ -21,7 +21,7 @@ class HomeController extends Controller
         $favoriteProductInfo = $this->homeService->favoriteProduct();
         $productAmount = collect($this->homeService->productAmount());
         $collectionBanner = $this->homeService->collectionBanner();
-
+        // return $productAmount;
         $latestPromotion = $this->homeService->latestPromotion();
         if ($latestPromotion) {
             $start_time = Carbon::parse($latestPromotion->start_time);
@@ -32,6 +32,5 @@ class HomeController extends Controller
         $latestPromotion->minsDiff = $end_time->minute - $start_time->minute;
         $latestPromotion->secsDiff = $end_time->second - $start_time->second;
         return view('client.home.index', compact('newProductInfo', 'trendProductInfo', 'favoriteProductInfo', 'latestPromotion', 'productAmount', 'collectionBanner'));
-        // dd($collectionBanner);
     }
 }
