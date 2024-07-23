@@ -5,7 +5,6 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use App\Service\client\HomeService;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -21,7 +20,6 @@ class HomeController extends Controller
         $favoriteProductInfo = $this->homeService->favoriteProduct();
         $productAmount = collect($this->homeService->productAmount());
         $collectionBanner = $this->homeService->collectionBanner();
-        // return $productAmount;
         $latestPromotion = $this->homeService->latestPromotion();
         if ($latestPromotion) {
             $start_time = Carbon::parse($latestPromotion->start_time);

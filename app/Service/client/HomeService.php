@@ -3,12 +3,9 @@
 namespace App\Service\client;
 
 use App\Models\Banner;
-use App\Models\BillDetail;
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\ProductDetail;
 use App\Models\Promotion;
-use App\Models\Voucher;
 use Illuminate\Support\Facades\DB;
 
 class HomeService
