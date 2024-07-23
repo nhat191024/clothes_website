@@ -4,66 +4,43 @@ namespace App\Service\client;
 
 use App\Models\Banner;
 use App\Models\BillDetail;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductDetail;
 use App\Models\Promotion;
 use App\Models\Voucher;
 use Illuminate\Support\Facades\DB;
 
 class HomeService
 {
-    // public function getNewProducts()
-    // {
-    //     return Product::with('categories')->orderBy('created_at', 'desc')->take(8)->get();
-    // }
     public function newProducts()
     {
         return Product::with('categories')->orderBy('created_at', 'desc')->take(8)->get();
     }
+    public function getPaidProducts($count)
+    {
+        return Product::select(
+            'products.id',
+            'products.name',
+            DB::raw('COUNT(bill_details.id) as total_quantity'),
+            'products.price',
+            'products.sale_price',
+            'products.created_at',
+            'products.img'
+        )
+            ->join('product_details', 'products.id', '=', 'product_details.product_id')
+            ->join('bill_details', 'product_details.id', '=', 'bill_details.product_detail_id')
+            ->groupBy('products.id', 'products.name', 'products.price', 'products.sale_price', 'products.created_at', 'products.img')
+            ->take($count)
+            ->get();
+    }
     public function trendProduct()
     {
-        return DB::select("
-            SELECT 
-                p.name, 
-                SUM(bd.quantity) AS total_quantity,
-                p.price,
-                p.sale_price,
-                p.created_at,
-                p.img
-            FROM 
-                bill_details bd
-            JOIN 
-                product_details pd ON bd.product_detail_id = pd.id
-            JOIN 
-                products p ON pd.product_id = p.id
-            GROUP BY 
-                pd.product_id, p.name, p.price, p.sale_price, p.created_at, p.img
-            ORDER BY 
-                total_quantity DESC
-            LIMIT 6;
-        ");
+        return $this->getPaidProducts(6);
     }
     public function favoriteProduct()
     {
-        return DB::select("
-        SELECT 
-            p.name, 
-            SUM(bd.quantity) AS total_quantity,
-            p.price,
-            p.sale_price,
-            p.created_at,
-            p.img
-        FROM 
-            bill_details bd
-        JOIN 
-            product_details pd ON bd.product_detail_id = pd.id
-        JOIN 
-            products p ON pd.product_id = p.id
-        GROUP BY 
-            pd.product_id, p.name, p.price, p.sale_price, p.created_at, p.img
-        ORDER BY 
-            total_quantity ASC
-        LIMIT 3;
-    ");
+        return $this->getPaidProducts(3);
     }
     public function latestPromotion()
     {
@@ -71,25 +48,17 @@ class HomeService
     }
     public function productAmount()
     {
-        return DB::select("
-            SELECT
-                c.id AS id,
-                LOWER(c.name) AS name,
-                c.image AS img,
-                COUNT(p.id) AS product_amount
-            FROM
-                product_categories pc
-            JOIN
-                categories c ON pc.category_id = c.id
-            JOIN
-                products p ON pc.product_id = p.id
-            GROUP BY
-                c.id, c.name, c.image
-            ORDER BY
-                category_id
-            LIMIT 5;
-
-        ");
+        $productAmount = [];
+        $categories = Category::with('product')->take(5)->get();
+        foreach ($categories as $ct) {
+            $productAmount[] = [
+                'id' => $ct->id,
+                'name' => strtolower($ct->name),
+                'img' => $ct->image,
+                'product_amount' => $ct->product->count()
+            ];
+        }
+        return $productAmount;
     }
     public function collectionBanner()
     {
