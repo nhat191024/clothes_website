@@ -1,23 +1,43 @@
 @extends('client.layout')
 @section('main')
     <div class="container">
+        <div class="row my-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="avatar mx-auto" src="{{ url('') . '/' }}img/logo.webp" alt="Card image">
+                    <div class="card-body">
+                        <center>
+                            <h4 class="">Name</h4>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 ">
+                <form action="#">
+                    <label>Name</label>
+                    <input class="account-input" type="text" name="" placeholder="Enter name">
+                    <label>Email</label>
+                    <input class="account-input" type="text" name="" placeholder="Enter Email">
+                    <label>Address</label>
+                    <input class="account-input" type="text" name="" placeholder="Enter Address">
+                    <label>Phone</label>
+                    <input class="account-input" type="number" name="" placeholder="Enter Phonenumber">
+                    <div class="row my-2">
+                        <h5>Change Password</h5>
+                        <div class="col-md-6">
 
-    <div class="footer__newslatter">
-        <form action="#">
-            <aside>
-            h2
-            </aside>
-               <div>
-            <h5>Name</h5>
-            <input type="text" name="" placeholder="Enter name">
-            <h5>Email</h5>
-            <input type="text" name="" placeholder="Enter Email">
-            <h5>Address</h5>
-            <input type="text" name="" placeholder="Enter Address">
-            <h5>Phone</h5>
-            <input type="number" name="" placeholder="Enter Phonenumber">
-        </form>
-    </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+            </div>
+            <div>
+                <br>
+                <a> <button type="submit" class="btn-acconut">Save</button></a>
+            </div>
+            </form>
+        </div>
     </div>
     </div>
 @endsection

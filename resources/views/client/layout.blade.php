@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ url('') . '/'}}css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url('') . '/'}}css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url('') . '/'}}css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/'}}css/styles.css" type="text/css">
+
     <link rel="stylesheet" href="{{ url('') . '/'}}css/accountmanagement.css" type="text/css">
 
 </head>
