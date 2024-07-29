@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\Client;
+namespace App\Service\client;
 use App\Models\ContactUs;
 use App\Models\CustomerRequest;
 
