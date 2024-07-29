@@ -48,13 +48,23 @@
             <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
+
         <div class="header__right__auth">
+            @if (Auth::check())
+                            <ul>
+                                <li><a href="#routeToUserDetail#"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Points: {{ Auth::user()->point }}P</a></li>
+                                        <li><a href="#routeToUserDetail#">Profile</a></li>
+                                        <li><a href="{{ route('client.logout') }}">Logout</a></li>
+                                        {{-- <hr> --}}
+                                    </ul>
+                                </li>
+                            </ul>
+                            @endif
             @if (!Auth::check())
                 <a href="{{ route('client.login.index') }}">Đăng nhập</a>
                 <a href="{{ route('client.login.index') }}">Đăng ký</a>
-            @else
-                <a href="#">{{ Auth::user()->username }}</a>
-                <a href="{{ route('client.logout') }}">Đăng xuất</a>
             @endif
         </div>
     </div>
@@ -72,6 +82,7 @@
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
+
                             <li class="active"><a href="./index.html">Trang chủ</a></li>
                             <li><a href="#">Nữ</a></li>
                             <li><a href="#">Nam</a></li>
@@ -86,28 +97,28 @@
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
                             <li><a href="./contact.html">Liên hệ</a></li>
+
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth">
-                            @if (!Auth::check())
-                                <a href="{{ route('client.login.index') }}">Đăng nhập</a>
-                                <a href="{{ route('client.login.index') }}">Đăng ký</a>
-                            @else
-                                <a href="#">{{ Auth::user()->username }}</a>
-                                <a href="{{ route('client.logout') }}">Đăng xuất</a>
-                            @endif
-                        </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                    <div class="tip">2</div>
-                                </a></li>
                             <li><a href="#"><span class="icon_bag_alt"></span>
-                                    <div class="tip">2</div>
-                                </a></li>
+
+                            </a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img class="rounded-circle" width="40px" src="{{ url('') . '/' }}img/user/{{ Auth::user()->avt }}"><img>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown">
+                                    <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ Str::lower(Auth::user()->username) }}</a>
+                                    <a class="dropdown-item" href="#">Points: {{ Auth::user()->point }}P</a>
+                                    <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -265,7 +276,7 @@
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
             <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Tìm kiếm tại đây.....">
+                <input type="text" id="search-input" placeholder="  Search here....">
             </form>
         </div>
     </div>
@@ -282,6 +293,7 @@
     <script src="{{ url('') . '/' }}js/owl.carousel.min.js"></script>
     <script src="{{ url('') . '/' }}js/jquery.nicescroll.min.js"></script>
     <script src="{{ url('') . '/' }}js/main.js"></script>
+    <script src="{{ url('') . '/' }}js/popper.min.js"></script>
 </body>
 
 </html>
