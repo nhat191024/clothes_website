@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
                 "avt" => $row['avt'],
                 "username" => $row['username'],
                 "password" => Hash::make($row['password']),
+                "full_name" => $row['full_name'],
                 "email" => $row['email'],
                 "address" => $row['address'],
                 "phone" => $row['phone']
