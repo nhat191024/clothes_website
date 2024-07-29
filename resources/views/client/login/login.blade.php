@@ -1,6 +1,6 @@
 @extends('client.layout')
 @section('main')
-    <div class="card mt-5 mb-5 px-3 contact__form offset-4 col-4">
+    <div class="card mt-5 mb-5 contact__form offset-md-4 col-12 col-md-4">
         @if ($message = Session::get('message'))
             <div class="mt-3 mb-0 alert alert-danger alert-block">
                 <strong>{{ $message }}</strong>
