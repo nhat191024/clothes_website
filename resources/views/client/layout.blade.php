@@ -37,11 +37,26 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_heart_alt"></span>
-                    <div class="tip">2</div>
-                </a></li>
             <li><a href="#"><span class="icon_bag_alt"></span>
-                    <div class="tip">2</div>
+                <div class="tip">2</div>
+                <li class="nav-item dropdown" style="transform: translateY(-3px)">
+                    <a class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle" width="21px" src="{{ url('') . '/' }}img/user/{{ Auth::user()? Auth::user()->avatar : 'avt-default.png' }}"><img>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown">
+                        @php
+                            $user = Auth::user();
+                        @endphp
+                        @if (Auth::check())
+                            <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
+                            <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
+                            <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                        @else
+                            <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                            <a class="dropdown-item" href="#registerRoute">Register</a>
+                        @endif
+                    </div>
+                </li>
                 </a></li>
         </ul>
         <div class="offcanvas__logo">
@@ -63,8 +78,8 @@
                             </ul>
                             @endif
             @if (!Auth::check())
-                <a href="{{ route('client.login.index') }}">Đăng nhập</a>
-                <a href="{{ route('client.login.index') }}">Đăng ký</a>
+                <a class="font-bold" href="{{ route('client.login.index') }}">Login</a> <br>
+                <a class="font-bold" href="#registerRoute">Register</a>
             @endif
         </div>
     </div>
@@ -109,13 +124,21 @@
 
                             </a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="rounded-circle" width="40px" src="{{ url('') . '/' }}img/user/{{ Auth::user()->avt }}"><img>
+                                <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="transform: translateY(-3px)">
+                                    <img class="rounded-circle" width="23px" src="{{ url('') . '/' }}img/user/{{ Auth::user()? Auth::user()->avatar : 'avt-default.png' }}"><img>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown">
-                                    <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ Str::lower(Auth::user()->username) }}</a>
-                                    <a class="dropdown-item" href="#">Points: {{ Auth::user()->point }}P</a>
-                                    <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                                    @php
+                                        $user = Auth::user();
+                                    @endphp
+                                    @if (Auth::check())
+                                        <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
+                                        <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
+                                        <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                                        <a class="dropdown-item" href="#registerRoute">Register</a>
+                                    @endif
                                 </div>
                             </li>
 
