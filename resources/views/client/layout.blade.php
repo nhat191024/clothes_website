@@ -50,10 +50,11 @@
         <div id="mobile-menu-wrap"></div>
         <div class="header__right__auth">
             @if (!Auth::check())
-                <a href="{{ route('client.login.index') }}">Đăng nhập2</a>
+                <a href="{{ route('client.login.index') }}">Đăng nhập</a>
                 <a href="{{ route('client.login.index') }}">Đăng ký</a>
             @else
-                <a href="{{ route('client.logout') }}">{{ Auth::user()->username }} - Đăng xuất</a>
+                <a href="#">{{ Auth::user()->username }}</a>
+                <a href="{{ route('client.logout') }}">Đăng xuất</a>
             @endif
         </div>
     </div>
@@ -92,10 +93,11 @@
                     <div class="header__right">
                         <div class="header__right__auth">
                             @if (!Auth::check())
-                                <a href="{{ route('client.login.index') }}">Đăng nhập2</a>
+                                <a href="{{ route('client.login.index') }}">Đăng nhập</a>
                                 <a href="{{ route('client.login.index') }}">Đăng ký</a>
                             @else
-                                <a href="{{ route('client.logout') }}">{{ Auth::user()->username }} - Đăng xuất</a>
+                                <a href="#">{{ Auth::user()->username }}</a>
+                                <a href="{{ route('client.logout') }}">Đăng xuất</a>
                             @endif
                         </div>
                         <ul class="header__right__widget">
