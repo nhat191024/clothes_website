@@ -49,8 +49,8 @@
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
-            <a href="#">Đăng nhập</a>
-            <a href="#">Đăng ký</a>
+            <a href="{{ route('client.login.index') }}">Đăng nhập</a>
+            <a href="{{ route('client.login.index') }}">Đăng ký</a>
         </div>
     </div>
     <!-- Kết thúc Menu Offcanvas -->
@@ -87,8 +87,8 @@
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="#">Đăng nhập</a>
-                            <a href="#">Đăng ký</a>
+                            <a href="{{ route('client.login.index') }}">Đăng nhập</a>
+                            <a href="{{ route('client.login.index') }}">Đăng ký</a>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
