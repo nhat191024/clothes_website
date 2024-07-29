@@ -11,6 +11,6 @@ Route::get('/', function () {
 // });
 Route::prefix('/Account')-> group(function () {
     Route::get('/{id}', [AccountManagement::class,'index'])->name('client.account.index');
-    Route::get('/Changepassword/{id}', [AccountManagement::class,'pass'])->name('client.account.changepassword');
+    Route::get('/ChangePassword/{id}', [AccountManagement::class,'pass'])->name('client.account.changepassword');
 
 });
