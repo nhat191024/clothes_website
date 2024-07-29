@@ -5,6 +5,7 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use App\Service\client\LoginService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -14,6 +15,9 @@ class LoginController extends Controller
         $this->loginService = $loginService;
     }
     public function index(){
+        if(Auth::check()){
+            return redirect()->route('home.index');
+        }
         return view('client.login.login');
     }
 
