@@ -25,7 +25,7 @@ class ShopService
             $query->whereIn('color_id', $colorIds);
         });
         $sizeIds == null ? true : $MainQuery->whereHas('productDetail', function ($query) use ($sizeIds) {
-            $query->whereI('size_id', $sizeIds);
+            $query->whereIn('size_id', $sizeIds);
         });
         $maxPrice == null && $minPrice == null ? true : $MainQuery->where('price', '>=', 0) && $MainQuery->where('price', '<=', 200000);
         return $MainQuery->paginate(9);
