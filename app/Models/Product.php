@@ -28,10 +28,12 @@ class Product extends Model
     {
         return $this->hasMany(ProductDetail::class);
     }
+    // thêm productCategory vì dữ liệu lọc ra bị sai khi dùng categories
     public function productCategory()
     {
         return $this->hasMany(ProductCategory::class);
     }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'product_categories', 'category_id', 'product_id');
