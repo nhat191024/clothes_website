@@ -1,6 +1,7 @@
 @extends('client.layout')
 @section('main')
  <!-- Shop Section Begin -->
+ 
  <section class="shop spad">
     <div class="container">
         <div class="row">
@@ -18,10 +19,10 @@
                                         <a data-toggle="collapse" data-target="#collapseOne">{{ $pCateg->name }}</a>
                                     </div>
                                     <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <ul>
+                                        <div class="card-body" >
+                                            <ul >
                                                 @foreach($childCategory as $cCateg)
-                                                <li><a href="?parentCate={{ $pCateg->id }}?childCate={{ $cCateg->id }}">{{ $cCateg->name }}</a></li>
+                                                <li><a href="#" data-ParentCategory="{{ $pCateg->id }}" data-ChildCategory="{{ $cCateg->id }}" >{{ $cCateg->name }}</a></li>
                                                 @endforeach
                                             </ul>
                                         </div>
@@ -37,7 +38,7 @@
                         </div>
                         <div class="filter-range-wrap">
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                            data-min="33" data-max="99"></div>
+                            data-min="{{$minPrice}}" data-max="{{$maxPrice}}"></div>
                             <div class="range-slider">
                                 <div class="price-input">
                                     <p>Price:</p>
@@ -56,7 +57,7 @@
                             @foreach($sizes as $size)
                             <label for="{{ $size->name }}">
                                 {{ $size->name }}
-                                <input type="checkbox" id="{{ $size->name }}">
+                                <input type="checkbox" id="{{ $size->name }}" class="size-filter" value="{{ $size->id }}">
                                 <span class="checkmark"></span>
                             </label>
                             @endforeach
@@ -70,7 +71,7 @@
                             @foreach($colors as $color)
                             <label for="{{ $color->name }}">
                                 {{ $color->name }}
-                                <input type="checkbox" id="{{ $color->name }}">
+                                <input type="checkbox" id="{{ $color->name }}" class="color-filter" value="{{ $color->id }}">
                                 <span class="checkmark"></span>
                             </label>
                             @endforeach
@@ -79,10 +80,10 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-9">
-                <div class="row">
+                <div class="row" id="productA-list">
                     @foreach($allProducts as $product)
                     <div class="col-lg-4 col-md-6">
-                        <div class="product__item">
+                        <div class=".product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{ $product->img }}">
                                 <div class="label new">New</div>
                                 <ul class="product__hover">
@@ -106,16 +107,6 @@
                     </div>
                     @endforeach
                     {{ $allProducts->links('client.shop.paginate') }}
-                    {{-- <div class="col-lg-12 text-center">
-                        <div class="pagination__option">
-                            <a href="#"><i class="fa fa-angle-left"></i></a>
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-angle-right"></i></a>
-                            
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

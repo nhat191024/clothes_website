@@ -12,20 +12,31 @@ use Illuminate\Support\Facades\DB;
 
 class ShopService
 {
-    public function getProductsByFilters($categoryId, $colorId, $sizeId, $maxPrice, $minPrice)
+    public function getProductsByFilters($parentCategoryId, $childCategoryId, $colorIds, $sizeIds, $maxPrice, $minPrice)
     {
         $MainQuery = Product::query();
-        $categoryId == null ? true : $MainQuery->whereHas('productCategory', function ($query) use ($categoryId) {
-            $query->where('product_categories.category_id', $categoryId);
+        $parentCategoryId == null ? true : $MainQuery->whereHas('productCategory', function ($query) use ($parentCategoryId) {
+            $query->where('product_categories.category_id', $parentCategoryId);
         });
-        $colorId == null ? true : $MainQuery->whereHas('productDetail', function ($query) use ($colorId) {
-            $query->where('color_id', $colorId);
+        $childCategoryId == null ? true : $MainQuery->whereHas('productCategory', function ($query) use ($childCategoryId) {
+            $query->where('product_categories.category_id', $childCategoryId);
         });
-        $sizeId == null ? true : $MainQuery->whereHas('productDetail', function ($query) use ($sizeId) {
-            $query->where('size_id', $sizeId);
+        $colorIds == null ? true : $MainQuery->whereHas('productDetail', function ($query) use ($colorIds) {
+            $query->whereIn('color_id', $colorIds);
+        });
+        $sizeIds == null ? true : $MainQuery->whereHas('productDetail', function ($query) use ($sizeIds) {
+            $query->whereI('size_id', $sizeIds);
         });
         $maxPrice == null && $minPrice == null ? true : $MainQuery->where('price', '>=', 0) && $MainQuery->where('price', '<=', 200000);
         return $MainQuery->paginate(9);
+    }
+    public function getMaxPrice()
+    {
+        return Product::max('price');
+    }
+    public function getMinPrice()
+    {
+        return Product::min('price');
     }
     public function getParentCategory()
     {
