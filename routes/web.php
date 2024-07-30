@@ -4,9 +4,14 @@ use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\ShopController;
 
 Route::prefix('/')->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home.index');
+    Route::get('/', [HomeController::class, 'index'])->name('client.home.index');
+});
+
+Route::prefix('shop')->group(function () {
+    Route::get('/', [ShopController::class, 'index'])->name('client.shop.index');
 });
 
 Route::prefix('contact')->group(function () {
