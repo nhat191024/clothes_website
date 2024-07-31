@@ -2,56 +2,41 @@
 
 namespace App\Service\client;
 
-use App\Models\Banner;
+// use App\Models\Banner;
 use App\Models\Category;
-use App\Models\Color;
-use App\Models\Size;
+// use App\Models\Color;
+// use App\Models\Size;
 use App\Models\Product;
-use App\Models\Promotion;
+// use App\Models\Promotion;
 use Illuminate\Support\Facades\DB;
 
 class ShopService
 {
-    public function getProductsByFilters($parentCategoryId, $childCategoryId, $colorIds, $sizeIds, $maxPrice, $minPrice)
+    public function getAllProducts()
     {
-        $MainQuery = Product::query();
-        $parentCategoryId == null ? true : $MainQuery->whereHas('productCategory', function ($query) use ($parentCategoryId) {
-            $query->where('product_categories.category_id', $parentCategoryId);
+        return Product::paginate(9);
+    }
+
+    public function getProductsByFilters($categoryIds, $colorIds, $sizeIds, $maxPrice, $minPrice)
+    {
+        $mainQuery = Product::query();
+
+        $categoryIds == null ? true : $mainQuery->whereHas('categories', function ($query) use ($categoryIds) {
+            $query->where('category_id', $categoryIds);
         });
-        $childCategoryId == null ? true : $MainQuery->whereHas('productCategory', function ($query) use ($childCategoryId) {
-            $query->where('product_categories.category_id', $childCategoryId);
-        });
-        $colorIds == null ? true : $MainQuery->whereHas('productDetail', function ($query) use ($colorIds) {
+
+        $colorIds == null ? true :  $mainQuery->whereHas('productDetail', function ($query) use ($colorIds) {
             $query->whereIn('color_id', $colorIds);
         });
-        $sizeIds == null ? true : $MainQuery->whereHas('productDetail', function ($query) use ($sizeIds) {
+
+        $sizeIds == null ? true : $mainQuery->whereHas('productDetail', function ($query) use ($sizeIds) {
             $query->whereIn('size_id', $sizeIds);
         });
-        $maxPrice == null && $minPrice == null ? true : $MainQuery->where('price', '>=', 0) && $MainQuery->where('price', '<=', 200000);
-        return $MainQuery->paginate(9);
-    }
-    public function getMaxPrice()
-    {
-        return Product::max('price');
-    }
-    public function getMinPrice()
-    {
-        return Product::min('price');
-    }
-    public function getParentCategory()
-    {
-        return Category::orderBy('id', 'asc')->take(3)->get();
-    }
-    public function getChildCategory()
-    {
-        return Category::orderBy('id', 'desc')->take(Category::count() - 3)->get();
-    }
-    public function getColor()
-    {
-        return Color::get();
-    }
-    public function getSize()
-    {
-        return Size::get();
+
+        $maxPrice == null ? true : $mainQuery->where('price', '>=', 0);
+
+        $minPrice == null ? true : $mainQuery->where('price', '<=', 0);
+
+        return $mainQuery->paginate(9);
     }
 }
