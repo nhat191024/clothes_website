@@ -25,8 +25,8 @@ class ShopController extends Controller
             $request->category,
             $request->color,
             $request->size,
-            $request->maxPrice,
-            $request->minPrice,
+            $request->max,
+            $request->min,
         );
         return response()->json($filtered, 200);
     }
