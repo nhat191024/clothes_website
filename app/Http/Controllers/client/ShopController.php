@@ -16,44 +16,18 @@ class ShopController extends Controller
     }
     public function index()
     {
-        //categories
-        $parentCategory = $this->shopService->getParentCategory();
-        $childCategory = $this->shopService->getChildCategory();
-        $colors = $this->shopService->getColor();
-        $sizes = $this->shopService->getSize();
-        $maxPrice = $this->shopService->getMaxPrice();
-        $minPrice = $this->shopService->getMinPrice();
-        //
-
-        // $allProducts = $this->shopService->getProductsByFilters(
-        //     $request->input('parentCategory'),
-        //     $request->input('childCategory'),
-        //     $request->input('colors'),
-        //     $request->input('sizes'),
-        //     $request->has('maxPrice'),
-        //     $request->has('maxPrice')
-        // );
-        $allProducts = $this->shopService->getProductsByFilters(
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        );
-        dd($allProducts);
-        // return view('client.shop.index', compact('allProducts', 'parentCategory', 'childCategory', 'colors', 'sizes', 'minPrice', 'maxPrice'));
+        $allProducts = $this->shopService->getAllProducts();
+        return view('client.shop.index', compact('allProducts'));
     }
     public function filterProducts(Request $request)
     {
-        $allProducts = $this->shopService->getProductsByFilters(
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+        $filtered = $this->shopService->getProductsByFilters(
+            $request->category,
+            $request->color,
+            $request->size,
+            $request->maxPrice,
+            $request->minPrice,
         );
-        return view('client.shop.partials.product-list', compact('allProducts'))->render();
+        return response()->json($filtered, 200);
     }
 }
