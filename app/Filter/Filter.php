@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Data;
+namespace App\Filter;
 
 use Illuminate\Http\Request;
 
-class ApiData
+class Filter
 {
     protected $safePrams = [];
 
