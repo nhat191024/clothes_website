@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -12,17 +11,18 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/style.css" type="text/css">
 </head>
 
 <body>
@@ -37,20 +37,50 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
             <li><a href="#"><span class="icon_bag_alt"></span>
                 <div class="tip">2</div>
-            </a></li>
+                <li class="nav-item dropdown" style="transform: translateY(-3px)">
+                    <a class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle" width="21px" src="{{ url('') . '/' }}img/user/{{ Auth::user()? Auth::user()->avatar : 'avt-default.png' }}"><img>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown">
+                        @php
+                            $user = Auth::user();
+                        @endphp
+                        @if (Auth::check())
+                            <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
+                            <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
+                            <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                        @else
+                            <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                            <a class="dropdown-item" href="#registerRoute">Register</a>
+                        @endif
+                    </div>
+                </li>
+                </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="{{ url('') . '/'}}img/logo.png" alt=""></a>
+            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth">
-            <a href="#">Đăng nhập</a>
-            <a href="#">Đăng ký</a>
+
+        <div class="header__right__auth">
+            @if (Auth::check())
+                            <ul>
+                                <li><a href="#routeToUserDetail#"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Points: {{ Auth::user()->point }}P</a></li>
+                                        <li><a href="#routeToUserDetail#">Profile</a></li>
+                                        <li><a href="{{ route('client.logout') }}">Logout</a></li>
+                                        {{-- <hr> --}}
+                                    </ul>
+                                </li>
+                            </ul>
+                            @endif
+            @if (!Auth::check())
+                <a class="font-bold" href="{{ route('client.login.index') }}">Login</a> <br>
+                <a class="font-bold" href="#registerRoute">Register</a>
+            @endif
         </div>
     </div>
     <!-- Kết thúc Menu Offcanvas -->
@@ -61,12 +91,13 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{ url('') . '/'}}img/logo.png" alt=""></a>
+                        <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
+
                             <li class="active"><a href="./index.html">Trang chủ</a></li>
                             <li><a href="#">Nữ</a></li>
                             <li><a href="#">Nam</a></li>
@@ -81,23 +112,36 @@
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
                             <li><a href="./contact.html">Liên hệ</a></li>
+
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="#">Đăng nhập</a>
-                            <a href="#">Đăng ký</a>
-                        </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
                             <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
+
                             </a></li>
+                            <li class="nav-item dropdown">
+                                <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="transform: translateY(-3px)">
+                                    <img class="rounded-circle" width="23px" src="{{ url('') . '/' }}img/user/{{ Auth::user()? Auth::user()->avatar : 'avt-default.png' }}"><img>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown">
+                                    @php
+                                        $user = Auth::user();
+                                    @endphp
+                                    @if (Auth::check())
+                                        <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
+                                        <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
+                                        <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                                        <a class="dropdown-item" href="#registerRoute">Register</a>
+                                    @endif
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -115,7 +159,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/'}}img/product/product-1.jpg">
+                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-1.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
                             <a href="#">@ ashion_shop</a>
@@ -123,7 +167,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/'}}img/product/product-2.jpg">
+                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-2.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
                             <a href="#">@ ashion_shop</a>
@@ -131,7 +175,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/'}}img/product/product-3.jpg">
+                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-3.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
                             <a href="#">@ ashion_shop</a>
@@ -139,7 +183,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/'}}img/product/product-4.jpg">
+                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-4.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
                             <a href="#">@ ashion_shop</a>
@@ -147,7 +191,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/'}}img/product/product-5.jpg">
+                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-5.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
                             <a href="#">@ ashion_shop</a>
@@ -155,7 +199,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/'}}img/product/product-6.jpg">
+                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-6.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
                             <a href="#">@ ashion_shop</a>
@@ -174,17 +218,21 @@
                 <div class="col-lg-4 col-md-6 col-sm-7">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="{{ url('') . '/'}}img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt cilisis.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            cilisis.</p>
                         <div class="footer__payment">
-                            <a href="#"><img src="{{ url('') . '/'}}img/payment/payment-1.png" alt=""></a>
-                            <a href="#"><img src="{{ url('') . '/'}}img/payment/payment-2.png" alt=""></a>
-                            <a href="#"><img src="{{ url('') . '/'}}img/payment/payment-3.png" alt=""></a>
-                            <a
-
- href="#"><img src="{{ url('') . '/'}}img/payment/payment-4.png" alt=""></a>
-                            <a href="#"><img src="{{ url('') . '/'}}img/payment/payment-5.png" alt=""></a>
+                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-1.png"
+                                    alt=""></a>
+                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-2.png"
+                                    alt=""></a>
+                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-3.png"
+                                    alt=""></a>
+                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-4.png"
+                                    alt=""></a>
+                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-5.png"
+                                    alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -234,7 +282,9 @@
                         <p>Bản quyền &copy;
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> Tất cả các quyền được bảo lưu | Mẫu này được làm với <i class="fa fa-heart" aria-hidden="true"></i> bởi <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            </script> Tất cả các quyền được bảo lưu | Mẫu này được làm với <i
+                                class="fa fa-heart" aria-hidden="true"></i> bởi <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
                         </p>
                     </div>
                     <!-- Liên kết đến Colorlib không thể bị xóa. Mẫu được cấp phép theo CC BY 3.0. -->
@@ -249,23 +299,24 @@
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
             <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Tìm kiếm tại đây.....">
+                <input type="text" id="search-input" placeholder="  Search here....">
             </form>
         </div>
     </div>
     <!-- Kết thúc Tìm kiếm -->
 
     <!-- Js Plugins -->
-    <script src="{{ url('') . '/'}}js/jquery-3.3.1.min.js"></script>
-    <script src="{{ url('') . '/'}}js/bootstrap.min.js"></script>
-    <script src="{{ url('') . '/'}}js/jquery.magnific-popup.min.js"></script>
-    <script src="{{ url('') . '/'}}js/jquery-ui.min.js"></script>
-    <script src="{{ url('') . '/'}}js/mixitup.min.js"></script>
-    <script src="{{ url('') . '/'}}js/jquery.countdown.min.js"></script>
-    <script src="{{ url('') . '/'}}js/jquery.slicknav.js"></script>
-    <script src="{{ url('') . '/'}}js/owl.carousel.min.js"></script>
-    <script src="{{ url('') . '/'}}js/jquery.nicescroll.min.js"></script>
-    <script src="{{ url('') . '/'}}js/main.js"></script>
+    <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
+    <script src="{{ url('') . '/' }}js/bootstrap.min.js"></script>
+    <script src="{{ url('') . '/' }}js/jquery.magnific-popup.min.js"></script>
+    <script src="{{ url('') . '/' }}js/jquery-ui.min.js"></script>
+    <script src="{{ url('') . '/' }}js/mixitup.min.js"></script>
+    <script src="{{ url('') . '/' }}js/jquery.countdown.min.js"></script>
+    <script src="{{ url('') . '/' }}js/jquery.slicknav.js"></script>
+    <script src="{{ url('') . '/' }}js/owl.carousel.min.js"></script>
+    <script src="{{ url('') . '/' }}js/jquery.nicescroll.min.js"></script>
+    <script src="{{ url('') . '/' }}js/main.js"></script>
+    <script src="{{ url('') . '/' }}js/popper.min.js"></script>
 </body>
 
 </html>
