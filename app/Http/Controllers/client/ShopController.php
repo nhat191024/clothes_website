@@ -16,8 +16,12 @@ class ShopController extends Controller
     }
     public function index()
     {
+        $allPageProducts = $this->shopService->getAllPaginatedProducts(9);
         $allProducts = $this->shopService->getAllProducts();
-        return view('client.shop.index', compact('allProducts'));
+        $allCategories = $this->shopService->getAllCategories();
+        $allSizes = $this->shopService->getAllSizes();
+        $allColors = $this->shopService->getAllColors();
+        return view('client.shop.index', compact('allPageProducts','allProducts','allCategories','allSizes','allColors'));
     }
     public function filterProducts(Request $request)
     {
