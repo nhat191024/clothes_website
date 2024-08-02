@@ -10,8 +10,8 @@
                     data-setbg="{{ asset($productAmount[0]->img) }}">
                     <div class="categories__text">
                         <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang {{ $productAmount[0]['name'] }}</h1>
-                        {{-- <p>{{ $productAmount }} sản phẩm</p> --}}
-                        <p>0 sản phẩm</p>
+                        <p>{{ count($productAmount) }} sản phẩm</p>
+                        {{-- <p>0 sản phẩm</p> --}}
                         <a href="#">Mua ngay</a>
                     </div>
                 </div>
@@ -24,8 +24,8 @@
                         <div class="categories__item set-bg" data-setbg="{{ asset($ct->image) }}">
                             <div class="categories__text">
                                 <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang {{ strtolower($ct->name) }}</h4>
-                                {{-- <p>{{ $ct }} sản phẩm</p> --}}
-                                <p>0 sản phẩm</p>
+                                <p>{{ count($productAmount) }} sản phẩm</p>
+                                {{-- <p>0 sản phẩm</p> --}}
                                 <a href="#">Mua ngay</a>
                             </div>
                         </div>
