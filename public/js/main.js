@@ -9,6 +9,19 @@ Created: Colorib
 
 "use strict";
 
+function getCheckedValues(selector) {
+    let values = [];
+    $(selector + ':checked').each(function() {
+        values.push($(this).val());
+    });
+    return values;
+}
+
+function parseCurrency(value) {
+    let numericValue = value.replace(/[^0-9.]/g, '');
+    return parseFloat(numericValue);
+}
+
 (function ($) {
     /*------------------
         Preloader
@@ -234,12 +247,12 @@ Created: Colorib
         max: maxPrice,
         values: [minPrice, maxPrice],
         slide: function (event, ui) {
-            minamount.val("$" + ui.values[0]);
-            maxamount.val("$" + ui.values[1]);
+            minamount.val("¥" + ui.values[0]);
+            maxamount.val("¥" + ui.values[1]);
         },
     });
-    minamount.val("$" + rangeSlider.slider("values", 0));
-    maxamount.val("$" + rangeSlider.slider("values", 1));
+    minamount.val("¥" + rangeSlider.slider("values", 0));
+    maxamount.val("¥" + rangeSlider.slider("values", 1));
 
     /*------------------
 		Single Product
@@ -350,34 +363,5 @@ Created: Colorib
     //     });
     // });
 
-    $(document).ready(function () {
-        $(".card-body a").on("click", function (event) {
-            event.preventDefault();
 
-            var parentCategory = $(this).data("parentcategory");
-            var childCategory = $(this).data("childcategory");
-            console.log(parentCategory + "-" + childCategory);
-            // Perform the filtering action, e.g., send AJAX request
-            applyCategoryFilter(parentCategory, childCategory);
-        });
-
-        function applyCategoryFilter(parentCategory, childCategory) {
-            $.ajax({
-                url: "/shop/filter-products", // URL to your controller
-                type: "GET",
-                data: {
-                    parentCategory: parentCategory,
-                    childCategory: childCategory,
-                },
-                success: function (response) {
-                    // Handle success, e.g., update the product list
-                    $("#productA-list").html(response);
-                },
-                error: function (xhr, status, error) {
-                    // Handle error
-                    console.log("Error:", error);
-                },
-            });
-        }
-    });
 })(jQuery);
