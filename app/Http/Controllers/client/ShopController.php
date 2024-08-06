@@ -34,4 +34,10 @@ class ShopController extends Controller
         );
         return response()->json($filtered, 200);
     }
+    public function detailProduct($id)
+    {
+        $product = $this->shopService->getProductById($id);
+        return view('client.shop.detail', compact('product'));
+        // return $product;
+    }
 }
