@@ -12,7 +12,7 @@
                         <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang {{ $productAmount[0]['name'] }}</h1>
                         <p>{{ count($productAmount) }} sản phẩm</p>
                         {{-- <p>0 sản phẩm</p> --}}
-                        <a href="#">Mua ngay</a>
+                        <a href="{{ route('client.shop.index') }}">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                                 <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang {{ strtolower($ct->name) }}</h4>
                                 <p>{{ count($productAmount) }} sản phẩm</p>
                                 {{-- <p>0 sản phẩm</p> --}}
-                                <a href="#">Mua ngay</a>
+                                <a href="{{ route('client.shop.index') }}">Mua ngay</a>
                             </div>
                         </div>
                     </div>
@@ -66,12 +66,12 @@
                         <div class="label new">Mới</div>
                         <ul class="product__hover">
                             <li><a href="{{ asset($product->img) }}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                            {{-- <li><a href="#"><span class="icon_heart_alt"></span></a></li> --}}
+                            <li><a href="{{ route('client.shop.detail', $product->id) }}"><span class="icon_bag_alt"></span></a></li>
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">{{ $product->name }}</a></h6>
+                        <h6><a href="{{ route('client.shop.detail', $product->id) }}">{{ $product->name }}</a></h6>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -224,7 +224,7 @@
                             <p>Giây</p>
                         </div>
                     </div>
-                    <a href="#">Mua ngay</a>
+                    <a href="{{ route('client.shop.index') }}">Mua ngay</a>
                 </div>
             </div>
         </div>
