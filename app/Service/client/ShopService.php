@@ -22,6 +22,11 @@ class ShopService
     {
         return Product::all();
     }
+
+    public function getProductById($id)
+    {
+        return Product::find($id);
+    }
     public function getAllCategories()
     {
         return Category::all();
