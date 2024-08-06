@@ -16,11 +16,6 @@ Route::prefix('shop')->group(function () {
     Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
 });
 
-Route::prefix('shop')->group(function () {
-    Route::get('/', [ShopController::class, 'index'])->name('client.shop.index');
-    Route::get('/filter-products', [ShopController::class, 'filterProducts']);
-});
-
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
     Route::post('/', [ContactController::class, 'store'])->name('customer.requests.store');

@@ -8,7 +8,6 @@ Created: Colorib
 ---------------------------------------------------------  */
 
 "use strict";
-
 $(document).ready(function() {
     $('.dropdown').on('mouseenter mouseleave click', function(e) {
         e.stopPropagation();
