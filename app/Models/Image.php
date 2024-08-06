@@ -9,11 +9,12 @@ class Image extends Model
     protected $table = 'images';
 
     protected $fillable = [
-        'img'
+        'img',
+        'product_id'
     ];
 
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }
