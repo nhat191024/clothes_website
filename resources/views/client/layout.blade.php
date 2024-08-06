@@ -101,7 +101,7 @@
                     <nav class="header__menu">
                         <ul>
 
-                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li class="active"><a href="{{ route('client.home.index') }}">Home</a></li>
                             <li><a href="{{ route('client.shop.index') }}">Female</a></li>
                             <li><a href="{{ route('client.shop.index') }}">Male</a></li>
                             <li><a href="{{ route('client.shop.index') }}">Kids</a></li>
