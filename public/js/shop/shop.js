@@ -31,7 +31,6 @@ $(document).ready(function () {
             filterData.category.push(parseInt($(this).val(), 10));
             filterData.category.push($(this).data("parentcategory"));
         });
-        // da line below iz for removin' duplicate IDs lol
         filterData.category = [...new Set(filterData.category)];
         filterData.size = getCheckedValues('.size-filter');
         filterData.color = getCheckedValues('.color-filter');
@@ -80,12 +79,11 @@ $(document).ready(function () {
                             <div class="label new">New</div>
                             <ul class="product__hover">
                                 <li><a href="img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                <li><a href="/shop/product/${product.id}"><span class="icon_bag_alt"></span></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">${product.name}</a></h6>
+                            <h6><a href="/shop/product/${product.id}">${product.name}</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
