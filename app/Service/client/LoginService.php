@@ -13,7 +13,7 @@ class LoginService
         Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('home.index');
+        return redirect()->route('client.home.index');
     }
 
     public function loginAuth(Request $request)
@@ -45,7 +45,7 @@ class LoginService
         if ($user->status == 0) {
             return redirect()->route('client.login.index')->with('message', 'Người dùng đã bị khoá!');
         }
-        return redirect()->intended(route('home.index'));
+        return redirect()->intended(route('client.home.index'));
     }
 }
 
