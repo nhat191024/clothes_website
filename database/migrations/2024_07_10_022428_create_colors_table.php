@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('colors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('color_hex');
             $table->softDeletes();
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 
