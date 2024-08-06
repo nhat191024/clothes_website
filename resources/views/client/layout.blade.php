@@ -94,27 +94,29 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
+                        <a href="{{ route('client.home.index') }}"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
 
-                            <li class="active"><a href="./index.html">Trang chủ</a></li>
-                            <li><a href="#">Nữ</a></li>
-                            <li><a href="#">Nam</a></li>
-                            <li><a href="./shop.html">Cửa hàng</a></li>
-                            <li><a href="#">Trang</a>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li><a href="{{ route('client.shop.index') }}">Female</a></li>
+                            <li><a href="{{ route('client.shop.index') }}">Male</a></li>
+                            <li><a href="{{ route('client.shop.index') }}">Kids</a></li>
+                            <li><a href="{{ route('client.shop.index') }}">Shop</a></li>
+                            <li><a href="{{ route('client.home.index') }}">Cart</a></li>
+                            {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
-                                    <li><a href="./shop-cart.html">Giỏ hàng</a></li>
+                                    <li><a href="./shop-cart.html">Cart</a></li>
                                     <li><a href="./checkout.html">Thanh toán</a></li>
                                     <li><a href="./blog-details.html">Chi tiết Blog</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Liên hệ</a></li>
+                            </li> --}}
+                            {{-- <li><a href="./blog.html">Blog</a></li> --}}
+                            <li><a href="./contact.html">Contact</a></li>
 
                         </ul>
                     </nav>
