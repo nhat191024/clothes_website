@@ -101,11 +101,11 @@
                     <nav class="header__menu">
                         <ul>
 
-                            <li class="active"><a href="{{ route('client.home.index') }}">Home</a></li>
+                            <li class="{{ Request::url() == route('client.home.index') || Request::url() == null ? 'active' : '' }}"><a href="{{ route('client.home.index') }}">Home</a></li>
                             <li><a href="{{ route('client.shop.index') }}">Female</a></li>
                             <li><a href="{{ route('client.shop.index') }}">Male</a></li>
                             <li><a href="{{ route('client.shop.index') }}">Kids</a></li>
-                            <li><a href="{{ route('client.shop.index') }}">Shop</a></li>
+                            <li class="{{ Request::url() == route('client.shop.index') ? 'active' : '' }}"><a href="{{ route('client.shop.index') }}">Shop</a></li>
                             <li><a href="{{ route('client.home.index') }}">Cart</a></li>
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
