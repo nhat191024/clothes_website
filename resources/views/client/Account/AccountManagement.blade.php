@@ -7,7 +7,7 @@
                     <img class="avatar mx-auto" src="{{ url('') . '/' }}img/{{$user->avt}}" alt="Card image">
                     <div class="card-body">
                         <center>
-                            <h4 class="">Name</h4>
+                            <h4 class="">{{$user->username}}</h4>
                             <br>
                         </center>
                         <ul class="list-group list-group-flush">
@@ -27,7 +27,7 @@
                     <label>Address</label>
                     <input class="account-input" type="text" name="addres" placeholder="Enter Address" value="{{$user->address}}">
                     <label>Phone</label>
-                    <input class="account-input" type="tel" name="phone" placeholder="Enter Phonenumber" value="{{$user->phone}}">
+                    <input class="account-input" type="number" name="phone" placeholder="Enter Phonenumber" value="{{$user->phone}}">
                     <div>
                         <br>
                         <a> <button type="submit" class="btn-acconut">Save</button></a>
