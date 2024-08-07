@@ -5,6 +5,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <img class="avatar mx-auto" src="{{ url('') . '/' }}img/{{$user->avt}}" alt="Card image">
+                    
                     <div class="card-body">
                         <center>
                             <h4 class="">{{$user->username}}</h4>
