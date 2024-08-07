@@ -5,46 +5,62 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AccountManagement extends Controller
 {
-    public function index($id){
-        // $user = auth()->user();
-        $user  = User::where('id',$id)->first();
+    public function index(){
+        $user = auth()->user();
         return view('client.Account.AccountManagement', compact('user'));
     }
     // Fake view
-    public function pass($id){
-        // $user = auth()->user();
-        $user  = User::where('id',$id)->first();
+    public function pass(){
+        $user = auth()->user();
         return view('client.Account.ChangePassword', compact('user'));
     }
     // Chưa sử dụng 
-    // public function changePass(Request $request, $id){
-    //     $user  = User::where('id',$id)->first();
-    //     if ($request->isMethod('post')) {
-    //         $data = $request->all();
-    //         if ($data['password'] == $data['passwordConfirm']) {
-    //             $user->password = bcrypt($data['password']);
-    //             $user->save();
-    //             return redirect()->route('client.account.index', $id)->with('success', 'Password has been changed successfully.');
-    //         } else {
-    //             return redirect()->route('client.account.index', $id)->with('error', 'Password and Confirm Password does not match.');
-    //         }
-    //     }
-    // return view('client.Account.changeData', compact('user'));
-    //     return view('client.Account.AccountManagement', compact('user'));
-    // public function changeData(Request $request, $id){
-    //     $user  = User::where('id',$id)->first();
-    //     if ($request->isMethod('post')) {
-    //         $data = $request->all();
-    //         $user->name = $data['name'];
-    //         $user->email = $data['email'];
-    //         $user->address = $data['address'];
-    //         $user->phone = $data['phone'];
-    //         $user->save();
-    //         return redirect()->route('account.index', $id)->with('success', 'Info has been changed successfully.');
-    //     }
-    //     return view('client.Account.AccountManagement', compact('user'));    
-    // }
+    public function changePass(Request $request){
+        /** @var \App\Models\User $user */
+        $user = auth()->user();
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            if(!Hash::check($data['passwordCurenrt'],$user->password)){
+                return redirect()->route('client.account.changepassword')
+                ->with('error', 'Current password is incorrect.');
+            }
+            if ($data['passwordNew'] == $data['passwordConfirm']) {
+                $user->password = bcrypt($data['passwordNew']);
+                $user->save();
+                return redirect()->route('client.account.index')->with('success', 'Password has been changed successfully.');
+            } else {
+                return redirect()->route('client.account.changepassword')->with('error', 'Password and Confirm Password does not match.');
+            }
+        }
+    }
+    public function changeData(Request $request){
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+    
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+                'address' => 'nullable|string|max:255',
+                'phone' => 'nullable|string|max:10',
+            ]);
+    
+            $user->full_name = $data['name'];
+            $user->email = $data['email'];
+            $user->address = $data['address'];
+            $user->phone = $data['phone'];
+            $user->save(); 
+    
+            return redirect()->route('client.account.index')->with('success', 'Update Info Success.');
+        }
+    
+        return view('client.Account.AccountManagement', compact('user'));   
+    }
+    
 }

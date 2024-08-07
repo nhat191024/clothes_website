@@ -15,9 +15,12 @@ Route::prefix('/')->group(function () {
 // Route::get('/Account', function () {
 //     return view('client.Account.AccountManagement');
 // });
-Route::prefix('/Account')-> group(function () {
-    Route::get('/{id}', [AccountManagement::class,'index'])->name('client.account.index');
-    Route::get('/ChangePassword/{id}', [AccountManagement::class,'pass'])->name('client.account.changepassword');
+Route::middleware('auth')->prefix('/Account')-> group(function () {
+    Route::get('/', [AccountManagement::class,'index'])->name('client.account.index');
+    Route::post('/', [AccountManagement::class,'changeData']);
+    Route::get('/ChangePassword', [AccountManagement::class,'pass'])->name('client.account.changepassword');
+    Route::post('/ChangePassword', [AccountManagement::class,'changePass']);
+
 
 });
 
