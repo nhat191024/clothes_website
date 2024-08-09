@@ -11,21 +11,22 @@ use Illuminate\Support\Facades\Hash;
 class AccountManagement extends Controller
 {
     public function index(){
-        $user = auth()->user();
+        $user = Auth::user();
         return view('client.Account.AccountManagement', compact('user'));
     }
     // Fake view
     public function pass(){
-        $user = auth()->user();
+        $user = Auth::user();
+
         return view('client.Account.ChangePassword', compact('user'));
     }
     // Chưa sử dụng 
     public function changePass(Request $request){
         /** @var \App\Models\User $user */
-        $user = auth()->user();
+        $user = Auth::user();
         if ($request->isMethod('post')) {
             $data = $request->all();
-            if(!Hash::check($data['passwordCurenrt'],$user->password)){
+            if(!Hash::check($data['passwordCurent'],$user->password)){
                 return redirect()->route('client.account.changepassword')
                 ->with('error', 'Current password is incorrect.');
             }
