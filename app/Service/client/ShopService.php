@@ -44,21 +44,14 @@ class ShopService
     public function getProductsByFilters($categoryIds, $colorIds, $sizeIds, $maxPrice, $minPrice)
     {
         $mainQuery = Product::query();
-        $mainCategoryIds = collect($categoryIds)->filter(function ($id) {
-                return $id >= 1 && $id <= 4;
-        })->toArray();
 
-        $subCategoryIds = collect($categoryIds)->filter(function ($id) {
-                return $id >= 5 && $id <= 8;
-        })->toArray();
-
-        $subCategoryIds == null ? true : $mainQuery->whereHas('categories', function ($query) use ($subCategoryIds) {
-            $query->whereIn('category_id', $subCategoryIds);
-        });
-
-        $mainCategoryIds == null ? true : $mainQuery->whereHas('categories', function ($query) use ($mainCategoryIds) {
-            $query->whereIn('category_id', $mainCategoryIds);
-        });
+        if ($categoryIds !== null) {
+            foreach ($categoryIds as $categoryId) {
+                $mainQuery->whereHas('categories', function ($query) use ($categoryId) {
+                    $query->where('category_id', $categoryId);
+                });
+            }
+        }
 
         $colorIds == null ? true :  $mainQuery->whereHas('productDetail', function ($query) use ($colorIds) {
             $query->whereIn('color_id', $colorIds);
