@@ -26,7 +26,7 @@ class AccountManagement extends Controller
         $user = Auth::user();
         if ($request->isMethod('post')) {
             $data = $request->all();
-            if(!Hash::check($data['passwordCurent'],$user->password)){
+            if(!Hash::check($data['passwordCurrent'],$user->password)){
                 return redirect()->route('client.account.changepassword')
                 ->with('error', 'Current password is incorrect.');
             }

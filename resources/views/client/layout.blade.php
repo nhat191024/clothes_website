@@ -15,18 +15,15 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/style.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/styles.css" type="text/css">
-    <link rel="stylesheet" href="{{ url('') . '/'}}css/accountmanagement.css" type="text/css">
-
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/styles.css" type="text/css">
 
 </head>
 
@@ -53,7 +50,7 @@
                             $user = Auth::user();
                         @endphp
                         @if (Auth::check())
-                            <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
+                            <a class="dropdown-item" href="{{ route('client.account.index')}}">Profile {{ $user ? Str::lower($user->full_name) : '' }}</a>
                             <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
                             <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                         @else
@@ -72,10 +69,10 @@
         <div class="header__right__auth">
             @if (Auth::check())
                             <ul>
-                                <li><a href="#routeToUserDetail#"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
+                                <li><a href="{{ route('client.account.index')}}"><b>{{ Str::upper(Auth::user()->full_name) }}</b></a>
                                     <ul class="dropdown">
                                         <li><a href="#">Points: {{ Auth::user()->point }}P</a></li>
-                                        <li><a href="#routeToUserDetail#">Profile</a></li>
+                                        <li><a href="{{ route('client.account.index')}}">Profile</a></li>
                                         <li><a href="{{ route('client.logout') }}">Logout</a></li>
                                         {{-- <hr> --}}
                                     </ul>
@@ -137,7 +134,7 @@
                                         $user = Auth::user();
                                     @endphp
                                     @if (Auth::check())
-                                        <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
+                                        <a class="dropdown-item" href="{{ route('client.account.index')}}">Profile {{ $user ? Str::lower($user->full_name) : '' }}</a>
                                         <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else

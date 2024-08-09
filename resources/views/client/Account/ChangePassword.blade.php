@@ -21,7 +21,7 @@
             <form action="{{route('client.account.changepassword')}}" method="POST">
              @csrf
                 <label>Current password</label>
-                <input class="account-input" type="password" name="passwordCurent" placeholder="Enter current password" >
+                <input class="account-input" type="password" name="passwordCurrent" placeholder="Enter current password" >
                 <label>New password</label>
                 <input class="account-input" type="password" name="passwordNew" placeholder="Enter new password" >
                 <label>Confirm new password</label>
