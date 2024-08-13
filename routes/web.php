@@ -20,9 +20,9 @@ Route::prefix('shop')->group(function () {
 
 Route::prefix('cart')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
-    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('client.cart.add');
-    // Route::get('/filter-products', [ShopController::class, 'filterProducts']);
-    // Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
+    Route::post('/add', [CartController::class, 'addToCart'])->name('client.cart.add');
+    Route::post('/remove', [CartController::class, 'removeFromCart'])->name('client.cart.remove');
+    Route::post('/reset', [CartController::class, 'resetCart'])->name('client.cart.remove');
 });
 
 Route::prefix('contact')->group(function () {
