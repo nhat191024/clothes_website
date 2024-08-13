@@ -39,9 +39,9 @@
             <li><span class="icon_search search-switch"></span></li>
             <li><a href="#"><span class="icon_bag_alt"></span>
                     <div class="tip">2</div>
-            <li class="nav-item dropdown" style="transform: translateY(-3px)">
-                <a class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
+                <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
+                    data-toggle="" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle" width="21px"
                         src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
                 </a>
@@ -128,14 +128,14 @@
                             <li><a href="#"><span class="icon_bag_alt"></span>
 
                                 </a></li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown login-drop">
                                 <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
-                                    id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    id="heartDropdown" role="button" data-toggle="" aria-haspopup="true"
                                     aria-expanded="false" style="transform: translateY(-3px)">
                                     <img class="rounded-circle" width="23px"
                                         src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown" style="transform: translate(15px,-8px);">
+                                <div class="login-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown" style="transform: translate(15px,-8px);">
                                     @php
                                         $user = Auth::user();
                                     @endphp
