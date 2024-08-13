@@ -36,4 +36,9 @@ class CartController extends Controller
         return $this->cartService->removeProductByDetailId($request->product_detail_id);
     }
 
+    public function updateQuantity(Request $request)
+    {
+        return $this->cartService->updateQuantity($request->product_detail_id, $request->quantity);
+    }
+
 }
