@@ -1231,7 +1231,7 @@
         },
         {
             "bill_id": 3,
-            "product_id": 12,
+            "product_id": 11,
             "size_id": 4,
             "color_id": 5,
             "quantity": 1,
@@ -1239,7 +1239,7 @@
         },
         {
             "bill_id": 3,
-            "product_id": 13,
+            "product_id": 11,
             "size_id": 4,
             "color_id": 5,
             "quantity": 1,
@@ -1295,7 +1295,7 @@
         },
         {
             "bill_id": 5,
-            "product_id": 12,
+            "product_id": 11,
             "size_id": 4,
             "color_id": 5,
             "quantity": 1,
@@ -1303,7 +1303,7 @@
         },
         {
             "bill_id": 5,
-            "product_id": 13,
+            "product_id": 11,
             "size_id": 4,
             "color_id": 5,
             "quantity": 1,
@@ -1335,7 +1335,7 @@
         },
         {
             "bill_id": 6,
-            "product_id": 13,
+            "product_id": 11,
             "size_id": 4,
             "color_id": 5,
             "quantity": 1,
