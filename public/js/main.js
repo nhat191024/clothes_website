@@ -190,10 +190,11 @@ function parseCurrency(value) {
     // For demo preview start
     document.addEventListener("DOMContentLoaded", function () {
         // Thời gian còn lại ban đầu lấy từ server
-        var days = parseInt(document.getElementById("days").innerText);
-        var hours = parseInt(document.getElementById("hours").innerText);
-        var minutes = parseInt(document.getElementById("minutes").innerText);
-        var seconds = parseInt(document.getElementById("seconds").innerText);
+        var days = parseInt(document.getElementById("days")?.innerText ?? 0);
+        var hours = parseInt(document.getElementById("hours")?.innerText ?? 0);
+        var minutes = parseInt(document.getElementById("minutes")?.innerText ?? 0);
+        var seconds = parseInt(document.getElementById("seconds")?.innerText ?? 0);
+
 
         // Hàm cập nhật thời gian còn lại
         function updateCountdown() {
@@ -220,10 +221,21 @@ function parseCurrency(value) {
             }
 
             // Cập nhật giá trị hiển thị
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
+            if (document.getElementById("days")) {
+                document.getElementById("days").innerText = days;
+            }
+
+            if (document.getElementById("hours")) {
+                document.getElementById("hours").innerText = hours;
+            }
+
+            if (document.getElementById("minutes")) {
+                document.getElementById("minutes").innerText = minutes;
+            }
+
+            if (document.getElementById("seconds")) {
+                document.getElementById("seconds").innerText = seconds;
+            }
         }
 
         // Cập nhật đếm ngược mỗi giây
