@@ -20,7 +20,7 @@ Route::prefix('shop')->group(function () {
 
 Route::prefix('cart')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
-    Route::get('/checkout', [CheckoutController::class, 'index'])->name('client.cart.checkout');
+    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('client.cart.add');
     // Route::get('/filter-products', [ShopController::class, 'filterProducts']);
     // Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
 });

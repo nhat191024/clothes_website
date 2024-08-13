@@ -106,7 +106,7 @@
                             <li><a href="{{ route('client.shop.index') }}">Male</a></li>
                             <li><a href="{{ route('client.shop.index') }}">Kids</a></li>
                             <li class="{{ Request::url() == route('client.shop.index') ? 'active' : '' }}"><a href="{{ route('client.shop.index') }}">Shop</a></li>
-                            <li><a href="{{ route('client.home.index') }}">Cart</a></li>
+                            <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a href="{{ route('client.cart.index') }}">Cart</a></li>
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
