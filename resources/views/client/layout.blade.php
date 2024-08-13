@@ -136,7 +136,7 @@
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
-
+                                <div class="tip">2</div>
                                 </a></li>
                             <li class="nav-item dropdown login-drop">
                                 <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
