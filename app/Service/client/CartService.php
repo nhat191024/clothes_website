@@ -59,7 +59,14 @@ class CartService
         Cart::where('product_detail_id', $productDetailId)->update([
             'quantity' => $quantity
         ]);
-        return $quantity;
+        return [
+            'subtotal' => $this->getCart()->sum(function ($item) {
+                return $item->productDetail->product->price * $item->quantity;
+            }),
+            'total' => $this->getCart()->sum(function ($item) {
+                return $item->productDetail->product->price * $item->quantity;
+            }),
+        ];
     }
     public function updateProduct($productDetailId, $quantityChange)
     {
