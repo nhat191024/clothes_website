@@ -9,14 +9,14 @@ Created: Colorib
 
 "use strict";
 $(document).ready(function() {
-    $('.dropdown').on('mouseenter mouseleave click', function(e) {
+    $('.login-drop').on('mouseenter mouseleave click', function(e) {
         e.stopPropagation();
         if (e.type === 'click' || $(this).is(':hover')) {
             $(this).toggleClass('show');
-            $(this).find('.dropdown-menu').toggleClass('show');
+            $(this).find('.login-dropdown').toggleClass('show');
         } else {
             $(this).removeClass('show');
-            $(this).find('.dropdown-menu').removeClass('show');
+            $(this).find('.login-dropdown').removeClass('show');
         }
     });
 });

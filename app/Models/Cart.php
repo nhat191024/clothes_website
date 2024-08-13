@@ -2,22 +2,23 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BillDetail extends Model
+class Cart extends Model
 {
-    protected $table = 'bill_details';
+    protected $table = 'carts';
 
     protected $fillable = [
         'product_detail_id',
-        'bill_id',
+        'user_id',
         'quantity',
         'price'
     ];
 
-    public function bill()
+    public function user()
     {
-        return $this->belongsTo(Bill::class);
+        return $this->belongsTo(User::class);
     }
 
     public function productDetail()

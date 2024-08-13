@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +16,13 @@ Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('client.shop.index');
     Route::get('/filter-products', [ShopController::class, 'filterProducts']);
     Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
+});
+
+Route::prefix('cart')->group(function () {
+    Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('client.cart.checkout');
+    // Route::get('/filter-products', [ShopController::class, 'filterProducts']);
+    // Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
 });
 
 Route::prefix('contact')->group(function () {
