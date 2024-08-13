@@ -1166,188 +1166,250 @@
     ],
     "bill_details": [
         {
-            "product_detail_id": 1,
             "bill_id": 1,
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 5,
             "quantity": 2,
             "price": 250000
         },
         {
-            "product_detail_id": 2,
             "bill_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 350000
         },
         {
             "bill_id": 1,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 1,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 2,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 2,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 3,
-            "product_detail_id": 9,
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 4500
         },
         {
             "bill_id": 3,
-            "product_detail_id": 11,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1350
         },
         {
             "bill_id": 3,
-            "product_detail_id": 12,
+            "product_id": 12,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2250
         },
         {
             "bill_id": 3,
-            "product_detail_id": 13,
+            "product_id": 13,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3150
         },
         {
             "bill_id": 3,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 4,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 4,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 4,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 4,
-            "product_detail_id": 9,
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 4500
         },
         {
             "bill_id": 4,
-            "product_detail_id": 11,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1350
         },
         {
             "bill_id": 5,
-            "product_detail_id": 12,
+            "product_id": 12,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2250
         },
         {
             "bill_id": 5,
-            "product_detail_id": 13,
+            "product_id": 13,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3150
         },
         {
             "bill_id": 5,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 5,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 5,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 6,
-            "product_detail_id": 13,
+            "product_id": 13,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3150
         },
         {
             "bill_id": 6,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 6,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 6,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 6,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 7,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 7,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 7,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 7,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 7,
-            "product_detail_id": 9,
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 4500
         }
