@@ -131,7 +131,7 @@
                                 <h4>{{ $sections[$count / 3] ?? 'Sản Phẩm Khác' }}</h4>
                             </div>
                 @endif
-                <div class="trend__item">
+                <div class="trend__item" style="cursor: pointer" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'">
                     <div class="trend__item__pic">
                         <img src="{{$product->img}}" alt="" width="100px">
                     </div>
@@ -161,7 +161,7 @@
                         <h4>Ưa Thích</h4>
                     </div>
                     @foreach($favoriteProductInfo as $product)
-                    <div class="trend__item">
+                    <div class="trend__item"  style="cursor: pointer" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'">
                         <div class="trend__item__pic">
                             <img src="{{$product->img}}" alt="" width="100px">
                         </div>
