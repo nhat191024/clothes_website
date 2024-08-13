@@ -29,7 +29,8 @@ Route::prefix('cart')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
     Route::post('/add', [CartController::class, 'addToCart'])->name('client.cart.add');
     Route::post('/remove', [CartController::class, 'removeFromCart'])->name('client.cart.remove');
-    Route::post('/reset', [CartController::class, 'resetCart'])->name('client.cart.remove');
+    Route::post('/reset', [CartController::class, 'resetCart'])->name('client.cart.reset');
+    Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('client.cart.updateQuantity');
 });
 
 Route::prefix('contact')->group(function () {
