@@ -46,7 +46,7 @@
                                     <td class="cart__price">{{ number_format($pd->productDetail->product->price) }}Y</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="{{ $pd->quantity }}">
+                                            <input id="productDetail-{{ $pd['product_detail_id'] }}" name="product-quantity" type="text" value="{{ $pd->quantity }}">
                                         </div>
                                     </td>
                                     <td class="cart__total">{{ number_format($pd->productDetail->product->price * $pd->quantity) }}Y</td>
@@ -106,6 +106,7 @@
         </div>
     </section>
     <!-- Shop Cart Section End -->
+    <link rel="stylesheet" href="{{ asset('css/cart/cart.css') }}"></link>
     <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
     <script src="{{ url('') . '/' }}js/cart/cart.js"></script>
     <script>
