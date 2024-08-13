@@ -1,8 +1,7 @@
 <?php
-
-
 use App\Http\Controllers\client\AccountManagement;
-
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
 use Illuminate\Support\Facades\Route;

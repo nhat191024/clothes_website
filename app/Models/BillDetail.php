@@ -14,8 +14,7 @@ class BillDetail extends Model
         'size_id',
         'color_id',
         'quantity',
-        'price',
-        'total_price'
+        'price'
     ];
 
     public function bill()
