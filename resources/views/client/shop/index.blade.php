@@ -98,7 +98,7 @@
                 <div class="row" id="products-list">
                     @foreach($allPageProducts as $product)
                     <div class="col-lg-4 col-md-6">
-                        <div class=".product__item">
+                        <div class=".product__item"  style="cursor: pointer" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'">
                             <div class="product__item__pic set-bg" data-setbg="{{ $product->img }}">
                                 <div class="label new">New</div>
                                 <ul class="product__hover">

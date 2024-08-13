@@ -74,7 +74,7 @@ $(document).ready(function () {
         products.forEach(product => {
             productHtml += `
                 <div class="col-lg-4 col-md-6">
-                    <div class=".product__item">
+                    <div class=".product__item" <div class=".product__item"  style="cursor: pointer" onclick="window.location='/shop/product/${product.id}'">>
                         <div class="product__item__pic set-bg" data-setbg="${product.img}" style="background-image: url(&quot;${product.img}&quot;);">
                             <div class="label new">New</div>
                             <ul class="product__hover">
