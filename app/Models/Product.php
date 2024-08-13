@@ -13,23 +13,23 @@ class Product extends Model
     protected $fillable = [
         'name',
         'img',
-        'img_id',
         'description',
         'price',
         'sale_price'
     ];
 
-    public function img()
+    public function image()
     {
-        return $this->belongsTo(Image::class);
+        return $this->hasMany(Image::class);
     }
 
     public function productDetail()
     {
         return $this->hasMany(ProductDetail::class);
     }
+
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'product_categories', 'category_id', 'product_id');
+        return $this->belongsToMany(Category::class, 'product_categories', 'product_id', 'category_id');
     }
 }

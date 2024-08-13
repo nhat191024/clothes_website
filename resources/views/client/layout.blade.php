@@ -38,26 +38,29 @@
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
             <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
-                <li class="nav-item dropdown" style="transform: translateY(-3px)">
-                    <a class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle" width="21px" src="{{ url('') . '/' }}img/user/{{ Auth::user()? Auth::user()->avatar : 'avt-default.png' }}"><img>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown">
-                        @php
-                            $user = Auth::user();
-                        @endphp
-                        @if (Auth::check())
-                            <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
-                            <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
-                            <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
-                        @else
-                            <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
-                            <a class="dropdown-item" href="#registerRoute">Register</a>
-                        @endif
-                    </div>
-                </li>
-                </a></li>
+                    <div class="tip">2</div>
+            <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
+                <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
+                    data-toggle="" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle" width="21px"
+                        src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown" style="transform: translate(15px,-5px);">
+                    @php
+                        $user = Auth::user();
+                    @endphp
+                    @if (Auth::check())
+                        <a class="dropdown-item" href="#routeToUserDetail#">Profile
+                            {{ $user ? Str::lower($user->username) : '' }}</a>
+                        <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
+                        <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                    @else
+                        <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                        <a class="dropdown-item" href="#registerRoute">Register</a>
+                    @endif
+                </div>
+            </li>
+            </a></li>
         </ul>
         <div class="offcanvas__logo">
             <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
@@ -66,17 +69,17 @@
 
         <div class="header__right__auth">
             @if (Auth::check())
-                            <ul>
-                                <li><a href="#routeToUserDetail#"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Points: {{ Auth::user()->point }}P</a></li>
-                                        <li><a href="#routeToUserDetail#">Profile</a></li>
-                                        <li><a href="{{ route('client.logout') }}">Logout</a></li>
-                                        {{-- <hr> --}}
-                                    </ul>
-                                </li>
-                            </ul>
-                            @endif
+                <ul>
+                    <li><a href="#routeToUserDetail#"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
+                        <ul class="dropdown">
+                            <li><a href="#">Points: {{ Auth::user()->point }}P</a></li>
+                            <li><a href="#routeToUserDetail#">Profile</a></li>
+                            <li><a href="{{ route('client.logout') }}">Logout</a></li>
+                            {{-- <hr> --}}
+                        </ul>
+                    </li>
+                </ul>
+            @endif
             @if (!Auth::check())
                 <a class="font-bold" href="{{ route('client.login.index') }}">Login</a> <br>
                 <a class="font-bold" href="#registerRoute">Register</a>
@@ -91,27 +94,29 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
+                        <a href="{{ route('client.home.index') }}"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
 
-                            <li class="active"><a href="./index.html">Trang chủ</a></li>
-                            <li><a href="#">Nữ</a></li>
-                            <li><a href="#">Nam</a></li>
-                            <li><a href="./shop.html">Cửa hàng</a></li>
-                            <li><a href="#">Trang</a>
+                            <li class="{{ Request::url() == route('client.home.index') || Request::url() == null ? 'active' : '' }}"><a href="{{ route('client.home.index') }}">Home</a></li>
+                            <li><a href="{{ route('client.shop.index') }}">Female</a></li>
+                            <li><a href="{{ route('client.shop.index') }}">Male</a></li>
+                            <li><a href="{{ route('client.shop.index') }}">Kids</a></li>
+                            <li class="{{ Request::url() == route('client.shop.index') ? 'active' : '' }}"><a href="{{ route('client.shop.index') }}">Shop</a></li>
+                            <li><a href="{{ route('client.home.index') }}">Cart</a></li>
+                            {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
-                                    <li><a href="./shop-cart.html">Giỏ hàng</a></li>
+                                    <li><a href="./shop-cart.html">Cart</a></li>
                                     <li><a href="./checkout.html">Thanh toán</a></li>
                                     <li><a href="./blog-details.html">Chi tiết Blog</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Liên hệ</a></li>
+                            </li> --}}
+                            {{-- <li><a href="./blog.html">Blog</a></li> --}}
+                            <li><a href="./contact.html">Contact</a></li>
 
                         </ul>
                     </nav>
@@ -122,18 +127,23 @@
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="#"><span class="icon_bag_alt"></span>
 
-                            </a></li>
-                            <li class="nav-item dropdown">
-                                <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="transform: translateY(-3px)">
-                                    <img class="rounded-circle" width="23px" src="{{ url('') . '/' }}img/user/{{ Auth::user()? Auth::user()->avatar : 'avt-default.png' }}"><img>
+                                </a></li>
+                            <li class="nav-item dropdown login-drop">
+                                <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
+                                    id="heartDropdown" role="button" data-toggle="" aria-haspopup="true"
+                                    aria-expanded="false" style="transform: translateY(-3px)">
+                                    <img class="rounded-circle" width="23px"
+                                        src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown">
+                                <div class="login-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown" style="transform: translate(15px,-8px);">
                                     @php
                                         $user = Auth::user();
                                     @endphp
                                     @if (Auth::check())
-                                        <a class="dropdown-item" href="#routeToUserDetail#">Profile {{ $user ? Str::lower($user->username) : '' }}</a>
-                                        <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
+                                        <a class="dropdown-item" href="#routeToUserDetail#">Profile
+                                            {{ $user ? Str::lower($user->username) : '' }}</a>
+                                        <a class="dropdown-item" href="#">Points:
+                                            {{ $user ? $user->point : '' }}P</a>
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else
                                         <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>

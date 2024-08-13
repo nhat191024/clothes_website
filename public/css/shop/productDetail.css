@@ -1,0 +1,35 @@
+.color__checkbox input[type="radio"] {
+    display: none;
+}
+
+.color__checkbox .checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+    border: 2px solid #ccc;
+    /*Outlineforvisibility*/transition: border 0.3s;
+    -webkit-transition: border 0.3s;
+    -moz-transition: border 0.3s;
+    -ms-transition: border 0.3s;
+    -o-transition: border 0.3s;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.color__checkbox input[type="radio"]:checked + .checkmark {
+    border: 2px solid #000; /* Dark border when checked */
+
+}
+
+.color__checkbox input[type="radio"]:checked + .checkmark::after {
+    transform: rotate(127deg) scale(0.8) translate(0%, 30%);
+    -webkit-transform: rotate(127deg) scale(0.8) translate(0%, 30%);
+    -moz-transform: rotate(127deg) scale(0.8) translate(0%, 30%);
+    -ms-transform: rotate(127deg) scale(0.8) translate(0%, 30%);
+    -o-transform: rotate(127deg) scale(0.8) translate(0%, 30%);
+}

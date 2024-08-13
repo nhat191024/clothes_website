@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach ($dataArray['product_categories'] as $row) {
-            ProductCategory::create($row);
+            Product::find($row['product_id'])->categories()->attach($row['category_id']);
         }
 
         foreach ($dataArray['promotions'] as $row) {
