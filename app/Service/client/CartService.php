@@ -59,7 +59,13 @@ class CartService
         Cart::where('product_detail_id', $productDetailId)->update([
             'quantity' => $quantity
         ]);
-        return 'ok';
+        return $quantity;
+    }
+    public function updateProduct($productDetailId, $quantityChange)
+    {
+        $productDetail = ProductDetail::find($productDetailId);
+        $quantity = $this->getCart()->where('product_detail_id', $productDetailId)->first()->quantity + $quantityChange;
+        $this->updateQuantity($productDetail->id, $quantity);
     }
 
     public function getCartSession()
