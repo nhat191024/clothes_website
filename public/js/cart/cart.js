@@ -17,17 +17,16 @@ $(document).ready(function () {
 
 function addToCart(productId) {
     $.ajax({
-        url: '/cart/add-to-cart',
+        url: '/cart/add',
         type: 'POST',
         data: {
             _token: csrfToken,
-            productId: productId,
-            color: color,
-            size: size,
+            product_id: productId,
+            color_id: color,
+            size_id: size,
             quantity: $('.pro-qty input').val(),
             price: price
         },
-        // add before submit
         beforeSend: function () {
             $('#add-to-cart-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Adding...');
             $('#add-to-cart-btn').addClass('text-white');
@@ -37,10 +36,32 @@ function addToCart(productId) {
             $('#add-to-cart-btn').addClass('text-white');
             console.log(response);
         },
-        error: function (xhr, status, error) {
+        error: function (error) {
             console.log(error);
         }
     });
 }
 
+function removeFromCart(productDetailId)
+{
+    if (confirm('Are you sure you want to remove this item from your cart?')) {
+        $.ajax({
+            url: '/cart/remove',
+            type: 'POST',
+            data: {
+                _token: csrfToken,
+                product_detail_id: productDetailId
+            },
+            beforeSend: function () {
+                $('.cart__close_'+productDetailId).html('<span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>');
+            },
+            success: function (response) {
+                $('.product-'+productDetailId).addClass('d-none');
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+            }
+        });
+    }
+}
 
