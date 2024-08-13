@@ -37,7 +37,7 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
+            <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
                     <div class="tip">2</div>
             <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
                 <a class="nav-link dropdown-toggle" href="#" id="heartDropdown" role="button"
@@ -125,7 +125,7 @@
                     <div class="header__right">
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
+                            <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
 
                                 </a></li>
                             <li class="nav-item dropdown login-drop">
