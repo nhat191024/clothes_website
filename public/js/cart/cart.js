@@ -24,7 +24,16 @@ $(document).ready(function () {
             updateQuantity(productDetailId, currentQuantity + 1);
         } else if ($(this).hasClass('dec') && currentQuantity > 1) {
             updateQuantity(productDetailId, currentQuantity - 1);
+        } else if (currentQuantity <= 0) {
+            removeFromCart(productDetailId);
         }
+    });
+
+    $('input[name="product-quantity"]').on('change', function() {
+        var productDetailId = $(this).attr('id').split('-')[1];
+        var quantity = $(this).val();
+        updateQuantity(productDetailId, quantity);
+        console.log(productDetailId,quantity);
     });
 })
 
@@ -80,6 +89,7 @@ function removeFromCart(productDetailId)
 
 function updateQuantity(product_detail_id,quantity)
 {
+
     $.ajax({
         url: '/cart/updateQuantity',
         type: 'POST',
@@ -89,19 +99,27 @@ function updateQuantity(product_detail_id,quantity)
             quantity: quantity
         },
         beforeSend: function () {
-            console.log('updating...');
             $('.cart__close_'+product_detail_id).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         },
         success: function (response) {
-            $('#productDetail-'+product_detail_id).val(response);
+            updatePrices(product_detail_id,response.subtotal,response.total);
+            // $('#productDetail-'+product_detail_id).val(response);
             $('.cart__close_'+product_detail_id).html('<span class="icon_close"></span>');
-            console.log('updated!!!',response);
-        },
-        error: function (error) {
-            console.log('error');
-            console.log(error);
         }
     });
+}
+
+function updatePrices(product_detail_id,subtotal,total)
+{
+    var product_price= $('.cart__price-'+product_detail_id).data('id');
+    var outputPrice = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(product_price * $('#productDetail-'+product_detail_id).val());
+    $('#cart__total-'+product_detail_id).text(outputPrice);
+
+    var outputSubtotal = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(subtotal);
+    $('#subtotal').text(outputSubtotal);
+    var outputTotal = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(total);
+    $('#total').text(outputTotal);
+
 }
 
 
