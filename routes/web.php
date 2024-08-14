@@ -19,18 +19,12 @@ Route::prefix('shop')->group(function () {
     Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
 });
 
-// Route::get('/Account', function () {
-//     return view('client.Account.AccountManagement');
-// });
-Route::middleware('auth')->prefix('/Account')-> group(function () {
+Route::middleware('auth')->prefix('account')-> group(function () {
     Route::get('/', [AccountManagement::class,'index'])->name('client.account.index');
     Route::post('/', [AccountManagement::class,'changeData']);
-    Route::get('/ChangePassword', [AccountManagement::class,'pass'])->name('client.account.changepassword');
-    Route::post('/ChangePassword', [AccountManagement::class,'changePass']);
-
-
+    Route::get('/changePassword', [AccountManagement::class,'pass'])->name('client.account.changepassword');
+    Route::post('/changePassword', [AccountManagement::class,'changePass']);
 });
-
 
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
