@@ -4,6 +4,7 @@
             "avt": "avatar1.jpg",
             "username": "user123",
             "password": "hashed_password1",
+            "full_name": "Nguyen Van A",
             "email": "user123@example.com",
             "address": "123 Main Street",
             "phone": "1234567890"
@@ -12,6 +13,7 @@
             "avt": "avatar2.png",
             "username": "user456",
             "password": "hashed_password2",
+            "full_name": "Tran Thi B",
             "email": "user456@example.com",
             "address": "456 Elm Street",
             "phone": "9876543210"

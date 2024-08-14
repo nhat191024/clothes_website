@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('avt')->nullable();
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('full_name');
             $table->string('email')->unique();
             $table->string('address')->nullable();
             $table->string('phone', 16);
