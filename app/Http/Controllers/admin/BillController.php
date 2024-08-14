@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\Bill;
 use App\Models\Bills;
 use App\Service\admin\BillService;
 use App\Service\admin\BranchService;
@@ -47,6 +48,6 @@ class BillController extends Controller
 
     public function getPending()
     {
-        return Bills::all()->where('status', 0);
+        return Bill::all()->where('status', 0);
     }
 }

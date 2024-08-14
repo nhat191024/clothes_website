@@ -2,30 +2,30 @@
 
 namespace App\Service\admin;
 
-use App\Models\Bill_details;
-use App\Models\Bills;
+use App\Models\Bill;
+use App\Models\BillDetail;
 
 class BillService
 {
     public function getAll()
     {
-        $branch = Bills::orderBy('status')->get();
-        return $branch;
+        $bill = Bill::orderBy('status')->get();
+        return $bill;
     }
 
     public function getById($id) {
-        return Bills::where('id', $id)->first();
+        return Bill::where('id', $id)->first();
     }
 
     public function getAllByIdBill($billId)
     {
-        $billDetailArray = Bill_details::where('bill_id', $billId)->get();
+        $billDetailArray = BillDetail::where('bill_id', $billId)->get();
         return $billDetailArray;
     }
 
     public function updateStatus($id, $status)
     {
-        $method = Bills::where('id', $id)->first();
+        $method = Bill::where('id', $id)->first();
         $method->status = $status;
         $method->save();
     }

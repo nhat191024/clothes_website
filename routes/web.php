@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 

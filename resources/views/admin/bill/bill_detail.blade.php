@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <p><strong>Phương thức thanh toán:
-                                </strong>{{ Helper::PAYMENT_METHOD[$billInfo->payment_method] }}</p>
+                                </strong>{{ Helper::PAYMENT_METHOD[$billInfo->checkout_method] }}</p>
                         </div>
                         <div class="form-group">
                             <h5 class="text-gray-900"><strong>Tổng tiền:
@@ -64,7 +64,8 @@
                         <p
                             class="{{ $billInfo->status == 0 ? 'text-danger' : ($billInfo->status == 2 ? 'text-warning' : 'text-success') }}">
                             <strong>Trạng thái thanh toán: </strong>
-                            {{ Helper::BILL_STATUS[$billInfo['status']] }}</p>
+                            {{ Helper::BILL_STATUS[$billInfo['status']] }}
+                        </p>
 
                         <input type="hidden" name="bill_id" value="{{ $billInfo['id'] }}">
                         <a href="{{ route('admin.bill.updateStatus', ['bill_id' => $billInfo['id'], 'bill_status' => Helper::BILL_UNPAID]) }}"
@@ -100,32 +101,35 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên bánh</th>
-                                    <th>Size bánh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Size</th>
+                                    <th>Màu</th>
                                     <th>Số lượng</th>
-                                    <th>Giá 1 bánh</th>
+                                    <th>Giá</th>
                                     <th>Tổng cộng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên bánh</th>
-                                    <th>Size bánh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Size</th>
+                                    <th>Màu</th>
                                     <th>Số lượng</th>
-                                    <th>Giá 1 bánh</th>
+                                    <th>Giá</th>
                                     <th>Tổng cộng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($billInfo->bill_details as $key => $item)
+                                @foreach ($billInfo->billDetail as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ Helper::getWithTrashedProductById($item->product_id)?->name ?? 'Sản phẩm đã bị xoá' }}
-                                        </td>
-                                        <td>{{ Helper::getWithTrashedVariationById($item->variation_id)?->name ?? 'Size đã bị xoá' }}
-                                        </td>
-
+                                        <td>{{ Helper::getWithTrashedProductById($item->product_id)?->id ?? 'Sản phẩm đã bị xoá' }}
+                                        <td>{{ $item->size->name }}
+                                        <td>{{ $item->color->name }}
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ number_format($item->price, 0, ',', '.') }}đ</td>
                                         <td>{{ number_format($item->price * $item->quantity, 0, ',', '.') }}đ</td>

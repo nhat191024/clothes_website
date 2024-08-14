@@ -55,7 +55,7 @@
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item->full_name }}</td>
                                         <td>{{ $item->address }}</td>
-                                        <td>{{ $item->phone_number }}</td>
+                                        <td>{{ $item->phone }}</td>
                                         <td>{{ $item->created_at }}</td>
                                         <td>{{ number_format($item->total_amount, 0, ',', '.') }}đ</td>
                                         <td
