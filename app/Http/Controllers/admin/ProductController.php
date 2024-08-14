@@ -4,9 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Service\admin\CategoryService;
+use App\Service\admin\ColorService;
 use App\Service\admin\ProductService;
 use App\Service\admin\SizeService;
-use App\Service\admin\VariationService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,13 +14,15 @@ class ProductController extends Controller
     private $productService;
     private $categoryService;
     private $sizeService;
+    private $colorService;
 
     // 
-    public function __construct(ProductService $productService, CategoryService $categoryService, SizeService $sizeService)
+    public function __construct(ProductService $productService, CategoryService $categoryService, SizeService $sizeService, ColorService $colorService)
     {
         $this->productService = $productService;
         $this->categoryService = $categoryService;
         $this->sizeService = $sizeService;
+        $this->colorService = $colorService;
     }
 
     public function index()
@@ -33,7 +35,15 @@ class ProductController extends Controller
     {
         $allCategory = $this->categoryService->getAll();
         $allSize = $this->sizeService->getAll();
-        return view('admin.product.add_product', compact('allCategory', 'allSize'));
+        $allColor = $this->colorService->getAll();
+        $allSize = $allSize->pluck('name', 'id')->toArray(); // Giả sử bảng size có cột 'name' và 'id'
+        $allColor = $this->colorService->getAll()->pluck('name', 'id')->map(function ($name, $id) use ($allColor) {
+            return [
+                'name' => $name,
+                'color_hex' => $allColor->find($id)->color_hex // hoặc trường dữ liệu HEX của bạn
+            ];
+        })->toArray();
+        return view('admin.product.add_product', compact('allCategory', 'allSize', 'allColor'));
     }
 
     public function showDetail(Request $request)
@@ -46,6 +56,7 @@ class ProductController extends Controller
 
     public function addProduct(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'category_id' => 'required',
             'product_name' => 'required',

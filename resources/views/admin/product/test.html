@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Mới Sản Phẩm Quần Áo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+    <style>
+        .size-color-card {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            position: relative;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Thêm Mới Sản Phẩm Quần Áo</h2>
+        <form id="product-form">
+            <div class="form-group">
+                <label for="product-name">Tên Sản Phẩm</label>
+                <input type="text" class="form-control" id="product-name" name="product-name" placeholder="Nhập tên sản phẩm" required>
+            </div>
+            <div id="sizes-container">
+                <!-- Các phần tử size và màu sẽ được thêm vào đây -->
+            </div>
+            <button type="button" class="btn btn-primary" id="add-size-color-btn">Thêm Size và Màu</button>
+            <button type="submit" class="btn btn-success">Lưu Sản Phẩm</button>
+        </form>
+    </div>
+
+    <!-- Thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Thư viện Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Thư viện Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Thư viện bootstrap-select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let sizeColorCount = 0;
+
+            // Function to add a new size-color card
+            function addSizeColorCard(size = '', colors = []) {
+                sizeColorCount++;
+                let sizeOptions = @json($allSize);
+                let colorOptions = @json($allColor);
+
+                let sizeOptionsHTML = sizeOptions.map(s => `<option value="${s}" ${s === size ? 'selected' : ''}>${s}</option>`).join('');
+                let colorOptionsHTML = Object.keys(colorOptions).map(key => `<option value="${key}" ${colors.includes(key) ? 'selected' : ''}>${colorOptions[key]}</option>`).join('');
+
+                let sizeColorHTML = `
+                    <div class="size-color-card" id="size-color-${sizeColorCount}">
+                        <button type="button" class="btn btn-danger remove-btn" data-id="${sizeColorCount}">Xóa</button>
+                        <div class="form-group">
+                            <label for="size-select-${sizeColorCount}">Chọn Size ${sizeColorCount}</label>
+                            <select class="selectpicker form-control" id="size-select-${sizeColorCount}" name="sizes[${sizeColorCount}][size]" data-live-search="true" required>
+                                <option value="">Chọn Size</option>
+                                ${sizeOptionsHTML}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="color-select-${sizeColorCount}">Chọn Màu ${sizeColorCount}</label>
+                            <select multiple class="selectpicker form-control" id="color-select-${sizeColorCount}" name="sizes[${sizeColorCount}][colors][]" data-live-search="true" required>
+                                ${colorOptionsHTML}
+                            </select>
+                        </div>
+                    </div>
+                `;
+                $('#sizes-container').append(sizeColorHTML);
+                $('.selectpicker').selectpicker('refresh'); // Refresh selectpicker to apply styling
+            }
+
+            // Function to remove a size-color card
+            function removeSizeColorCard(id) {
+                $(`#size-color-${id}`).remove();
+                if ($('#sizes-container .size-color-card').length === 0) {
+                    addSizeColorCard(); // Ensure at least one card is present
+                }
+            }
+
+            // Add initial size-color card with default values
+            addSizeColorCard('S', ['red']); // Initialize with default size 'S' and color 'red'
+
+            // Add event listener to 'Thêm Size và Màu' button
+            $('#add-size-color-btn').click(function() {
+                addSizeColorCard();
+            });
+
+            // Event delegation to handle click event on dynamically added remove buttons
+            $('#sizes-container').on('click', '.remove-btn', function() {
+                let id = $(this).data('id');
+                removeSizeColorCard(id);
+            });
+
+            // Handle form submission
+            $('#product-form').submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Collect form data
+                let formData = $(this).serialize(); // Serialize form data
+
+                // Optional: Convert serialized data to JSON for better readability
+                let jsonData = {};
+                $(this).serializeArray().forEach(item => {
+                    if (!jsonData[item.name]) {
+                        jsonData[item.name] = item.value;
+                    } else if (Array.isArray(jsonData[item.name])) {
+                        jsonData[item.name].push(item.value);
+                    } else {
+                        jsonData[item.name] = [jsonData[item.name], item.value];
+                    }
+                });
+
+                console.log('Serialized Data:', formData); // For debugging
+                console.log('JSON Data:', JSON.stringify(jsonData)); // For debugging
+
+                // Send data via AJAX
+                $.ajax({
+                    url: '/your-backend-endpoint', // Replace with your backend endpoint
+                    method: 'POST',
+                    data: jsonData,
+                    success: function(response) {
+                        alert('Sản phẩm đã được lưu thành công!');
+                        // Handle success response
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Có lỗi xảy ra, vui lòng thử lại.');
+                        // Handle error response
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
