@@ -6,7 +6,6 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Promotion;
-use Illuminate\Support\Facades\DB;
 
 class HomeService
 {
@@ -17,9 +16,7 @@ class HomeService
 
     public function getPaidProducts($count)
     {
-        return Product::whereHas('productDetail', function ($query) {
-            $query->whereHas('billDetail');
-        })->take($count)->get();
+        return Product::whereHas('bills')->take($count)->get();
     }
 
     public function trendProduct()
