@@ -12,10 +12,7 @@ class CartService
     public function getCart()
     {
         $user = Auth::user();
-        if ($user) {
-            return Cart::where('user_id', $user->id)->get();
-        }
-        return $this->getCartSession();
+        return Cart::where('user_id', $user->id)->get();
     }
 
     public function storeCart($data)
@@ -73,10 +70,5 @@ class CartService
         $productDetail = ProductDetail::find($productDetailId);
         $quantity = $this->getCart()->where('product_detail_id', $productDetailId)->first()->quantity + $quantityChange;
         $this->updateQuantity($productDetail->id, $quantity);
-    }
-
-    public function getCartSession()
-    {
-        return null;
     }
 }
