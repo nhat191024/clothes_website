@@ -35,21 +35,21 @@
                                 @foreach ($cart as $pd)
                                 <tr class="product-{{ $pd['product_detail_id'] }}">
                                     <td class="cart__product__item">
-                                        <img width="80px" src="{{ url('').'/'.$pd->productDetail->product->img }}" alt="">
+                                        <img width="80px" src="{{ url('').'/'.$pd['productDetail']->product->img }}" alt="">
                                         <div class="cart__product__item__title">
-                                            <h6>{{ $pd->productDetail->product->name }}</h6>
-                                            <div class="rating"><span style="display: inline-block; width: 15px; height: 15px; border-radius: 50%; transform: translateY(3px); background-color: {{ $pd->productDetail->color->color_hex ?? 'black' }};"></span>
-                                                <i class="fa fa-sta font-weight-bold" style="font-size: 15px;color: black">Color: {{ $pd->productDetail->color->name }} - Size: {{ $pd->productDetail->size->name }}</i>
+                                            <h6>{{ $pd['productDetail']->product->name }}</h6>
+                                            <div class="rating"><span style="display: inline-block; width: 15px; height: 15px; border-radius: 50%; transform: translateY(3px); background-color: {{ $pd['productDetail']->color->color_hex ?? 'black' }};"></span>
+                                                <i class="fa fa-sta font-weight-bold" style="font-size: 15px;color: black">Color: {{ $pd['productDetail']->color->name }} - Size: {{ $pd['productDetail']->size->name }}</i>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price cart__price-{{ $pd['product_detail_id'] }}" data-id="{{ $pd->productDetail->product->price }}">¥{{ number_format($pd->productDetail->product->price) }}</td>
+                                    <td class="cart__price cart__price-{{ $pd['product_detail_id'] }}" data-id="{{ $pd['productDetail']->product->price }}">¥{{ number_format($pd['productDetail']->product->price) }}</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
-                                            <input id="productDetail-{{ $pd['product_detail_id'] }}" name="product-quantity" type="text" value="{{ $pd->quantity }}">
+                                            <input id="productDetail-{{ $pd['product_detail_id'] }}" name="product-quantity" type="text" value="{{ $pd['quantity'] }}">
                                         </div>
                                     </td>
-                                    <td class="cart__total" id="cart__total-{{ $pd['product_detail_id'] }}">¥{{ number_format($pd->productDetail->product->price * $pd->quantity) }}</td>
+                                    <td class="cart__total" id="cart__total-{{ $pd['product_detail_id'] }}">¥{{ number_format($pd['productDetail']->product->price * $pd['quantity']) }}</td>
                                     <td class="cart__close_{{ $pd['product_detail_id'] }}" onclick="removeFromCart({{ $pd['product_detail_id'] }})" style="cursor: pointer"><span class="icon_close"></span></td>
                                 </tr>
                                 @endforeach
@@ -87,14 +87,14 @@
                             <li>Subtotal
                                 <span id="subtotal">
                                     ¥{{ number_format($cart && $cart->isNotEmpty() ? $cart->sum(function ($item) {
-                                        return $item->productDetail->product->price * $item->quantity;
+                                        return $item['productDetail']->product->price * $item['quantity'];
                                     }) : 0) }}
                                 </span>
                             </li>
                             <li>Total
                                 <span id="total">
                                     ¥{{ number_format($cart && $cart->isNotEmpty() ? $cart->sum(function ($item) {
-                                        return $item->productDetail->product->price * $item->quantity;
+                                        return $item['productDetail']->product->price * $item['quantity'];
                                     }) : 0) }}
                                 </span>
                             </li>
