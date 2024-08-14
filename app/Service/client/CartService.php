@@ -18,6 +18,9 @@ class CartService
     public function storeCart($data)
     {
         $productDetail = $this->getProductDetail($data['product_id'], $data['color_id'], $data['size_id']);
+        if ($productDetail == null){
+            return;
+        }
         $cartUser = Cart::where('product_detail_id', $productDetail->id)->where('user_id', Auth::user()->id);
         $isDuplicate = $cartUser->exists();
         if($isDuplicate){
