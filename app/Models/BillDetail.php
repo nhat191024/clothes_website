@@ -9,8 +9,10 @@ class BillDetail extends Model
     protected $table = 'bill_details';
 
     protected $fillable = [
-        'product_detail_id',
+        'product_id',
         'bill_id',
+        'size_id',
+        'color_id',
         'quantity',
         'price',
         'total_price'
@@ -21,8 +23,18 @@ class BillDetail extends Model
         return $this->belongsTo(Bill::class);
     }
 
-    public function productDetail()
+    public function product()
     {
-        return $this->belongsTo(ProductDetail::class);
+        return $this->belongsTo(Product::class);
+    }
+    
+    public function size()
+    {
+        return $this->belongsTo(Size::class);
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(Color::class);
     }
 }

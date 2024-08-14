@@ -11,7 +11,8 @@ class Color extends Model
     protected $table = 'colors';
 
     protected $fillable = [
-        'name'
+        'name',
+        'color_hex'
     ];
 
     public function productDetail()

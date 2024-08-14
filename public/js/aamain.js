@@ -8,31 +8,6 @@ Created: Colorib
 ---------------------------------------------------------  */
 
 "use strict";
-$(document).ready(function() {
-    $('.login-drop').on('mouseenter mouseleave click', function(e) {
-        e.stopPropagation();
-        if (e.type === 'click' || $(this).is(':hover')) {
-            $(this).toggleClass('show');
-            $(this).find('.login-dropdown').toggleClass('show');
-        } else {
-            $(this).removeClass('show');
-            $(this).find('.login-dropdown').removeClass('show');
-        }
-    });
-});
-
-function getCheckedValues(selector) {
-    let values = [];
-    $(selector + ':checked').each(function() {
-        values.push($(this).val());
-    });
-    return values;
-}
-
-function parseCurrency(value) {
-    let numericValue = value.replace(/[^0-9.]/g, '');
-    return parseFloat(numericValue);
-}
 
 (function ($) {
     /*------------------
@@ -187,63 +162,21 @@ function parseCurrency(value) {
     }
     var timerdate = mm + "/" + dd + "/" + yyyy;
     // For demo preview end
-    // For demo preview start
-    document.addEventListener("DOMContentLoaded", function () {
-        // Thời gian còn lại ban đầu lấy từ server
-        var days = parseInt(document.getElementById("days").innerText);
-        var hours = parseInt(document.getElementById("hours").innerText);
-        var minutes = parseInt(document.getElementById("minutes").innerText);
-        var seconds = parseInt(document.getElementById("seconds").innerText);
-
-        // Hàm cập nhật thời gian còn lại
-        function updateCountdown() {
-            if (seconds > 0) {
-                seconds--;
-            } else {
-                if (minutes > 0) {
-                    minutes--;
-                    seconds = 59;
-                } else {
-                    if (hours > 0) {
-                        hours--;
-                        minutes = 59;
-                        seconds = 59;
-                    } else {
-                        if (days > 0) {
-                            days--;
-                            hours = 23;
-                            minutes = 59;
-                            seconds = 59;
-                        }
-                    }
-                }
-            }
-
-            // Cập nhật giá trị hiển thị
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-        }
-
-        // Cập nhật đếm ngược mỗi giây
-        setInterval(updateCountdown, 1000);
-    });
 
     // Uncomment below and use your date //
 
     /* var timerdate = "2020/12/30" */
 
-    // $("#countdown-time").countdown(timerdate, function (event) {
-    //     $(this).html(
-    //         event.strftime(
-    //             "<div class='countdown__item'><span>%D</span> <p>Day</p> </div>" +
-    //                 "<div class='countdown__item'><span>%H</span> <p>Hour</p> </div>" +
-    //                 "<div class='countdown__item'><span>%M</span> <p>Min</p> </div>" +
-    //                 "<div class='countdown__item'><span>%S</span> <p>Sec</p> </div>"
-    //         )
-    //     );
-    // });
+    $("#countdown-time").countdown(timerdate, function (event) {
+        $(this).html(
+            event.strftime(
+                "<div class='countdown__item'><span>%D</span> <p>Day</p> </div>" +
+                    "<div class='countdown__item'><span>%H</span> <p>Hour</p> </div>" +
+                    "<div class='countdown__item'><span>%M</span> <p>Min</p> </div>" +
+                    "<div class='countdown__item'><span>%S</span> <p>Sec</p> </div>"
+            )
+        );
+    });
 
     /*-------------------
 		Range Slider
@@ -290,10 +223,10 @@ function parseCurrency(value) {
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
-            if (oldValue > 1) {
+            if (oldValue > 0) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
-                newVal = 1;
+                newVal = 0;
             }
         }
         $button.parent().find("input").val(newVal);
@@ -306,74 +239,4 @@ function parseCurrency(value) {
         $(".size__btn label").removeClass("active");
         $(this).addClass("active");
     });
-
-    // $(document).ready(function () {
-    //     // Function to get selected filters
-    //     function getFilters() {
-    //         return {
-    //             parentCategory: $(".filter__controls .active a").data(
-    //                 "parentcategory"
-    //             ),
-    //             childCategory: $(".filter__controls .active a").data(
-    //                 "childcategory"
-    //             ),
-    //             colors: $(".color-filter:checked")
-    //                 .map(function () {
-    //                     return $(this).val();
-    //                 })
-    //                 .get(),
-    //             sizes: $(".size-filter:checked")
-    //                 .map(function () {
-    //                     return $(this).val();
-    //                 })
-    //                 .get(),
-    //             minPrice: parseInt($("#minamount").val()),
-    //             maxPrice: parseInt($("#maxamount").val()),
-    //         };
-    //     }
-
-    //     // Function to send AJAX request
-    //     function applyFilters() {
-    //         var filters = getFilters();
-
-    //         $.ajax({
-    //             url: "/shop/filter-products", // URL to your controller
-    //             type: "GET",
-    //             data: filters,
-    //             success: function (response) {
-    //                 // Handle success, e.g., update the product list
-    //                 $("#product-list").html(response);
-    //             },
-    //             error: function (xhr, status, error) {
-    //                 // Handle error
-    //                 console.error("Error:", error);
-    //             },
-    //         });
-    //     }
-
-    //     // Event handlers for filters
-    //     $(".filter__controls li").on("click", function () {
-    //         // Handle category selection
-    //         $(".filter__controls li").removeClass("active");
-    //         $(this).addClass("active");
-    //         applyFilters();
-    //     });
-
-    //     $(".size-filter").on("change", function () {
-    //         // Handle size filter change
-    //         applyFilters();
-    //     });
-
-    //     $(".color-filter").on("change", function () {
-    //         // Handle color filter change
-    //         applyFilters();
-    //     });
-
-    //     $("#minamount, #maxamount").on("change", function () {
-    //         // Handle price range change
-    //         applyFilters();
-    //     });
-    // });
-
-
 })(jQuery);

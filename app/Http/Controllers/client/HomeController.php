@@ -16,8 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         $newProductInfo = $this->homeService->newProducts();
-        $trendProductInfo = $this->homeService->trendProduct();
-        $favoriteProductInfo = $this->homeService->favoriteProduct();
+        $trendProductInfo = $this->homeService->trendProduct()->shuffle();
+        $favoriteProductInfo = $this->homeService->favoriteProduct()->shuffle();
         $productAmount = $this->homeService->productAmount();
         $collectionBanner = $this->homeService->collectionBanner();
         $latestPromotion = $this->homeService->latestPromotion();

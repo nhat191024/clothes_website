@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
                 "avt" => $row['avt'],
                 "username" => $row['username'],
                 "password" => Hash::make($row['password']),
+                "full_name" => $row['full_name'],
                 "email" => $row['email'],
                 "address" => $row['address'],
                 "phone" => $row['phone']
@@ -100,7 +101,7 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach ($dataArray['product_categories'] as $row) {
-            ProductCategory::create($row);
+            Product::find($row['product_id'])->categories()->attach($row['category_id']);
         }
 
         foreach ($dataArray['promotions'] as $row) {
