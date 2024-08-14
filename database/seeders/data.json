@@ -103,113 +103,238 @@
     ],
     "images": [
         {
-            "img": "img/product/product-1.webp",
+            "img": "img/product/product-1/ghi_dam.webp",
             "product_id": 1
         },
         {
-            "img": "img/product/product-2.webp",
+            "img": "img/product/product-1/xanh_duong_dam.webp",
+            "product_id": 1
+        },
+        {
+            "img": "img/product/product-1/xanh_la_dam.webp",
+            "product_id": 1
+        },
+        {
+            "img": "img/product/product-2/be.webp",
             "product_id": 2
         },
         {
-            "img": "img/product/product-3.webp",
+            "img": "img/product/product-2/be2.webp",
+            "product_id": 2
+        },
+        {
+            "img": "img/product/product-3/den.webp",
             "product_id": 3
         },
         {
-            "img": "img/product/product-4.webp",
+            "img": "img/product/product-3/ghi_sang.webp",
+            "product_id": 3
+        },
+        {
+            "img": "img/product/product-3/vang_dam.webp",
+            "product_id": 3
+        },
+        {
+            "img": "img/product/product-3/xanh_duong_dam.webp",
+            "product_id": 3
+        },
+        {
+            "img": "img/product/product-4/den.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-5.webp",
+            "img": "img/product/product-4/do_man.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-4/ghi_sang.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-4/reu.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-4/tim_oai_huong.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-4/tim_trau.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-4/vang_mo.webp",
+            "product_id": 4
+        },
+        {
+            "img": "img/product/product-5/cam.webp",
             "product_id": 5
         },
         {
-            "img": "img/product/product-6.webp",
+            "img": "img/product/product-5/do.webp",
+            "product_id": 5
+        },
+        {
+            "img": "img/product/product-6/cam.webp",
             "product_id": 6
         },
         {
-            "img": "img/product/product-7.webp",
+            "img": "img/product/product-6/hong_nhat.webp",
+            "product_id": 6
+        },
+        {
+            "img": "img/product/product-6/xanh_da_troi.webp",
+            "product_id": 6
+        },
+        {
+            "img": "img/product/product-7/ghi_dam.webp",
             "product_id": 7
         },
         {
-            "img": "img/product/product-8.webp",
+            "img": "img/product/product-7/xanh_la_dam.webp",
+            "product_id": 7
+        },
+        {
+            "img": "img/product/product-8/den.webp",
             "product_id": 8
+        },
+        {
+            "img": "img/product/product-8/xanh_dam.webp",
+            "product_id": 8
+        },
+        {
+            "img": "img/product/product-8/xanh_nhat.webp",
+            "product_id": 8
+        },
+        {
+            "img": "img/product/product-9/xam_tim.webp",
+            "product_id": 9
+        },
+        {
+            "img": "img/product/product-9/xanh_bac_ha.webp",
+            "product_id": 9
+        },
+        {
+            "img": "img/product/product-10/cam_dam.webp",
+            "product_id": 10
+        },
+        {
+            "img": "img/product/product-10/trang.webp",
+            "product_id": 10
+        },
+        {
+            "img": "img/product/product-10/xanh_dam.webp",
+            "product_id": 10
+        },
+        {
+            "img": "img/product/product-11/tim_hong.webp",
+            "product_id": 11
+        },
+        {
+            "img": "img/product/product-11/tim.webp",
+            "product_id": 11
         }
     ],
     "colors": [
         {
-            "name": "Đỏ"
+            "name": "Đỏ",
+            "color_hex": "#FF0000"
         },
         {
-            "name": "Xanh lá đậm"
+            "name": "Xanh lá đậm",
+            "color_hex": "#2d3438"
         },
         {
-            "name": "Xanh lá"
+            "name": "Xanh lá",
+            "color_hex": "#008000"
         },
         {
-            "name": "Xanh dương"
+            "name": "Xanh dương",
+            "color_hex": "#0000FF"
         },
         {
-            "name": "Xanh dương đậm"
+            "name": "Xanh dương đậm",
+            "color_hex": "#2d3d55"
         },
         {
-            "name": "Cam"
+            "name": "Cam",
+            "color_hex": "#FFA500"
         },
         {
-            "name": "Tím"
+            "name": "Tím",
+            "color_hex": "#800080"
         },
         {
-            "name": "Hồng"
+            "name": "Hồng",
+            "color_hex": "#FFC0CB"
         },
         {
-            "name": "Nâu"
+            "name": "Nâu",
+            "color_hex": "#956b48"
         },
         {
-            "name": "Đen"
+            "name": "Đen",
+            "color_hex": "#000000"
         },
         {
-            "name": "Trắng"
+            "name": "Trắng",
+            "color_hex": "#FFFFFF"
         },
         {
-            "name": "Xám"
+            "name": "Xám",
+            "color_hex": "#808080"
         },
         {
-            "name": "Bạc"
+            "name": "Bạc",
+            "color_hex": "#C0C0C0"
         },
         {
-            "name": "Be"
+            "name": "Be",
+            "color_hex": "#F5F5DC"
         },
         {
-            "name": "Đen melange"
+            "name": "Đen melange",
+            "color_hex": "#555555"
         },
         {
-            "name": "Ghi"
+            "name": "Ghi",
+            "color_hex": "#7D7D7D"
         },
         {
-            "name": "Ghi đậm"
+            "name": "Ghi đậm",
+            "color_hex": "#505050"
         },
         {
-            "name": "Vàng"
+            "name": "Vàng",
+            "color_hex": "#FFFF00"
         },
         {
-            "name": "Ghi sáng"
+            "name": "Ghi sáng",
+            "color_hex": "#D3D3D3"
         },
         {
-            "name": "Cam đỏ"
+            "name": "Cam đỏ",
+            "color_hex": "#FF4500"
         },
         {
-            "name": "Xanh dương nhạt"
+            "name": "Xanh dương nhạt",
+            "color_hex": "#679bab"
         },
         {
-            "name": "Xanh bạc hà"
+            "name": "Xanh bạc hà",
+            "color_hex": "#98FF98"
         },
         {
-            "name": "Cam đậm"
+            "name": "Cam đậm",
+            "color_hex": "#FF8C00"
         },
         {
-            "name": "Trắng Kể"
+            "name": "Trắng Kể",
+            "color_hex": "#F8F8FF"
         },
         {
-            "name": "Tím hồng"
+            "name": "Tím nhạt",
+            "color_hex": "#5a5672"
         }
     ],
     "customer_requests": [
@@ -620,11 +745,36 @@
         {
             "product_id": 1,
             "size_id": 3,
-            "color_id": 2
+            "color_id": 5
         },
         {
             "product_id": 1,
             "size_id": 4,
+            "color_id": 5
+        },
+        {
+            "product_id": 1,
+            "size_id": 5,
+            "color_id": 5
+        },
+        {
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 16
+        },
+        {
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 16
+        },
+        {
+            "product_id": 1,
+            "size_id": 5,
+            "color_id": 16
+        },
+        {
+            "product_id": 1,
+            "size_id": 3,
             "color_id": 2
         },
         {
@@ -634,18 +784,8 @@
         },
         {
             "product_id": 1,
-            "size_id": 4,
-            "color_id": 16
-        },
-        {
-            "product_id": 1,
             "size_id": 5,
-            "color_id": 16
-        },
-        {
-            "product_id": 1,
-            "size_id": 5,
-            "color_id": 16
+            "color_id": 2
         },
         {
             "product_id": 2,
@@ -675,17 +815,17 @@
         {
             "product_id": 3,
             "size_id": 2,
-            "color_id": 18
+            "color_id": 19
         },
         {
             "product_id": 3,
             "size_id": 3,
-            "color_id": 18
+            "color_id": 19
         },
         {
             "product_id": 3,
             "size_id": 4,
-            "color_id": 18
+            "color_id": 19
         },
         {
             "product_id": 3,
@@ -705,7 +845,7 @@
         {
             "product_id": 4,
             "size_id": 2,
-            "color_id": 9
+            "color_id": 2
         },
         {
             "product_id": 4,
@@ -750,77 +890,77 @@
         {
             "product_id": 5,
             "size_id": 1,
-            "color_id": 5
+            "color_id": 21
         },
         {
             "product_id": 5,
             "size_id": 2,
-            "color_id": 5
+            "color_id": 21
         },
         {
             "product_id": 5,
             "size_id": 3,
-            "color_id": 5
+            "color_id": 21
         },
         {
             "product_id": 5,
             "size_id": 1,
-            "color_id": 19
+            "color_id": 1
         },
         {
             "product_id": 5,
             "size_id": 2,
-            "color_id": 19
+            "color_id": 1
         },
         {
             "product_id": 5,
             "size_id": 3,
-            "color_id": 19
+            "color_id": 1
         },
         {
             "product_id": 6,
             "size_id": 2,
-            "color_id": 4
+            "color_id": 6
         },
         {
             "product_id": 6,
             "size_id": 4,
-            "color_id": 4
+            "color_id": 6
         },
         {
             "product_id": 6,
             "size_id": 5,
-            "color_id": 4
+            "color_id": 6
         },
         {
             "product_id": 6,
             "size_id": 2,
-            "color_id": 7
+            "color_id": 8
         },
         {
             "product_id": 6,
             "size_id": 4,
-            "color_id": 7
+            "color_id": 8
         },
         {
             "product_id": 6,
             "size_id": 5,
-            "color_id": 7
+            "color_id": 8
         },
         {
             "product_id": 6,
             "size_id": 2,
-            "color_id": 5
+            "color_id": 21
         },
         {
             "product_id": 6,
             "size_id": 4,
-            "color_id": 5
+            "color_id": 21
         },
         {
             "product_id": 6,
             "size_id": 5,
-            "color_id": 5
+            "color_id": 21
         },
         {
             "product_id": 7,
@@ -870,17 +1010,17 @@
         {
             "product_id": 8,
             "size_id": 5,
-            "color_id": 20
+            "color_id": 19
         },
         {
             "product_id": 8,
             "size_id": 6,
-            "color_id": 20
+            "color_id": 19
         },
         {
             "product_id": 8,
             "size_id": 7,
-            "color_id": 20
+            "color_id": 19
         },
         {
             "product_id": 8,
@@ -930,77 +1070,77 @@
         {
             "product_id": 10,
             "size_id": 2,
-            "color_id": 5
+            "color_id": 23
         },
         {
             "product_id": 10,
             "size_id": 3,
-            "color_id": 5
+            "color_id": 23
         },
         {
             "product_id": 10,
             "size_id": 4,
-            "color_id": 5
+            "color_id": 23
         },
         {
             "product_id": 10,
             "size_id": 2,
-            "color_id": 22
+            "color_id": 9
         },
         {
             "product_id": 10,
             "size_id": 3,
-            "color_id": 22
+            "color_id": 9
         },
         {
             "product_id": 10,
             "size_id": 4,
-            "color_id": 22
+            "color_id": 9
         },
         {
             "product_id": 10,
             "size_id": 2,
-            "color_id": 23
+            "color_id": 21
         },
         {
             "product_id": 10,
             "size_id": 3,
-            "color_id": 23
+            "color_id": 21
         },
         {
             "product_id": 10,
             "size_id": 4,
-            "color_id": 23
+            "color_id": 21
         },
         {
             "product_id": 11,
             "size_id": 1,
-            "color_id": 6
+            "color_id": 25
         },
         {
             "product_id": 11,
             "size_id": 2,
-            "color_id": 6
+            "color_id": 25
         },
         {
             "product_id": 11,
             "size_id": 3,
-            "color_id": 6
+            "color_id": 25
         },
         {
             "product_id": 11,
             "size_id": 1,
-            "color_id": 24
+            "color_id": 7
         },
         {
             "product_id": 11,
             "size_id": 2,
-            "color_id": 24
+            "color_id": 7
         },
         {
             "product_id": 11,
             "size_id": 3,
-            "color_id": 24
+            "color_id": 7
         }
     ],
     "promotions": [
@@ -1028,188 +1168,250 @@
     ],
     "bill_details": [
         {
-            "product_detail_id": 1,
             "bill_id": 1,
+            "product_id": 1,
+            "size_id": 3,
+            "color_id": 5,
             "quantity": 2,
             "price": 250000
         },
         {
-            "product_detail_id": 2,
             "bill_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 350000
         },
         {
             "bill_id": 1,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 1,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 2,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 2,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 3,
-            "product_detail_id": 9,
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 4500
         },
         {
             "bill_id": 3,
-            "product_detail_id": 11,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1350
         },
         {
             "bill_id": 3,
-            "product_detail_id": 12,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2250
         },
         {
             "bill_id": 3,
-            "product_detail_id": 13,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3150
         },
         {
             "bill_id": 3,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 4,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 4,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 4,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 4,
-            "product_detail_id": 9,
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 4500
         },
         {
             "bill_id": 4,
-            "product_detail_id": 11,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1350
         },
         {
             "bill_id": 5,
-            "product_detail_id": 12,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2250
         },
         {
             "bill_id": 5,
-            "product_detail_id": 13,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3150
         },
         {
             "bill_id": 5,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 5,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 5,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 6,
-            "product_detail_id": 13,
+            "product_id": 11,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3150
         },
         {
             "bill_id": 6,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 6,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 6,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 6,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 7,
-            "product_detail_id": 1,
+            "product_id": 1,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 900
         },
         {
             "bill_id": 7,
-            "product_detail_id": 2,
+            "product_id": 2,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 1800
         },
         {
             "bill_id": 7,
-            "product_detail_id": 5,
+            "product_id": 5,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 2700
         },
         {
             "bill_id": 7,
-            "product_detail_id": 7,
+            "product_id": 7,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 3600
         },
         {
             "bill_id": 7,
-            "product_detail_id": 9,
+            "product_id": 9,
+            "size_id": 4,
+            "color_id": 5,
             "quantity": 1,
             "price": 4500
         }
