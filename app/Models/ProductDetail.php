@@ -21,7 +21,6 @@ class ProductDetail extends Model
         return $this->belongsTo(Product::class);
     }
 
-
     public function size()
     {
         return $this->belongsTo(Size::class);
@@ -32,8 +31,4 @@ class ProductDetail extends Model
         return $this->belongsTo(Color::class);
     }
 
-    public function billDetail()
-    {
-        return $this->hasMany(BillDetail::class);
-    }
 }
