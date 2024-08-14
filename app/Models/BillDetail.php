@@ -23,8 +23,18 @@ class BillDetail extends Model
         return $this->belongsTo(Bill::class);
     }
 
-    public function productDetail()
+    public function product()
     {
-        return $this->belongsTo(ProductDetail::class);
+        return $this->belongsTo(Product::class);
+    }
+    
+    public function size()
+    {
+        return $this->belongsTo(Size::class);
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(Color::class);
     }
 }
