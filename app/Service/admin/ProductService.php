@@ -5,6 +5,8 @@ namespace App\Service\admin;
 use App\Models\Food;
 use App\Models\Product_variation;
 use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\ProductDetail;
 
 class ProductService
 {
@@ -24,27 +26,34 @@ class ProductService
     //     return Product_variation::where('id', $id)->first();
     // }
 
-    // public function add($categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName)
-    // {
-    //     $id = Product::create([
-    //         'category_id' => $categoryId,
-    //         'name' => $productName,
-    //         'name_en' => $productNameEn,
-    //         'description' => $productDescription,
-    //         'description_en' => $productDescriptionEn,
-    //         'image' => $imageName
-    //     ])->id;
+    public function add($categoryArray, $productName, $productPrice, $productDescription, $imageName, $sizeColors)
+    {
+        $id = Product::create([
+            'name' => $productName,
+            'description' => $productDescription,
+            'img' => $imageName,
+            'price' => $productPrice
+        ])->id;
 
-    //     foreach ($productPrice as $sizePriceJson) {
-    //         $sizePrice = json_decode($sizePriceJson, true);
-    //         Product_variation::create([
-    //             'variation_id' => $sizePrice['id'],
-    //             'product_id' => $id,
-    //             'price' => ($sizePrice['price'] == null) ? 0 : $sizePrice['price'],
-    //         ]);
-    //     }
-    //     return $id;
-    // }
+        foreach ($categoryArray as $item) {
+            ProductCategory::create([
+                'product_id' => $id,
+                'category_id' => $item
+            ]);
+        }
+
+        foreach ($sizeColors as $sizeColor) {
+            $size = $sizeColor['size'];
+            foreach ($sizeColor['colors'] as $item) {
+                ProductDetail::create([
+                    'product_id' => $id,
+                    'size_id' => $size,
+                    'color_id' => $item
+                ]);
+            } 
+        }
+        return $id;
+    }
 
     // public function edit($id, $categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName)
     // {

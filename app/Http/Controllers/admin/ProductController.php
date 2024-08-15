@@ -51,31 +51,32 @@ class ProductController extends Controller
         $id = $request->id;
         $productInfo = $this->productService->getById($id);
         $allVariations = $this->variationService->getAll();
-        return view('admin.product.detail', compact('id', 'productInfo','allVariations'));
+        return view('admin.product.detail', compact('id', 'productInfo', 'allVariations'));
     }
 
     public function addProduct(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'category_id' => 'required',
             'product_name' => 'required',
-            'product_name_en' => 'required',
             'product_price' => 'required',
             'product_image' => 'required',
+            'sizes' => 'required',
         ]);
-        $categoryId = $request->category_id;
+        $categoryArray = $request->category_id;
         $productName = $request->product_name;
-        $productNameEn = $request->product_name_en;
         $productPrice = $request->product_price;
         $productDescription = $request->product_description ?? null;
-        $productDescriptionEn = $request->product_description_en ?? null;
         $imageName = time() . '_' . $request->product_image->getClientOriginalName();
+        $sizeColors = $request->sizes;
         // Public Folder
         $request->product_image->move(public_path('img/client/shop'), $imageName);
-        return $this->productService->add($categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName);
+        $this->productService->add($categoryArray, $productName, $productPrice, $productDescription, $imageName, $sizeColors);
+        return response()->json([
+            'link' => route('admin.product.index')
+        ], 200);
 
-}
+    }
 
     public function showEditProduct(Request $request)
     {

@@ -17,7 +17,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="categorySelect">Chọn danh mục</label>
-                            <select class="form-control selectpicker" multiple required name="category_id"
+                            <select class="form-control selectpicker" multiple required name="category_id[]"
                                 id="categorySelect">
                                 @foreach ($allCategory as $key => $item)
                                     <option {{ $key == 0 ? 'selected' : '' }} value="{{ $item['id'] }}">
@@ -53,7 +53,7 @@
                         <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
                         <button type="button" class="btn btn-primary mt-4" id="add-size-color-btn">Thêm Size và
                             Màu</button>
-                        <button id="saveAdd" class="btn btn-success mt-4" type="submit">Thêm</button>
+                        <button id="saveAdd" class="btn btn-success mt-4" type="submit">Lưu</button>
                     </form>
 
                 </div>
@@ -65,36 +65,55 @@
 
     </div>
     <!-- End of Main Content -->
-
+    @include('admin.modal.loading');
+    @include('admin.modal.success');
 
 
     <!-- End of Content Wrapper -->
     <script>
         $(document).ready(function() {
+            // Lấy mã CSRF từ meta tag
+            let csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+            // Thiết lập mã CSRF cho tất cả các yêu cầu AJAX
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                }
+            });
             let sizeColorCount = 0;
+            let selectedSizes = []; // Mảng lưu các size đã chọn
 
-    // Lấy dữ liệu từ biến PHP được truyền vào view
-    let sizes = @json($allSize);
-    let colors = @json($allColor);
+            // Lấy dữ liệu từ biến PHP được truyền vào view
+            let sizes =
+                @json($allSize); // Đảm bảo rằng $allSize và $allColor được định nghĩa trong view PHP
+            let colors = @json($allColor);
 
-    // Function to add a new size-color card
-    function addSizeColorCard(sizeId = '', colorIds = []) {
-        sizeColorCount++;
+            // Function to add a new size-color card
+            function addSizeColorCard(sizeId = '', colorIds = []) {
+                sizeColorCount++;
 
-        // Tạo HTML cho các tùy chọn size và màu
-        let sizeOptionsHTML = Object.keys(sizes).map(id => `<option value="${id}" ${id == sizeId ? 'selected' : ''}>${sizes[id]}</option>`).join('');
-        let colorOptionsHTML = Object.keys(colors).map(id => {
-            let color = colors[id];
-            return `<option value="${id}" data-content="<span class='color-preview' style='background-color: ${color.color_hex};'></span> ${color.name}"></option>`;
-        }).join('');
+                let sizeOptionsHTML = Object.keys(sizes).map(id => {
+                    if (selectedSizes.includes(id) && id != sizeId) {
+                        return `<option value="${id}" style="display:none;">${sizes[id]}</option>`; // Ẩn tùy chọn size đã chọn
+                    } else {
+                        return `<option value="${id}" ${id == sizeId ? 'selected' : ''}>${sizes[id]}</option>`;
+                    }
+                }).join('');
 
-        let sizeColorHTML = `
+                let colorOptionsHTML = Object.keys(colors).map(id => {
+                    let color = colors[id];
+                    let selected = colorIds.includes(id) ? 'selected' : '';
+                    return `<option value="${id}" ${selected} data-content="<span class='color-preview' style='background-color: ${color.color_hex};'></span> ${color.name}"></option>`;
+                }).join('');
+
+                let sizeColorHTML = `
             <label class="mt-2" id="label-variation-${sizeColorCount}" for="categorySelect">Chọn biến thể thứ ${sizeColorCount}</label>
             <div class="size-color-card" id="size-color-${sizeColorCount}">
                 <button type="button" class="btn btn-danger remove-btn" data-id="${sizeColorCount}">Xóa</button>
                 <div class="form-group">
                     <label for="size-select-${sizeColorCount}">Chọn Size ${sizeColorCount}</label>
-                    <select class="selectpicker form-control" id="size-select-${sizeColorCount}" name="sizes[${sizeColorCount}][size]" data-live-search="true" required>
+                    <select class="selectpicker form-control size-select" id="size-select-${sizeColorCount}" name="sizes[${sizeColorCount}][size]" data-live-search="true" required>
                         <option value="">Chọn Size</option>
                         ${sizeOptionsHTML}
                     </select>
@@ -107,77 +126,156 @@
                 </div>
             </div>
         `;
-        $('#sizes-container').append(sizeColorHTML);
-        $('.selectpicker').selectpicker('refresh'); // Refresh selectpicker to apply styling
-    }
+                $('#sizes-container').append(sizeColorHTML);
+                $('.selectpicker').selectpicker('refresh'); // Refresh selectpicker để áp dụng styling
 
-    // Function to remove a size-color card
-    function removeSizeColorCard(id) {
-        $(`#size-color-${id}`).remove();
-        $(`#label-variation-${id}`).remove();
-        if ($('#sizes-container .size-color-card').length === 0) {
-            addSizeColorCard(); // Ensure at least one card is present
-        }
-    }
+                // Cập nhật danh sách size đã chọn khi thay đổi
+                $(`#size-select-${sizeColorCount}`).on('change', function() {
+                    updateSelectedSizes();
+                });
 
-    // Add initial size-color card with default values
-    addSizeColorCard('1', ['1']); // Initialize with default size ID '1' and color ID '1'
+                // Cập nhật danh sách size đã chọn khi khởi tạo
+                updateSelectedSizes(); // Đảm bảo rằng updateSelectedSizes được gọi
+            }
 
-    // Add event listener to 'Thêm Size và Màu' button
-    $('#add-size-color-btn').click(function() {
-        addSizeColorCard();
-    });
+            // Function để cập nhật mảng selectedSizes và hide size trùng
+            function updateSelectedSizes() {
+                selectedSizes = [];
 
-    // Event delegation to handle click event on dynamically added remove buttons
-    $('#sizes-container').on('click', '.remove-btn', function() {
-        let id = $(this).data('id');
-        removeSizeColorCard(id);
-    });
+                // Duyệt qua tất cả các select size để lấy giá trị đã chọn
+                $('.size-select').each(function() {
+                    let selectedSize = $(this).val();
+                    if (selectedSize) {
+                        selectedSizes.push(selectedSize);
+                    }
+                });
 
-    // Handle form submission
-    $('#product-form').submit(function(event) {
-        event.preventDefault(); // Prevent default form submission
+                console.log('Selected Sizes:', selectedSizes); // Debug thông tin size đã chọn
 
-        let formData = new FormData(this); // Create FormData object
+                // Ẩn size đã chọn trên các select khác
+                $('.size-select').each(function() {
+                    let currentSelect = $(this);
+                    let currentValue = currentSelect.val();
 
-        // Xóa dữ liệu sizes hiện có để tránh trùng lặp
-        let existingSizes = Array.from(formData.entries()).filter(entry => entry[0].startsWith('sizes['));
-        existingSizes.forEach(([key]) => formData.delete(key));
+                    currentSelect.find('option').each(function() {
+                        let optionValue = $(this).val();
+                        if (selectedSizes.includes(optionValue) && optionValue != currentValue) {
+                            $(this).hide(); // Ẩn tùy chọn size đã chọn
+                        } else {
+                            $(this).show(); // Hiển thị tùy chọn size chưa chọn
+                        }
+                    });
 
-        // Thêm dữ liệu sizes và colors vào FormData
-        $('#sizes-container .size-color-card').each(function(index) {
-            let sizeId = $(this).find('select[name*="[size]"]').val();
-            let colorIds = $(this).find('select[name*="[colors][]"]').val();
-            if (sizeId) {
-                formData.append(`sizes[${index}][size]`, sizeId);
-                colorIds.forEach(colorId => {
-                    formData.append(`sizes[${index}][colors][]`, colorId);
+                    currentSelect.selectpicker('refresh'); // Refresh selectpicker để cập nhật giao diện
                 });
             }
-        });
 
-        $.ajax({
-            url: $(this).attr('action'), // Use the form's action attribute
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                alert('Sản phẩm đã được lưu thành công!');
-                // Handle success response
-            },
-            error: function(xhr, status, error) {
-                alert('Có lỗi xảy ra, vui lòng thử lại.');
-                // Handle error response
+            // Function to remove a size-color card
+            function removeSizeColorCard(id) {
+                $(`#size-color-${id}`).remove();
+                $(`#label-variation-${id}`).remove();
+
+                // Cập nhật lại danh sách size khi một biến thể bị xóa
+                updateSelectedSizes();
+
+                if ($('#sizes-container .size-color-card').length === 0) {
+                    addSizeColorCard(); // Đảm bảo có ít nhất một card
+                }
             }
-        });
-    });
+
+            // Add initial size-color card with default values
+            addSizeColorCard('1', ['1']); // Khởi tạo với size ID '1' và màu ID '1'
+
+            // Thêm event listener cho nút "Thêm Size và Màu"
+            $('#add-size-color-btn').click(function() {
+                addSizeColorCard();
+            });
+
+            // Event delegation để xử lý sự kiện click trên nút xóa được thêm động
+            $('#sizes-container').on('click', '.remove-btn', function() {
+                let id = $(this).data('id');
+                console.log(`Remove button clicked: ${id}`); // Debug thông tin nút xóa đã nhấn
+                removeSizeColorCard(id);
+            });
+
+            // Xử lý khi submit form
+            $('#product-form').submit(function(event) {
+                event.preventDefault(); // Ngăn chặn submit mặc định
+
+                let formData = new FormData(this); // Tạo đối tượng FormData
+
+                // Kiểm tra trùng lặp size
+                let sizesUsed = [];
+                let hasDuplicates = false;
+
+                $('#sizes-container .size-color-card').each(function() {
+                    let sizeId = $(this).find('select[name*="[size]"]').val();
+                    if (sizeId) {
+                        if (sizesUsed.includes(sizeId)) {
+                            hasDuplicates = true;
+                            return false; // Dừng vòng lặp
+                        }
+                        sizesUsed.push(sizeId);
+                    }
+                });
+
+                if (hasDuplicates) {
+                    alert('Có size trùng lặp. Vui lòng kiểm tra lại.');
+                    return;
+                }
+
+                $('#loadingModal').modal('show');
+
+                // Xóa dữ liệu sizes hiện có để tránh trùng lặp
+                let existingSizes = Array.from(formData.entries()).filter(entry => entry[0].startsWith(
+                    'sizes['));
+                existingSizes.forEach(([key]) => formData.delete(key));
+
+                // Thêm dữ liệu sizes và colors vào FormData
+                $('#sizes-container .size-color-card').each(function(index) {
+                    let sizeId = $(this).find('select[name*="[size]"]').val();
+                    let colorIds = $(this).find('select[name*="[colors][]"]').val();
+                    if (sizeId) {
+                        formData.append(`sizes[${index}][size]`, sizeId);
+                        colorIds.forEach(colorId => {
+                            formData.append(`sizes[${index}][colors][]`, colorId);
+                        });
+                    }
+                });
+
+                $.ajax({
+                    url: $(this).attr('action'), // Sử dụng thuộc tính action của form
+                    method: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        $('#loadingModal').modal('hide');
+                        $('#successModal').modal('show');
+                        $('#successModal').data('link', response.link);
+                    },
+                    error: function(xhr, status, error) {
+                        $('#loadingModal').modal('hide');
+                        alert('Có lỗi xảy ra, vui lòng thử lại.');
+                        // Xử lý phản hồi lỗi
+                    }
+                });
+            });
+
+
             // Add the following code if you want the name of the file appear on select
             $(".custom-file-input").on("change", function() {
                 var fileName = $(this).val().split("\\").pop();
                 $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
             });
             const token = "{{ csrf_token() }}";
+
+            $('#successModal').on('hidden.bs.modal', function() {
+                let link = $(this).data('link');
+                if (link) {
+                    window.location.replace(link);
+                }
+            });
         });
     </script>
     <script src="{{ URL::asset('js/admin/product_checkbox.js') }}"></script>
