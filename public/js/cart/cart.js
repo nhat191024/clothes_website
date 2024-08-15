@@ -54,7 +54,7 @@ function addToCart(productId) {
             $('#add-to-cart-btn').addClass('text-white');
         },
         success: function (response) {
-            $('#add-to-cart-btn').html('<span class="icon_bag_alt"></span> Added to cart!');
+            $('#add-to-cart-btn').html('<span class="icon_bag_alt"></span> Added!');
             $('#add-to-cart-btn').addClass('text-white');
             console.log(response);
         },

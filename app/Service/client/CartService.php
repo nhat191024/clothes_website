@@ -12,15 +12,15 @@ class CartService
     public function getCart()
     {
         $user = Auth::user();
-        if ($user) {
-            return Cart::where('user_id', $user->id)->get();
-        }
-        return $this->getCartSession();
+        return Cart::where('user_id', $user->id)->get();
     }
 
     public function storeCart($data)
     {
         $productDetail = $this->getProductDetail($data['product_id'], $data['color_id'], $data['size_id']);
+        if ($productDetail == null){
+            return;
+        }
         $cartUser = Cart::where('product_detail_id', $productDetail->id)->where('user_id', Auth::user()->id);
         $isDuplicate = $cartUser->exists();
         if($isDuplicate){
@@ -73,10 +73,5 @@ class CartService
         $productDetail = ProductDetail::find($productDetailId);
         $quantity = $this->getCart()->where('product_detail_id', $productDetailId)->first()->quantity + $quantityChange;
         $this->updateQuantity($productDetail->id, $quantity);
-    }
-
-    public function getCartSession()
-    {
-        return null;
     }
 }
