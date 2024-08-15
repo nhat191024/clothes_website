@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CartService
 {
+    private $voucherService;
+    public function __construct(VoucherService $voucherService)
+    {
+        $this->voucherService = $voucherService;
+    }
 
     public function getCart()
     {
@@ -26,12 +31,13 @@ class CartService
         if($isDuplicate){
             return $this->updateQuantity($productDetail->id, $data['quantity'] + $cartUser->first()->quantity);
         }
+        $productPrice = $productDetail->product->price;
         Cart::create(
             [
                 'product_detail_id' => $productDetail->id,
                 'user_id' => Auth::user()->id,
                 'quantity' => $data['quantity'],
-                'price' => $data['price'],
+                'price' => $productPrice,
             ]
         );
         return [
@@ -73,5 +79,12 @@ class CartService
         $productDetail = ProductDetail::find($productDetailId);
         $quantity = $this->getCart()->where('product_detail_id', $productDetailId)->first()->quantity + $quantityChange;
         $this->updateQuantity($productDetail->id, $quantity);
+    }
+
+    public function getSubtotal()
+    {
+        return $this->getCart()->sum(function ($item) {
+            return $item->productDetail->product->price * $item->quantity;
+        });
     }
 }
