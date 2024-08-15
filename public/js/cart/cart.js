@@ -115,6 +115,7 @@ function removeFromCart(productDetailId)
                 $('.cart__close_'+productDetailId).html('<span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>');
             },
             success: function (response) {
+                updatePrices(productDetailId,response['subtotal'],response['total']);
                 $('.product-'+productDetailId).addClass('d-none');
             },
             error: function (xhr, status, error) {
@@ -146,16 +147,31 @@ function updateQuantity(product_detail_id,quantity)
     });
 }
 
-function updatePrices(product_detail_id,subtotal,total)
-{
-    var product_price= $('.cart__price-'+product_detail_id).data('id');
-    var outputPrice = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(product_price * $('#productDetail-'+product_detail_id).val());
-    $('#cart__total-'+product_detail_id).text(outputPrice);
 
-    var outputSubtotal = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(subtotal);
-    $('#subtotal').text(outputSubtotal);
-    var outputTotal = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(total);
-    $('#total').text(outputTotal);
+function updatePrices(product_detail_id,subtotal)
+{
+    $discountAmount = 0;
+    $.ajax({
+        url: '/cart/getVoucherDiscount',
+        type: 'GET',
+        success: function (response) {
+            $discountAmount = response;
+            var product_price = $('.cart__price-' + product_detail_id).data('id');
+            var outputPrice = formatPrice(product_price * $('#productDetail-' + product_detail_id).val());
+            $('#cart__total-' + product_detail_id).text(outputPrice);
+            var outputSubtotal = formatPrice(subtotal);
+            $('#subtotal').text(outputSubtotal);
+
+            if ($discountAmount > 0) {
+                $('#voucher').html('-' + formatPrice($discountAmount));
+            } else {
+                $('#voucher').html('-0');
+            }
+            var outputTotal = formatPrice(subtotal - $discountAmount);
+            $('#total').text(outputTotal);
+        }
+    });
+
 
 }
 
