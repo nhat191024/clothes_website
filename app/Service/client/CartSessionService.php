@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Auth;
 class CartSessionService
 {
     private $cartService;
-    public function __construct(CartService $cartService)
+    private $voucherService;
+    public function __construct(CartService $cartService,VoucherService $voucherService)
     {
         $this->cartService = $cartService;
+        $this->voucherService = $voucherService;
     }
     public function getCart()
     {
@@ -21,7 +23,7 @@ class CartSessionService
 
     public function storeCart($data)
     {
-    $cart = session()->get('cart', []);
+        $cart = $this->getCart();
     $productDetail = $this->cartService->getProductDetail($data['product_id'], $data['color_id'], $data['size_id']);
     if ($productDetail == null){
         return;
@@ -43,7 +45,7 @@ class CartSessionService
 
     public function removeProductByDetailId($productDetailId)
     {
-        $cart = session()->get('cart', []);
+        $cart = $this->getCart();
         if(isset($cart[$productDetailId])) {
             unset($cart[$productDetailId]);
             session()->put('cart', $cart);
@@ -52,21 +54,24 @@ class CartSessionService
     }
 
     public function updateQuantity($productDetailId, $quantity)
-    {
-        $cart = session()->get('cart', collect([]));
-        if ($cart->has($productDetailId)) {
-            $cart->put($productDetailId, array_merge($cart->get($productDetailId), ['quantity' => $quantity]));
-            session()->put('cart', $cart);
-        }
-        return [
-            'subtotal' => $cart->sum(function ($item) {
-                return $item['productDetail']->product->price * $item['quantity'];
-            }),
-            'total' => $cart->sum(function ($item) {
-                return $item['productDetail']->product->price * $item['quantity'];
-            }),
-        ];
+{
+    $cart = $this->getCart();
+
+    if (array_key_exists($productDetailId, $cart)) {
+        $cart[$productDetailId]['quantity'] = $quantity;
+        session()->put('cart', $cart instanceof \Illuminate\Support\Collection ? $cart->toArray() : $cart);
     }
+    $cart = collect($cart);
+
+    return [
+        'subtotal' => $cart->sum(function ($item) {
+            return $item['productDetail']->product->price * $item['quantity'];
+        }),
+        'total' => $cart->sum(function ($item) {
+            return $item['productDetail']->product->price * $item['quantity'];
+        }),
+    ];
+}
     public function updateProduct($productDetailId, $quantityChange)
     {
         $productDetail = ProductDetail::find($productDetailId);
@@ -79,7 +84,7 @@ class CartSessionService
         if(!Auth::check()) {
             return;
         }
-        $cart = session()->get('cart', []);
+        $cart = $this->getCart();
         foreach($cart as $item) {
             Cart::create(
                 [
@@ -95,6 +100,20 @@ class CartSessionService
     public function clearCart()
     {
         session()->forget('cart');
+    }
+
+    public function getSubtotal()
+    {
+        $cart = $this->getCart();
+        if ($cart instanceof \Illuminate\Support\Collection) {
+            return $cart->sum(function ($item) {
+                return $item['productDetail']->product->price * $item['quantity'];
+            });
+        } else {
+            return array_reduce($cart, function ($subtotal, $item) {
+                return $subtotal + ($item['productDetail']->product->price * $item['quantity']);
+            }, 0);
+        }
     }
 }
 
