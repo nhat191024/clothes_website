@@ -75,9 +75,10 @@
                     <div class="discount__content">
                         <h6>Discount codes</h6>
                         <form action="#">
-                            <input type="text" placeholder="Enter your coupon code">
-                            <button type="submit" class="site-btn">Apply</button>
+                            <input type="text" id="voucher_code" placeholder="Enter your voucher code">
+                            <button type="submit" id="apply_voucher" class="site-btn">Apply</button>
                         </form>
+                        <div id="voucher_error" class="text-danger ml-3"></div>
                     </div>
                 </div>
                 <div class="col-lg-4 offset-lg-2">
@@ -86,16 +87,17 @@
                         <ul>
                             <li>Subtotal
                                 <span id="subtotal">
-                                    ¥{{ number_format($cart && $cart->isNotEmpty() ? $cart->sum(function ($item) {
-                                        return $item['productDetail']->product->price * $item['quantity'];
-                                    }) : 0) }}
+                                    ¥{{ number_format($subtotal) }}
+                                </span>
+                            </li>
+                            <li id="voucher_label" class="{{ $voucher == null|| ($voucher ? $voucher->discount_percentage : 0) == 0 ? 'd-none' : '' }}">Voucher
+                                <span id="voucher">
+                                    -¥{{ number_format($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100) }}
                                 </span>
                             </li>
                             <li>Total
                                 <span id="total">
-                                    ¥{{ number_format($cart && $cart->isNotEmpty() ? $cart->sum(function ($item) {
-                                        return $item['productDetail']->product->price * $item['quantity'];
-                                    }) : 0) }}
+                                    ¥{{ number_format($subtotal - ($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100)) }}
                                 </span>
                             </li>
                         </ul>
