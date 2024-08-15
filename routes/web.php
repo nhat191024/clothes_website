@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\client\AccountManagement;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
@@ -44,4 +44,7 @@ Route::prefix('user')->group(function () {
     Route::post('/login/check', [LoginController::class, 'login'])->name('client.login');
 });
 
-
+Route::prefix('checkout')->group(function () {
+    Route::get('/', [CheckoutController::class, 'index'])->name('client.checkout.index');
+    Route::post('/confirm', [CheckoutController::class, 'store'])->name('client.checkout.store');
+});
