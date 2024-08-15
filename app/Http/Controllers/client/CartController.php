@@ -75,4 +75,9 @@ class CartController extends Controller
                 $this->cartSessionService->getSubtotal();
         return $this->voucherService->applyVoucher($request->input('voucher_code'), $subtotal);
     }
+
+    public function getDiscount()
+    {
+        return $this->voucherService->getDiscountAmount($this->cartSessionService->getSubtotal());
+    }
 }
