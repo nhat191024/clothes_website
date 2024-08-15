@@ -57,7 +57,7 @@ class CartService
     public function removeProductByDetailId($productDetailId)
     {
         Cart::where('product_detail_id', $productDetailId)->delete();
-        return 'ok';
+        return ['subtotal'=>$this->getSubtotal()];
     }
 
     public function updateQuantity($productDetailId, $quantity)
