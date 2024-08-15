@@ -32,6 +32,7 @@ Route::prefix('cart')->group(function () {
     Route::post('/reset', [CartController::class, 'resetCart'])->name('client.cart.reset');
     Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('client.cart.updateQuantity');
     Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
+    Route::get('/getVoucherDiscount',[CartController::class,'getDiscount'])->name('client.cart.getDiscount');
 });
 
 Route::prefix('contact')->group(function () {
