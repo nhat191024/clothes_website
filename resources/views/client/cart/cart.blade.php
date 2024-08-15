@@ -101,7 +101,7 @@
                                 </span>
                             </li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="{{ route('client.checkout.index') }}" class="primary-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

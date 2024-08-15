@@ -45,4 +45,7 @@ Route::prefix('user')->group(function () {
     Route::post('/login/check', [LoginController::class, 'login'])->name('client.login');
 });
 
-
+Route::prefix('checkout')->group(function () {
+    Route::get('/', [CheckoutController::class, 'index'])->name('client.checkout.index');
+    Route::post('/confirm', [CheckoutController::class, 'store'])->name('client.checkout.store');
+});
