@@ -33,9 +33,46 @@ $(document).ready(function () {
         var productDetailId = $(this).attr('id').split('-')[1];
         var quantity = $(this).val();
         updateQuantity(productDetailId, quantity);
-        console.log(productDetailId,quantity);
+
     });
+
+    $('#apply_voucher').on('click', function() {
+        event.preventDefault();
+        var voucherCode = $('#voucher_code').val();
+
+        applyVoucher(voucherCode);
+    })
 })
+
+function applyVoucher(voucherCode){
+    // $subtotal = $('#subtotal').text();
+    $.ajax({
+        url: '/cart/applyVoucher',
+        type: 'POST',
+        data: {
+            _token: csrfToken,
+            voucher_code: voucherCode
+        },
+        beforeSend: function () {
+            $('#apply_voucher').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Apply');
+        },
+        success: function (response) {
+            $('#voucher_label').removeClass('d-none');
+            $('#apply_voucher').html('<i class="fa fa-check mr-2"></i>Apply');
+            $('#voucher_error').html(response['checkResult']['message']);
+            if (response['discount'] == 0) {
+                $('#total').html(formatPrice(response['subtotal']));
+                $('#voucher_label').addClass('d-none');
+                return;
+            }
+            $('#voucher').html('-'+formatPrice(response['discount']));
+            $('#total').html(formatPrice(response['subtotal'] - response['discount']));
+        },
+        error: function (error) {
+            $('#voucher_error').html('Failed to apply voucher. Please try again.');
+        }
+    });
+}
 
 function addToCart(productId) {
     $.ajax({
@@ -56,10 +93,10 @@ function addToCart(productId) {
         success: function (response) {
             $('#add-to-cart-btn').html('<span class="icon_bag_alt"></span> Added!');
             $('#add-to-cart-btn').addClass('text-white');
-            console.log(response);
+
         },
         error: function (error) {
-            console.log(error);
+
         }
     });
 }
@@ -81,7 +118,7 @@ function removeFromCart(productDetailId)
                 $('.product-'+productDetailId).addClass('d-none');
             },
             error: function (xhr, status, error) {
-                console.log(error);
+
             }
         });
     }
@@ -122,5 +159,7 @@ function updatePrices(product_detail_id,subtotal,total)
 
 }
 
-
-
+function formatPrice(price)
+{
+    return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
+}
