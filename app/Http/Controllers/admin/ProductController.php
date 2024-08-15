@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Service\admin\CategoryService;
 use App\Service\admin\ColorService;
 use App\Service\admin\ProductService;
@@ -46,14 +47,6 @@ class ProductController extends Controller
         return view('admin.product.add_product', compact('allCategory', 'allSize', 'allColor'));
     }
 
-    public function showDetail(Request $request)
-    {
-        $id = $request->id;
-        $productInfo = $this->productService->getById($id);
-        $allVariations = $this->variationService->getAll();
-        return view('admin.product.detail', compact('id', 'productInfo', 'allVariations'));
-    }
-
     public function addProduct(Request $request)
     {
         $request->validate([
@@ -81,90 +74,81 @@ class ProductController extends Controller
     public function showEditProduct(Request $request)
     {
         $id = $request->id;
+        $productDetails = $this->productService->getProductDetails($id);
+        // dd($productDetails);
         $allCategory = $this->categoryService->getAll();
-        $productInfo = $this->productService->getById($id);
-        $allVariations = $this->variationService->getAll();
-        return view('admin.product.edit_product', compact('id', 'productInfo', 'allCategory', 'allVariations'));
-    }
-
-    public function showEditDetail(Request $request)
-    {
-        $request->validate([
-            'id' => 'required',
-            'product_id' => 'required',
-        ]);
-        $id = $request->id;
-        $productId = $request->product_id;
-        $productVariatonInfo = $this->productService->getDetailById($id);
-        return view('admin.product.edit_detail', compact('id', 'productVariatonInfo', 'productId'));
+        $allSize = $this->sizeService->getAll();
+        $allColor = $this->colorService->getAll();
+        $allSize = $allSize->pluck('name', 'id')->toArray(); // Giả sử bảng size có cột 'name' và 'id'
+        $allColor = $this->colorService->getAll()->pluck('name', 'id')->map(function ($name, $id) use ($allColor) {
+            return [
+                'name' => $name,
+                'color_hex' => $allColor->find($id)->color_hex // hoặc trường dữ liệu HEX của bạn
+            ];
+        })->toArray();
+        return view('admin.product.edit_product', compact('productDetails', 'allCategory', 'allColor', 'allSize'));
     }
 
     public function editProduct(Request $request)
     {
+        // Validate the request
         $request->validate([
             'id' => 'required',
             'category_id' => 'required',
             'product_name' => 'required',
-            'product_name_en' => 'required',
+            'product_price' => 'required',
+            'sizes' => 'required',
         ]);
+
         $id = $request->id;
-        $categoryId = $request->category_id;
+        $categoryArray = $request->category_id;
         $productName = $request->product_name;
-        $productNameEn = $request->product_name_en;
         $productPrice = $request->product_price;
         $productDescription = $request->product_description ?? null;
-        $productDescriptionEn = $request->product_description_en ?? null;
-        if ($request->product_image && $request->product_image != 'undefined') {
+        $imageName = null;
+
+        // Find the existing product
+        $product = Product::find($id);
+
+        // Check if the request has a new image
+        if ($request->hasFile('product_image')) {
+            // Delete the old image if exists
+            if ($product->img) {
+                $oldImagePath = public_path('img/client/shop/' . $product->img);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+
+            // Save the new image
             $imageName = time() . '_' . $request->product_image->getClientOriginalName();
             $request->product_image->move(public_path('img/client/shop'), $imageName);
-            $oldImagePath = $this->productService->getById($request->id)->image;
-            if (file_exists(public_path('img/client/shop') . '/' . $oldImagePath)) {
-                unlink(public_path('img/client/shop') . '/' . $oldImagePath);
-            }
+        } else {
+            // If no new image, retain the old one
+            $imageName = $product->img;
         }
-        return $this->productService->edit($id, $categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName ?? null);
-    }
 
-    public function editDetail(Request $request)
-    {
-        $request->validate([
-            'product_price' => 'required',
-            'id' => 'required',
-            'product_id' => 'required',
-        ]);
-        $id = $request->id;
-        $productId = $request->product_id;
-        $productPrice = $request->product_price;
-        $this->productService->editDetail($id, $productPrice);
-        return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('success', 'Sửa biến thể thành công');
+        $sizeColors = $request->sizes;
+
+        // Update the product
+        $this->productService->edit($id, $categoryArray, $productName, $productPrice, $productDescription, $imageName, $sizeColors);
+
+        return response()->json([
+            'link' => route('admin.product.show_edit', ['id' => $id])
+        ], 200);
     }
 
     public function deleteProduct(Request $request)
     {
         $id = $request->id;
         $this->productService->delete($id);
-        return redirect(route('admin.product.index'))->with('success', 'Ẩn thực phẩm thành công');
+        return redirect(route('admin.product.index'))->with('success', 'Ẩn sản phẩm thành công');
     }
 
     public function restoreProduct(Request $request)
     {
         $id = $request->id;
         $this->productService->restore($id);
-        return redirect(route('admin.product.index'))->with('success', 'Khôi phục thực phẩm thành công');
-    }
-
-    public function deleteDetail(Request $request)
-    {
-        $request->validate([
-            'id' => 'required',
-            'product_id' => 'required',
-        ]);
-        $id = $request->id;
-        $productId = $request->product_id;
-        if ($this->productService->deleteDetail($id, $productId)) {
-            return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('success', 'Xóa biến thể thành công');
-        }
-        return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('error', 'Biến thể không thể ít hơn 1 !!!!');
-
+        return redirect(route('admin.product.index'))->with('success', 'Khôi phục sản phẩm thành công');
     }
 }

@@ -30,9 +30,9 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>ND Giới thiệu</th>
+                                    <th>Mã sp</th>
+                                    <th class="col-2">Tên sản phẩm</th>
+                                    <th class="col-3">ND Giới thiệu</th>
                                     <th>Giá</th>
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
@@ -40,7 +40,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>STT</th>
+                                    <th>Mã sp</th>
                                     <th>Tên sản phẩm</th>
                                     <th>ND Giới thiệu</th>
                                     <th>Giá</th>
@@ -51,27 +51,25 @@
                             <tbody>
                                 @foreach ($allProduct as $key => $item)
                                     <tr>
-                                        <td>{{ ++$key }}</td>
+                                        <td>{{ $item['id'] }}</td>
                                         <td>{{ $item['name'] }}</td>
                                         <td>{{ $item['description'] }}</td>
                                         <td>{{ $item['price'] }}</td>
-                                        <td class="text-center"><img width="200px"
-                                                src="{{ url('') . '/' . $item['img'] }}" alt=""></td>
+                                        <td class="text-center"><img width="200px" src="{{ url('') . '/' . $item['img'] }}"
+                                                alt=""></td>
                                         <td class="text-center">
-                                            <a class="btn btn-warning"
-                                                href="{{ route('admin.product.show_edit', ['id' => $item->id]) }}">Sửa</a>
                                             @if (!$item->deleted_at)
                                                 <a class="btn btn-danger"
-                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn sản phẩm {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.product.delete', ['id' => $item->id]) }}'; }"
-                                                    > Nhấn để ẩn </a>
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn sản phẩm {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.product.delete', ['id' => $item->id]) }}'; }">
+                                                    Nhấn để ẩn </a>
                                             @endif
                                             @if ($item->deleted_at)
                                                 <a class="btn btn-info"
-                                                onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn hiện sản phẩm {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.product.restore', ['id' => $item->id]) }}'; }"
-                                                    > Khôi phục </a>
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn hiện sản phẩm {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.product.restore', ['id' => $item->id]) }}'; }">
+                                                    Khôi phục </a>
                                             @endif
                                             <a class="btn btn-info"
-                                                href="{{ route('admin.product.show_detail', ['id' => $item->id]) }}">Chi
+                                                href="{{ route('admin.product.show_edit', ['id' => $item->id]) }}">Chi
                                                 tiết</a>
                                         </td>
 
@@ -92,5 +90,12 @@
 
 
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                "ordering": false // Tắt tính năng tự động sắp xếp
+            });
+        });
+    </script>
     <!-- End of Content Wrapper -->
 @endsection

@@ -12,7 +12,10 @@ class ProductService
 {
     public function getAll()
     {
-        $product = Product::orderBy('created_at', 'desc')->orderBy('deleted_at', 'asc')->get();
+        $product = Product::withTrashed()
+            ->orderByRaw('deleted_at IS NOT NULL')
+            ->orderBy('created_at', 'desc')
+            ->get();
         return $product;
     }
 
@@ -21,10 +24,26 @@ class ProductService
         return Product::where('id', $id)->first();
     }
 
-    // public function getDetailById($id)
-    // {
-    //     return Product_variation::where('id', $id)->first();
-    // }
+    public function getProductDetails($productId)
+    {
+        // Lấy thông tin sản phẩm cơ bản
+        $product = Product::with(['productDetail.size', 'productDetail.color'])->find($productId);
+        // Chuyển đổi dữ liệu thành cấu trúc mong muốn
+        return $productDetails = (object) [
+            'id' => $product->id,
+            'name' => $product->name,
+            'description' => $product->description,
+            'price' => $product->price,
+            'image' => $product->img,
+            'categories' => $product->categories->pluck('id')->toArray(), // Giả sử bạn có relationship `categories` để lấy các danh mục của sản phẩm
+            'sizes' => $product->productDetail->groupBy('size_id')->map(function ($productDetail, $sizeId) {
+                return [
+                    'size' => $sizeId,
+                    'colors' => $productDetail->pluck('color_id')->toArray()
+                ];
+            })->values()->toArray()
+        ];
+    }
 
     public function add($categoryArray, $productName, $productPrice, $productDescription, $imageName, $sizeColors)
     {
@@ -50,76 +69,56 @@ class ProductService
                     'size_id' => $size,
                     'color_id' => $item
                 ]);
-            } 
+            }
+        }
+        return $id;
+    }
+    public function edit($id, $categoryArray, $productName, $productPrice, $productDescription, $imageName, $sizeColors)
+    {
+        Product::find($id)->update([
+            'name' => $productName,
+            'description' => $productDescription,
+            'img' => $imageName,
+            'price' => $productPrice
+        ]);
+
+        ProductCategory::where('product_id', $id)->delete();
+
+        foreach ($categoryArray as $item) {
+            ProductCategory::create([
+                'product_id' => $id,
+                'category_id' => $item
+            ]);
+        }
+
+        ProductDetail::where('product_id', $id)->forceDelete();
+
+        foreach ($sizeColors as $sizeColor) {
+            $size = $sizeColor['size'];
+            foreach ($sizeColor['colors'] as $item) {
+                ProductDetail::create([
+                    'product_id' => $id,
+                    'size_id' => $size,
+                    'color_id' => $item
+                ]);
+            }
         }
         return $id;
     }
 
-    // public function edit($id, $categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName)
-    // {
-    //     $product = Product::where('id', $id)->first();
-    //     $product->category_id = $categoryId;
-    //     $product->description = $productDescription;
-    //     $product->description_en = $productDescriptionEn;
-    //     $product->name = $productName;
-    //     $product->name_en = $productNameEn;
-    //     if ($imageName != null) {
-    //         $product->image = $imageName;
-    //     }
-    //     $product->save();
-    //     if ($productPrice != null) {
-    //         $productVariations = Product_variation::where('product_id', $id)->get();
-    //         foreach ($productVariations as $productVariation) {
-    //             $productVariation->delete();
-    //         }
-    //         foreach ($productPrice as $sizePriceJson) {
-    //             $sizePrice = json_decode($sizePriceJson, true);
-    //             Product_variation::create([
-    //                 'variation_id' => $sizePrice['id'],
-    //                 'product_id' => $id,
-    //                 'price' => ($sizePrice['price'] == null) ? 0 : $sizePrice['price'],
-    //             ]);
-    //         }
-    //     }
-    //     return $id;
-    // }
+    public function delete($id)
+    {
+        $product = Product::find($id);
+        if ($product) {
+            $product->delete(); // Thực hiện xóa mềm
+        }
+    }
 
-    // public function editDetail($id, $productPrice)
-    // {
-    //     $productVariation = Product_variation::where('id', $id)->first();
-    //     $productVariation->price = $productPrice;
-    //     $productVariation->save();
-    // }
-
-    // public function checkHasChildren($idFood)
-    // {
-    //     return Product::find($idFood)->dish()->get()->count() > 0;
-    // }
-
-    // public function delete($productId)
-    // {
-    //     $product = Product::find($productId);
-    //     $product->delete();
-    // }
-
-    // public function restore($productId)
-    // {
-    //     try {
-    //         Product::withTrashed()->where('id', $productId)->restore();
-    //         return true;
-    //     } catch (\Throwable $th) {
-    //         return false;
-    //     }
-    // }
-
-    // public function deleteDetail($detailId, $productId)
-    // {
-    //     $product = Product::find($productId);
-    //     if ($product->product_variations()->get()->count() > 1) {
-    //         $productVariation = Product_variation::find($detailId);
-    //         $productVariation->delete();
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    public function restore($id)
+    {
+        $product = Product::withTrashed()->find($id);
+        if ($product) {
+            $product->restore(); // Khôi phục sản phẩm
+        }
+    }
 }
