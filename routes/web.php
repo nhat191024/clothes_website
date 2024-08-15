@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\client\AccountManagement;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
@@ -31,6 +31,7 @@ Route::prefix('cart')->group(function () {
     Route::post('/remove', [CartController::class, 'removeFromCart'])->name('client.cart.remove');
     Route::post('/reset', [CartController::class, 'resetCart'])->name('client.cart.reset');
     Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('client.cart.updateQuantity');
+    Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
 });
 
 Route::prefix('contact')->group(function () {
