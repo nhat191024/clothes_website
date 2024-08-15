@@ -11,12 +11,12 @@ class Bill extends Model
     protected $fillable = [
         'full_name',
         'address',
-        'postcode',
         'phone',
         'email',
         'delivery_method',
-        'checkout_method',
+        'payment_method',
         'total_amount',
+        'point',
         'status'
     ];
 

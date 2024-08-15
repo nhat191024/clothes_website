@@ -1,10 +1,10 @@
 <?php
+namespace App\Http\Controllers\client;
 
-namespace App\Http\Controllers;
-
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use App\Service\client\CartService;
 use App\Service\client\CartSessionService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
