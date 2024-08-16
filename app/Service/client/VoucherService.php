@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Service\client;
+
 use App\Models\Voucher;
 
 class VoucherService
@@ -15,15 +16,15 @@ class VoucherService
         session()->forget('voucherCode');
     }
 
-    public function applyVoucher($voucherCode,$subTotal)
+    public function applyVoucher($voucherCode, $subTotal)
     {
-        $checkResult = $this->checkVoucher($voucherCode,$subTotal);
-        if($checkResult){
-            ($checkResult['valid']) ? $this->setActiveVoucherCode($voucherCode): $this->clearVoucher();
+        $checkResult = $this->checkVoucher($voucherCode, $subTotal);
+        if ($checkResult) {
+            ($checkResult['valid']) ? $this->setActiveVoucherCode($voucherCode) : $this->clearVoucher();
             return [
-                'subtotal'=>$subTotal,
-                'discount'=>$this->getDiscountAmount($subTotal),
-                'checkResult'=> $checkResult
+                'subtotal' => $subTotal,
+                'discount' => $this->getDiscountAmount($subTotal),
+                'checkResult' => $checkResult
             ];
         }
     }
@@ -32,7 +33,7 @@ class VoucherService
     {
         $voucherCode = session()->get('voucherCode');
         $voucher = Voucher::where('code', $voucherCode)->first();
-        if (!$voucher){
+        if (!$voucher) {
             return 0;
         }
         return $cartSubtotal * $voucher->discount_percentage / 100;
@@ -41,47 +42,42 @@ class VoucherService
     public function getActivatedVoucher($cartSubtotal)
     {
         $voucherCode = session()->get('voucherCode');
-        $result = $this->checkVoucher($voucherCode,$cartSubtotal);
-        if($result['valid']){
+        $result = $this->checkVoucher($voucherCode, $cartSubtotal);
+        if ($result['valid']) {
             return $result['voucher'];
         }
         $this->setActiveVoucherCode(null);
         return null;
     }
 
-    private function checkVoucher($voucherCode,$totalPrice)
+    private function checkVoucher($voucherCode, $cartSubtotal)
     {
         $voucher = Voucher::where('code', $voucherCode)->first();
-        if (!$voucher){
-            return [
-                'valid' => false,
-                'message' => "Voucher not found"
-            ];
+
+        if (!$voucher) {
+            return ['valid' => false, 'message' => "Voucher not found"];
         }
-        if ($voucher->end_date < date('Y-m-d')){
-            return [
-                'valid' => false,
-                'message' => "Voucher has expired"
-            ];
+
+        if ($voucher->status == 0) {
+            return ['valid' => false, 'message' => "Voucher unavailable"];
         }
-        if ($voucher->start_date > date('Y-m-d')){
-            return [
-                'valid' => false,
-                'message' => "Voucher has not yet started"
-            ];
+
+        if ($voucher->end_date < date('Y-m-d')) {
+            return ['valid' => false, 'message' => "Voucher has expired"];
         }
-        if ($voucher->quantity <= 0){
-            return [
-                'valid' => false,
-                'message' => "Voucher unavailable"
-            ];
+
+        if ($voucher->start_date > date('Y-m-d')) {
+            return ['valid' => false, 'message' => "Voucher has not yet started"];
         }
-        if ($voucher->min_price > $totalPrice){
-            return [
-                'valid' => false,
-                'message' => "Voucher not applicable (min spend: ¥" . number_format($voucher->min_price) . ")"
-            ];
+
+        if ($voucher->quantity <= 0) {
+            return ['valid' => false, 'message' => "Voucher has run out"];
         }
+
+        if ($voucher->min_price > $cartSubtotal) {
+            return ['valid' => false, 'message' => "Voucher not applicable (min spend: ¥" . $voucher->min_price . ")"];
+        }
+
         return [
             'valid' => true,
             'message' => "Voucher applied",
