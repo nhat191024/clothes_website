@@ -26,14 +26,29 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>{{ $product->name }}
-                            <span>Suitable for: @foreach ($product->categories as $ct)
-                                {{ $ct->name }}@if (!$loop->last),@endif
-                                @if ($loop->index == 3)...@break @endif @endforeach
-                            </span>
-                        </h3>
-                    <div class="product__details__price"><i class="fa fa-fw fa-yen"></i>{{ number_format($product->price) }} <span><i
-                                class="fa fa-fw fa-yen"></i>{{ number_format($product->price) }}</span> </div>
+                        <h3>
+                            <span id="name">{{ $product->name }}</span>
+                            <span>
+                                Suitable for: @foreach ($product->categories as $ct)
+                                    {{ $ct->name }}
+                                    @if (!$loop->last)
+                                        ,
+                                    @endif
+                                    @if ($loop->index == 3)
+                                        ...
+                                    @break
+                                @endif
+                            @endforeach
+                        </span>
+                    </h3>
+                    <div class="product__details__price">
+                        <i class="fa fa-fw fa-yen"></i>
+                        {{  number_format($product->price) }}
+                        <span>
+                            <i class="fa fa-fw fa-yen"></i>
+                            <span id="price">{{ number_format($product->price) }}</span>
+                        </span>
+                    </div>
                     <p>The estimated delivery time is 3-7 business days.</p>
                     <div class="product__details__button">
                         <div class="quantity">
@@ -42,7 +57,8 @@
                                 <input type="text" value="1">
                             </div>
                         </div>
-                        <a id="add-to-cart-btn" onclick="addToCart({{ $product->id }})" class="cart-btn" style="cursor: pointer"><span class="icon_bag_alt"></span> Add to cart</a>
+                        <a id="add-to-cart-btn" onclick="addToCart({{ $product->id }})" class="cart-btn"
+                            style="cursor: pointer"><span class="icon_bag_alt"></span> Add to cart</a>
                     </div>
                     <div class="product__details__widget">
                         <ul>
@@ -52,7 +68,9 @@
                                     @foreach ($product->productDetail->unique('color') as $prodDetail)
                                         {{ $prodDetail->color->color_name }}
                                         <label for="color-{{ $prodDetail->color->id }}">
-                                            <input type="radio" name="color__radio" value="{{ $prodDetail->color->id }}" id="color-{{ $prodDetail->color->id }}"
+                                            <input type="radio" name="color__radio"
+                                                value="{{ $prodDetail->color->id }}"
+                                                id="color-{{ $prodDetail->color->id }}"
                                                 @if ($loop->index == 0) checked @endif>
                                             <span class="checkmark"
                                                 style="background-color: {{ $prodDetail->color->color_hex }};"></span>
@@ -66,7 +84,9 @@
                                     @foreach ($product->productDetail->unique('size') as $prodDetail)
                                         <label for="size-{{ $prodDetail->size->id }}"
                                             class="font-weight-bold @if ($loop->index == 0) active @endif">
-                                            <input name="size__radio" type="radio" value="{{ $prodDetail->size->id }}" id="size-{{ $prodDetail->size->id }}">
+                                            <input name="size__radio" type="radio"
+                                                value="{{ $prodDetail->size->id }}"
+                                                id="size-{{ $prodDetail->size->id }}">
                                             {{ $prodDetail->size->name }}
                                         </label>
                                     @endforeach
@@ -103,33 +123,33 @@
             </div>
             @foreach ($product->categories[0]->products->shuffle() as $relatedProduct)
                 @if ($loop->index == 4)
-                    @break
-                @endif
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{ asset($relatedProduct->img) }}">
-                            <ul class="product__hover">
-                                <li><a href="{{ url('') . '/' }}{{ $relatedProduct->img }}" class="image-popup"><span
-                                            class="arrow_expand"></span></a></li>
-                                <li><a href="{{ route('client.shop.detail', ['id' => $relatedProduct->id]) }}"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="{{ route('client.shop.detail', ['id' => $relatedProduct->id]) }}">{{ $relatedProduct->name }}</a></h6>
-                            <div class="product__price">¥ {{ number_format($relatedProduct->price) }}</div>
-                            <input type="hidden" id="product__price" value="{{ $relatedProduct->price }}">
-                        </div>
+                @break
+            @endif
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{ asset($relatedProduct->img) }}">
+                        <ul class="product__hover">
+                            <li><a href="{{ url('') . '/' }}{{ $relatedProduct->img }}" class="image-popup"><span
+                                        class="arrow_expand"></span></a></li>
+                            <li><a href="{{ route('client.shop.detail', ['id' => $relatedProduct->id]) }}"><span
+                                        class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a
+                                href="{{ route('client.shop.detail', ['id' => $relatedProduct->id]) }}">{{ $relatedProduct->name }}</a>
+                        </h6>
+                        <div class="product__price">¥ {{ number_format($relatedProduct->price) }}</div>
+                        <input type="hidden" id="product__price" value="{{ $relatedProduct->price }}">
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
-    <link rel="stylesheet" href="{{ asset('css/shop/productDetail.css') }}">
-    </link>
-    <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
-    <script src="{{ url('') . '/' }}js/cart/cart.js"></script>
-    <script>
-        const csrfToken = "{{ csrf_token() }}";
-    </script>
+</div>
+<link rel="stylesheet" href="{{ asset('css/shop/productDetail.css') }}">
+</link>
+<script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
+<script src="{{ url('') . '/' }}js/cart/cart.js"></script>
 </section>
 @endsection
