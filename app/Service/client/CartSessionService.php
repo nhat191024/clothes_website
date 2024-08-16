@@ -4,40 +4,46 @@ namespace App\Service\client;
 
 use App\Models\Cart;
 use App\Models\ProductDetail;
+use App\Service\client\VoucherService;
+use App\Service\client\CartService;
 use Illuminate\Support\Facades\Auth;
 
 class CartSessionService
 {
     private $cartService;
     private $voucherService;
-    public function __construct(CartService $cartService, VoucherService $voucherService)
+
+    public function __construct()
     {
-        $this->cartService = $cartService;
-        $this->voucherService = $voucherService;
+        $this->cartService =  new cartService();
+        $this->voucherService = new voucherService();
     }
+
     public function getCart()
     {
         $cart = session('cart');
-        return $cart ?? collect();
+        return $cart ?? collect([]);
     }
 
     public function storeCart($data)
     {
         $cart = $this->getCart();
         $productDetail = $this->cartService->getProductDetail($data['product_id'], $data['color_id'], $data['size_id']);
-        if ($productDetail == null) {
-            return;
-        }
-        foreach ($cart as $item) {
-            if ($item['product_detail_id'] == $productDetail->id) {
-                return $this->updateQuantity($productDetail->id, $data['quantity'] + $item['quantity']);
+        if ($productDetail == null) return;
+
+        if ($cart) {
+            foreach ($cart as $item) {
+                if ($item['product_detail_id'] == $productDetail->id) {
+                    return $this->updateQuantity($productDetail->id, $data['quantity'] + $item['quantity']);
+                }
             }
         }
+
         $cart[$productDetail->id] = [
             'product_detail_id' => $productDetail->id,
-            'user_id' => null,
+            'name' => $data['name'],
             'quantity' => $data['quantity'],
-            'price' => $data['price'],
+            'price' => $productDetail->product->price,
             'productDetail' => $productDetail
         ];
         session()->put('cart', $cart);
@@ -65,10 +71,10 @@ class CartSessionService
 
         return [
             'subtotal' => $cart->sum(function ($item) {
-                return $item['productDetail']->product->price * $item['quantity'];
+                return $item['price'] * $item['quantity'];
             }),
             'total' => $cart->sum(function ($item) {
-                return $item['productDetail']->product->price * $item['quantity'];
+                return $item['price'] * $item['quantity'];
             }),
         ];
     }
@@ -105,13 +111,14 @@ class CartSessionService
     public function getSubtotal()
     {
         $cart = $this->getCart();
+        if (!$cart) return 0;
         if ($cart instanceof \Illuminate\Support\Collection) {
             return $cart->sum(function ($item) {
-                return $item['productDetail']->product->price * $item['quantity'];
+                return $item['price'] * $item['quantity'];
             });
         } else {
             return array_reduce($cart, function ($subtotal, $item) {
-                return $subtotal + ($item['productDetail']->product->price * $item['quantity']);
+                return $subtotal + ($item['price'] * $item['quantity']);
             }, 0);
         }
     }
