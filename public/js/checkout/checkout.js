@@ -32,8 +32,8 @@ function addNewOption() {
         paymentSelect.empty();
 
         const options = [
-            { value: 0, text: '銀行振込 (Bank Transfer)' },
-            { value: 2, text: '代金引換 (Cash on Delivery - COD)' },
+            { value: 0, text: 'Bank Transfer' },
+            { value: 2, text: 'Cash on Delivery - COD' },
         ];
 
         options.forEach(option => {
