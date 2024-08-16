@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->string('full_name',15);
-            $table->string('address', 64);
+            $table->text('address');
             $table->string('phone', 10);
             $table->string('email', 50);
             $table->tinyInteger('delivery_method');
