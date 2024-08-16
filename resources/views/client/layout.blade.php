@@ -41,7 +41,6 @@
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
-                    <div class="tip">2</div>
             <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
                 <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
                     data-toggle="" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +73,8 @@
         <div class="header__right__auth">
             @if (Auth::check())
                 <ul>
-                    <li><a href="{{ route('client.account.index') }}"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
+                    <li><a
+                            href="{{ route('client.account.index') }}"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
                         <ul class="dropdown">
                             <li><a href="#">Points: {{ Auth::user()->point }}P</a></li>
                             <li><a href="{{ route('client.account.index') }}">Profile</a></li>
@@ -111,12 +111,12 @@
 
                             <li
                                 class="{{ Request::url() == route('client.home.index') || Request::url() == null ? 'active' : '' }}">
-                                <a href="{{ route('client.home.index') }}">Home</a></li>
-                            <li><a href="{{ route('client.shop.index') }}">Female</a></li>
-                            <li><a href="{{ route('client.shop.index') }}">Male</a></li>
-                            <li><a href="{{ route('client.shop.index') }}">Kids</a></li>
-                            <li class="{{ Request::url() == route('client.shop.index') ? 'active' : '' }}"><a href="{{ route('client.shop.index') }}">Shop</a></li>
-                            <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a href="{{ route('client.cart.index') }}">Cart</a></li>
+                                <a href="{{ route('client.home.index') }}">Home</a>
+                            </li>
+                            <li class="{{ Request::url() == route('client.shop.index') ? 'active' : '' }}"><a
+                                    href="{{ route('client.shop.index') }}">Shop</a></li>
+                            <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
+                                    href="{{ route('client.cart.index') }}">Cart</a></li>
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
@@ -136,7 +136,6 @@
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
                                 </a></li>
                             <li class="nav-item dropdown login-drop">
                                 <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
@@ -155,7 +154,7 @@
                                             {{ $user ? Str::lower($user->username) : '' }}</a>
                                         <a class="dropdown-item" href="#">Points:
                                             {{ $user ? $user->point : '' }}P</a>
-                                            <div class="border-top"></div>
+                                        <div class="border-top"></div>
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else
                                         <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
