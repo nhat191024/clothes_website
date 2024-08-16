@@ -17,8 +17,8 @@ function addNewOption() {
         paymentSelect.empty();
 
         const options = [
-            { value: 0, text: '銀行振込 (Bank Transfer)' },
-            { value: 1, text: '店頭で支払う (Pay at store)' },
+            { value: 0, text: 'Bank Transfer' },
+            { value: 1, text: 'Pay at store' },
         ];
 
         options.forEach(option => {
@@ -53,12 +53,14 @@ function checkout() {
     const prefecture = $('#prefecture');
     const city = $('#city');
     const address = $('#address');
-    const buildingName = $('#buildingName') === '' ? 'null' : $('#buildingName').val() ;
+    const buildingName = $('#buildingName').val() == '' ? 'null' : $('#buildingName').val() ;
     const phoneNumber = $('#phoneNumber');
     const email = $('#email');
     const delivery = $('#delivery');
     const payment = $('#payment');
     const csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+    console.log(buildingName);
 
     $.ajax({
         url: "/checkout/confirm",
