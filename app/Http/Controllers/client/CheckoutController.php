@@ -20,12 +20,14 @@ class CheckoutController extends Controller
     {
         $user = Auth::user();
         $carts =  $this->checkoutService->getProductList();
+        $discount = $this->checkoutService->getDiscount();
+        $subTotal = $this->checkoutService->getCartSubTotal();
         $total = $this->checkoutService->getCartTotal();
 
         if (count($carts) == 0 || $carts == null) {
             return redirect()->route('client.home.index');
         }
-        return view('client.checkout.checkout', compact('carts', 'user', 'total'));
+        return view('client.checkout.checkout', compact('carts', 'user', 'subTotal', 'discount', 'total'));
     }
 
     public function store(StoreCheckoutRequest $request)
