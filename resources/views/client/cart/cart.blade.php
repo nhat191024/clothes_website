@@ -92,12 +92,12 @@
                             </li>
                             <li id="voucher_label" class="{{ $voucher == null|| ($voucher ? $voucher->discount_percentage : 0) == 0 ? 'd-none' : '' }}">Voucher
                                 <span id="voucher">
-                                    -¥{{ number_format($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100) }}
+                                    -¥{{ number_format($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100 ) }}
                                 </span>
                             </li>
                             <li>Total
                                 <span id="total">
-                                    ¥{{ number_format($subtotal - ($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100)) }}
+                                    ¥{{ number_format($subtotal - ($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100))  }}
                                 </span>
                             </li>
                         </ul>
@@ -111,7 +111,4 @@
     <link rel="stylesheet" href="{{ asset('css/cart/cart.css') }}"></link>
     <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
     <script src="{{ url('') . '/' }}js/cart/cart.js"></script>
-    <script>
-        const csrfToken = "{{ csrf_token() }}";
-    </script>
 @endsection
