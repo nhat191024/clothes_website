@@ -4,19 +4,22 @@ namespace App\Service\client;
 
 use App\Models\Cart;
 use App\Models\ProductDetail;
+use App\Service\client\VoucherService;
 use Illuminate\Support\Facades\Auth;
 
 class CartService
 {
     private $voucherService;
-    public function __construct(VoucherService $voucherService)
+
+    public function __construct()
     {
-        $this->voucherService = $voucherService;
+        $this->voucherService = new VoucherService();
     }
 
     public function getCart()
     {
         $user = Auth::user();
+        if ($user == null) return null;
         return Cart::where('user_id', $user->id)->get();
     }
 
@@ -51,6 +54,7 @@ class CartService
         return ProductDetail::where('product_id', $productId)
             ->where('color_id', $colorId)
             ->where('size_id', $sizeId)
+            ->with('color', 'size')
             ->first();
     }
 
