@@ -2448,6 +2448,17 @@ ol {
 	padding-bottom: 22px;
 }
 
+.checkout__order__product ul {
+	overflow: auto !important;
+	max-height: 35rem !important;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+}
+
+.checkout__order__product ul::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, and Opera */
+}
+
 .checkout__order__product ul li {
 	list-style: none;
 	font-size: 14px;
