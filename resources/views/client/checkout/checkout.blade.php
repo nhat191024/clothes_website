@@ -28,14 +28,14 @@
             </div>
             <form action="#" class="checkout__form">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 mb-4">
                         <h5>Billing detail</h5>
                         <div class="row">
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Full name<span>*</span></p>
                                     <input type="text" id="fullName" required placeholder="Your full name"
-                                        value="{{ $user->full_name }}" />
+                                        @if ($user) value="{{ $user->full_name }}" @endif />
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -74,14 +74,16 @@
                                 <div class="checkout__form__input">
                                     <p>Phone Number<span>*</span></p>
                                     <input type="text" id="phoneNumber" name="phoneNumber" required
-                                        placeholder="090-1234-5678" value="{{ $user->phone }}" />
+                                        placeholder="090-1234-5678"
+                                        @if ($user) value="{{ $user->phone }}" @endif />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Email<span>*</span></p>
                                     <input type="email" id="email" name="email" required
-                                        placeholder="Your email address" value="{{ $user->email }}" />
+                                        placeholder="Your email address"
+                                        @if ($user) value="{{ $user->email }}" @endif />
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -110,14 +112,15 @@
                                         <option value="1">Economical delivery</option>
                                         <option value="2">Express delivery</option>
                                     </select>
-                                        <!-- Add other prefectures as needed -->
+                                    <!-- Add other prefectures as needed -->
                                     </select>
                                 </div>
 
                                 <div class="checkout__form__input mt-4">
                                     <p>Payment method<span>*</span></p>
                                     <select id="payment" name="payment" class="form-control" required>
-                                        <option value="" disabled selected>Select payment method</option>
+                                        <option value="" disabled selected>Select delivery method to show payment
+                                            method</option>
                                     </select>
                                 </div>
                                 {{-- <div class="checkout__form__input mt-4">
@@ -128,32 +131,36 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 ">
                         <div class="checkout__order">
                             <h5>Your order</h5>
                             <div class="checkout__order__product">
                                 <ul>
                                     <li>
                                         <span class="top__text">Product</span>
-                                        <span class="top__text__right">Total</span>
+                                        <span class="top__text__right">Unit price</span>
                                     </li>
                                     @foreach ($carts as $key => $item)
-                                        <li class="d-flex justify-content-around">
+                                        <li class="d-flex justify-content-between">
                                             <div class="d-flex flex-column">
-                                                <span>{{ $key + 1 }}. {{ $item->productDetail->product->name }}</span>
-                                                size: {{ $item->productDetail->size->name }} -
-                                                {{ $item->productDetail->color->name }}
+                                                <span class=" w-75">
+                                                    x{{ $item['quantity'] }}
+                                                    {{ $item['productDetail']->product->name }}
+                                                </span>
+                                                size: {{ $item['productDetail']->size->name }}-
+                                                {{ $item['productDetail']->color->name }}
                                             </div>
-                                            <span> - </span>
-                                            <span> ¥{{ $item->price * $item->quantity }}</span>
+                                            <span> ¥{{ number_format($item['price']) }}</span>
                                         </li>
                                     @endforeach
                                 </ul>
                             </div>
+
                             <div class="checkout__order__total">
                                 <ul>
-                                    <li>Subtotal <span>¥{{ $total }}</span></li>
-                                    <li>Total <span>¥{{ $total }}</span></li>
+                                    <li>Subtotal <span>¥{{ number_format($subTotal) }}</span></li>
+                                    <li>Voucher discount <span>¥{{ number_format($discount) }}</span></li>
+                                    <li>Total <span>¥{{ number_format($total) }}</span></li>
                                 </ul>
                             </div>
                             <div class="checkout__order__widget">
