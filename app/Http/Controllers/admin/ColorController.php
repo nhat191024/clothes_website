@@ -42,36 +42,40 @@ class ColorController extends Controller
     public function showEditColor(Request $request)
     {
         $id = $request->id;
-        $sizeInfo = $this->colorService->getById($id);
-        return view('admin.color.edit_color', compact('id', 'sizeInfo'));
+        $colorInfo = $this->colorService->getById($id);
+        return view('admin.color.edit_color', compact('id', 'colorInfo'));
     }
 
     public function editColor(Request $request)
     {
         $request->validate([
             'id' => 'required',
-            'size_name' => 'required',
+            'color_name' => 'required',
+            'color_hex' => 'required',
         ]);
-        if($this->colorService->checkHasName($request->size_name, $request->id)) {
-            return redirect()->back()->with('error', 'Tên size đã có trên hệ thống');
+        if($this->colorService->checkHasName($request->color_name, $request->id)) {
+            return redirect()->back()->with('error', 'Tên màu đã có trên hệ thống');
         }
         // Public Folder
-        $this->colorService->edit($request->id, $request->size_name);
-        return redirect(route('admin.color.index'))->with('success', 'Sửa size thành công');
+        $this->colorService->edit($request->id, $request->color_name, $request->color_hex);
+        return redirect(route('admin.color.index'))->with('success', 'Sửa màu thành công');
     }
 
     public function deleteColor(Request $request)
     {
         $id = $request->id;
+        if($this->colorService->checkHasChildren($id)) {
+            return redirect(route('admin.color.index'))->with('success', 'Ẩn màu thất bại, màu đang tồn tại trong sản phẩm');
+        }
         $this->colorService->delete($id);
-        return redirect(route('admin.color.index'))->with('success', 'Ẩn size thành công');
+        return redirect(route('admin.color.index'))->with('success', 'Ẩn màu thành công');
     }
 
     public function restoreColor(Request $request)
     {
         $id = $request->id;
         $this->colorService->restore($id);
-        return redirect(route('admin.color.index'))->with('success', 'Khôi phục size thành công');
+        return redirect(route('admin.color.index'))->with('success', 'Khôi phục màu thành công');
     }
 
 }

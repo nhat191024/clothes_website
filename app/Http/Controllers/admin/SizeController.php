@@ -63,6 +63,9 @@ class SizeController extends Controller
     public function deleteSize(Request $request)
     {
         $id = $request->id;
+        if($this->sizeService->checkHasChildren($id)) {
+            return redirect(route('admin.size.index'))->with('success', 'Ẩn size thất bại, size đang tồn tại trong sản phẩm');
+        }
         $this->sizeService->delete($id);
         return redirect(route('admin.size.index'))->with('success', 'Ẩn size thành công');
     }

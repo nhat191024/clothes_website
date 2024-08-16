@@ -30,7 +30,7 @@ class ColorService
     }
 
     public function getById($id) {
-        return Color::where('id', $id)->first();
+        return Color::withTrashed()->where('id', $id)->first();
     }
 
     public function add($name, $colorHex)
@@ -41,18 +41,28 @@ class ColorService
         ]);
     }
 
-    public function edit($id, $categoryName)
+    public function edit($id, $categoryName, $colorHex)
     {
         $category = Color::where('id', $id)->first();
         $category->name = $categoryName;
+        $category->color_hex = $colorHex;
         $category->save();
     }
 
-    public function checkHasChildren($idCategory) {
-        return Color::find($idCategory)->product()->get()->count() > 0;
+    public function checkHasChildren($idColor) {
+        return Color::find($idColor)->productDetail()->get()->count() > 0;
     }
 
-    public function delete($idCategory) {
-        Color::destroy($idCategory);
+    public function delete($idColor)
+    {
+        Color::find($idColor)->delete();
+    }
+
+    public function restore($idColor)
+    {
+        $size = Color::withTrashed()->find($idColor);
+        if ($size) {
+            $size->restore(); // Khôi phục sản phẩm
+        }
     }
 }

@@ -49,18 +49,18 @@
                                         <td>{{ $item['color_hex'] }} <span class='color-preview' style='background-color: {{$item['color_hex']}};'></span></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning"
-                                                href="{{ route('admin.size.show_edit', ['id' => $item->id]) }}">
+                                                href="{{ route('admin.color.show_edit', ['id' => $item->id]) }}">
                                                 Sửa
                                             </a>
                                             @if ($item['deleted_at'] == null)
                                                 <a class="btn btn-danger"
-                                                    href="{{ route('admin.size.delete', ['id' => $item['id']]) }}"
+                                                    href="{{ route('admin.color.delete', ['id' => $item['id']]) }}"
                                                     onclick="return confirm('Bạn chắc chắn muốn ẩn màu')">
                                                     Ẩn
                                                 </a>
                                             @else
                                                 <a class="btn btn-secondary"
-                                                    href="{{ route('admin.size.restore', ['id' => $item['id']]) }}"
+                                                    href="{{ route('admin.color.restore', ['id' => $item['id']]) }}"
                                                     onclick="return confirm('Bạn chắc chắn muốn khôi phục màu')">
                                                     Hiện
                                                 </a>

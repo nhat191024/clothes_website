@@ -50,7 +50,7 @@ class SizeService
 
     public function checkHasChildren($idsize)
     {
-        return Size::find($idsize)->product()->get()->count() > 0;
+        return Size::find($idsize)->productDetail()->get()->count() > 0;
     }
 
     public function delete($idsize)
