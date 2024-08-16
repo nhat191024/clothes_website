@@ -1,6 +1,8 @@
+var product_name = $('#name').text();
 var color = $('input[name="color__radio"]:checked').val();
 var size = $('.size__btn label.active').find('input[name="size__radio"]').val();
-var price = $('#product__price').val();
+const csrfToken = $('meta[name="csrf-token"]').attr('content');
+
 $(document).ready(function () {
     $('input[name="color__radio"]').on('change', function() {
         var selectedColor = $('input[name="color__radio"]:checked').val();
@@ -80,11 +82,11 @@ function addToCart(productId) {
         type: 'POST',
         data: {
             _token: csrfToken,
+            name: product_name,
             product_id: productId,
             color_id: color,
             size_id: size,
             quantity: $('.pro-qty input').val(),
-            price: price
         },
         beforeSend: function () {
             $('#add-to-cart-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Adding...');
