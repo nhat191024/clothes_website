@@ -5,12 +5,14 @@ namespace App\Service;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use App\Service\client\CartService;
+use App\Service\client\CartSessionService;
 use Illuminate\Support\Facades\Log;
 
 class MailService
 {
     private $mail;
     private $cartService;
+    private $cartSessionService;
 
     public function __construct()
     {
@@ -23,12 +25,12 @@ class MailService
         $this->mail->SMTPSecure = config('mail.mailers.smtp.encryption');
         $this->mail->Port = config('mail.mailers.smtp.port');
         $this->mail->setFrom(config('mail.mailers.smtp.username'), 'Mouse Shop');
-        $this->cartService = new CartService();
 
-        // dd(config('mail.mailers.smtp.host'));
+        $this->cartService = new CartService();
+        $this->cartSessionService = new CartSessionService();
     }
 
-    public function adminSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $discount, $total)
+    public function adminSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $subtotal, $discount, $total)
     {
         try {
             Log::info('Start sending mail to admin! address: ' . $to . ', orderId: ' . $orderId);
@@ -53,10 +55,10 @@ class MailService
                 $payment = 'Bank transfer';
             }
 
-            $products = $this->cartService->getCart();
+            $this->cartService->getCart() ? $products = $this->cartService->getCart() : $products = $this->cartSessionService->getCart();
             $productHtml = '';
             foreach ($products as $product) {
-                $this->mail->AddEmbeddedImage(public_path($product->productDetail->product->img), 'image_' . $product->productDetail->product->id);
+                $this->mail->AddEmbeddedImage(public_path($product['productDetail']->product->img), 'image_' . $product['productDetail']->product->id);
                 $productHtml .= '
                 <li>
                     <table style="width: 100%; border-bottom: 1px solid rgb(228, 233, 235);">
@@ -64,16 +66,16 @@ class MailService
                             <tr>
                                 <td style="width: 100%; padding: 25px 10px 0px 0" colspan="2">
                                     <div style="float: left; width: 80px; height: 80px; border: 1px solid rgb(235, 239, 242); overflow: hidden; ">
-                                        <img style=" max-width: 100%; max-height: 100%;" src="' . 'cid:image_' . $product->productDetail->product->id . '" />
+                                        <img style=" max-width: 100%; max-height: 100%;" src="' . 'cid:image_' . $product['productDetail']->product->id . '" />
                                     </div>
                                     <div style="margin-left: 100px">
-                                        <a href=" ' . config('app.url') . '/shop/product/' . $product->productDetail->product->id . ' " style="color: rgb(169, 0, 0); text-decoration: none;" target="_blank" data-saferedirecturl="test">
-                                            ' . $product->productDetail->product->name . '</a>
+                                        <a href=" ' . config('app.url') . '/shop/product/' . $product['productDetail']->product->id . ' " style="color: rgb(169, 0, 0); text-decoration: none;" target="_blank" data-saferedirecturl="test">
+                                            ' . $product['productDetail']->product->name . '</a>
                                         <p style="color: rgb(103, 130, 153); margin-bottom: 0px; margin-top: 8px;">
-                                            ' . $product->productDetail->product->name . '
+                                            ' . $product['productDetail']->product->name . '
                                         </p>
                                         <p>
-                                        size: ' . $product->productDetail->size->name . ' - color: ' . $product->productDetail->color->name . '
+                                        size: ' . $product['productDetail']->size->name . ' - color: ' . $product['productDetail']->color->name . '
                                         </p>
                                     </div>
                                 </td>
@@ -81,12 +83,12 @@ class MailService
                             <tr>
                                 <td style="width: 70%; padding: 5px 0px 25px">
                                     <div style="margin-left: 100px">
-                                        ¥' . $product->price . '
-                                        <span style="margin-left: 20px">x' . $product->quantity . '</span>
+                                        ¥' . number_format($product['price']) . '
+                                        <span style="margin-left: 20px">x' . $product['quantity'] . '</span>
                                     </div>
                                 </td>
                                 <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">
-                                    ¥' . $product->price * $product->quantity  . '
+                                    ¥' . number_format($product['price'] * $product['quantity'])  . '
                                 </td>
                             </tr>
                         </tbody>
@@ -177,8 +179,12 @@ class MailService
                                         <table style="width: 100%; float: right">
                                             <tbody>
                                                 <tr>
-                                                    <td style="padding-bottom: 10px">Promotion:</td>
-                                                    <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">¥' . $discount . '</td>
+                                                    <td style="padding-bottom: 10px">Subtotal:</td>
+                                                    <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">¥' . number_format($subtotal) . '</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-bottom: 10px">Discount:</td>
+                                                    <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">¥' . number_format($discount) . '</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="padding-bottom: 10px">Shipping fee:</td>
@@ -186,7 +192,7 @@ class MailService
                                                 </tr>
                                                 <tr style="border-top: 1px solid rgb(229, 233, 236);">
                                                     <td style="padding-top: 10px">Total:</td>
-                                                    <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">¥' . $total . '</td>
+                                                    <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">¥' . number_format($total) . '</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -222,7 +228,7 @@ class MailService
         }
     }
 
-    public function customerSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $discount, $total)
+    public function customerSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $subtotal, $discount, $total)
     {
         try {
             Log::info('Start sending mail to customer! address: ' . $to . ', orderId: ' . $orderId);
@@ -247,10 +253,10 @@ class MailService
                 $payment = 'Bank transfer';
             }
 
-            $products = $this->cartService->getCart();
+            $this->cartService->getCart() ? $products = $this->cartService->getCart() : $products = $this->cartSessionService->getCart();
             $productHtml = '';
             foreach ($products as $product) {
-                $this->mail->AddEmbeddedImage(public_path($product->productDetail->product->img), 'image_' . $product->productDetail->product->id);
+                $this->mail->AddEmbeddedImage(public_path($product['productDetail']->product->img), 'image_' . $product['productDetail']->product->id);
                 $productHtml .= '
                 <li>
                     <table style="width: 100%; border-bottom: 1px solid rgb(228, 233, 235);">
@@ -258,16 +264,16 @@ class MailService
                             <tr>
                                 <td style="width: 100%; padding: 25px 10px 0px 0" colspan="2">
                                     <div style="float: left; width: 80px; height: 80px; border: 1px solid rgb(235, 239, 242); overflow: hidden; ">
-                                        <img style=" max-width: 100%; max-height: 100%;" src="' . 'cid:image_' . $product->productDetail->product->id . '" />
+                                        <img style=" max-width: 100%; max-height: 100%;" src="' . 'cid:image_' . $product['productDetail']->product->id . '" />
                                     </div>
                                     <div style="margin-left: 100px">
-                                        <a href=" ' . config('app.url') . '/shop/product/' . $product->productDetail->product->id . ' " style="color: rgb(169, 0, 0); text-decoration: none;" target="_blank" data-saferedirecturl="test">
-                                            ' . $product->productDetail->product->name . '</a>
+                                        <a href=" ' . config('app.url') . '/shop/product/' . $product['productDetail']->product->id . ' " style="color: rgb(169, 0, 0); text-decoration: none;" target="_blank" data-saferedirecturl="test">
+                                            ' . $product['productDetail']->product->name . '</a>
                                         <p style="color: rgb(103, 130, 153); margin-bottom: 0px; margin-top: 8px;">
-                                            ' . $product->productDetail->product->name . '
+                                            ' . $product['productDetail']->product->name . '
                                         </p>
                                         <p>
-                                        size: ' . $product->productDetail->size->name . ' - color: ' . $product->productDetail->color->name . '
+                                        size: ' . $product['productDetail']->size->name . ' - color: ' . $product['productDetail']->color->name . '
                                         </p>
                                     </div>
                                 </td>
@@ -275,12 +281,12 @@ class MailService
                             <tr>
                                 <td style="width: 70%; padding: 5px 0px 25px">
                                     <div style="margin-left: 100px">
-                                        ¥' . $product->price . '
-                                        <span style="margin-left: 20px">x' . $product->quantity . '</span>
+                                        ¥' . number_format($product['price']) . '
+                                        <span style="margin-left: 20px">x' . $product['quantity'] . '</span>
                                     </div>
                                 </td>
                                 <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">
-                                    ¥' . $product->price * $product->quantity  . '
+                                    ¥' . number_format($product['price'] * $product['quantity'])  . '
                                 </td>
                             </tr>
                         </tbody>
@@ -373,8 +379,12 @@ class MailService
                                         <table style="width: 100%; float: right">
                                             <tbody>
                                                 <tr>
-                                                    <td style="padding-bottom: 10px">Promotion:</td>
-                                                    <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">¥' . $discount . '</td>
+                                                    <td style="padding-bottom: 10px">Subtotal:</td>
+                                                    <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">¥' . number_format($subtotal) . '</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-bottom: 10px">Discount:</td>
+                                                    <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">¥' . number_format($discount) . '</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="padding-bottom: 10px">Shipping fee:</td>
@@ -382,7 +392,7 @@ class MailService
                                                 </tr>
                                                 <tr style="border-top: 1px solid rgb(229, 233, 236);">
                                                     <td style="padding-top: 10px">Total:</td>
-                                                    <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">¥' . $total . '</td>
+                                                    <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">¥' . number_format($total) . '</td>
                                                 </tr>
                                             </tbody>
                                         </table>
