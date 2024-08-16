@@ -16,15 +16,16 @@ class CartController extends Controller
     private $voucherService;
     private $isLoggedIn;
     private $cart;
-    public function __construct(CartService $cartService,CartSessionService $cartSessionService,VoucherService $voucherService)
+
+    public function __construct()
     {
-        $this->cartService = $cartService;
-        $this->cartSessionService = $cartSessionService;
-        $this->voucherService = $voucherService;
+        $this->cartService =  new cartService;
+        $this->cartSessionService = new cartSessionService;
+        $this->voucherService = new voucherService;
         $this->isLoggedIn = Auth::check();
         $cart = ($this->isLoggedIn) ?
             $this->cartService->getCart() :
-                $this->cartSessionService->getCart();
+            $this->cartSessionService->getCart();
         $this->cart = $cart;
     }
 
@@ -32,8 +33,10 @@ class CartController extends Controller
     {
         $subtotal = ($this->isLoggedIn) ?
             $this->cartService->getSubtotal() :
-                $this->cartSessionService->getSubtotal();
+            $this->cartSessionService->getSubtotal();
+
         $appliedVoucher = $this->voucherService->getActivatedVoucher($subtotal);
+        
         return view('client.cart.cart')->with([
             'cart' => $this->cart,
             'subtotal' => $subtotal,
@@ -51,28 +54,28 @@ class CartController extends Controller
     {
         return ($this->isLoggedIn) ?
             $this->cartService->storeCart($request->all()) :
-                $this->cartSessionService->storeCart($request->all());
+            $this->cartSessionService->storeCart($request->all());
     }
 
     public function removeFromCart(Request $request)
     {
         return ($this->isLoggedIn) ?
             $this->cartService->removeProductByDetailId($request->product_detail_id) :
-                $this->cartSessionService->removeProductByDetailId($request->product_detail_id);
+            $this->cartSessionService->removeProductByDetailId($request->product_detail_id);
     }
 
     public function updateQuantity(Request $request)
     {
         return ($this->isLoggedIn) ?
             $this->cartService->updateQuantity($request->product_detail_id, $request->quantity) :
-                $this->cartSessionService->updateQuantity($request->product_detail_id, $request->quantity);
+            $this->cartSessionService->updateQuantity($request->product_detail_id, $request->quantity);
     }
 
     public function applyVoucher(Request $request)
     {
         $subtotal = ($this->isLoggedIn) ?
             $this->cartService->getSubtotal() :
-                $this->cartSessionService->getSubtotal();
+            $this->cartSessionService->getSubtotal();
         return $this->voucherService->applyVoucher($request->input('voucher_code'), $subtotal);
     }
 
