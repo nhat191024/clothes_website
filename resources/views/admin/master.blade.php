@@ -11,6 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }} " />
     <title>MOUSE SHOP - Quản lý</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
 
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
 
@@ -162,10 +163,15 @@
                     <i class="fas fa-fw fa-bell "></i>
                     <span>Tin nhắn KH</span></a>
             </li>
-            <li class="nav-item {{ Request::is('admin/variation*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.variation.index') }}">
+            <li class="nav-item {{ Request::is('admin/size*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.size.index') }}">
                     <i class="fas fa-fw fa-chevron-circle-right"></i>
                     <span>Quản lý size</span></a>
+            </li>
+            <li class="nav-item {{ Request::is('admin/color*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.color.index') }}">
+                    <i class="fas fa-fw fa-chevron-circle-right"></i>
+                    <span>Quản lý màu</span></a>
             </li>
             <li class="nav-item {{ Request::is('admin/accessory*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.accessory.index') }}">
@@ -445,6 +451,7 @@
             <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
             <script src="{{ url('') . '/' }}js/admin/blog.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
 </body>
 
 </html>

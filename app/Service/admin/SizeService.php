@@ -8,33 +8,61 @@ class SizeService
 {
     public function getAll()
     {
-        $category = Size::all();
-        return $category;
+        $size = Size::withTrashed()->orderByRaw('deleted_at IS NOT NULL')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return $size;
+    }
+    public function getAllWithoutTrash()
+    {
+        $size = Size::orderBy('created_at', 'desc')
+            ->get();
+        return $size;
     }
 
-    public function getById($id) {
-        return Size::where('id', $id)->first();
+    public function checkHasName($name, $id = null)
+    {
+        if ($id == null) {
+            return Size::withTrashed()->where('name', $name)->exists();
+        } else { 
+            return Size::withTrashed()->where('name', $name)->where('id', '!=', $id)->exists();
+        }
     }
 
-    public function add($categoryName)
+    public function getById($id)
+    {
+        return Size::withTrashed()->where('id', $id)->first();
+    }
+
+    public function add($sizeName)
     {
         Size::create([
-            'name' => $categoryName,
+            'name' => $sizeName,
         ]);
     }
 
-    public function edit($id, $categoryName)
+    public function edit($id, $sizeName)
     {
-        $category = Size::where('id', $id)->first();
-        $category->name = $categoryName;
-        $category->save();
+        $size = Size::withTrashed()->where('id', $id)->first();
+        $size->name = $sizeName;
+        $size->save();
     }
 
-    public function checkHasChildren($idCategory) {
-        return Size::find($idCategory)->product()->get()->count() > 0;
+    public function checkHasChildren($idsize)
+    {
+        return Size::find($idsize)->product()->get()->count() > 0;
     }
 
-    public function delete($idCategory) {
-        Size::destroy($idCategory);
+    public function delete($idsize)
+    {
+        Size::find($idsize)->delete();
+    }
+
+    public function restore($idsize)
+    {
+        $size = Size::withTrashed()->find($idsize);
+        if ($size) {
+            $size->restore(); // Khôi phục sản phẩm
+        }
     }
 }

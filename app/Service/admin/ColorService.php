@@ -6,20 +6,38 @@ use App\Models\Color;
 
 class ColorService
 {
+    public function getAllWithoutTrash()
+    {
+        $color = Color::all();
+        return $color;
+    }
+
     public function getAll()
     {
-        $category = Color::all();
-        return $category;
+        $color = Color::withTrashed()->orderByRaw('deleted_at IS NOT NULL')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return $color;
+    }
+
+    public function checkHasName($name, $id = null)
+    {
+        if ($id == null) {
+            return Color::withTrashed()->where('name', $name)->exists();
+        } else { 
+            return Color::withTrashed()->where('name', $name)->where('id', '!=', $id)->exists();
+        }
     }
 
     public function getById($id) {
         return Color::where('id', $id)->first();
     }
 
-    public function add($categoryName)
+    public function add($name, $colorHex)
     {
         Color::create([
-            'name' => $categoryName,
+            'name' => $name,
+            'color_hex' => $colorHex,
         ]);
     }
 

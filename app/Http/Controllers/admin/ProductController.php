@@ -35,8 +35,8 @@ class ProductController extends Controller
     public function showAddProduct()
     {
         $allCategory = $this->categoryService->getAll();
-        $allSize = $this->sizeService->getAll();
-        $allColor = $this->colorService->getAll();
+        $allSize = $this->sizeService->getAllWithoutTrash();
+        $allColor = $this->colorService->getAllWithoutTrash();
         $allSize = $allSize->pluck('name', 'id')->toArray(); // Giả sử bảng size có cột 'name' và 'id'
         $allColor = $this->colorService->getAll()->pluck('name', 'id')->map(function ($name, $id) use ($allColor) {
             return [
@@ -77,8 +77,8 @@ class ProductController extends Controller
         $productDetails = $this->productService->getProductDetails($id);
         // dd($productDetails);
         $allCategory = $this->categoryService->getAll();
-        $allSize = $this->sizeService->getAll();
-        $allColor = $this->colorService->getAll();
+        $allSize = $this->sizeService->getAllWithoutTrash();
+        $allColor = $this->colorService->getAllWithoutTrash();
         $allSize = $allSize->pluck('name', 'id')->toArray(); // Giả sử bảng size có cột 'name' và 'id'
         $allColor = $this->colorService->getAll()->pluck('name', 'id')->map(function ($name, $id) use ($allColor) {
             return [

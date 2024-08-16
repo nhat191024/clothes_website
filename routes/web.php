@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ColorController;
 use App\Http\Controllers\admin\ProductController;
-
+use App\Http\Controllers\admin\SizeController;
 use App\Http\Controllers\client\AccountManagement;
 
 use App\Http\Controllers\client\ContactController;
@@ -50,6 +51,26 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit', [CategoryController::class, 'editCategory'])->name('admin.category.edit');
         Route::get('/edit/{id}', [CategoryController::class, 'showEditCategory'])->name('admin.category.show_edit');
         Route::get('/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin.category.delete');
+    });
+
+    Route::prefix('/size')->group(function () {
+        Route::get('/', [SizeController::class, 'index'])->name('admin.size.index');
+        Route::get('/add', [SizeController::class, 'showAddSize'])->name('admin.size.show_add');
+        Route::post('/add', [SizeController::class, 'addSize'])->name('admin.size.add');
+        Route::post('/edit', [SizeController::class, 'editSize'])->name('admin.size.edit');
+        Route::get('/edit/{id}', [SizeController::class, 'showEditSize'])->name('admin.size.show_edit');
+        Route::get('/delete/{id}', [SizeController::class, 'deleteSize'])->name('admin.size.delete');
+        Route::get('/restore/{id}', [SizeController::class, 'restoreSize'])->name('admin.size.restore');
+    });
+
+    Route::prefix('/color')->group(function () {
+        Route::get('/', [ColorController::class, 'index'])->name('admin.color.index');
+        Route::get('/add', [ColorController::class, 'showAddColor'])->name('admin.color.show_add');
+        Route::post('/add', [ColorController::class, 'addColor'])->name('admin.color.add');
+        Route::post('/edit', [ColorController::class, 'editColor'])->name('admin.color.edit');
+        Route::get('/edit/{id}', [ColorController::class, 'showEditColor'])->name('admin.color.show_edit');
+        Route::get('/delete/{id}', [ColorController::class, 'deleteColor'])->name('admin.color.delete');
+        Route::get('/restore/{id}', [ColorController::class, 'restoreColor'])->name('admin.color.restore');
     });
 
     Route::prefix('/product')->group(function () {
