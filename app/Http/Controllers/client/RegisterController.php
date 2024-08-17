@@ -9,10 +9,12 @@ use App\Http\Requests\RegisterRequest;
 class RegisterController extends Controller
 {
     private  $register;
-    public function __construct(RegisterService $register)
+
+    public function __construct()
     {
-        $this->register = $register;
+        $this->register = new RegisterService();
     }
+
     public function index(){
         return view('client.register.register');
     }
