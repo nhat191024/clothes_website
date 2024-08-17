@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Service\client\ProductService;
 use App\Service\client\ShopService;
 // use Clockwork\Request\Request;
 use Illuminate\Http\Request;
@@ -10,9 +11,11 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
     private $shopService;
-    public function __construct(ShopService $shopService)
+    private $productService;
+    public function __construct(ShopService $shopService, ProductService $productService)
     {
         $this->shopService = $shopService;
+        $this->productService = $productService;
     }
     public function index()
     {
@@ -39,5 +42,10 @@ class ShopController extends Controller
         $product = $this->shopService->getProductById($id);
         return view('client.shop.detail', compact('product'));
         // return $product;
+    }
+
+    public function getColorsOfSizes($id)
+    {
+        return $this->productService->getColorsOfSizesByProductId($id);
     }
 }
