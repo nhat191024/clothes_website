@@ -34,8 +34,12 @@ $(document).ready(function () {
     $('input[name="product-quantity"]').on('change', function() {
         var productDetailId = $(this).attr('id').split('-')[1];
         var quantity = $(this).val();
+        if (isNaN(quantity) || quantity <= 0) {
+            $(this).val(1);
+            alert('Please enter a valid quantity number that is greater than 0.');
+            return;
+        }
         updateQuantity(productDetailId, quantity);
-
     });
 
     $('#apply_voucher').on('click', function() {
@@ -93,6 +97,12 @@ function addToCart(productId) {
             $('#add-to-cart-btn').addClass('text-white');
         },
         success: function (response) {
+            console.log(response);
+            if (response['status']==404) {
+                alert('This variant is out of stock. Please choose other one');
+                $('#add-to-cart-btn').html('Out of stock');
+                return;
+            }
             $('#add-to-cart-btn').html('<span class="icon_bag_alt"></span> Added!');
             $('#add-to-cart-btn').addClass('text-white');
 
@@ -143,13 +153,12 @@ function updateQuantity(product_detail_id,quantity)
         },
         success: function (response) {
             updatePrices(product_detail_id,response.subtotal,response.total);
-            // $('#productDetail-'+product_detail_id).val(response);
             $('.cart__close_'+product_detail_id).html('<span class="icon_close"></span>');
         }
     });
 }
 
-
+let last_discount = 0;
 function updatePrices(product_detail_id,subtotal)
 {
     $discountAmount = 0;
@@ -163,11 +172,12 @@ function updatePrices(product_detail_id,subtotal)
             $('#cart__total-' + product_detail_id).text(outputPrice);
             var outputSubtotal = formatPrice(subtotal);
             $('#subtotal').text(outputSubtotal);
-
             if ($discountAmount > 0) {
                 $('#voucher').html('-' + formatPrice($discountAmount));
+                last_discount = $discountAmount;
             } else {
-                $('#voucher').html('-0');
+                $('#voucher_label').addClass('d-none');
+                last_discount > 0 ? $('#voucher_error').html('Voucher was removed due to your cart no longer satisfies its requirements.'):console.log('');
             }
             var outputTotal = formatPrice(subtotal - $discountAmount);
             $('#total').text(outputTotal);
