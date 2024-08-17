@@ -8,15 +8,18 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    private  $register;
-    public function __construct(RegisterService $register)
+    private  $registerService;
+
+    public function __construct()
     {
-        $this->register = $register;
+        $this->registerService = new RegisterService();
     }
+
     public function index(){
         return view('client.register.register');
     }
+
     public function create(Request $request){
-        return $this->register->registerAuth($request);
+        return $this->registerService->registerAuth($request);
     }
 }
