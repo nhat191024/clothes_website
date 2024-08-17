@@ -16,6 +16,7 @@ Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('client.shop.index');
     Route::get('/filter-products', [ShopController::class, 'filterProducts']);
     Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
+    Route::get('/product/{id}/get-colors-of-sizes', [ShopController::class, 'getColorsOfSizes']);
 });
 
 Route::middleware('auth')->prefix('account')-> group(function () {
