@@ -31,12 +31,14 @@ class VoucherService
 
     public function getDiscountAmount($cartSubtotal)
     {
-        $voucherCode = session()->get('voucherCode');
-        $voucher = Voucher::where('code', $voucherCode)->first();
-        if (!$voucher) {
+        $voucher = $this->getActivatedVoucher($cartSubtotal);
+        if ($voucher == null || !isset($voucher)) {
             return 0;
         }
-        return $cartSubtotal * $voucher->discount_percentage / 100;
+        $discount = $cartSubtotal * $voucher->discount_percentage / 100;
+        if ($voucher->max_price == null)
+            return $discount;
+        return ($discount>$voucher->max_price) ? $voucher->max_price : $discount;
     }
 
     public function getActivatedVoucher($cartSubtotal)
