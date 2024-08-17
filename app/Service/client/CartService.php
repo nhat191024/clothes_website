@@ -27,7 +27,10 @@ class CartService
     {
         $productDetail = $this->getProductDetail($data['product_id'], $data['color_id'], $data['size_id']);
         if ($productDetail == null){
-            return;
+            return [
+                'status' => 404,
+                'success' => false
+            ];
         }
         $cartUser = Cart::where('product_detail_id', $productDetail->id)->where('user_id', Auth::user()->id);
         $isDuplicate = $cartUser->exists();
@@ -45,7 +48,7 @@ class CartService
         );
         return [
             'status' => 200,
-            'success' => true
+            'success' => false
         ];
     }
 
@@ -69,13 +72,12 @@ class CartService
         Cart::where('product_detail_id', $productDetailId)->update([
             'quantity' => $quantity
         ]);
+        $subTotal = $this->getSubTotal();
+        $discount = $this->voucherService->getDiscountAmount($subTotal);
         return [
-            'subtotal' => $this->getCart()->sum(function ($item) {
-                return $item->productDetail->product->price * $item->quantity;
-            }),
-            'total' => $this->getCart()->sum(function ($item) {
-                return $item->productDetail->product->price * $item->quantity;
-            }),
+            'discount' => $discount,
+            'subtotal' => $subTotal,
+            'total' => $subTotal - $discount
         ];
     }
     public function updateProduct($productDetailId, $quantityChange)
@@ -90,5 +92,10 @@ class CartService
         return $this->getCart()->sum(function ($item) {
             return $item->productDetail->product->price * $item->quantity;
         });
+    }
+
+    public function clearCart()
+    {
+        Cart::where('user_id', Auth::user()->id)->delete();
     }
 }
