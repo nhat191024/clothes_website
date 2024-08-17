@@ -19,6 +19,7 @@ class User extends Authenticatable
         'avt',
         'username',
         'password',
+        'full_name',
         'email',
         'address',
         'phone',

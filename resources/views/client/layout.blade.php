@@ -59,7 +59,7 @@
                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                     @else
                         <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
-                        <a class="dropdown-item" href="#registerRoute">Register</a>
+                        <a class="dropdown-item" href="{{ route('client.register.index') }}">Register</a>
                     @endif
                 </div>
             </li>
@@ -88,7 +88,7 @@
             @endif
             @if (!Auth::check())
                 <a class="font-bold" href="{{ route('client.login.index') }}">Login</a> <br>
-                <a class="font-bold" href="#registerRoute">Register</a>
+                <a class="font-bold" href="{{ route('client.register.index') }}">Register</a>
             @endif
         </div>
     </div>
@@ -159,7 +159,7 @@
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else
                                         <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
-                                        <a class="dropdown-item" href="#registerRoute">Register</a>
+                                        <a class="dropdown-item" href="{{ route('client.register.index') }}">Register</a>
                                     @endif
                                 </div>
                             </li>
