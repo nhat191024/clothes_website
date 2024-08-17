@@ -7,6 +7,7 @@ use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\RegisterController;
 use App\Http\Controllers\client\ShopController;
 
 Route::prefix('/')->group(function () {
@@ -35,6 +36,8 @@ Route::prefix('user')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('client.login.index');
     Route::get('/logout', [LoginController::class, 'logout'])->name('client.logout');
     Route::post('/login/check', [LoginController::class, 'login'])->name('client.login');
+    Route::get('/register', [RegisterController::class, 'index'])->name('client.register.index');
+    Route::post('/register/create', [RegisterController::class,'create'])->name('client.register');
 });
 
 
