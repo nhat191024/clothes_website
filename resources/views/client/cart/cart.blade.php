@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn update__btn">
-                        <a href="{{ route('client.cart.index') }}"><span class="icon_loading"></span> Update cart</a>
+                        <a href="{{ route('client.cart.reset') }}"><span class="icon_loading"></span> Reset, clear cart</a>
                     </div>
                 </div>
             </div>
@@ -92,12 +92,12 @@
                             </li>
                             <li id="voucher_label" class="{{ $voucher == null|| ($voucher ? $voucher->discount_percentage : 0) == 0 ? 'd-none' : '' }}">Voucher
                                 <span id="voucher">
-                                    -¥{{ number_format($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100 ) }}
+                                    -¥{{ number_format($discount) }}
                                 </span>
                             </li>
                             <li>Total
                                 <span id="total">
-                                    ¥{{ number_format($subtotal - ($subtotal * ($voucher ? $voucher->discount_percentage : 0) / 100))  }}
+                                    ¥{{ number_format($total)  }}
                                 </span>
                             </li>
                         </ul>
