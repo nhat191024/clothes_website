@@ -58,11 +58,11 @@
                     <div class="product__details__widget">
                         <ul>
                             <li>
-                                <span>Available color:</span>
+                                <span>Available color: </span>
                                 <div class="color__checkbox">
+                                    <span class="color-loading-circle spinner-border spinner-border-sm" role="status" aria-hidden="true"style="width: 20px;height: 20px;"></span>
                                     @foreach ($product->productDetail->unique('color') as $prodDetail)
-                                        {{ $prodDetail->color->color_name }}
-                                        <label for="color-{{ $prodDetail->color->id }}">
+                                        <label id="color-label-{{ $prodDetail->color->id }}" class="color_label_class d-none" for="color-{{ $prodDetail->color->id }}">
                                             <input type="radio" name="color__radio"
                                                 value="{{ $prodDetail->color->id }}"
                                                 id="color-{{ $prodDetail->color->id }}"
@@ -74,6 +74,7 @@
                                 </div>
                             </li>
                             <li>
+                                <br class="color-loading-circle">
                                 <span>Available size:</span>
                                 <div class="size__btn">
                                     @foreach ($product->productDetail->unique('size') as $prodDetail)
@@ -81,7 +82,8 @@
                                             class="font-weight-bold @if ($loop->index == 0) active @endif">
                                             <input name="size__radio" type="radio"
                                                 value="{{ $prodDetail->size->id }}"
-                                                id="size-{{ $prodDetail->size->id }}">
+                                                id="size-{{ $prodDetail->size->id }}"
+                                                onclick="setEnabledColorBySizeId({{ $prodDetail->size->id }})">
                                             {{ $prodDetail->size->name }}
                                         </label>
                                     @endforeach
@@ -135,7 +137,7 @@
                                 href="{{ route('client.shop.detail', ['id' => $relatedProduct->id]) }}">{{ $relatedProduct->name }}</a>
                         </h6>
                         <div class="product__price">¥ {{ number_format($relatedProduct->price) }}</div>
-                        <input type="hidden" id="product__price" value="{{ $relatedProduct->price }}">
+                        <input type="hidden" id="product_id" value="{{ $product->id }}">
                     </div>
                 </div>
             </div>
@@ -146,5 +148,6 @@
 </link>
 <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
 <script src="{{ url('') . '/' }}js/cart/cart.js"></script>
+<script src="{{ url('') . '/' }}js/shop/prod-detail.js"></script>
 </section>
 @endsection
