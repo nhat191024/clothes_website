@@ -29,7 +29,11 @@ class CartSessionService
     {
         $cart = $this->getCart();
         $productDetail = $this->cartService->getProductDetail($data['product_id'], $data['color_id'], $data['size_id']);
-        if ($productDetail == null) return;
+        if ($productDetail == null)
+            return [
+            'status' => 404,
+            'success' => false
+            ];
 
         if ($cart) {
             foreach ($cart as $item) {
@@ -47,6 +51,10 @@ class CartSessionService
             'productDetail' => $productDetail
         ];
         session()->put('cart', $cart);
+        return [
+            'status' => 200,
+            'success' => false
+        ];
     }
 
     public function removeProductByDetailId($productDetailId)
@@ -56,26 +64,29 @@ class CartSessionService
             unset($cart[$productDetailId]);
             session()->put('cart', $cart);
         }
-        return 'ok';
+        $this->voucherService->getActivatedVoucher($this->getSubTotal());
+        return ['subtotal'=>$this->getSubtotal()];
     }
 
     public function updateQuantity($productDetailId, $quantity)
     {
         $cart = $this->getCart();
 
-        if (array_key_exists($productDetailId, $cart)) {
-            $cart[$productDetailId]['quantity'] = $quantity;
+        if ($cart[$productDetailId]??['product_detail_id'] == $productDetailId) {
+            if ($cart instanceof \Illuminate\Support\Collection) {
+                $cart->put($productDetailId, array_merge($cart->get($productDetailId), ['quantity' => $quantity]));
+            } else {
+                $cart[$productDetailId]['quantity'] = $quantity;
+            }
             session()->put('cart', $cart instanceof \Illuminate\Support\Collection ? $cart->toArray() : $cart);
         }
         $cart = collect($cart);
-
+        $subTotal = $this->getSubTotal();
+        $discount = $this->voucherService->getDiscountAmount($subTotal);
         return [
-            'subtotal' => $cart->sum(function ($item) {
-                return $item['price'] * $item['quantity'];
-            }),
-            'total' => $cart->sum(function ($item) {
-                return $item['price'] * $item['quantity'];
-            }),
+            'discount' => $discount,
+            'subtotal' => $subTotal,
+            'total' => $subTotal - $discount
         ];
     }
     public function updateProduct($productDetailId, $quantityChange)
