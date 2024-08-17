@@ -26,21 +26,16 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>
-                            <span id="name">{{ $product->name }}</span>
-                            <span>
-                                Suitable for: @foreach ($product->categories as $ct)
-                                    {{ $ct->name }}
-                                    @if (!$loop->last)
-                                        ,
-                                    @endif
-                                    @if ($loop->index == 3)
-                                        ...
+                        <h4 id="name">{{ $product->name }}</h4>
+                        <h6>
+                            Suitable for: @foreach ($product->categories as $ct)
+                                {{ $ct->name }}@if (!$loop->last), @endif
+                                @if ($loop->index == 3)
+                                    ...
                                     @break
                                 @endif
                             @endforeach
-                        </span>
-                    </h3>
+                        </h6>
                     <div class="product__details__price">
                         <i class="fa fa-fw fa-yen"></i>
                         {{  number_format($product->price) }}
