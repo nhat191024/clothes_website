@@ -1,8 +1,7 @@
 <?php
-
-
 use App\Http\Controllers\client\AccountManagement;
-
+use App\Http\Controllers\client\CartController;
+use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +17,7 @@ Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('client.shop.index');
     Route::get('/filter-products', [ShopController::class, 'filterProducts']);
     Route::get('/product/{id}', [ShopController::class, 'detailProduct'])->name('client.shop.detail');
+    Route::get('/product/{id}/get-colors-of-sizes', [ShopController::class, 'getColorsOfSizes']);
 });
 
 Route::middleware('auth')->prefix('account')-> group(function () {
@@ -25,6 +25,16 @@ Route::middleware('auth')->prefix('account')-> group(function () {
     Route::post('/', [AccountManagement::class,'changeData']);
     Route::get('/changePassword', [AccountManagement::class,'pass'])->name('client.account.changepassword');
     Route::post('/changePassword', [AccountManagement::class,'changePass']);
+});
+
+Route::prefix('cart')->group(function () {
+    Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
+    Route::post('/add', [CartController::class, 'addToCart'])->name('client.cart.add');
+    Route::post('/remove', [CartController::class, 'removeFromCart'])->name('client.cart.remove');
+    Route::get('/reset', [CartController::class, 'resetCart'])->name('client.cart.reset');
+    Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('client.cart.updateQuantity');
+    Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
+    Route::get('/getVoucherDiscount',[CartController::class,'getDiscount'])->name('client.cart.getDiscount');
 });
 
 Route::prefix('contact')->group(function () {
@@ -40,4 +50,7 @@ Route::prefix('user')->group(function () {
     Route::post('/register/create', [RegisterController::class,'create'])->name('client.register');
 });
 
-
+Route::prefix('checkout')->group(function () {
+    Route::get('/', [CheckoutController::class, 'index'])->name('client.checkout.index');
+    Route::post('/confirm', [CheckoutController::class, 'store'])->name('client.checkout.store');
+});

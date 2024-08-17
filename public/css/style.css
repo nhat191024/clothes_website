@@ -1730,7 +1730,7 @@ ol {
 	font-size: 18px;
 	color: #b1b0b0;
 	text-decoration: line-through;
-	margin-left: 10px;
+	/* margin-left: 10px; */
 	display: inline-block;
 }
 
@@ -2446,6 +2446,17 @@ ol {
 .checkout__order__product {
 	border-bottom: 1px solid #d7d7d7;
 	padding-bottom: 22px;
+}
+
+.checkout__order__product ul {
+	overflow: auto !important;
+	max-height: 35rem !important;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+}
+
+.checkout__order__product ul::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, and Opera */
 }
 
 .checkout__order__product ul li {

@@ -11,6 +11,7 @@ use App\Models\ProductCategory;
 use App\Models\ProductDetail;
 use App\Models\Bill;
 use App\Models\BillDetail;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\ContactInfo;
 use App\Models\ContactUs;
@@ -114,6 +115,10 @@ class DatabaseSeeder extends Seeder
 
         foreach ($dataArray['bill_details'] as $row) {
             BillDetail::create($row);
+        }
+
+        foreach ($dataArray['carts'] as $row) {
+            Cart::create($row);
         }
     }
 }

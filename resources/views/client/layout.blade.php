@@ -6,6 +6,7 @@
     <meta name="description" content="Mẫu Ashion">
     <meta name="keywords" content="Ashion, unica, sáng tạo, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ashion | Mẫu</title>
 
@@ -39,15 +40,14 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
-                    <div class="tip">2</div>
+            <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
             <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
                 <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
                     data-toggle="" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle" width="21px"
                         src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown"
+                <div class="login-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown"
                     style="transform: translate(15px,-5px);">
                     @php
                         $user = Auth::user();
@@ -73,7 +73,8 @@
         <div class="header__right__auth">
             @if (Auth::check())
                 <ul>
-                    <li><a href="{{ route('client.account.index') }}"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
+                    <li><a
+                            href="{{ route('client.account.index') }}"><b>{{ Str::upper(Auth::user()->username) }}</b></a>
                         <ul class="dropdown">
                             <li><a href="#">Points: {{ Auth::user()->point }}P</a></li>
                             <li><a href="{{ route('client.account.index') }}">Profile</a></li>
@@ -110,13 +111,12 @@
 
                             <li
                                 class="{{ Request::url() == route('client.home.index') || Request::url() == null ? 'active' : '' }}">
-                                <a href="{{ route('client.home.index') }}">Home</a></li>
-                            <li><a href="{{ route('client.shop.index') }}">Female</a></li>
-                            <li><a href="{{ route('client.shop.index') }}">Male</a></li>
-                            <li><a href="{{ route('client.shop.index') }}">Kids</a></li>
+                                <a href="{{ route('client.home.index') }}">Home</a>
+                            </li>
                             <li class="{{ Request::url() == route('client.shop.index') ? 'active' : '' }}"><a
                                     href="{{ route('client.shop.index') }}">Shop</a></li>
-                            <li><a href="{{ route('client.home.index') }}">Cart</a></li>
+                            <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
+                                    href="{{ route('client.cart.index') }}">Cart</a></li>
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
@@ -135,8 +135,7 @@
                     <div class="header__right">
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
-
+                            <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
                                 </a></li>
                             <li class="nav-item dropdown login-drop">
                                 <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
@@ -145,7 +144,7 @@
                                     <img class="rounded-circle" width="23px"
                                         src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
                                 </a>
-                                <div class="login-dropdown dropdown-menu dropdown-menu-right"
+                                <div class="login-dropdown login-dropdown dropdown-menu dropdown-menu-right"
                                     aria-labelledby="heartDropdown" style="transform: translate(15px,-8px);">
                                     @php
                                         $user = Auth::user();
@@ -155,7 +154,7 @@
                                             {{ $user ? Str::lower($user->username) : '' }}</a>
                                         <a class="dropdown-item" href="#">Points:
                                             {{ $user ? $user->point : '' }}P</a>
-                                            <div class="border-top"></div>
+                                        <div class="border-top"></div>
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else
                                         <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>

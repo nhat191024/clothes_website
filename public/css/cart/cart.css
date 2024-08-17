@@ -1,0 +1,13 @@
+.prod-quantity {
+    height: 50px;
+    width: 150px;
+    border: 1px solid #ebebeb;
+    border-radius: 50px;
+    padding: 0 20px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.qtybtn{
+    
+}

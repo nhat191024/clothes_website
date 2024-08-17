@@ -14,15 +14,14 @@ return new class extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->string('full_name',15);
-            $table->string('address', 64);
-            $table->integer('postcode');
+            $table->text('address');
             $table->string('phone', 10);
             $table->string('email', 50);
             $table->tinyInteger('delivery_method');
-            $table->tinyInteger('checkout_method');
+            $table->tinyInteger('payment_method');
             $table->integer('point')->nullable();
             $table->integer('total_amount');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
