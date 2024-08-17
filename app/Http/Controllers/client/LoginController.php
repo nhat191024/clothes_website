@@ -3,16 +3,27 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Service\client\CartSessionService;
 use App\Service\client\LoginService;
+use App\Service\client\VoucherService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
     private $loginService;
-    public function __construct(LoginService $loginService)
+    private $voucherService;
+    private $cartService;
+
+    public function __construct(
+        LoginService $loginService,
+        VoucherService $voucherService,
+        CartSessionService $cartService
+    )
     {
         $this->loginService = $loginService;
+        $this->voucherService = $voucherService;
+        $this->cartService = $cartService;
     }
     public function index(){
         if(Auth::check()){
@@ -22,11 +33,16 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        return $this->loginService->loginAuth($request);
+        $result = $this->loginService->loginAuth($request);
+        $this->voucherService->clearVoucher();
+        return $result;
     }
 
     public function logout(Request $request){
-        return $this->loginService->logout($request);
+        $result = $this->loginService->logout($request);
+        $this->voucherService->clearVoucher();
+        $this->cartService->clearCart();
+        return $result;
     }
 }
 
