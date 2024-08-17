@@ -36,11 +36,12 @@ class CartController extends Controller
             $this->cartSessionService->getSubtotal();
 
         $appliedVoucher = $this->voucherService->getActivatedVoucher($subtotal);
-        
+        $discount = $this->voucherService->getDiscountAmount($subtotal);
         return view('client.cart.cart')->with([
             'cart' => $this->cart,
             'subtotal' => $subtotal,
-            'total' => $subtotal - ($subtotal * ($appliedVoucher ? $appliedVoucher->discount_percentage : 0) / 100),
+            'discount' => $discount,
+            'total' => $subtotal - $discount,
             'voucher' => $appliedVoucher
         ]);
     }
@@ -52,6 +53,13 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+        $request->validate([
+            'product_id' => 'required|integer',
+            'color_id' => 'required|integer',
+            'size_id' => 'required|integer',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
         return ($this->isLoggedIn) ?
             $this->cartService->storeCart($request->all()) :
             $this->cartSessionService->storeCart($request->all());
@@ -59,6 +67,10 @@ class CartController extends Controller
 
     public function removeFromCart(Request $request)
     {
+        $request->validate([
+            'product_detail_id' => 'required|integer',
+        ]);
+
         return ($this->isLoggedIn) ?
             $this->cartService->removeProductByDetailId($request->product_detail_id) :
             $this->cartSessionService->removeProductByDetailId($request->product_detail_id);
@@ -66,6 +78,11 @@ class CartController extends Controller
 
     public function updateQuantity(Request $request)
     {
+        $request->validate([
+            'product_detail_id' => 'required|integer',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
         return ($this->isLoggedIn) ?
             $this->cartService->updateQuantity($request->product_detail_id, $request->quantity) :
             $this->cartSessionService->updateQuantity($request->product_detail_id, $request->quantity);
@@ -76,11 +93,23 @@ class CartController extends Controller
         $subtotal = ($this->isLoggedIn) ?
             $this->cartService->getSubtotal() :
             $this->cartSessionService->getSubtotal();
-        return $this->voucherService->applyVoucher($request->input('voucher_code'), $subtotal);
+        return $this->voucherService->applyVoucher($request->voucher_code, $subtotal);
     }
 
     public function getDiscount()
     {
-        return $this->voucherService->getDiscountAmount($this->cartSessionService->getSubtotal());
+        return $this->voucherService->getDiscountAmount(
+            ($this->isLoggedIn) ?
+                $this->cartService->getSubtotal() :
+                    $this->cartSessionService->getSubtotal()
+        );
+    }
+
+    public function resetCart()
+    {
+        ($this->isLoggedIn) ?
+            $this->cartService->clearCart() :
+            $this->cartSessionService->clearCart();
+        return redirect()->route('client.cart.index');
     }
 }
