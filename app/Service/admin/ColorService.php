@@ -24,7 +24,7 @@ class ColorService
     {
         if ($id == null) {
             return Color::withTrashed()->where('name', $name)->exists();
-        } else { 
+        } else {
             return Color::withTrashed()->where('name', $name)->where('id', '!=', $id)->exists();
         }
     }
@@ -41,10 +41,10 @@ class ColorService
         ]);
     }
 
-    public function edit($id, $categoryName, $colorHex)
+    public function edit($id, $color_name, $colorHex)
     {
         $category = Color::where('id', $id)->first();
-        $category->name = $categoryName;
+        $category->name = $color_name;
         $category->color_hex = $colorHex;
         $category->save();
     }
