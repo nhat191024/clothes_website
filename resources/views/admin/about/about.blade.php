@@ -34,7 +34,7 @@
                                     {{-- <th>Tiêu đề (Tiếng Anh)</th> --}}
                                     <th>Nội dung (Tiếng Việt)</th>
                                     {{-- <th>Nội dung (Tiếng Anh)</th> --}}
-                                    <th>Ảnh</th>
+                                    {{-- <th>Ảnh</th> --}}
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -44,7 +44,7 @@
                                     {{-- <th>Tiêu đề (Tiếng Anh)</th> --}}
                                     <th>Nội dung (Tiếng Việt)</th>
                                     {{-- <th>Nội dung (Tiếng Anh)</th> --}}
-                                    <th>Ảnh</th>
+                                    {{-- <th>Ảnh</th> --}}
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
