@@ -32,25 +32,13 @@ class AboutUsController extends Controller
     {
         $request->validate([
             'id' => 'required',
-            'about_title' => 'required',
-            'about_title_en' => 'required',
-            'about_content' => 'required',
-            'about_content_en' => 'required',
+            'name' => 'required',
+            'type' => 'required',
         ]);
         $id = $request->id;
-        $aboutTitle = $request->about_title;
-        $aboutTitleEn = $request->about_title_en;
-        $aboutContent = $request->about_content;
-        $aboutContentEn = $request->about_content_en;
-        if ($request->about_image) {
-            $imageName = time() . '_' . $request->about_image->getClientOriginalName();
-            $request->about_image->move(public_path('img/about'), $imageName);
-            $oldImagePath = $this->aboutUsService->getById($request->id)->image;
-            if (file_exists(public_path('img/about') . '/' . $oldImagePath) && $oldImagePath != null) {
-                unlink(public_path('img/about') . '/' . $oldImagePath);
-            }
-        }
-        $this->aboutUsService->edit($id, $aboutTitle, $aboutTitleEn, $aboutContent, $aboutContentEn, $imageName ?? null);
+        $name = $request->name;
+        $type = $request->type;
+        $this->aboutUsService->edit($id, $name, $type);
         return redirect(route('admin.about.index'))->with('success', 'Sửa about thành công');
     }
 }
