@@ -2,45 +2,43 @@
 
 namespace App\Service\admin;
 
-use App\Models\Banners;
+use App\Models\Banner;
 
 class BannerService
 {
     public function getAll()
     {
-        $banner = Banners::all();
+        $banner = Banner::all();
         return $banner;
     }
 
     public function getById($id) {
-        return Banners::where('id', $id)->first();
+        return Banner::where('id', $id)->first();
     }
 
-    public function add($bannerTitle, $bannerTitleEn, $bannerContent, $bannerContentEn, $imageName)
+    public function add($bannerTitle, $bannerContent, $imageName,$link)
     {
-        Banners::create([
+        Banner::create([
             'title' => $bannerTitle,
-            'title_en' => $bannerTitleEn,
             'subtitle' => $bannerContent,
-            'subtitle_en' => $bannerContentEn,
-            'image' => $imageName
+            'image' => $imageName,
+            'link' => $link,
         ]);
     }
 
-    public function edit($id, $bannerTitle, $bannerTitleEn, $bannerContent, $bannerContentEn, $imageName)
+    public function edit($id, $bannerTitle, $bannerContent, $imageName, $link)
     {
-        $banner = Banners::where('id', $id)->first();
+        $banner = Banner::where('id', $id)->first();
         $banner->title = $bannerTitle;
-        $banner->title_en = $bannerTitleEn;
         $banner->subtitle = $bannerContent;
-        $banner->subtitle_en = $bannerContentEn;
         if ($imageName != null) {
             $banner->image = $imageName;
         }
+        $banner->link = $link;
         $banner->save();
     }
 
     public function delete($id) {
-        $banner = Banners::destroy($id);
+        $banner = Banner::destroy($id);
     }
 }
