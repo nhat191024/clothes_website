@@ -52,13 +52,15 @@ class ColorController extends Controller
             'id' => 'required',
             'color_name' => 'required',
             'color_hex' => 'required',
+            'color_name' => 'required',
+            'color_hex' => 'required',
         ]);
-        if($this->colorService->checkHasName($request->color_name, $request->id)) {
-            return redirect()->back()->with('error', 'Tên màu đã có trên hệ thống');
-        }
+        // if($this->colorService->checkHasName($request->size_name, $request->id)) {
+        //     return redirect()->back()->with('error', 'Tên size đã có trên hệ thống');
+        // }
         // Public Folder
         $this->colorService->edit($request->id, $request->color_name, $request->color_hex);
-        return redirect(route('admin.color.index'))->with('success', 'Sửa màu thành công');
+        return redirect(route('admin.color.index'))->with('success', 'Sửa màu thành công');
     }
 
     public function deleteColor(Request $request)
