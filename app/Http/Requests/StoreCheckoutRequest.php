@@ -22,6 +22,7 @@ class StoreCheckoutRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'usingPoint' => 'required|string',
             'fullName' => 'required|string|max:255',
             'prefecture' => 'required|string|max:255',
             'city' => 'required|string|max:255',
