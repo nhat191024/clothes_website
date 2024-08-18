@@ -200,6 +200,7 @@
                     <i class="fas fa-fw fa-cookie"></i>
                     <span>Cách thức nấu</span></a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.branch.index') }}">
                     <i class="fas fa-fw fa-warehouse"></i>
