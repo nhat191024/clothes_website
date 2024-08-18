@@ -102,35 +102,35 @@ class CheckoutService
             'total_amount' => $total,
         ]);
 
-        // $this->mailService->adminSend(
-        //     'richberchannel01@gmail.com',
-        //     $request->fullName,
-        //     $bill->id,
-        //     $request->email,
-        //     $request->phoneNumber,
-        //     $address,
-        //     $request->payment,
-        //     $request->delivery,
-        //     $bill->created_at,
-        //     $this->getCartSubTotal(),
-        //     $this->getDiscount(),
-        //     $total
-        // );
+        $this->mailService->adminSend(
+            'richberchannel01@gmail.com',
+            $request->fullName,
+            $bill->id,
+            $request->email,
+            $request->phoneNumber,
+            $address,
+            $request->payment,
+            $request->delivery,
+            $bill->created_at,
+            $this->getCartSubTotal(),
+            $this->getDiscount(),
+            $total
+        );
 
-        // $this->mailService->customerSend(
-        //     $request->email,
-        //     $request->fullName,
-        //     $bill->id,
-        //     $request->email,
-        //     $request->phoneNumber,
-        //     $address,
-        //     $request->payment,
-        //     $request->delivery,
-        //     $bill->created_at,
-        //     $this->getCartSubTotal(),
-        //     $this->getDiscount(),
-        //     $total
-        // );
+        $this->mailService->customerSend(
+            $request->email,
+            $request->fullName,
+            $bill->id,
+            $request->email,
+            $request->phoneNumber,
+            $address,
+            $request->payment,
+            $request->delivery,
+            $bill->created_at,
+            $this->getCartSubTotal(),
+            $this->getDiscount(),
+            $total
+        );
 
         foreach ($this->carts as $cart) {
             BillDetail::create([
