@@ -31,21 +31,19 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Tiêu đề (Tiếng Việt)</th>
-                                    <th>Tiêu đề (Tiếng Anh)</th>
-                                    <th>Nội dung (Tiếng Việt)</th>
-                                    <th>Nội dung (Tiếng Anh)</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
                                     <th>Ảnh</th>
+                                    <th>Liên kết</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Tiêu đề (Tiếng Việt)</th>
-                                    <th>Tiêu đề (Tiếng Anh)</th>
-                                    <th>Nội dung (Tiếng Việt)</th>
-                                    <th>Nội dung (Tiếng Anh)</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
                                     <th>Ảnh</th>
+                                    <th>Liên kết</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
@@ -53,12 +51,17 @@
                                 @foreach ($allBanner as $key => $item)
                                     <tr>
                                         <td>{{ $item->title }}</td>
-                                        <td>{{ $item->title_en }}</td>
                                         <td>{{ $item['subtitle'] }}</td>
-                                        <td>{{ $item['subtitle_en'] }}</td>
                                         <td class="text-center"><img width="200px"
-                                                src="{{ url('img') . '/home/' . $item['image'] }}" alt=""></td>
-                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.banner.show_edit', ['id' => $item->id])}}">Sửa</a></td>
+                                            src="{{ url('/') . '/img/banner/' . $item['image'] }}" alt=""></td>
+                                        <td>{{ $item['link'] }}</td>
+                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.banner.show_edit', ['id' => $item->id])}}">Sửa</a>
+                                            <a class="btn btn-danger"
+                                                    href="{{ route('admin.banner.delete', ['id' => $item['id']]) }}"
+                                                    onclick="return confirm('Bạn chắc chắn muốn xoá banner?')">
+                                                    Xoá
+                                                </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
