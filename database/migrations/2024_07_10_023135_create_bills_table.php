@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('email', 50);
             $table->tinyInteger('delivery_method');
             $table->tinyInteger('payment_method');
-            $table->integer('point')->nullable();
+            $table->integer('points_for_user')->nullable();
+            $table->integer('points_use_for_payment')->nullable();
             $table->integer('total_amount');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
