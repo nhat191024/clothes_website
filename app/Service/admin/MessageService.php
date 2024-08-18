@@ -1,49 +1,48 @@
 <?php
 
 namespace App\Service\admin;
-
-use App\Models\Message;
+use App\Models\ContactUs;
 
 class MessageService
 {
     public function getAll()
     {
-        $message = Message::orderBy('created_at', 'desc')->get();
-        return $message;
+        $ContactUs = ContactUs::orderBy('created_at', 'desc')->get();
+        return $ContactUs;
     }
 
     public function getAllDeleted()
     {
-        $message = Message::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
-        return $message;
+        $ContactUs = ContactUs::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
+        return $ContactUs;
     }
 
     public function getById($id)
     {
-        return Message::where('id', $id)->first();
+        return ContactUs::where('id', $id)->first();
     }
 
     public function recoverById($id)
     {
-        $message = Message::withTrashed()->find($id);
-        $message->restore();
-        return $message;
+        $ContactUs = ContactUs::withTrashed()->find($id);
+        $ContactUs->restore();
+        return $ContactUs;
     }
 
     public function deleteById($id)
     {
         try {
-            $message = Message::find($id);
-            $message->delete();
+            $ContactUs = ContactUs::find($id);
+            $ContactUs->delete();
         } catch (\Throwable $th) {
         }
     }
 
     public function deleteAll()
     {
-        $messages = Message::all();
-        foreach ($messages as $message) {
-            $message->delete();
+        $ContactUss = ContactUs::all();
+        foreach ($ContactUss as $ContactUs) {
+            $ContactUs->delete();
         }
     }
 }
