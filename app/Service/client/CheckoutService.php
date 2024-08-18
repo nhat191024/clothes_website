@@ -61,20 +61,33 @@ class CheckoutService
     public function confirmOrder($request)
     {
         $user = Auth::user();
+        $currentUser = User::where('id', $user->id)->first();
         $total = $this->getCartTotal();
-        $point = $total / 100;
+        $point = $currentUser->point;
+        $newPoint = $total / 100;
+        $pointUsed = 0;
+        $usingPoint = $request->usingPoint;
         $buildingName = $request->buildingName === 'null' ? '' : ', ' . $request->buildingName;
         $address = $request->prefecture . ', ' . $request->city . ', ' . $request->address . $buildingName;
 
         if ($user) {
-            User::where('id', $user->id)->update([
-                'point' => $user->point + $point
-            ]);
-        } else {
-            $point = 0;
+            if ($usingPoint == "true") {
+                if ($total > $point) {
+                    $currentUser->update([
+                        'point' => $newPoint
+                    ]);
+                } elseif ($total <= $point) {
+                    $pointUsed = $total;
+                    $currentUser->update([
+                        'point' => ($point - $total) + $newPoint
+                    ]);
+                }
+            } else {
+                $currentUser->update([
+                    'point' => $point + $newPoint
+                ]);
+            }
         }
-
-
 
         $bill = Bill::create([
             'full_name' => $request->fullName,
@@ -83,39 +96,40 @@ class CheckoutService
             'email' => $request->email,
             'delivery_method' => $request->delivery,
             'payment_method' => $request->payment,
-            'point' => $point,
+            'points_for_user' => $newPoint,
+            'points_use_for_payment' => $pointUsed,
             'total_amount' => $total,
         ]);
 
-        $this->mailService->adminSend(
-            'richberchannel01@gmail.com',
-            $request->fullName,
-            $bill->id,
-            $request->email,
-            $request->phoneNumber,
-            $address,
-            $request->payment,
-            $request->delivery,
-            $bill->created_at,
-            $this->getCartSubTotal(),
-            $this->getDiscount(),
-            $total
-        );
+        // $this->mailService->adminSend(
+        //     'richberchannel01@gmail.com',
+        //     $request->fullName,
+        //     $bill->id,
+        //     $request->email,
+        //     $request->phoneNumber,
+        //     $address,
+        //     $request->payment,
+        //     $request->delivery,
+        //     $bill->created_at,
+        //     $this->getCartSubTotal(),
+        //     $this->getDiscount(),
+        //     $total
+        // );
 
-        $this->mailService->customerSend(
-            $request->email,
-            $request->fullName,
-            $bill->id,
-            $request->email,
-            $request->phoneNumber,
-            $address,
-            $request->payment,
-            $request->delivery,
-            $bill->created_at,
-            $this->getCartSubTotal(),
-            $this->getDiscount(),
-            $total
-        );
+        // $this->mailService->customerSend(
+        //     $request->email,
+        //     $request->fullName,
+        //     $bill->id,
+        //     $request->email,
+        //     $request->phoneNumber,
+        //     $address,
+        //     $request->payment,
+        //     $request->delivery,
+        //     $bill->created_at,
+        //     $this->getCartSubTotal(),
+        //     $this->getDiscount(),
+        //     $total
+        // );
 
         foreach ($this->carts as $cart) {
             BillDetail::create([
