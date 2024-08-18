@@ -31,9 +31,9 @@
                             <thead>
                                 <tr>
                                     <th>Tiêu đề (Tiếng Việt)</th>
-                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    {{-- <th>Tiêu đề (Tiếng Anh)</th> --}}
                                     <th>Nội dung (Tiếng Việt)</th>
-                                    <th>Nội dung (Tiếng Anh)</th>
+                                    {{-- <th>Nội dung (Tiếng Anh)</th> --}}
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -41,23 +41,23 @@
                             <tfoot>
                                 <tr>
                                     <th>Tiêu đề (Tiếng Việt)</th>
-                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    {{-- <th>Tiêu đề (Tiếng Anh)</th> --}}
                                     <th>Nội dung (Tiếng Việt)</th>
-                                    <th>Nội dung (Tiếng Anh)</th>
+                                    {{-- <th>Nội dung (Tiếng Anh)</th> --}}
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 <tr>
-                                    <td>{{ $aboutInfo->title }}</td>
-                                    <td>{{ $aboutInfo->title_en }}</td>
-                                    <td>{{ $aboutInfo->description }}</td>
-                                    <td>{{ $aboutInfo->description_en }}</td>
-                                    <td class="text-center">
+                                    <td>{{ $aboutInfo->name }}</td>
+                                    {{-- <td>{{ $aboutInfo->title_en }}</td> --}}
+                                    <td>{{ $aboutInfo->type }}</td>
+                                    {{-- <td>{{ $aboutInfo->description_en }}</td> --}}
+                                    {{-- <td class="text-center">
                                         <img width="200px" src="{{ URL::asset('img/about/' . $aboutInfo->image) }}"
                                             alt="">
-                                    </td>
+                                    </td> --}}
                                     <td class="text-center"><a class="btn btn-warning"
                                             href="{{ route('admin.about.show_edit', ['id' => $aboutInfo->id]) }}">Sửa</a>
                                     </td>
