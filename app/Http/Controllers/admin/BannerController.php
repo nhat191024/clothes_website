@@ -30,19 +30,16 @@ class BannerController extends Controller
     {
         $request->validate([
             'banner_title' => 'required',
-            'banner_title_en' => 'required',
             'banner_content' => 'required',
-            'banner_content_en' => 'required',
             'banner_image' => 'required',
+            'link'=> 'required',
         ]);
         $bannerTitle = $request->banner_title;
-        $bannerTitleEn = $request->banner_title_en;
         $bannerContent = $request->banner_content;
-        $bannerContentEn = $request->banner_content_en;
+        $link = $request->link;
         $imageName = time() . '_' . $request->banner_image->getClientOriginalName();
-        // Public Folder
-        $request->banner_image->move(public_path('img/home'), $imageName);
-        $this->bannerService->add($bannerTitle, $bannerTitleEn, $bannerContent, $bannerContentEn, $imageName);
+        $request->banner_image->move(public_path('img/banner'), $imageName);
+        $this->bannerService->add($bannerTitle, $bannerContent,$imageName,$link);
         return redirect(route('admin.banner.index'))->with('success', 'Thêm banner thành công');
     }
 
@@ -58,24 +55,24 @@ class BannerController extends Controller
         $request->validate([
             'id' => 'required',
             'banner_title' => 'required',
-            'banner_title_en' => 'required',
             'banner_content' => 'required',
-            'banner_content_en' => 'required',
+            'banner_image' => 'required',
+            'link'=> 'required',
         ]);
         $id = $request->id;
         $bannerTitle = $request->banner_title;
-        $bannerTitleEn = $request->banner_title_en;
         $bannerContent = $request->banner_content;
-        $bannerContentEn = $request->banner_content_en;
+        $link = $request->link;
+        $imageName = $request->imageName;
         if ($request->banner_image) {
             $imageName = time() . '_' . $request->banner_image->getClientOriginalName() ?? null;
-            $request->banner_image->move(public_path('img/home'), $imageName);
+            $request->banner_image->move(public_path('img/banner'), $imageName);
             $oldImagePath = $this->bannerService->getById($request->id)->image;
-            if (file_exists(public_path('img/home') . '/' . $oldImagePath && $oldImagePath != null)) {
-                unlink(public_path('img/home') . '/' . $oldImagePath);
+            if (file_exists(public_path('img/banner') . '/' . $oldImagePath && $oldImagePath != null)) {
+                unlink(public_path('img/banner') . '/' . $oldImagePath);
             }
         }
-        $this->bannerService->edit($id, $bannerTitle, $bannerTitleEn, $bannerContent, $bannerContentEn, $imageName ?? null);
+        $this->bannerService->edit($id, $bannerTitle, $bannerContent,$imageName?? null,$link);
         return redirect(route('admin.banner.index'))->with('success', 'Sửa banner thành công');
     }
 
