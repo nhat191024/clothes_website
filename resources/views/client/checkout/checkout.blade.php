@@ -119,8 +119,9 @@
                                 <div class="checkout__form__input mt-4">
                                     <p>Payment method<span>*</span></p>
                                     <select id="payment" name="payment" class="form-control" required>
-                                        <option value="" disabled selected>Select delivery method to show payment
-                                            method</option>
+                                        <option value="" disabled selected>
+                                            Select delivery method to show other payment method
+                                        </option>
                                     </select>
                                 </div>
                                 {{-- <div class="checkout__form__input mt-4">
@@ -150,7 +151,7 @@
                                                 size: {{ $item['productDetail']->size->name }}-
                                                 {{ $item['productDetail']->color->name }}
                                             </div>
-                                            <span> ¥{{ number_format($item['price']) }}</span>
+                                            <span>¥{{ number_format($item['price']) }}</span>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -160,7 +161,8 @@
                                 <ul>
                                     <li>Subtotal <span>¥{{ number_format($subTotal) }}</span></li>
                                     <li>Voucher discount <span>¥{{ number_format($discount) }}</span></li>
-                                    <li>Total <span>¥{{ number_format($total) }}</span></li>
+                                    <li>Point discount<span id="pointDiscount">¥0</span></li>
+                                    <li>Total <span id="total">¥{{ number_format($total) }}</span></li>
                                 </ul>
                             </div>
                             <div class="checkout__order__widget">
@@ -184,6 +186,12 @@
                                     <input type="checkbox" id="paypal" />
                                     <span class="checkmark"></span>
                                 </label> --}}
+                                <label for="point">
+                                    <span>Pay using point ({{ $user->point }})</span>
+                                    <input type="checkbox" id="point"
+                                        @if ($user->point == 0) disabled @endif />
+                                    <span class="checkmark"></span>
+                                </label>
                                 <label for="confirm">
                                     All information above is correct
                                     <input type="checkbox" id="confirm" required />
@@ -232,6 +240,11 @@
         <div class="checkout-loader"></div>
         <p class="checkout-text">Please wait while we are processing your order</p>
     </div>
+
+    <script>
+        const total = {{ $total }};
+        const point = {{ $user->point }};
+    </script>
 
     <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
     <script src="{{ asset('js/checkout/checkout.js') }}"></script>

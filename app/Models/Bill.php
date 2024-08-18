@@ -16,7 +16,8 @@ class Bill extends Model
         'delivery_method',
         'payment_method',
         'total_amount',
-        'point',
+        'points_for_user',
+        'points_use_for_payment',
         'status'
     ];
 
