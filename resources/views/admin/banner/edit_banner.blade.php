@@ -15,25 +15,30 @@
                     <form action="{{ route('admin.banner.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Tiêu đề (Tiếng Việt)</label>
+                            <label for="">Tiêu đề</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
                                 name="banner_title" placeholder="Nhập tiêu đề bằng Tiếng Việt" value="{{$bannerInfo['title']}}">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="">Tiêu đề (Tiếng Anh)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
                                 name="banner_title_en" placeholder="Nhập tiêu đề bằng Tiếng Anh" value="{{$bannerInfo['title_en']}}">
-                        </div>
+                        </div> --}}
                         <div class="form-group">
-                            <label for="">Nội dung (Tiếng Việt)</label>
+                            <label for="">Nội dung</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
                                 name="banner_content" placeholder="Nhập nội dung bằng Tiếng Việt" value="{{$bannerInfo['subtitle']}}">
                         </div>
                         <div class="form-group">
+                            <label for="">Đường dẫn</label>
+                            <input required type="text" class="form-control" id="" aria-describedby=""
+                                name="link" placeholder="Nhập link" value="{{$bannerInfo['link']}}">
+                        </div>
+                        {{-- <div class="form-group">
                             <label for="">Nội dung (Tiếng Anh)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
                                 name="banner_content_en" placeholder="Nhập nội dung bằng Tiếng Anh" value="{{$bannerInfo['subtitle_en']}}">
-                        </div>
+                        </div> --}}
                         <label for="">Ảnh Banner</label>
                         <div class="custom-file">
                             <input type="file" accept="image/*" class="custom-file-input" id="customFile"
