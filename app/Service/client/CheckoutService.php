@@ -73,6 +73,7 @@ class CheckoutService
         if ($user) {
             if ($usingPoint == "true") {
                 if ($total > $point) {
+                    $pointUsed = $point;
                     $currentUser->update([
                         'point' => $newPoint
                     ]);
