@@ -7,7 +7,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Sửa size</h1>
+        <h1 class="h3 mb-2 text-gray-800">Sửa màu</h1>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
@@ -22,6 +22,7 @@
                             <strong>{{ $message }}</strong>
                         </div>
                     @endif
+                    <form action="{{ route('admin.color.edit') }}" method="post" enctype="multipart/form-data">
                     <form action="{{ route('admin.color.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
