@@ -8,7 +8,25 @@ $(document).ready(function () {
         addNewOption();
     });
 
-})
+
+    $('#point').on('change', function () {
+        const usingPoints = $('#point').is(':checked');
+
+        if (!usingPoints) {
+            $('#pointDiscount').text('¥' + 0);
+            $('#total').text('¥' + formatPrice(total));
+            return;
+        }
+
+        if (parseInt(point) < parseInt(total)) {
+            let newTotal = parseInt(total) - parseInt(point);
+            $('#total').text('¥' + formatPrice(newTotal));
+            $('#pointDiscount').text('¥' + formatPrice(point));
+        } else {
+            $('#total').text('¥' + 0);
+        }
+    })
+});
 
 function addNewOption() {
     const deliverySelect = $('#delivery');
@@ -49,18 +67,17 @@ function addNewOption() {
 function checkout() {
     $('#checkout-preloader').css('visibility', 'visible');
 
+    const usingPoint = $('#point').is(':checked');
     const fullName = $('#fullName');
     const prefecture = $('#prefecture');
     const city = $('#city');
     const address = $('#address');
-    const buildingName = $('#buildingName').val() == '' ? 'null' : $('#buildingName').val() ;
+    const buildingName = $('#buildingName').val() == '' ? 'null' : $('#buildingName').val();
     const phoneNumber = $('#phoneNumber');
     const email = $('#email');
     const delivery = $('#delivery');
     const payment = $('#payment');
     const csrfToken = $('meta[name="csrf-token"]').attr('content');
-
-    console.log(buildingName);
 
     $.ajax({
         url: "/checkout/confirm",
@@ -76,6 +93,7 @@ function checkout() {
             'email': email.val(),
             'delivery': delivery.val(),
             'payment': payment.val(),
+            'usingPoint': usingPoint
         },
         success: function (data) {
             $('#checkout-preloader').css('visibility', 'hidden');
@@ -88,6 +106,11 @@ function checkout() {
             }
         }
     });
+}
+
+
+function formatPrice(price) {
+    return new Intl.NumberFormat('ja-JP').format(price);
 }
 
 function home() {
