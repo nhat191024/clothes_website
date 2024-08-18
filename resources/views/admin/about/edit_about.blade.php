@@ -15,31 +15,31 @@
                     <form action="{{ route('admin.about.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Tiêu đề (Tiếng Việt)</label>
+                            <label for="">Name</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="about_title" placeholder="Nhập tiêu đề bằng Tiếng Việt" value="{{ $aboutInfo['title'] }}">
+                                name="name" placeholder="Nhập name " value="{{ $aboutInfo['name'] }}">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="">Tiêu đề (Tiếng Anh)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
                                 name="about_title_en" placeholder="Nhập tiêu đề bằng Tiếng Anh" value="{{ $aboutInfo['title_en'] }}">
-                        </div>
+                        </div> --}}
                         <div class="form-group">
-                            <label for="">Nội dung (Tiếng Việt)</label>
-                            <textarea required type="text" class="form-control" id="" aria-describedby="" name="about_content"
-                                placeholder="Nhập nội dung bằng Tiếng Việt" cols="30" rows="10">{{ $aboutInfo['description'] }}</textarea>
+                            <label for="">Type</label>
+                            <input required type="text" class="form-control" id="" aria-describedby=""
+                                name="type" placeholder="Nhập type " value="{{ $aboutInfo['type'] }}">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="">Nội dung (Tiếng Anh)</label>
                             <textarea required type="text" class="form-control" id="" aria-describedby="" name="about_content_en"
                                 placeholder="Nhập nội dung bằng Tiếng Anh" cols="30" rows="10">{{ $aboutInfo['description_en'] }}</textarea>
-                        </div>
-                        <label for="">Ảnh giới thiệu</label>
+                        </div> --}}
+                        {{-- <label for="">Ảnh giới thiệu</label>
                         <div class="custom-file">
                             <input type="file" accept="image/*" class="custom-file-input" id="customFile"
                                 name="about_image">
                             <label class="custom-file-label" for="customFile">Chọn ảnh</label>
-                        </div>
+                        </div> --}}
                         <input type="hidden" name="id" value="{{ $id }}">
                         <button class="btn btn-success mt-4" type="submit">Sửa</button>
                     </form>
