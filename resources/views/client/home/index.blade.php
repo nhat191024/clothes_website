@@ -246,29 +246,29 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
                         <i class="fa fa-car"></i>
-                        <h6>Miễn Phí Vận Chuyển</h6>
-                        <p>Cho tất cả đơn hàng trên $99</p>
+                        <h6>Free shipping</h6>
+                        <p>Give all orders over $99</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
                         <i class="fa fa-money"></i>
-                        <h6>Bảo Đảm Hoàn Tiền</h6>
-                        <p>Nếu hàng có vấn đề</p>
+                        <h6>Guarantee money</h6>
+                        <p>If the goods have a problem</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
                         <i class="fa fa-support"></i>
-                        <h6>Hỗ Trợ Trực Tuyến 24/7</h6>
-                        <p>Hỗ trợ tận tâm</p>
+                        <h6>24/7 online support</h6>
+                        <p>Dedicated support</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
                         <i class="fa fa-headphones"></i>
-                        <h6>Thanh Toán An Toàn</h6>
-                        <p>Thanh toán 100% an toàn</p>
+                        <h6>Safety payment</h6>
+                        <p>100% safe payment</p>
                     </div>
                 </div>
             </div>
