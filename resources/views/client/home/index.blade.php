@@ -122,7 +122,7 @@
             <div class="row">
                 @php
                     $count = 0;
-                    $sections = ['Xu Hướng Hot', 'Bán Chạy Nhất'];
+                    $sections = ['Hot trend', 'Best selling'];
                 @endphp
                 @foreach ($trendProductInfo as $product)
                     @if ($count % 3 == 0)
@@ -150,7 +150,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <div class="product__price">{{ number_format((int) $product->price, 0) }} VND</div>
+                        <div class="product__price">{{ number_format((int) $product->price, 0) }} ¥</div>
                     </div>
                 </div>
                 @php $count++ @endphp
@@ -164,7 +164,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="trend__content">
                 <div class="section-title">
-                    <h4>Ưa Thích</h4>
+                    <h4>Favor</h4>
                 </div>
                 @foreach ($favoriteProductInfo as $product)
                     <div class="trend__item" style="cursor: pointer"
@@ -181,7 +181,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <div class="product__price">{{ number_format((int) $product->price, 0) }} VND</div>
+                            <div class="product__price">{{ number_format((int) $product->price, 0) }} ¥</div>
                         </div>
                     </div>
                 @endforeach
