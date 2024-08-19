@@ -34,10 +34,10 @@ class HomeService
         return Promotion::orderBy('created_at', 'desc')->first();
     }
 
-    public function productAmount()
+    public function category()
     {
-        $categories = Category::with('products')->take(5)->get();
-        return $categories;
+        $data = Category::take(5)->get();
+        return $data;
     }
 
     public function collectionBanner()

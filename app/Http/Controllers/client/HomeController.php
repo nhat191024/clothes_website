@@ -18,7 +18,7 @@ class HomeController extends Controller
         $newProductInfo = $this->homeService->newProducts();
         $trendProductInfo = $this->homeService->trendProduct()->shuffle();
         $favoriteProductInfo = $this->homeService->favoriteProduct()->shuffle();
-        $productAmount = $this->homeService->productAmount();
+        $productAmount = $this->homeService->category();
         $collectionBanner = $this->homeService->collectionBanner();
         $latestPromotion = $this->homeService->latestPromotion();
         if ($latestPromotion) {

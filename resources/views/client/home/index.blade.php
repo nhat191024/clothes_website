@@ -6,11 +6,11 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
-                        data-setbg="{{ asset($productAmount[0]->img) }}">
+                        data-setbg="{{ asset($productAmount[0]->image) }}">
                         <div class="categories__text">
                             <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang
                                 {{ $productAmount[0]['name'] }}</h1>
-                            <p>{{ count($productAmount) }} sản phẩm</p>
+                            <p>{{ count($productAmount[0]->products) }} sản phẩm</p>
                             {{-- <p>0 sản phẩm</p> --}}
                             <a href="{{ route('client.shop.index') }}">Mua ngay</a>
                         </div>
@@ -25,7 +25,7 @@
                                     <div class="categories__text">
                                         <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang
                                             {{ strtolower($ct->name) }}</h4>
-                                        <p>{{ count($productAmount) }} sản phẩm</p>
+                                        <p>{{ count($ct->products) }} sản phẩm</p>
                                         {{-- <p>0 sản phẩm</p> --}}
                                         <a href="{{ route('client.shop.index') }}">Mua ngay</a>
                                     </div>
