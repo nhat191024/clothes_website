@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Mẫu Ashion">
+    <meta name="description" content="clothes shop">
     <meta name="keywords" content="Ashion, unica, sáng tạo, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Mẫu</title>
+
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.webp') }}">
+    <title>Mouse Shop</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -66,7 +68,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
+            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.webp" alt="" width="10%"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -101,8 +103,9 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="{{ route('client.home.index') }}"><img src="{{ url('') . '/' }}img/logo.png"
-                                alt=""></a>
+                        <a href="{{ route('client.home.index') }}">
+                            <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="20%">
+                        </a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
@@ -158,7 +161,8 @@
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else
                                         <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
-                                        <a class="dropdown-item" href="{{ route('client.register.index') }}">Register</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('client.register.index') }}">Register</a>
                                     @endif
                                 </div>
                             </li>
@@ -183,7 +187,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-1.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@Mouse_shop</a>
                         </div>
                     </div>
                 </div>
@@ -191,7 +195,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-2.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@Mouse_shop</a>
                         </div>
                     </div>
                 </div>
@@ -199,7 +203,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-3.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@Mouse_shop</a>
                         </div>
                     </div>
                 </div>
@@ -207,7 +211,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-4.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@Mouse_shop</a>
                         </div>
                     </div>
                 </div>
@@ -215,7 +219,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-5.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@Mouse_shop</a>
                         </div>
                     </div>
                 </div>
@@ -223,7 +227,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-6.jpg">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@Mouse_shop</a>
                         </div>
                     </div>
                 </div>
@@ -239,59 +243,66 @@
                 <div class="col-lg-4 col-md-6 col-sm-7">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.png" alt=""></a>
+                            <a href="./index.html">
+                                <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="60%">
+                            </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                             cilisis.</p>
-                        <div class="footer__payment">
-                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-1.png"
-                                    alt=""></a>
-                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-2.png"
-                                    alt=""></a>
-                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-3.png"
-                                    alt=""></a>
-                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-4.png"
-                                    alt=""></a>
-                            <a href="#"><img src="{{ url('') . '/' }}img/payment/payment-5.png"
-                                    alt=""></a>
-                        </div>
+                        {{-- <div class="footer__payment">
+                            <a href="#">
+                                <img src="{{ url('') . '/' }}img/payment/payment-1.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="{{ url('') . '/' }}img/payment/payment-2.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="{{ url('') . '/' }}img/payment/payment-3.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="{{ url('') . '/' }}img/payment/payment-4.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="{{ url('') . '/' }}img/payment/payment-5.png" alt="">
+                            </a>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-5">
                     <div class="footer__widget">
-                        <h6>Liên kết nhanh</h6>
+                        <h6>Fast link</h6>
                         <ul>
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="{{ route('client.contact.index') }}">Introduce</a></li>
+                            {{-- <li><a href="#">Blog</a></li> --}}
+                            <li><a href="{{ route('client.contact.index') }}">Contact</a></li>
                             <li><a href="#">FAQ</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="footer__widget">
-                        <h6>Tài khoản</h6>
+                        <h6>Account</h6>
                         <ul>
-                            <li><a href="#">Tài khoản của tôi</a></li>
-                            <li><a href="#">Theo dõi đơn hàng</a></li>
-                            <li><a href="#">Thanh toán</a></li>
-                            <li><a href="#">Danh sách yêu thích</a></li>
+                            <li><a href="{{ route('client.account.index') }}">My account</a></li>
+                            {{-- <li><a href="#">Theo dõi đơn hàng</a></li> --}}
+                            <li><a href="{{ route('client.cart.index') }}">Cart</a></li>
+                            {{-- <li><a href="#">Danh sách yêu thích</a></li> --}}
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-8">
                     <div class="footer__newslatter">
-                        <h6>BẢN TIN</h6>
+                        <h6>Get notifications</h6>
                         <form action="#">
                             <input type="text" placeholder="Email">
-                            <button type="submit" class="site-btn">Đăng ký</button>
+                            <button type="submit" class="site-btn">Subscribe</button>
                         </form>
                         <div class="footer__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-youtube-play"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            {{-- <a href="#"><i class="fa fa-pinterest"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -300,12 +311,10 @@
                 <div class="col-lg-12">
                     <!-- Liên kết đến Colorlib không thể bị xóa. Mẫu được cấp phép theo CC BY 3.0. -->
                     <div class="footer__copyright__text">
-                        <p>Bản quyền &copy;
+                        <p>Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> Tất cả các quyền được bảo lưu | Mẫu này được làm với <i
-                                class="fa fa-heart" aria-hidden="true"></i> bởi <a href="https://colorlib.com"
-                                target="_blank">Colorlib</a>
+                            </script> Information Technology Department Cooperate FPL HaiPhong with DEV TEAM K18 FPT Polytechnic HaiPhong
                         </p>
                     </div>
                     <!-- Liên kết đến Colorlib không thể bị xóa. Mẫu được cấp phép theo CC BY 3.0. -->
