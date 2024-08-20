@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('discount_percentage');
             $table->string('description')->nullable();
             $table->integer('min_price');
+            $table->integer('max_price')->nullable();
             $table->integer('quantity')->default(1);
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
