@@ -25,15 +25,15 @@
                             <select class="form-control selectpicker" id="product_id" name="product_id" data-live-search="true">
                                 @foreach ($products as $product)
                                     <option value="{{ $product->id }}"
-                                        {{ $product->id == $promotion->product_id ? 'selected' : '' }}>{{'Danh mục: ' . $product->categories->name . ' - Bánh ' . $product->name }}
+                                        {{ $product->id == $promotion->product_id ? 'selected' : '' }}>{{'Danh mục: ' . $product->name . ' - Bánh ' . $product->name }}
                                     </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="price">Giá trước khi giảm</label>
-                            <input required type="number" class="form-control" id="fake_price" aria-describedby=""
-                                name="fake_price" placeholder="Nhập giá trước khi giảm" value="{{ $promotion->fake_price }}">
+                            <label for="discount_percentage">% Giá giảm %</label>
+                            <input required type="number" class="form-control" id="discount_percentage" aria-describedby=""
+                                name="discount_percentage" placeholder="Nhập giá trước khi giảm" value="{{ $promotion->discount_percentage }}">
                         </div>
                         <div class="form-group">
                             <label for="start_time">Ngày bắt đầu (Định dạng: Năm/Tháng/Ngày)</label>

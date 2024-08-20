@@ -2,8 +2,6 @@
 
 namespace App\Service\admin;
 
-use App\Models\About_us;
-use App\Models\Banners;
 use App\Models\Promotion;
 
 class PromotionService
@@ -17,7 +15,7 @@ class PromotionService
     {
         $promotion = PromotionService::get();
         $promotion->product_id = $request->product_id;
-        $promotion->fake_price = $request->fake_price;
+        $promotion->discount_percentage = $request->discount_percentage;
         $promotion->start_time = $request->start_time;
         $promotion->end_time = $request->end_time;
         return $promotion->save();
