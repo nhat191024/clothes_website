@@ -14,9 +14,9 @@
                 <div class="table-responsive">
                     <form action="{{ route('admin.voucher.add') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        
+
                         <div class="form-group">
-                            
+
                             <label for="voucherCodeField">VOUCHER CODE</label>
                             <button class="btn btn-primary" id="generateVoucherCodeBtn" onclick="generateVoucherCode()" type="button" style="margin: 5px">Tạo Mã</button>
                             <input maxlength="255" required type="text" class="form-control" id="voucherCodeField" aria-describedby=""
@@ -28,9 +28,9 @@
                                 name="description" placeholder="Nhập mô tả cho voucher">
                         </div>
                         <div class="form-group">
-                            <label for="discount_amount">Giá giảm</label>
-                            <input required type="number" class="form-control" id="discount_amount" aria-describedby=""
-                                name="discount_amount" placeholder="Nhập giá giảm">
+                            <label for="discount_percentage">Giá giảm</label>
+                            <input required type="number" class="form-control" id="discount_percentage" aria-describedby=""
+                                name="discount_percentage" placeholder="Nhập giá giảm">
                         </div>
                         <div class="form-group">
                             <label for="min_price">Giá đơn tối thiểu để áp dụng Voucher</label>
@@ -52,7 +52,7 @@
                             <input required type="date" class="form-control" id="end-time" aria-describedby=""
                                 name="end_date" placeholder="Ngày kết thúc">
                         </div>
-                        
+
                         <button class="btn btn-success mt-4" type="submit">Thêm</button>
                     </form>
 

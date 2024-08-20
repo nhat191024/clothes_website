@@ -27,9 +27,9 @@
                                 name="description" placeholder="Nhập mô tả cho voucher" value="{{$voucher->description}}">
                         </div>
                         <div class="form-group">
-                            <label for="discount_amount">Giá giảm</label>
-                            <input required type="number" class="form-control" id="discount_amount" aria-describedby=""
-                                name="discount_amount" placeholder="Nhập giá giảm" value="{{$voucher->discount_amount}}">
+                            <label for="discount_percentage">Giá giảm</label>
+                            <input required type="number" class="form-control" id="discount_percentage" aria-describedby=""
+                                name="discount_percentage" placeholder="Nhập giá giảm" value="{{$voucher->discount_percentage}}">
                         </div>
                         <div class="form-group">
                             <label for="min_price">Giá đơn tối thiểu để áp dụng Voucher</label>
@@ -60,7 +60,7 @@
                                 <option value="0" @if($voucher->status == 0) selected @endif >Vô hiệu hoá</option>
                             </select>
                         </div>
-                        
+
                         <button class="btn btn-primary mt-4" type="button" onclick="window.history.back()">Quay Lại</button>
                         <button class="btn btn-success mt-4" type="submit">Lưu thay đổi</button>
                     </form>

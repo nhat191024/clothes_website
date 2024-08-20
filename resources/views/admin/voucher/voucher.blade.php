@@ -34,7 +34,7 @@
                                     <th>STT</th>
                                     <th>CODE</th>
                                     <th>Mô tả</th>
-                                    <th>Giá giảm</th>
+                                    <th>% Giá giảm %</th>
                                     <th>Giá tổi thiểu để áp dụng voucher</th>
                                     <th>Số lượng dùng</th>
                                     <th>Ngày hiệu lực</th>
@@ -48,7 +48,7 @@
                                     <th>STT</th>
                                     <th>CODE</th>
                                     <th>Mô tả</th>
-                                    <th>Giá giảm</th>
+                                    <th>% Giá giảm %</th>
                                     <th>Giá tổi thiểu để áp dụng voucher</th>
                                     <th>Số lượng dùng</th>
                                     <th>Ngày hiệu lực</th>
@@ -63,7 +63,7 @@
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item->code }}</td>
                                         <td>{{ $item->description }}</td>
-                                        <td>{{ $item->discount_amount }}</td>
+                                        <td>{{ $item->discount_percentage }}%</td>
                                         <td>{{ $item->min_price }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->start_date)->format('d-m-Y') }}</td>
