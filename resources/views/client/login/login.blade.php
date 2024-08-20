@@ -6,10 +6,10 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
-        <h3 class="mt-3 mb-3">Login</h3>
-        <form action="{{ route('client.login') }}" method="POST">
+        <h3 class="mt-3 mb-3">{{ Route::currentRouteName() === 'login' ? 'Admin ' : 'User ' }}Login</h3>
+        <form action="{{ Route::currentRouteName() === 'login' ? route('admin.login') : route('client.login') }}" method="POST">
             @csrf
-            <input type="text" name="username" placeholder="Phone. email, username ...">
+            <input type="text" name="username" placeholder="{{ Route::currentRouteName() === 'login' ? '' : 'Phone, ' }}Email, username ...">
             @if ($errors->has('username'))
                 <p class="text-danger small text-center ">
                     <i>{{ $errors->first('username') }}</i>
