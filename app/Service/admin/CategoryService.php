@@ -31,7 +31,7 @@ class CategoryService
     }
 
     public function checkHasChildren($idCategory) {
-        return Category::find($idCategory)->product()->get()->count() > 0;
+        return Category::find($idCategory)->products()->get()->count() > 0;
     }
 
     public function delete($idCategory) {
