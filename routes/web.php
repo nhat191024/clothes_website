@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ColorController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\SizeController;
+use App\Http\Controllers\admin\VoucherController;
 use App\Http\Controllers\client\AccountManagement;
 
 use App\Http\Controllers\client\ContactController;
