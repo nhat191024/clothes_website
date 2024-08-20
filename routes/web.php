@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ColorController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\SizeController;
@@ -47,6 +48,8 @@ Route::prefix('user')->group(function () {
 
 // Route::middleware(['auth'])->group(function () {
 Route::prefix('admin')->group(function () {
+
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 
     Route::prefix('/category')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
