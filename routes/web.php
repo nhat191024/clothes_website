@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ColorController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\PromotionController;
 use App\Http\Controllers\admin\SizeController;
 use App\Http\Controllers\admin\VoucherController;
 use App\Http\Controllers\client\AccountManagement;
@@ -147,23 +148,6 @@ Route::middleware(['auth:admin'])->group(function () {
             Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
         });
 
-        Route::prefix('/variation')->group(function () {
-            Route::get('/', [VariationController::class, 'index'])->name('admin.variation.index');
-            Route::get('/edit/{id}', [VariationController::class, 'showEdit'])->name('admin.variation.edit');
-            Route::get('/delete/{id}', [VariationController::class, 'delete'])->name('admin.variation.delete');
-            Route::get('/destroy/{id}', [VariationController::class, 'destroy'])->name('admin.variation.destroy');
-            Route::get('/restore/{id}', [VariationController::class, 'restore'])->name('admin.variation.restore');
-            Route::post('/edit', [VariationController::class, 'saveEdit'])->name('admin.variation.saveEdit');
-            Route::post('/add', [VariationController::class, 'saveAdd'])->name('admin.variation.saveAdd');
-            Route::get('/add', [VariationController::class, 'showAdd'])->name('admin.variation.show_add');
-        });
-
-        Route::prefix('/accessory')->group(function () {
-            Route::get('/', [AccessoryController::class, 'index'])->name('admin.accessory.index');
-            Route::get('/edit/{id}', [AccessoryController::class, 'showEdit'])->name('admin.accessory.edit');
-            Route::post('/edit', [AccessoryController::class, 'saveEdit'])->name('admin.accessory.saveEdit');
-            // Route::get('/{id}', [AccessoryController::class, 'showDetail'])->name('admin.bill.show_detail');
-        });
 
         Route::prefix('/promotion')->group(function () {
             Route::get('/', [PromotionController::class, 'index'])->name('admin.promotion.index');
