@@ -17,7 +17,7 @@ class ProductController extends Controller
     private $sizeService;
     private $colorService;
 
-    // 
+    //
     public function __construct(ProductService $productService, CategoryService $categoryService, SizeService $sizeService, ColorService $colorService)
     {
         $this->productService = $productService;
@@ -37,11 +37,12 @@ class ProductController extends Controller
         $allCategory = $this->categoryService->getAll();
         $allSize = $this->sizeService->getAllWithoutTrash();
         $allColor = $this->colorService->getAllWithoutTrash();
-        $allSize = $allSize->pluck('name', 'id')->toArray(); // Giả sử bảng size có cột 'name' và 'id'
+        $allSize = $allSize->pluck('name', 'id')->toArray();
         $allColor = $this->colorService->getAll()->pluck('name', 'id')->map(function ($name, $id) use ($allColor) {
+            $color = $allColor->find($id);
             return [
                 'name' => $name,
-                'color_hex' => $allColor->find($id)->color_hex // hoặc trường dữ liệu HEX của bạn
+                'color_hex' => $color ? $color->color_hex : null,
             ];
         })->toArray();
         return view('admin.product.add_product', compact('allCategory', 'allSize', 'allColor'));
@@ -79,11 +80,12 @@ class ProductController extends Controller
         $allCategory = $this->categoryService->getAll();
         $allSize = $this->sizeService->getAllWithoutTrash();
         $allColor = $this->colorService->getAllWithoutTrash();
-        $allSize = $allSize->pluck('name', 'id')->toArray(); // Giả sử bảng size có cột 'name' và 'id'
+        $allSize = $allSize->pluck('name', 'id')->toArray();
         $allColor = $this->colorService->getAll()->pluck('name', 'id')->map(function ($name, $id) use ($allColor) {
+            $color = $allColor->find($id);
             return [
                 'name' => $name,
-                'color_hex' => $allColor->find($id)->color_hex // hoặc trường dữ liệu HEX của bạn
+                'color_hex' => $color ? $color->color_hex : null,
             ];
         })->toArray();
         return view('admin.product.edit_product', compact('productDetails', 'allCategory', 'allColor', 'allSize'));
