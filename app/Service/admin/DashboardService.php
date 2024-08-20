@@ -2,7 +2,7 @@
 
 namespace App\Service\admin;
 
-use App\Models\Bills;
+use App\Models\Bill;
 use Carbon\Carbon;
 
 class DashboardService
@@ -10,7 +10,7 @@ class DashboardService
 
     public function getAll()
     {
-        $bill = Bills::orderByDesc('order_date')->get();
+        $bill = Bill::orderByDesc('created_at')->get();
         return $bill;
     }
     public function getDashboard()
@@ -28,7 +28,7 @@ class DashboardService
     }
 
     public function getRevenueByDay() {
-        $totalRevenue = Bills::whereDate('order_date', now()->toDateString())
+        $totalRevenue = Bill::whereDate('created_at', now()->toDateString())
                             ->where('status', 1)->sum('total_amount');
         return number_format($totalRevenue);
     }
@@ -37,7 +37,7 @@ class DashboardService
         $startOfWeek = now()->startOfWeek();
         $endOfWeek = now()->endOfWeek();
 
-        $totalRevenue = Bills::whereBetween('order_date', [$startOfWeek, $endOfWeek])
+        $totalRevenue = Bill::whereBetween('created_at', [$startOfWeek, $endOfWeek])
                             ->where('status', 1)->sum('total_amount');
 
         return number_format($totalRevenue);
@@ -47,7 +47,7 @@ class DashboardService
         $startOfMonth = now()->startOfMonth();
         $endOfMonth = now()->endOfMonth();
 
-        $totalRevenue = Bills::whereBetween('order_date', [$startOfMonth, $endOfMonth])
+        $totalRevenue = Bill::whereBetween('created_at', [$startOfMonth, $endOfMonth])
                             ->where('status', 1)->sum('total_amount');
 
         return number_format($totalRevenue);
@@ -57,7 +57,7 @@ class DashboardService
         $startOfYear = now()->startOfYear();
         $endOfYear = now()->endOfYear();
 
-        $totalRevenue = Bills::whereBetween('order_date', [$startOfYear, $endOfYear])
+        $totalRevenue = Bill::whereBetween('created_at', [$startOfYear, $endOfYear])
                             ->where('status', 1)->sum('total_amount');
 
         return number_format($totalRevenue);

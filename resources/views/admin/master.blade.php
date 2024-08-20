@@ -173,27 +173,27 @@
                     <i class="fas fa-fw fa-chevron-circle-right"></i>
                     <span>Quản lý màu</span></a>
             </li>
-            <li class="nav-item {{ Request::is('admin/accessory*') ? 'active' : '' }}">
+            {{-- <li class="nav-item {{ Request::is('admin/accessory*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.accessory.index') }}">
                     <i class="fas fa-fw fa-birthday-cake"></i>
                     <span>Quản lý phụ kiện</span></a>
-            </li>
-            <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
+            </li> --}}
+            {{-- <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.promotion.index') }}">
                     <i class="fas fa-fw fa-calendar"></i>
                     <span>Băng rôn quảng cáo SP</span></a>
-            </li>
+            </li> --}}
             <li class="nav-item {{ Request::is('admin/voucher*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
                     <i class="fas fa-fw fa-money-check"></i>
                     <span>Voucher</span>
                 </a>
             </li>
-            <li class="nav-item {{ Request::is('admin/blog*') ? 'active' : '' }}">
+            {{-- <li class="nav-item {{ Request::is('admin/blog*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.blog.index') }}">
                     <i class="fas fa-fw fa-blog"></i>
                     <span>Quản lý Blog</span></a>
-            </li>
+            </li> --}}
 
             {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
