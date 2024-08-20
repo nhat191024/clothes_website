@@ -4,13 +4,13 @@ namespace App\Service\admin;
 
 use App\Models\About_us;
 use App\Models\Banners;
-use App\Models\Promotions;
+use App\Models\Promotion;
 
 class PromotionService
 {
     public function get()
     {
-        return Promotions::first();
+        return Promotion::first();
     }
 
     public function edit($request)
