@@ -178,11 +178,11 @@
                     <i class="fas fa-fw fa-birthday-cake"></i>
                     <span>Quản lý phụ kiện</span></a>
             </li> --}}
-            {{-- <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
+            <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.promotion.index') }}">
                     <i class="fas fa-fw fa-calendar"></i>
                     <span>Băng rôn quảng cáo SP</span></a>
-            </li> --}}
+            </li>
             <li class="nav-item {{ Request::is('admin/voucher*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
                     <i class="fas fa-fw fa-money-check"></i>
@@ -440,14 +440,14 @@
             <script src="{{ url('') . '/' }}vendor/jquery-easing/jquery.easing.min.js"></script>
 
             <!-- Custom scripts for all pages-->
-            <script src="{{ url('') . '/' }}js/sb-admin-2.min.js"></script>
+            <script src="{{ url('') . '/' }}js/admin/sb-admin-2.min.js"></script>
 
             <!-- Page level plugins -->
             <script src="{{ url('') . '/' }}vendor/datatables/jquery.dataTables.min.js"></script>
             <script src="{{ url('') . '/' }}vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
             <!-- Page level custom scripts -->
-            <script src="{{ url('') . '/' }}js/demo/datatables-demo.js"></script>
+            <script src="{{ url('') . '/' }}js/admin/demo/datatables-demo.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
