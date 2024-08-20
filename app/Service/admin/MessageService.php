@@ -1,30 +1,30 @@
 <?php
 
 namespace App\Service\admin;
-use App\Models\ContactUs;
+use App\Models\CustomerRequest;
 
 class MessageService
 {
     public function getAll()
     {
-        $ContactUs = ContactUs::orderBy('created_at', 'desc')->get();
+        $ContactUs = CustomerRequest::orderBy('created_at', 'desc')->get();
         return $ContactUs;
     }
 
     public function getAllDeleted()
     {
-        $ContactUs = ContactUs::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
+        $ContactUs = CustomerRequest::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
         return $ContactUs;
     }
 
     public function getById($id)
     {
-        return ContactUs::where('id', $id)->first();
+        return CustomerRequest::where('id', $id)->first();
     }
 
     public function recoverById($id)
     {
-        $ContactUs = ContactUs::withTrashed()->find($id);
+        $ContactUs = CustomerRequest::withTrashed()->find($id);
         $ContactUs->restore();
         return $ContactUs;
     }
@@ -32,7 +32,7 @@ class MessageService
     public function deleteById($id)
     {
         try {
-            $ContactUs = ContactUs::find($id);
+            $ContactUs = CustomerRequest::find($id);
             $ContactUs->delete();
         } catch (\Throwable $th) {
         }
@@ -40,7 +40,7 @@ class MessageService
 
     public function deleteAll()
     {
-        $ContactUss = ContactUs::all();
+        $ContactUss = CustomerRequest::all();
         foreach ($ContactUss as $ContactUs) {
             $ContactUs->delete();
         }
