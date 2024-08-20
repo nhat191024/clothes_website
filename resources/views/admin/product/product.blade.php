@@ -55,7 +55,7 @@
                                         <td>{{ $item['name'] }}</td>
                                         <td>{{ $item['description'] }}</td>
                                         <td>{{ $item['price'] }}</td>
-                                        <td class="text-center"><img width="200px" src="{{ url('') . '/' . $item['img'] }}"
+                                        <td class="text-center"><img width="200px" src="{{ url('') . 'img/client/shop/' . $item['img'] }}"
                                                 alt=""></td>
                                         <td class="text-center">
                                             @if (!$item->deleted_at)
