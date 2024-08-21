@@ -98,4 +98,9 @@ class CartService
     {
         Cart::where('user_id', Auth::user()->id)->delete();
     }
+
+    public function getCartCount()
+    {
+        return Cart::where('user_id', Auth::user()->id)->sum('quantity');
+    }
 }

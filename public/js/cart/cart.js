@@ -105,7 +105,7 @@ function addToCart(productId) {
             }
             $('#add-to-cart-btn').html('<span class="icon_bag_alt"></span> Added!');
             $('#add-to-cart-btn').addClass('text-white');
-
+            updateCartCount();
         },
         error: function (error) {
 
@@ -181,6 +181,7 @@ function updatePrices(product_detail_id,subtotal)
             }
             var outputTotal = formatPrice(subtotal - $discountAmount);
             $('#total').text(outputTotal);
+            updateCartCount();
         }
     });
 

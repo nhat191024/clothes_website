@@ -133,4 +133,16 @@ class CartSessionService
             }, 0);
         }
     }
+
+    public function getCartCount()
+    {
+        $cart = $this->getCart();
+        if ($cart instanceof \Illuminate\Support\Collection) {
+            return $cart->sum('quantity');
+        } else {
+            return array_reduce($cart, function ($sum, $item) {
+                return $sum + $item['quantity'];
+            }, 0);
+        }
+    }
 }
