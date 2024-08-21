@@ -43,6 +43,8 @@
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
+                <div class="tip cartAmount">2</div>
+            </a></li>
             <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
                 <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
                     data-toggle="" aria-haspopup="true" aria-expanded="false">
@@ -139,6 +141,7 @@
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
+                                <div class="tip cartAmount">2</div>
                                 </a></li>
                             <li class="nav-item dropdown login-drop">
                                 <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
@@ -347,6 +350,7 @@
     <script src="{{ url('') . '/' }}js/jquery.nicescroll.min.js"></script>
     <script src="{{ url('') . '/' }}js/main.js"></script>
     <script src="{{ url('') . '/' }}js/popper.min.js"></script>
+    <script src="{{ url('') . '/' }}js/shop/updateCartCount.js"></script>
 </body>
 
 </html>
