@@ -4,7 +4,7 @@
         <div class="row my-5">
             <div class="col-md-4">
                 <div class="card">
-                    <img class="avatar mx-auto mt-3" src="{{ url('') . '/' }}img/user/{{$user->avt}}" alt="Card image">
+                    <img class="avatar mx-auto mt-3" src="{{ url('img/user/' . (Auth::user() && file_exists(public_path('img/user/' . Auth::user()->avt)) ? Auth::user()->avt : 'avt-default.png')) }}" alt="Card image">
                     <div class="card-body">
                         <center>
                             <h4 class="">{{$user->full_name}}</h4>
