@@ -8,17 +8,17 @@
                         <div class="product__details__pic__left product__thumb nice-scroll">
                             @foreach ($product->image as $img)
                                 <a class="pt active" href="#img-{{ $loop->index }}">
-                                    <img src="{{ url('') . '/' }}{{ $img->img }}" alt="">
+                                    <img src="{{ url('') . '/img/product/' }}{{ $img->img }}" alt="">
                                 </a>
                             @endforeach
                         </div>
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
                                 <img data-hash="img-1" class="product__big__img"
-                                    src="{{ url('') . '/' }}{{ $product->img }}" alt="">
+                                    src="{{ url('') . '/img/product/' }}{{ $product->img }}" alt="">
                                 @foreach ($product->image as $img)
                                     <img data-hash="img-{{ $loop->index }}" class="product__big__img"
-                                        src="{{ url('') . '/' }}{{ $img->img }}" alt="">
+                                        src="{{ url('') . '/img/product/' }}{{ $img->img }}" alt="">
                                 @endforeach
                             </div>
                         </div>
@@ -124,9 +124,10 @@
             @endif
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset($relatedProduct->img) }}">
+                    <div class="product__item__pic set-bg" data-setbg="{{ asset('/img/product/'.$relatedProduct->img) }}">
+                        <div class="position-absolute w-100 h-100" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'" style="cursor: pointer"></div>
                         <ul class="product__hover">
-                            <li><a href="{{ url('') . '/' }}{{ $relatedProduct->img }}" class="image-popup"><span
+                            <li><a href="{{ url('') . '/img/product/' }}{{ $relatedProduct->img }}" class="image-popup"><span
                                         class="arrow_expand"></span></a></li>
                             <li><a href="{{ route('client.shop.detail', ['id' => $relatedProduct->id]) }}"><span
                                         class="icon_bag_alt"></span></a></li>
