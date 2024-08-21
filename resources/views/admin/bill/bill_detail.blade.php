@@ -44,7 +44,7 @@
                             <p><strong>Email: </strong>{{ $billInfo->email }}</p>
                         </div>
                         <div class="form-group">
-                            <p><strong>Voucher code: </strong>{{ $billInfo->voucher_code }}</p>
+                            <p><strong>Điểm đã dùng (Giảm giá): </strong>{{ $billInfo->points_use_for_payment?$billInfo->points_use_for_payment:0 }}¥</p>
                         </div>
                         <div class="form-group">
                             <p><strong>Ngày đặt hàng: </strong>{{ $billInfo->created_at->format('d/m/Y H:i:s') }}</p>
@@ -87,15 +87,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <hr>
                             <h3>Danh sách sản phẩm có trong đơn hàng này</h3>
-                            @if ($billInfo->accessory && $billInfo->accessory->name && $billInfo->accessory->price)
-                                <h4 class="font-weight-bold text-info">
-                                    Phụ kiện: {{ $billInfo->accessory->name }} -
-                                    {{ number_format($billInfo->accessory->price) }}¥
-                                </h4>
-                                <small class="text-info mb-3">({{ $billInfo->accessory->description ?? '' }})</small>
-                            @else
-                                <h4 class="font-weight-bold text-info">Khách không chọn phụ kiện</h4>
-                            @endif
+
 
                             <hr>
                             <thead>
