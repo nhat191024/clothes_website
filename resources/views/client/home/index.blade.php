@@ -65,6 +65,7 @@
                         class="col-lg-3 col-md-4 col-sm-6 mix @foreach ($product->categories as $category){{ $category->name }} @endforeach ">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/' . $product->img ) }}">
+                                <div class="position-absolute w-100 h-100" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'" style="cursor: pointer"></div>
                                 <div class="label new">Mới</div>
                                 <ul class="product__hover">
                                     <li><a href="{{ asset('img/product/' . $product->img) }}" class="image-popup"><span
