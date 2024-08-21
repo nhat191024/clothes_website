@@ -125,7 +125,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="{{ asset('/img/product/'.$relatedProduct->img) }}">
-                        <div class="position-absolute w-100 h-100" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'" style="cursor: pointer"></div>
+                        <div class="position-absolute w-100 h-100" onclick="window.location='{{ route('client.shop.detail', $relatedProduct->id) }}'" style="cursor: pointer"></div>
                         <ul class="product__hover">
                             <li><a href="{{ url('') . '/img/product/' }}{{ $relatedProduct->img }}" class="image-popup"><span
                                         class="arrow_expand"></span></a></li>
