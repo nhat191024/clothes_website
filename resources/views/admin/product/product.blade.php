@@ -54,7 +54,7 @@
                                         <td>{{ $item['id'] }}</td>
                                         <td>{{ $item['name'] }}</td>
                                         <td>{{ $item['description'] }}</td>
-                                        <td>{{ $item['price'] }}</td>
+                                        <td>{{ $item['price'] }}¥</td>
                                         <td class="text-center"><img width="200px" src="{{ url('') . 'img/client/shop/' . $item['img'] }}"
                                                 alt=""></td>
                                         <td class="text-center">

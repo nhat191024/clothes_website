@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="productPrice">Giá</label>
+                            <label for="productPrice">Giá (¥)</label>
                             <input type="number" class="form-control" id="productPrice" name="product_price"
                                 value="{{ old('product_price', $productDetails->price ?? '') }}"
                                 placeholder="Nhập giá sản phẩm">
