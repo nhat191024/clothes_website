@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.webp') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo/logo.png') }}">
     <title>Mouse Shop</title>
 
     <!-- Google Font -->
@@ -68,7 +68,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.webp" alt="" width="10%"></a>
+            <a href="./index.html"><img src="{{ asset('img/logo/logo.png') }}" alt="" width="10%"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -98,20 +98,20 @@
     <!-- Kết thúc Menu Offcanvas -->
 
     <!-- Bắt đầu Phần Header -->
-    <header class="header">
+    <header class="header scrollded">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-3 col-lg-2">
+                <div class="col-xl-3 col-lg-3">
                     <div class="header__logo">
                         <a href="{{ route('client.home.index') }}">
-                            <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="20%">
+                            <img class="logo" src="{{ asset('img/logo/logo.png') }}" alt="" width="15%">
+                            <p class="logo">MouseShop</p>
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-7">
+                <div class="col-xl-6 col-lg-6">
                     <nav class="header__menu">
                         <ul>
-
                             <li
                                 class="{{ Request::url() == route('client.home.index') || Request::url() == null ? 'active' : '' }}">
                                 <a href="{{ route('client.home.index') }}">Home</a>
@@ -120,6 +120,8 @@
                                     href="{{ route('client.shop.index') }}">Shop</a></li>
                             <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
                                     href="{{ route('client.cart.index') }}">Cart</a></li>
+                            <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
+                                    href="{{ route('client.cart.index') }}">About Us</a></li>  
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
@@ -130,8 +132,8 @@
                             </li> --}}
                             {{-- <li><a href="./blog.html">Blog</a></li> --}}
                             <li><a href="./contact.html">Contact</a></li>
-
-                        </ul>
+                            </ul>
+                        
                     </nav>
                 </div>
                 <div class="col-lg-3">
