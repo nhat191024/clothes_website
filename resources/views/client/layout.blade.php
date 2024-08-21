@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.webp') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo/logo.webp') }}">
     <title>Mouse Shop</title>
 
     <!-- Google Font -->
@@ -68,7 +68,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.webp" alt="" width="10%"></a>
+            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="10%"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -104,7 +104,7 @@
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('client.home.index') }}">
-                            <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="20%">
+                            <img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="20%">
                         </a>
                     </div>
                 </div>
@@ -244,7 +244,7 @@
                     <div class="footer__about">
                         <div class="footer__logo">
                             <a href="./index.html">
-                                <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="60%">
+                                <img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="60%">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
