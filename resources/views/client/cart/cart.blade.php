@@ -35,7 +35,7 @@
                                 @foreach ($cart as $pd)
                                 <tr class="product-{{ $pd['product_detail_id'] }}">
                                     <td class="cart__product__item">
-                                        <img width="80px" src="{{ url('').'/'.$pd['productDetail']->product->img }}" alt="">
+                                        <img width="80px" src="{{ url('').'/img/product/'.$pd['productDetail']->product->img }}" alt="">
                                         <div class="cart__product__item__title">
                                             <h6>{{ $pd['productDetail']->product->name }}</h6>
                                             <div class="rating"><span style="display: inline-block; width: 15px; height: 15px; border-radius: 50%; transform: translateY(3px); background-color: {{ $pd['productDetail']->color->color_hex ?? 'black' }};"></span>
