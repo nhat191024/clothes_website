@@ -20,6 +20,7 @@ use App\Models\Image;
 use App\Models\Promotion;
 use App\Models\Size;
 use App\Models\Voucher;
+use App\Models\AboutUs;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -56,7 +57,9 @@ class DatabaseSeeder extends Seeder
                 "status" => $row['status'],
             ]);
         }
-
+        foreach ($dataArray['about_us'] as $row){
+            AboutUs::create($row);
+        }
         foreach ($dataArray['vouchers'] as $row) {
             Voucher::create($row);
         }

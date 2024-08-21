@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo/logo.webp') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo/logo.png') }}">
     <title>Mouse Shop</title>
 
     <!-- Google Font -->
@@ -49,7 +49,7 @@
                 <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
                     data-toggle="" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle" width="21px"
-                        src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
+                        src="{{ url('img/user/' . (Auth::user() && file_exists(public_path('img/user/' . Auth::user()->avt)) ? Auth::user()->avt : 'avt-default.png')) }}"><img>
                 </a>
                 <div class="login-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown"
                     style="transform: translate(15px,-5px);">
@@ -70,7 +70,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="10%"></a>
+            <a href="./index.html"><img src="{{ asset('img/logo/logo.png') }}" alt="" width="10%"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -100,20 +100,20 @@
     <!-- Kết thúc Menu Offcanvas -->
 
     <!-- Bắt đầu Phần Header -->
-    <header class="header">
+    <header class="header scrollded">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-3 col-lg-2">
+                <div class="col-xl-3 col-lg-3">
                     <div class="header__logo">
                         <a href="{{ route('client.home.index') }}">
-                            <img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="20%">
+                            <img class="logo" src="{{ asset('img/logo/logo.png') }}" alt="" width="15%">
+                            <p class="logo">MouseShop</p>
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-7">
+                <div class="col-xl-6 col-lg-6">
                     <nav class="header__menu">
                         <ul>
-
                             <li
                                 class="{{ Request::url() == route('client.home.index') || Request::url() == null ? 'active' : '' }}">
                                 <a href="{{ route('client.home.index') }}">Home</a>
@@ -122,6 +122,8 @@
                                     href="{{ route('client.shop.index') }}">Shop</a></li>
                             <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
                                     href="{{ route('client.cart.index') }}">Cart</a></li>
+                            <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
+                                    href="{{ route('client.about') }}">About Us</a></li>
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
@@ -131,9 +133,10 @@
                                 </ul>
                             </li> --}}
                             {{-- <li><a href="./blog.html">Blog</a></li> --}}
-                            <li><a href="./contact.html">Contact</a></li>
 
-                        </ul>
+                            <li><a href="{{ route('client.contact.index') }}">Contact</a></li>
+                            </ul>
+
                     </nav>
                 </div>
                 <div class="col-lg-3">
@@ -148,7 +151,7 @@
                                     id="heartDropdown" role="button" data-toggle="" aria-haspopup="true"
                                     aria-expanded="false" style="transform: translateY(-3px)">
                                     <img class="rounded-circle" width="23px"
-                                        src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
+                                        src="{{ url('img/user/' . (Auth::user() && file_exists(public_path('img/user/' . Auth::user()->avt)) ? Auth::user()->avt : 'avt-default.png')) }}"><img>
                                 </a>
                                 <div class="login-dropdown login-dropdown dropdown-menu dropdown-menu-right"
                                     aria-labelledby="heartDropdown" style="transform: translate(15px,-8px);">

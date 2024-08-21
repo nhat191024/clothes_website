@@ -15,6 +15,7 @@ use App\Http\Controllers\client\AccountManagement;
 use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\admin\AdminLoginController;
+use App\Http\Controllers\client\AboutController;
 
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\LoginController;
@@ -51,6 +52,7 @@ Route::prefix('cart')->group(function () {
     Route::get('/getVoucherDiscount',[CartController::class,'getDiscount'])->name('client.cart.getDiscount');
     Route::get('/getCount',[CartController::class,'getCartCount'])->name('client.cart.getCartCount');
 });
+Route::get('/about',[AboutController::class, 'index'])->name('client.about');
 
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
