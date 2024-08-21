@@ -30,9 +30,9 @@
                                 name="color_name" placeholder="Nhập tên màu">
                         </div>
                         <div class="form-group">
-                            <label for="">Mã màu</label>
-                            <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="color_hex" placeholder="Nhập tên màu">
+                            <label for="colorPicker">Chọn Màu</label>
+                            <input type="text" class="form-control color-picker" id="colorPicker" name="color_hex">
+                            <small class="form-text text-muted">Mã màu: <span id="colorCode"></span></small>
                         </div>
                         <button class="btn btn-success mt-4" type="submit">Thêm màu</button>
                     </form>
@@ -46,8 +46,6 @@
 
     </div>
     <!-- End of Main Content -->
-
-
 
     <!-- End of Content Wrapper -->
     <script>
