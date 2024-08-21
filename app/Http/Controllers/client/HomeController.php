@@ -9,9 +9,9 @@ use Carbon\Carbon;
 class HomeController extends Controller
 {
     private $homeService;
-    public function __construct(HomeService $homeService)
+    public function __construct()
     {
-        $this->homeService = $homeService;
+        $this->homeService = app(HomeService::class);
     }
     public function index()
     {
