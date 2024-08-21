@@ -15,11 +15,10 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $newProductInfo = $this->homeService->newProducts();
-        $trendProductInfo = $this->homeService->trendProduct()->shuffle();
-        $favoriteProductInfo = $this->homeService->favoriteProduct()->shuffle();
-        $productAmount = $this->homeService->category();
-        $collectionBanner = $this->homeService->collectionBanner();
+        $newProducts = $this->homeService->newProducts();
+        $randomProducts = $this->homeService->getRandomProduct();
+        $categoryWithNumberOfProducts = $this->homeService->categoryWithNumberOfProducts();
+        $banners = $this->homeService->getBanners();
         $latestPromotion = $this->homeService->latestPromotion();
         if ($latestPromotion) {
             $start_time = Carbon::parse($latestPromotion->start_time);
@@ -29,6 +28,6 @@ class HomeController extends Controller
         $latestPromotion->hoursDiff = $end_time->hour - $start_time->hour;
         $latestPromotion->minsDiff = $end_time->minute - $start_time->minute;
         $latestPromotion->secsDiff = $end_time->second - $start_time->second;
-        return view('client.home.index', compact('newProductInfo', 'trendProductInfo', 'favoriteProductInfo', 'latestPromotion', 'productAmount', 'collectionBanner'));
+        return view('client.home.index', compact('newProducts','randomProducts', 'latestPromotion', 'categoryWithNumberOfProducts', 'banners'));
     }
 }
