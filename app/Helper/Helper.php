@@ -4,7 +4,6 @@ namespace App\Helper;
 
 use App\Models\Product;
 use App\Models\Products;
-use App\Models\Variation;
 use Carbon\Carbon;
 
 class Helper
@@ -33,10 +32,6 @@ class Helper
     public static function getWithTrashedProductById($id)
     {
         return Product::where('id', $id)->withTrashed()->first();
-    }
-    public static function getWithTrashedVariationById($id)
-    {
-        return Variation::where('id', $id)->withTrashed()->first();
     }
 
     public static function getTimePassedBy($created_at)
