@@ -2,6 +2,7 @@
 
 namespace App\Service\admin;
 
+use App\Models\Cart;
 use App\Models\Food;
 use App\Models\Product_variation;
 use App\Models\Product;
@@ -73,8 +74,13 @@ class ProductService
         }
         return $id;
     }
+
     public function edit($id, $categoryArray, $productName, $productPrice, $productDescription, $imageName, $sizeColors)
     {
+
+        $cartItems = Cart::where('product_detail_id', $id)->get();
+        $cartItems->each->delete();
+
         Product::find($id)->update([
             'name' => $productName,
             'description' => $productDescription,
@@ -103,6 +109,12 @@ class ProductService
                 ]);
             }
         }
+
+        $cartItems->each(function ($item) {
+            $item->update([
+                'product_detail_id' => $item->id
+            ]);
+        });
         return $id;
     }
 

@@ -40,7 +40,7 @@
                             <input type="number" class="form-control" id="productPrice" aria-describedby=""
                                 name="product_price" placeholder="Nhập giá sản phẩm">
                         </div>
-                        <label for="">Ảnh bánh</label>
+                        <label for="">Ảnh sản phẩm</label>
                         <div class="custom-file">
                             <input required type="file" accept="image/*" class="custom-file-input" id="customFile"
                                 name="product_image">

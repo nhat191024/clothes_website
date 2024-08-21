@@ -64,7 +64,7 @@
                                 <div class="mt-3">
                                     <label>Ảnh cũ:</label>
                                     <div>
-                                        <img src="{{ url('') . '/img/client/shop/' . $productDetails->image }}"
+                                        <img src="/img/product/{{ $productDetails->image }}"
                                             alt="Ảnh sản phẩm" class="img-thumbnail" style="max-width: 200px;">
                                     </div>
                                 </div>
@@ -74,12 +74,13 @@
                         <div class="mt-2" id="sizes-container">
                             <!-- Existing size and color variants will be populated here -->
                         </div>
+                        <button type="button" class="btn btn-outline-info mt-4" id="add-size-color-btn">Thêm Size và
+                            Màu</button>
                         <input type="hidden" value="{{ $productDetails->id }}" name="id">
 
                         <span class="small text-danger" id="error"></span> <br>
                         <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
-                        <button type="button" class="btn btn-primary mt-4" id="add-size-color-btn">Thêm Size và
-                            Màu</button>
+
                         <button id="saveAdd" class="btn btn-success mt-4"
                             type="submit">{{ isset($productDetails) ? 'Cập nhật' : 'Lưu' }}</button>
                     </form>

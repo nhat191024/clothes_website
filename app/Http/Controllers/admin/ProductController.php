@@ -116,7 +116,7 @@ class ProductController extends Controller
         if ($request->hasFile('product_image')) {
             // Delete the old image if exists
             if ($product->img) {
-                $oldImagePath = public_path('img/client/shop/' . $product->img);
+                $oldImagePath = public_path('img/product/product-'. $product->id . $product->img);
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -124,7 +124,7 @@ class ProductController extends Controller
 
             // Save the new image
             $imageName = time() . '_' . $request->product_image->getClientOriginalName();
-            $request->product_image->move(public_path('img/client/shop'), $imageName);
+            $request->product_image->move(public_path('img/product/'), $imageName);
         } else {
             // If no new image, retain the old one
             $imageName = $product->img;
