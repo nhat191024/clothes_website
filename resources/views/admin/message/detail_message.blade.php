@@ -21,10 +21,10 @@
                         <label for=""><b>SĐT</b></label>
                         <p>{{ $messageInfo['phone'] }}</p>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for=""><b>Tiêu đề</b></label>
                         <p>{{ $messageInfo['subject'] }}</p>
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for=""><b>Nội dung</b></label>
                             <p >{{ $messageInfo['message'] }}</p>
