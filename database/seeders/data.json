@@ -72,13 +72,13 @@
         {
             "title": "Summer Sale",
             "subtitle": "Up to 50% off on selected items",
-            "image": "img/banner/banner-1.webp",
+            "image": "banner-1.webp",
             "link": "/sale"
         },
         {
             "title": "New Arrivals",
             "subtitle": "Check out our latest collection",
-            "image": "img/banner/banner-2.webp",
+            "image": "banner-2.webp",
             "link": "/new"
         }
     ],
@@ -106,135 +106,135 @@
     ],
     "images": [
         {
-            "img": "img/product/product-1/ghi_dam.webp",
+            "img": "product-1/ghi_dam.webp",
             "product_id": 1
         },
         {
-            "img": "img/product/product-1/xanh_duong_dam.webp",
+            "img": "product-1/xanh_duong_dam.webp",
             "product_id": 1
         },
         {
-            "img": "img/product/product-1/xanh_la_dam.webp",
+            "img": "product-1/xanh_la_dam.webp",
             "product_id": 1
         },
         {
-            "img": "img/product/product-2/be.webp",
+            "img": "product-2/be.webp",
             "product_id": 2
         },
         {
-            "img": "img/product/product-2/be2.webp",
+            "img": "product-2/be2.webp",
             "product_id": 2
         },
         {
-            "img": "img/product/product-3/den.webp",
+            "img": "product-3/den.webp",
             "product_id": 3
         },
         {
-            "img": "img/product/product-3/ghi_sang.webp",
+            "img": "product-3/ghi_sang.webp",
             "product_id": 3
         },
         {
-            "img": "img/product/product-3/vang_dam.webp",
+            "img": "product-3/vang_dam.webp",
             "product_id": 3
         },
         {
-            "img": "img/product/product-3/xanh_duong_dam.webp",
+            "img": "product-3/xanh_duong_dam.webp",
             "product_id": 3
         },
         {
-            "img": "img/product/product-4/den.webp",
+            "img": "product-4/den.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-4/do_man.webp",
+            "img": "product-4/do_man.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-4/ghi_sang.webp",
+            "img": "product-4/ghi_sang.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-4/reu.webp",
+            "img": "product-4/reu.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-4/tim_oai_huong.webp",
+            "img": "product-4/tim_oai_huong.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-4/tim_trau.webp",
+            "img": "product-4/tim_trau.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-4/vang_mo.webp",
+            "img": "product-4/vang_mo.webp",
             "product_id": 4
         },
         {
-            "img": "img/product/product-5/cam.webp",
+            "img": "product-5/cam.webp",
             "product_id": 5
         },
         {
-            "img": "img/product/product-5/do.webp",
+            "img": "product-5/do.webp",
             "product_id": 5
         },
         {
-            "img": "img/product/product-6/cam.webp",
+            "img": "product-6/cam.webp",
             "product_id": 6
         },
         {
-            "img": "img/product/product-6/hong_nhat.webp",
+            "img": "product-6/hong_nhat.webp",
             "product_id": 6
         },
         {
-            "img": "img/product/product-6/xanh_da_troi.webp",
+            "img": "product-6/xanh_da_troi.webp",
             "product_id": 6
         },
         {
-            "img": "img/product/product-7/ghi_dam.webp",
+            "img": "product-7/ghi_dam.webp",
             "product_id": 7
         },
         {
-            "img": "img/product/product-7/xanh_la_dam.webp",
+            "img": "product-7/xanh_la_dam.webp",
             "product_id": 7
         },
         {
-            "img": "img/product/product-8/den.webp",
+            "img": "product-8/den.webp",
             "product_id": 8
         },
         {
-            "img": "img/product/product-8/xanh_dam.webp",
+            "img": "product-8/xanh_dam.webp",
             "product_id": 8
         },
         {
-            "img": "img/product/product-8/xanh_nhat.webp",
+            "img": "product-8/xanh_nhat.webp",
             "product_id": 8
         },
         {
-            "img": "img/product/product-9/xam_tim.webp",
+            "img": "product-9/xam_tim.webp",
             "product_id": 9
         },
         {
-            "img": "img/product/product-9/xanh_bac_ha.webp",
+            "img": "product-9/xanh_bac_ha.webp",
             "product_id": 9
         },
         {
-            "img": "img/product/product-10/cam_dam.webp",
+            "img": "product-10/cam_dam.webp",
             "product_id": 10
         },
         {
-            "img": "img/product/product-10/trang.webp",
+            "img": "product-10/trang.webp",
             "product_id": 10
         },
         {
-            "img": "img/product/product-10/xanh_dam.webp",
+            "img": "product-10/xanh_dam.webp",
             "product_id": 10
         },
         {
-            "img": "img/product/product-11/tim_hong.webp",
+            "img": "product-11/tim_hong.webp",
             "product_id": 11
         },
         {
-            "img": "img/product/product-11/tim.webp",
+            "img": "product-11/tim.webp",
             "product_id": 11
         }
     ],
@@ -357,47 +357,47 @@
     "categories": [
         {
             "name": "Nữ",
-            "image": "img/category/category-woman.webp"
+            "image": "category-woman.webp"
         },
         {
             "name": "Nam",
-            "image": "img/category/category-men.webp"
+            "image": "category-men.webp"
         },
         {
             "name": "Trẻ em",
-            "image": "img/category/category-children.webp"
+            "image": "category-children.webp"
         },
         {
             "name": "Unisex",
-            "image": "img/category/category-unisex.webp"
+            "image": "category-unisex.webp"
         },
         {
             "name": "Spring",
-            "image": "img/category/category-spring.webp"
+            "image": "category-spring.webp"
         },
         {
             "name": "Summer",
-            "image": "img/category/category-summer.webp"
+            "image": "category-summer.webp"
         },
         {
             "name": "Autumn",
-            "image": "img/category/category-autumn.webp"
+            "image": "category-autumn.webp"
         },
         {
             "name": "Winter",
-            "image": "img/category/category-winter.webp"
+            "image": "category-winter.webp"
         },
         {
             "name": "Áo thun",
-            "image": "img/category/category-shirt.webp"
+            "image": "category-shirt.webp"
         },
         {
             "name": "T-shirt",
-            "image": "img/category/category-t-shirt.webp"
+            "image": "category-t-shirt.webp"
         },
         {
             "name": "Váy, Đầm",
-            "image": "img/category/category-dress.webp"
+            "image": "category-dress.webp"
         }
     ],
     "bills": [
@@ -661,77 +661,77 @@
     "products": [
         {
             "name": "Áo thun in trang trí 40000929",
-            "img": "img/product/product-1/ghi_dam.webp",
+            "img": "product-1/ghi_dam.webp",
             "description": "This is a description for product",
             "price": 350000,
             "sale_price": null
         },
         {
             "name": "NAM/Áo T-Shirt cổ tim dáng suông C7TSH501M",
-            "img": "img/product/product-2/be.webp",
+            "img": "product-2/be.webp",
             "description": "This is a description for product",
             "price": 99000,
             "sale_price": null
         },
         {
             "name": "NAM/ Áo len cổ tròn tay dài 40000194",
-            "img": "img/product/product-3/den.webp",
+            "img": "product-3/den.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 349000,
             "sale_price": null
         },
         {
             "name": "NỮ/Áo T-Shirt cổ tròn dáng ôm C9TSH503M",
-            "img": "img/product/product-4/reu.webp",
+            "img": "product-4/reu.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 99000,
             "sale_price": null
         },
         {
             "name": "BÉ GÁI/Đầm nhún eo trang trí sát nách 40000485",
-            "img": "img/product/product-5/cam.webp",
+            "img": "product-5/cam.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 99000,
             "sale_price": null
         },
         {
             "name": "NỮ/Áo thun 40001198",
-            "img": "img/product/product-6/hong_nhat.webp",
+            "img": "product-6/hong_nhat.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 299000,
             "sale_price": null
         },
         {
             "name": "BÉ TRAI/ Áo thun in trang trí sát nách 40000478",
-            "img": "img/product/product-7/xanh_la_dam.webp",
+            "img": "product-7/xanh_la_dam.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 250000,
             "sale_price": null
         },
         {
             "name": "NAM/ Quần Jeans 40001221",
-            "img": "img/product/product-8/xanh_nhat.webp",
+            "img": "product-8/xanh_nhat.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 499000,
             "sale_price": null
         },
         {
             "name": "NỮ/Quần Shorts C9SHP500M",
-            "img": "img/product/product-9/xam_tim.webp",
+            "img": "product-9/xam_tim.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 99000,
             "sale_price": null
         },
         {
             "name": "BÉ TRAI/ Bộ quần áo 40000436",
-            "img": "img/product/product-10/trang.webp",
+            "img": "product-10/trang.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 129000,
             "sale_price": null
         },
         {
             "name": "BÉ GÁI/Quần dài bo gấu 40000211",
-            "img": "img/product/product-11/tim.webp",
+            "img": "product-11/tim.webp",
             "description": "Comfortable and versatile everyday t-shirt in a variety of colors.",
             "price": 129000,
             "sale_price": null
