@@ -43,6 +43,8 @@
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
+                <div class="tip cartAmount">2</div>
+            </a></li>
             <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
                 <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
                     data-toggle="" aria-haspopup="true" aria-expanded="false">
@@ -121,7 +123,7 @@
                             <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
                                     href="{{ route('client.cart.index') }}">Cart</a></li>
                             <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
-                                    href="{{ route('client.about') }}">About Us</a></li>  
+                                    href="{{ route('client.about') }}">About Us</a></li>
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
@@ -131,10 +133,10 @@
                                 </ul>
                             </li> --}}
                             {{-- <li><a href="./blog.html">Blog</a></li> --}}
-                          
+
                             <li><a href="{{ route('client.contact.index') }}">Contact</a></li>
                             </ul>
-                        
+
                     </nav>
                 </div>
                 <div class="col-lg-3">
@@ -142,6 +144,7 @@
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
+                                <div class="tip cartAmount">2</div>
                                 </a></li>
                             <li class="nav-item dropdown login-drop">
                                 <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
@@ -247,7 +250,7 @@
                     <div class="footer__about">
                         <div class="footer__logo">
                             <a href="./index.html">
-                                <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="60%">
+                                <img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="60%">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -350,6 +353,7 @@
     <script src="{{ url('') . '/' }}js/jquery.nicescroll.min.js"></script>
     <script src="{{ url('') . '/' }}js/main.js"></script>
     <script src="{{ url('') . '/' }}js/popper.min.js"></script>
+    <script src="{{ url('') . '/' }}js/shop/updateCartCount.js"></script>
 </body>
 
 </html>

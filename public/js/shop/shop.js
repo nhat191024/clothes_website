@@ -74,11 +74,12 @@ $(document).ready(function () {
         products.forEach(product => {
             productHtml += `
                 <div class="col-lg-4 col-md-6">
-                    <div class=".product__item" <div class=".product__item"  style="cursor: pointer" onclick="window.location='/shop/product/${product.id}'">>
-                        <div class="product__item__pic set-bg" data-setbg="${product.img}" style="background-image: url(&quot;${product.img}&quot;);">
+                    <div class="product__item" <div class=".product__item"  style="cursor: pointer" onclick="window.location='/shop/product/${product.id}'">
+                        <div class="product__item__pic set-bg" data-setbg="/img/product/${product.img}" style="background-image: url(&quot;/img/product/${product.img}&quot;);">
                             <div class="label new">New</div>
-                            <ul class="product__hover">
-                                <li><a href="img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <div class="overlay__redirect" style="z-index: 1" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'"></div>
+                            <ul class="product__hover" style="z-index: 2">
+
                                 <li><a href="/shop/product/${product.id}"><span class="icon_bag_alt"></span></a></li>
                             </ul>
                         </div>

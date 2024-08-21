@@ -50,6 +50,7 @@ Route::prefix('cart')->group(function () {
     Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('client.cart.updateQuantity');
     Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
     Route::get('/getVoucherDiscount',[CartController::class,'getDiscount'])->name('client.cart.getDiscount');
+    Route::get('/getCount',[CartController::class,'getCartCount'])->name('client.cart.getCartCount');
 });
 Route::get('/about',[AboutController::class, 'index'])->name('client.about');
 
@@ -77,7 +78,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/login/check', [AdminLoginController::class, 'login'])->name('admin.login');
 });
 
-Route::middleware(['auth:admin'])->group(function () {
+// Route::middleware(['auth:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
 
@@ -180,18 +181,6 @@ Route::middleware(['auth:admin'])->group(function () {
             // Route::get('/{id}', [PromotionController::class, 'showDetail'])->name('admin.bill.show_detail');
         });
 
-        Route::prefix('/blog')->group(function () {
-            Route::get('/', [\App\Http\Controllers\admin\BlogController::class, 'index'])->name('admin.blog.index');
-            Route::get('/detail/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showDetail'])->name('admin.blog.showDetail');
-            Route::get('/edit/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showEdit'])->name('admin.blog.showEdit');
-            Route::post('/edit', [\App\Http\Controllers\admin\BlogController::class, 'saveEdit'])->name('admin.blog.saveEdit');
-            Route::get('/add', [\App\Http\Controllers\admin\BlogController::class, 'showAdd'])->name('admin.blog.show_add');
-            Route::get('/delete/{id}', [\App\Http\Controllers\admin\BlogController::class, 'delete'])->name('admin.blog.delete');
-            Route::get('/destroy/{id}', [\App\Http\Controllers\admin\BlogController::class, 'destroy'])->name('admin.blog.destroy');
-            Route::get('/restore/{id}', [\App\Http\Controllers\admin\BlogController::class, 'recover'])->name('admin.blog.restore');
-            Route::post('/add', [\App\Http\Controllers\admin\BlogController::class, 'add'])->name('admin.blog.add');
-        });
-
         Route::prefix('/message')->group(function () {
             Route::get('/', [MessageController::class, 'index'])->name('admin.message.index');
             Route::get('/get', [MessageController::class, 'getUnread']);
@@ -202,4 +191,4 @@ Route::middleware(['auth:admin'])->group(function () {
             Route::get('/{id}', [MessageController::class, 'showMessageDetail'])->name('admin.message.show_detail');
         });
     });
-});
+// });

@@ -44,22 +44,22 @@
                             <p><strong>Email: </strong>{{ $billInfo->email }}</p>
                         </div>
                         <div class="form-group">
-                            <p><strong>Voucher code: </strong>{{ $billInfo->voucher_code }}</p>
+                            <p><strong>Điểm đã dùng (Giảm giá): </strong>{{ $billInfo->points_use_for_payment?$billInfo->points_use_for_payment:0 }}¥</p>
                         </div>
                         <div class="form-group">
                             <p><strong>Ngày đặt hàng: </strong>{{ $billInfo->created_at->format('d/m/Y H:i:s') }}</p>
                         </div>
                         <div class="form-group">
                             <p><strong>Phương thức giao hàng:
-                                </strong>{{ Helper::DELIVERY_METHOD[$billInfo->delivery_method] }}</p>
+                                </strong>{{ Helper::DELIVERY_METHOD[$billInfo->payment_method] }}</p>
                         </div>
                         <div class="form-group">
                             <p><strong>Phương thức thanh toán:
-                                </strong>{{ Helper::PAYMENT_METHOD[$billInfo->checkout_method] }}</p>
+                                </strong>{{ Helper::PAYMENT_METHOD[1] }}</p>
                         </div>
                         <div class="form-group">
                             <h5 class="text-gray-900"><strong>Tổng tiền:
-                                </strong>{{ number_format($billInfo->total_amount) }}đ</h5>
+                                </strong>{{ number_format($billInfo->total_amount) }}¥</h5>
                         </div>
                         <p
                             class="{{ $billInfo->status == 0 ? 'text-danger' : ($billInfo->status == 2 ? 'text-warning' : 'text-success') }}">
@@ -87,15 +87,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <hr>
                             <h3>Danh sách sản phẩm có trong đơn hàng này</h3>
-                            @if ($billInfo->accessory && $billInfo->accessory->name && $billInfo->accessory->price)
-                                <h4 class="font-weight-bold text-info">
-                                    Phụ kiện: {{ $billInfo->accessory->name }} -
-                                    {{ number_format($billInfo->accessory->price) }}đ
-                                </h4>
-                                <small class="text-info mb-3">({{ $billInfo->accessory->description ?? '' }})</small>
-                            @else
-                                <h4 class="font-weight-bold text-info">Khách không chọn phụ kiện</h4>
-                            @endif
+
 
                             <hr>
                             <thead>
@@ -131,15 +123,15 @@
                                         <td>{{ $item->size->name }}
                                         <td>{{ $item->color->name }}
                                         <td>{{ $item->quantity }}</td>
-                                        <td>{{ number_format($item->price, 0, ',', '.') }}đ</td>
-                                        <td>{{ number_format($item->price * $item->quantity, 0, ',', '.') }}đ</td>
+                                        <td>{{ number_format($item->price, 0, ',', '.') }}¥</td>
+                                        <td>{{ number_format($item->price * $item->quantity, 0, ',', '.') }}¥</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         <div class="form-group text-center">
                             <h3 class="mt-3 text-gray-900"><strong>Tổng tiền:
-                                </strong>{{ number_format($billInfo->total_amount) }}đ</h3>
+                                </strong>{{ number_format($billInfo->total_amount) }}¥</h3>
                         </div>
                     </div>
                 </div>

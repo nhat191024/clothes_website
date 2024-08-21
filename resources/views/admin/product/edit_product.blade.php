@@ -17,7 +17,7 @@
                         @endif
 
                         <div class="form-group">
-                            <label for="categorySelect">Chọn danh mục</label>
+                            <label for="categorySelect">Chọn danh mục (Chọn nhiều loại danh mục)</label>
                             <select class="form-control selectpicker" multiple required name="category_id[]"
                                 id="categorySelect">
                                 @foreach ($allCategory as $key => $item)
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="productPrice">Giá</label>
+                            <label for="productPrice">Giá (¥)</label>
                             <input type="number" class="form-control" id="productPrice" name="product_price"
                                 value="{{ old('product_price', $productDetails->price ?? '') }}"
                                 placeholder="Nhập giá sản phẩm">
@@ -64,7 +64,7 @@
                                 <div class="mt-3">
                                     <label>Ảnh cũ:</label>
                                     <div>
-                                        <img src="{{ url('') . '/img/client/shop/' . $productDetails->image }}"
+                                        <img src="/img/product/{{ $productDetails->image }}"
                                             alt="Ảnh sản phẩm" class="img-thumbnail" style="max-width: 200px;">
                                     </div>
                                 </div>
@@ -74,12 +74,13 @@
                         <div class="mt-2" id="sizes-container">
                             <!-- Existing size and color variants will be populated here -->
                         </div>
+                        <button type="button" class="btn btn-outline-info mt-4" id="add-size-color-btn">Thêm Size và
+                            Màu</button>
                         <input type="hidden" value="{{ $productDetails->id }}" name="id">
 
                         <span class="small text-danger" id="error"></span> <br>
                         <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
-                        <button type="button" class="btn btn-primary mt-4" id="add-size-color-btn">Thêm Size và
-                            Màu</button>
+
                         <button id="saveAdd" class="btn btn-success mt-4"
                             type="submit">{{ isset($productDetails) ? 'Cập nhật' : 'Lưu' }}</button>
                     </form>
@@ -134,18 +135,18 @@
                 }).join('');
 
                 let sizeColorHTML = `
-    <label class="mt-2" id="label-variation-${sizeColorCount}" for="categorySelect">Chọn biến thể thứ ${sizeColorCount}</label>
+    <label class="mt-2" id="label-variation-${sizeColorCount}" for="categorySelect">Loại sản phẩm thứ ${sizeColorCount}</label>
     <div class="size-color-card" id="size-color-${sizeColorCount}">
-        <button type="button" class="btn btn-danger remove-btn" data-id="${sizeColorCount}">Xóa</button>
+        <button type="button" class="btn btn-danger remove-btn" data-id="${sizeColorCount}">Xóa loại SP ${sizeColorCount}</button>
         <div class="form-group">
-            <label for="size-select-${sizeColorCount}">Chọn Size ${sizeColorCount}</label>
+            <label for="size-select-${sizeColorCount}">Loại Size (Chọn 1 size) cho loại SP thứ ${sizeColorCount}</label>
             <select class="selectpicker form-control size-select" id="size-select-${sizeColorCount}" name="sizes[${sizeColorCount}][size]" required>
                 <option value="">Chọn Size</option>
                 ${sizeOptionsHTML}
             </select>
         </div>
         <div class="form-group">
-            <label for="color-select-${sizeColorCount}">Chọn Màu ${sizeColorCount}</label>
+            <label for="color-select-${sizeColorCount}">Các loại Màu (Chọn nhiều màu) của size này</label>
             <select multiple class="selectpicker form-control color-select" id="color-select-${sizeColorCount}" name="sizes[${sizeColorCount}][colors][]" data-live-search="true" required>
                 ${colorOptionsHTML}
             </select>

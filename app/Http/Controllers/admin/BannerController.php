@@ -37,7 +37,7 @@ class BannerController extends Controller
         $bannerTitle = $request->banner_title;
         $bannerContent = $request->banner_content;
         $link = $request->link;
-        $imageName = time() . '_' . $request->banner_image->getClientOriginalName();
+        $imageName = str_replace(' ', '', time() . '_' . $request->product_image->getClientOriginalName());
         $request->banner_image->move(public_path('img/banner'), $imageName);
         $this->bannerService->add($bannerTitle, $bannerContent,$imageName,$link);
         return redirect(route('admin.banner.index'))->with('success', 'Thêm banner thành công');
@@ -65,7 +65,7 @@ class BannerController extends Controller
         $link = $request->link;
         $imageName = $request->imageName;
         if ($request->banner_image) {
-            $imageName = time() . '_' . $request->banner_image->getClientOriginalName() ?? null;
+            $imageName = str_replace(' ', '', time() . '_' . $request->product_image->getClientOriginalName())?? null;
             $request->banner_image->move(public_path('img/banner'), $imageName);
             $oldImagePath = $this->bannerService->getById($request->id)->image;
             if (file_exists(public_path('img/banner') . '/' . $oldImagePath && $oldImagePath != null)) {

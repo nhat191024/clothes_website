@@ -61,7 +61,7 @@ class ProductController extends Controller
         $productName = $request->product_name;
         $productPrice = $request->product_price;
         $productDescription = $request->product_description ?? null;
-        $imageName = time() . '_' . $request->product_image->getClientOriginalName();
+        $imageName = str_replace(' ', '', time() . '_' . $request->product_image->getClientOriginalName());
         $sizeColors = $request->sizes;
         // Public Folder
         $request->product_image->move(public_path('img/client/shop'), $imageName);
@@ -116,15 +116,15 @@ class ProductController extends Controller
         if ($request->hasFile('product_image')) {
             // Delete the old image if exists
             if ($product->img) {
-                $oldImagePath = public_path('img/client/shop/' . $product->img);
+                $oldImagePath = public_path('img/product/product-'. $product->id . $product->img);
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
             }
 
             // Save the new image
-            $imageName = time() . '_' . $request->product_image->getClientOriginalName();
-            $request->product_image->move(public_path('img/client/shop'), $imageName);
+            $imageName = str_replace(' ', '', time() . '_' . $request->product_image->getClientOriginalName());
+            $request->product_image->move(public_path('img/product/'), $imageName);
         } else {
             // If no new image, retain the old one
             $imageName = $product->img;
