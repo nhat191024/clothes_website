@@ -5,28 +5,29 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 p-0">
+
                     <div class="categories__item categories__large__item set-bg"
-                        data-setbg="{{ asset('img/category/' .$productAmount[0]->image) }}">
+                        data-setbg="{{ asset('img/category/' . $categoryWithNumberOfProducts[0]->image) }}">
                         <div class="categories__text">
                             <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang
-                                {{ $productAmount[0]['name'] }}</h1>
-                            <p>{{ count($productAmount[0]->products) }} sản phẩm</p>
+                                {{ $categoryWithNumberOfProducts[0]->name }}</h1>
+                            <p>{{ $categoryWithNumberOfProducts[0]->products_count }} sản phẩm</p>
                             {{-- <p>0 sản phẩm</p> --}}
                             <a href="{{ route('client.shop.index') }}">Mua ngay</a>
                         </div>
                     </div>
                 </div>
-                @php $productAmount->forget(0) @endphp
+                @php $categoryWithNumberOfProducts->forget(0) @endphp
                 <div class="col-lg-6">
                     <div class="row">
-                        @foreach ($productAmount as $ct)
+                        @foreach ($categoryWithNumberOfProducts as $categoryWithNumberOfProduct)
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                                <div class="categories__item set-bg" data-setbg="{{ asset('img/category/' .$ct->image) }}">
+                                <div class="categories__item set-bg"
+                                    data-setbg="{{ asset('img/category/' . $categoryWithNumberOfProduct->image) }}">
                                     <div class="categories__text">
                                         <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang
-                                            {{ strtolower($ct->name) }}</h4>
-                                        <p>{{ count($ct->products) }} sản phẩm</p>
-                                        {{-- <p>0 sản phẩm</p> --}}
+                                            {{ strtolower($categoryWithNumberOfProduct->name) }}</h4>
+                                        <p>{{ $categoryWithNumberOfProduct->products_count }} sản phẩm</p>
                                         <a href="{{ route('client.shop.index') }}">Mua ngay</a>
                                     </div>
                                 </div>
@@ -60,12 +61,14 @@
                 </div>
             </div>
             <div class="row property__gallery">
-                @foreach ($newProductInfo as $product)
+                @foreach ($newProducts as $product)
                     <div
                         class="col-lg-3 col-md-4 col-sm-6 mix @foreach ($product->categories as $category){{ $category->name }} @endforeach ">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/' . $product->img ) }}">
-                                <div class="position-absolute w-100 h-100" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'" style="cursor: pointer"></div>
+                            <div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/' . $product->img) }}">
+                                <div class="position-absolute w-100 h-100"
+                                    onclick="window.location='{{ route('client.shop.detail', $product->id) }}'"
+                                    style="cursor: pointer"></div>
                                 <div class="label new">Mới</div>
                                 <ul class="product__hover">
                                     <li><a href="{{ asset('img/product/' . $product->img) }}" class="image-popup"><span
@@ -96,12 +99,12 @@
     <!-- Phần Sản Phẩm Kết Thúc -->
 
     <!-- Phần Banner Bắt Đầu -->
-    <section class="banner set-bg" data-setbg="{{ asset('img/banner/' .$collectionBanner[0]->image) }}">
+    <section class="banner set-bg" data-setbg="{{ asset('img/banner/' . $banners[0]->image) }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8 m-auto">
                     <div class="banner__slider owl-carousel">
-                        @foreach ($collectionBanner as $banner)
+                        @foreach ($banners as $banner)
                             <div class="banner__item">
                                 <div class="banner__text">
                                     <span>{{ $banner->title }}</span>
@@ -118,7 +121,180 @@
     <!-- Phần Banner Kết Thúc -->
 
     <!-- Phần Xu Hướng Bắt Đầu -->
+
     <section class="trend spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="trend__content">
+                        <div class="section-title">
+                            <h4>Hot Trend</h4>
+                        </div>
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/ht-1.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Chain bucket bag</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                        {{-- <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/ht-2.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Pendant earrings</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div> --}}
+                        {{-- <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/ht-3.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Cotton T-Shirt</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+                {{-- <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="trend__content">
+                        <div class="section-title">
+                            <h4>Best seller</h4>
+                        </div>
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/bs-1.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Cotton T-Shirt</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/bs-2.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Zip-pockets pebbled tote <br />briefcase</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/bs-3.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Round leather bag</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+                {{-- <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="trend__content">
+                        <div class="section-title">
+                            <h4>Feature</h4>
+                        </div>
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/f-1.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Bow wrap skirt</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/f-2.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Metallic earrings</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="img/trend/f-3.jpg" alt="">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6>Flap cross-body bag</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price">$ 59.0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    </section>
+
+    {{-- <section class="trend spad">
         <div class="container">
             <div class="row">
                 @php
@@ -151,7 +327,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <div class="product__price">{{ number_format((int) $product->price, 0) }} ¥</div>
+                        <div class="product__price">{{ number_format($product->price, 0) }} ¥</div>
                     </div>
                 </div>
                 @php $count++ @endphp
@@ -190,7 +366,7 @@
         </div>
         </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Phần Xu Hướng Kết Thúc -->
 
     <!-- Phần Giảm Giá Bắt Đầu -->
