@@ -47,7 +47,7 @@
                 <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
                     data-toggle="" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle" width="21px"
-                        src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
+                        src="{{ url('img/user/' . (Auth::user() && file_exists(public_path('img/user/' . Auth::user()->avt)) ? Auth::user()->avt : 'avt-default.png')) }}"><img>
                 </a>
                 <div class="login-dropdown dropdown-menu dropdown-menu-right" aria-labelledby="heartDropdown"
                     style="transform: translate(15px,-5px);">
@@ -121,7 +121,7 @@
                             <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
                                     href="{{ route('client.cart.index') }}">Cart</a></li>
                             <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
-                                    href="{{ route('client.cart.index') }}">About Us</a></li>  
+                                    href="{{ route('client.about') }}">About Us</a></li>  
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Chi tiết sản phẩm</a></li>
@@ -131,7 +131,8 @@
                                 </ul>
                             </li> --}}
                             {{-- <li><a href="./blog.html">Blog</a></li> --}}
-                            <li><a href="./contact.html">Contact</a></li>
+                          
+                            <li><a href="{{ route('client.contact.index') }}">Contact</a></li>
                             </ul>
                         
                     </nav>
@@ -147,7 +148,7 @@
                                     id="heartDropdown" role="button" data-toggle="" aria-haspopup="true"
                                     aria-expanded="false" style="transform: translateY(-3px)">
                                     <img class="rounded-circle" width="23px"
-                                        src="{{ url('') . '/' }}img/user/{{ Auth::user() ? Auth::user()->avt : 'avt-default.png' }}"><img>
+                                        src="{{ url('img/user/' . (Auth::user() && file_exists(public_path('img/user/' . Auth::user()->avt)) ? Auth::user()->avt : 'avt-default.png')) }}"><img>
                                 </a>
                                 <div class="login-dropdown login-dropdown dropdown-menu dropdown-menu-right"
                                     aria-labelledby="heartDropdown" style="transform: translate(15px,-8px);">
