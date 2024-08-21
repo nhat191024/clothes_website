@@ -8,40 +8,39 @@ function getSizesAndColors(product_id) {
         type: 'GET',
         success: function (response) {
             $('.color-loading-circle').addClass('d-none');
-            sizeAndColors.push(response);
-            setSizeAsEnabled(sizeAndColors[0][0]['size_id']);
+            sizeAndColors.push(...Object.values(response));
+            setSizeAsEnabled(sizeAndColors[0]['size_id']);
         }
     })
 }
 
-function setEnabledColorBySizeId(id)
-{
+function setEnabledColorBySizeId(id) {
     disableAllColors();
-    $colorsOfSize = sizeAndColors[0].find(element => element['size_id'] == id)['colors']
-    console.log($colorsOfSize);
-    $colorsOfSize.forEach(color => {
-        $('#color-label-'+color['color_id']).removeClass('d-none');
+    $first_color_id = 0;
+    sizeAndColors.forEach(size => {
+        if (size['size_id'] == id) {
+            size['colors'].forEach(color => {
+                ($first_color_id == 0 ? $first_color_id = color : $first_color_id);
+                $('#color-label-' + color).removeClass('d-none');
+            });
+        }
     });
-    $first_color_id = $colorsOfSize[0]['color_id'];
     $('.color-loading-circle').addClass('d-none');
     setColorAsEnabled($first_color_id);
 }
 
-function disableAllColors()
-{
+function disableAllColors() {
     $('.color_label_class').removeClass('d-none');
     $('.color_label_class').addClass('d-none');
     $('.color-loading-circle').removeClass('d-none');
 }
 
-function setSizeAsEnabled(id)
-{
+function setSizeAsEnabled(id) {
     setEnabledColorBySizeId(id);
 }
 
-function setColorAsEnabled($first_color_id)
-{
-    const element = document.getElementById('color-'+$first_color_id);
+function setColorAsEnabled($first_color_id) {
+    const element = document.getElementById('color-' + $first_color_id);
     element.click();
 }
 

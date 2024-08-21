@@ -97,7 +97,6 @@ function addToCart(productId) {
             $('#add-to-cart-btn').addClass('text-white');
         },
         success: function (response) {
-            console.log(response);
             if (response['status']==404) {
                 alert('This variant is out of stock. Please choose other one');
                 $('#add-to-cart-btn').html('Out of stock');
@@ -105,7 +104,7 @@ function addToCart(productId) {
             }
             $('#add-to-cart-btn').html('<span class="icon_bag_alt"></span> Added!');
             $('#add-to-cart-btn').addClass('text-white');
-
+            updateCartCount();
         },
         error: function (error) {
 
@@ -177,10 +176,11 @@ function updatePrices(product_detail_id,subtotal)
                 last_discount = $discountAmount;
             } else {
                 $('#voucher_label').addClass('d-none');
-                last_discount > 0 ? $('#voucher_error').html('Voucher was removed due to your cart no longer satisfies its requirements.'):console.log('');
+                last_discount > 0 ? $('#voucher_error').html('Voucher was removed due to your cart no longer satisfies its requirements.'):$('#voucher_error').html('');
             }
             var outputTotal = formatPrice(subtotal - $discountAmount);
             $('#total').text(outputTotal);
+            updateCartCount();
         }
     });
 

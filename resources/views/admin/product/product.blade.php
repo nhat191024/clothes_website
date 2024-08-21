@@ -45,7 +45,7 @@
                                     <th>ND Giới thiệu</th>
                                     <th>Giá</th>
                                     <th>Ảnh</th>
-                                    <th>Chức năng</th>
+                                <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -54,8 +54,8 @@
                                         <td>{{ $item['id'] }}</td>
                                         <td>{{ $item['name'] }}</td>
                                         <td>{{ $item['description'] }}</td>
-                                        <td>{{ $item['price'] }}</td>
-                                        <td class="text-center"><img width="200px" src="{{ url('') . 'img/client/shop/' . $item['img'] }}"
+                                        <td>{{ $item['price'] }}¥</td>
+                                        <td class="text-center"><img width="200px" src="/img/product/{{ $item->img }}"
                                                 alt=""></td>
                                         <td class="text-center">
                                             @if (!$item->deleted_at)

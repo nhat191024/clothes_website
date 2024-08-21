@@ -25,7 +25,7 @@
                             <select class="form-control selectpicker" id="product_id" name="product_id" data-live-search="true">
                                 @foreach ($products as $product)
                                     <option value="{{ $product->id }}"
-                                        {{ $product->id == $promotion->product_id ? 'selected' : '' }}>{{'Danh mục: ' . $product->name . ' - Bánh ' . $product->name }}
+                                        {{ $product->id == $promotion->product_id ? 'selected' : '' }}>{{'Danh mục: ' . $product->name . ' - Sản phẩm ' . $product->name }}
                                     </option>
                                 @endforeach
                             </select>

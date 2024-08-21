@@ -36,7 +36,7 @@
                                     <th>Mô tả</th>
                                     <th>% Giá giảm %</th>
                                     <th>Giá tổi thiểu để áp dụng voucher</th>
-                                    <th>Số lượng dùng</th>
+                                    <th>Số lượng dùng còn lại</th>
                                     <th>Ngày hiệu lực</th>
                                     <th>Ngày hết hạn</th>
                                     <th>Trạng thái</th>
@@ -50,7 +50,7 @@
                                     <th>Mô tả</th>
                                     <th>% Giá giảm %</th>
                                     <th>Giá tổi thiểu để áp dụng voucher</th>
-                                    <th>Số lượng dùng</th>
+                                    <th>Số lượng dùng còn lại</th>
                                     <th>Ngày hiệu lực</th>
                                     <th>Ngày hết hạn</th>
                                     <th>Trạng thái</th>
@@ -64,7 +64,7 @@
                                         <td>{{ $item->code }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>{{ $item->discount_percentage }}%</td>
-                                        <td>{{ $item->min_price }}</td>
+                                        <td>{{ $item->min_price }}¥</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->start_date)->format('d-m-Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->end_date)->format('d-m-Y') }}</td>

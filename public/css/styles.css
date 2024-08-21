@@ -30,3 +30,29 @@
     background-color: #ca1515;
     border-color: #ca1515;
 }
+
+.cartAmount{
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+}
+
+.addedToCart{
+    scale: 1.5;
+    transform: translate(-7px, 9px);
+    z-index: 2 !important;
+    color: #fff !important;
+    background-color: #ca1515 !important;
+    border-color: #ca1515 !important;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transform: translate(-7px, 9px);
+    -moz-transform: translate(-7px, 9px);
+    -ms-transform: translate(-7px, 9px);
+    -o-transform: translate(-7px, 9px);
+}

@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.webp') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo/logo.webp') }}">
     <title>Mouse Shop</title>
 
     <!-- Google Font -->
@@ -43,6 +43,8 @@
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
+                <div class="tip cartAmount">2</div>
+            </a></li>
             <li class="nav-item dropdown login-drop" style="transform: translateY(-3px)">
                 <a class="nav-link login-dropdown dropdown-toggle" href="#" id="heartDropdown" role="button"
                     data-toggle="" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +70,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo.webp" alt="" width="10%"></a>
+            <a href="./index.html"><img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="10%"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -104,7 +106,7 @@
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('client.home.index') }}">
-                            <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="20%">
+                            <img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="20%">
                         </a>
                     </div>
                 </div>
@@ -139,6 +141,7 @@
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="{{ route('client.cart.index') }}"><span class="icon_bag_alt"></span>
+                                <div class="tip cartAmount">2</div>
                                 </a></li>
                             <li class="nav-item dropdown login-drop">
                                 <a data-bs-toggle="none" class="nav-link dropdown-toggle" href="#"
@@ -244,7 +247,7 @@
                     <div class="footer__about">
                         <div class="footer__logo">
                             <a href="./index.html">
-                                <img src="{{ url('') . '/' }}img/logo.webp" alt="" width="60%">
+                                <img src="{{ url('') . '/' }}img/logo/logo.webp" alt="" width="60%">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -347,6 +350,7 @@
     <script src="{{ url('') . '/' }}js/jquery.nicescroll.min.js"></script>
     <script src="{{ url('') . '/' }}js/main.js"></script>
     <script src="{{ url('') . '/' }}js/popper.min.js"></script>
+    <script src="{{ url('') . '/' }}js/shop/updateCartCount.js"></script>
 </body>
 
 </html>

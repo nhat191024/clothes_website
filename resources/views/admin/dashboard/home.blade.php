@@ -19,7 +19,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Doanh thu (Theo ngày)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billDay'] }} VNĐ</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billDay'] }} ¥</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -35,7 +35,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Doanh thu (Theo tuần)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billWeek'] }} VNĐ
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billWeek'] }} ¥
                                         </div>
                                     </div>
                                     <div class="col-auto">
@@ -52,7 +52,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Doanh thu (Theo tháng)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billMonth'] }} VNĐ
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billMonth'] }} ¥
                                         </div>
                                     </div>
                                     <div class="col-auto">
@@ -69,7 +69,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Doanh thu (Theo năm)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billYears'] }} VNĐ
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data['billYears'] }} ¥
                                         </div>
                                     </div>
                                     <div class="col-auto">

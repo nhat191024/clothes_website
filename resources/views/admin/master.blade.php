@@ -178,11 +178,11 @@
                     <i class="fas fa-fw fa-birthday-cake"></i>
                     <span>Quản lý phụ kiện</span></a>
             </li> --}}
-            <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
+            {{-- <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.promotion.index') }}">
                     <i class="fas fa-fw fa-calendar"></i>
                     <span>Băng rôn quảng cáo SP</span></a>
-            </li>
+            </li> --}}
             <li class="nav-item {{ Request::is('admin/voucher*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
                     <i class="fas fa-fw fa-money-check"></i>
@@ -351,7 +351,7 @@
                                         href="#">
                                         <div class="dropdown-list-image mr-3">
                                             <img class="rounded-circle"
-                                                src="{{ url('') . '/' }}img/avatar/undraw_profile_1.svg" alt="...">
+                                                src="{{ url('') . '/' }}img/user/undraw_profile_1.svg" alt="...">
                                             <div class="status-indicator">
                                                 <div id="message-index"
                                                     style="font-size: 10px; transform: translate(1px, -5px)"></div>
@@ -377,7 +377,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{ url('') . '/' }}img/avatar/undraw_profile.svg">
+                                    src="{{ url('') . '/' }}img/user/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

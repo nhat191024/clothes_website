@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
-                        data-setbg="{{ asset($productAmount[0]->image) }}">
+                        data-setbg="{{ asset('img/category/' .$productAmount[0]->image) }}">
                         <div class="categories__text">
                             <h1 style="font-family: 'Times New Roman', Times, serif, fantasy"> Thời trang
                                 {{ $productAmount[0]['name'] }}</h1>
@@ -21,7 +21,7 @@
                     <div class="row">
                         @foreach ($productAmount as $ct)
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                                <div class="categories__item set-bg" data-setbg="{{ asset($ct->image) }}">
+                                <div class="categories__item set-bg" data-setbg="{{ asset('img/category/' .$ct->image) }}">
                                     <div class="categories__text">
                                         <h4 style="font-family: 'Times New Roman', Times, serif, fantasy;">Thời trang
                                             {{ strtolower($ct->name) }}</h4>
@@ -64,10 +64,11 @@
                     <div
                         class="col-lg-3 col-md-4 col-sm-6 mix @foreach ($product->categories as $category){{ $category->name }} @endforeach ">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{ asset($product->img) }}">
+                            <div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/' . $product->img ) }}">
+                                <div class="position-absolute w-100 h-100" onclick="window.location='{{ route('client.shop.detail', $product->id) }}'" style="cursor: pointer"></div>
                                 <div class="label new">Mới</div>
                                 <ul class="product__hover">
-                                    <li><a href="{{ asset($product->img) }}" class="image-popup"><span
+                                    <li><a href="{{ asset('img/product/' . $product->img) }}" class="image-popup"><span
                                                 class="arrow_expand"></span></a></li>
                                     {{-- <li><a href="#"><span class="icon_heart_alt"></span></a></li> --}}
                                     <li><a href="{{ route('client.shop.detail', $product->id) }}"><span
@@ -95,7 +96,7 @@
     <!-- Phần Sản Phẩm Kết Thúc -->
 
     <!-- Phần Banner Bắt Đầu -->
-    <section class="banner set-bg" data-setbg="{{ asset($collectionBanner[0]->image) }}">
+    <section class="banner set-bg" data-setbg="{{ asset('img/banner/' .$collectionBanner[0]->image) }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8 m-auto">
@@ -139,7 +140,7 @@
                 <div class="trend__item" style="cursor: pointer"
                     onclick="window.location='{{ route('client.shop.detail', $product->id) }}'">
                     <div class="trend__item__pic">
-                        <img src="{{ $product->img }}" alt="" width="100px">
+                        <img src="{{ asset('img/product/' . $product->img) }}" alt="" width="100px">
                     </div>
                     <div class="trend__item__text">
                         <h6>{{ $product->name }}</h6>
@@ -170,7 +171,7 @@
                     <div class="trend__item" style="cursor: pointer"
                         onclick="window.location='{{ route('client.shop.detail', $product->id) }}'">
                         <div class="trend__item__pic">
-                            <img src="{{ $product->img }}" alt="" width="100px">
+                            <img src="{{ asset('img/product/' . $product->img) }}" alt="" width="100px">
                         </div>
                         <div class="trend__item__text">
                             <h6>{{ $product->name }}</h6>
@@ -198,7 +199,7 @@
             <div class="row">
                 <div class="col-lg-6 p-0">
                     <div class="discount__pic">
-                        <img src="img/discount.jpg" alt="">
+                        <img src="img/client/shop/discount.jpg" alt="">
                     </div>
                 </div>
                 <style>

@@ -112,4 +112,11 @@ class CartController extends Controller
             $this->cartSessionService->clearCart();
         return redirect()->route('client.cart.index');
     }
+
+    public function getCartCount()
+    {
+        return ($this->isLoggedIn) ?
+            $this->cartService->getCartCount() :
+            $this->cartSessionService->getCartCount();
+    }
 }
