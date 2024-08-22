@@ -16,12 +16,14 @@ class Helper
     public const BILL_PAID = 1;
     public const BILL_CANCEL = 2;
     public const DELIVERY_METHOD = [
-        '0' => 'Ship tận nơi',
-        '1' => 'Lấy tại quầy'
+        '0' => 'Lấy tại cửa hàng',
+        '1' => 'Giao hàng tiết kiệm',
+        '2' => 'Giao hàng nhanh'
     ];
     public const PAYMENT_METHOD = [
-        '0' => 'Tiền mặt',
-        '1' => 'Chuyển khoản'
+        '0' => 'Chuyển tiền qua ngân hàng',
+        '1' => 'Trả tiền tại cửa hàng',
+        '2' => 'Thanh toán khi nhận hàng (COD)'
     ];
     public const BILL_STATUS = [
         '0' => 'Chưa thanh toán',
