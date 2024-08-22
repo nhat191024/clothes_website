@@ -1,9 +1,10 @@
 {
-    "about_us":[{
-        "title": "Perfect Fashions",
-        "description": "Lorem ipsum dolor sit amet, consectetur adip",
-        "image": "logo.png"
-    }
+    "about_us": [
+        {
+            "title": "Perfect Fashions",
+            "description": "Lorem ipsum dolor sit amet, consectetur adip",
+            "image": "logo.png"
+        }
     ],
     "users": [
         {
