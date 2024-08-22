@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ url('') . '/' }}css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url('') . '/' }}css/style.css" type="text/css">
     <link rel="stylesheet" href="{{ url('') . '/' }}css/styles.css" type="text/css">
-
+    <link rel="stylesheet" href="{{ url('') . '/' }}css/cart/cart-layout.css" type="text/css">
 </head>
 
 <body>
