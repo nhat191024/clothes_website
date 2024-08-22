@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class BillController extends Controller
 {
     private $billService;
-    //
+
     public function __construct(BillService $billService)
     {
         $this->billService = $billService;
