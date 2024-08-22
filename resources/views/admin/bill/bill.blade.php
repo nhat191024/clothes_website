@@ -57,7 +57,7 @@
                                         <td>{{ $item->address }}</td>
                                         <td>{{ $item->phone }}</td>
                                         <td>{{ $item->created_at }}</td>
-                                        <td>{{ number_format($item->total_amount, 0, ',', '.') }}¥</td>
+                                        <td>{{ number_format($item->total, 0, ',', '.') }}¥</td>
                                         <td
                                             class="{{ $item->status == 0 ? 'text-danger' : ($item->status == 2 ? 'text-warning' : 'text-success') }} font-weight-bold">
                                             {{ $item->status == 2 ? 'Đã huỷ' : ($item->status == 0 ? 'Chưa thanh toán' : 'Đã thanh toán') }}

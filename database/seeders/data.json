@@ -409,73 +409,80 @@
     ],
     "bills": [
         {
+            "user_id": 1,
             "full_name": "Nguyễn Thị Mẹ",
             "address": "123 Nguyen Hue Street, District 1",
             "phone": "0987654321",
             "email": "nguyenvana@gmail.com",
             "delivery_method": 1,
             "payment_method": 0,
-            "total_amount": 2700,
+            "total": 2700,
             "status": 0
         },
         {
+            "user_id": 2,
             "full_name": "Trần Thị Bố",
             "address": "456 Le Loi Street, District 3",
             "phone": "0912345678",
             "email": "tranthib@yahoo.com",
             "delivery_method": 0,
             "payment_method": 1,
-            "total_amount": 6300,
+            "total": 6300,
             "status": 0
         },
         {
+            "user_id": 1,
             "full_name": "John Doe",
             "address": "45 Main St, Anytown USA",
             "phone": "5551212",
             "email": "johndoe@example.com",
             "delivery_method": 0,
             "payment_method": 0,
-            "total_amount": 14850,
+            "total": 14850,
             "status": 0
         },
         {
+            "user_id": 2,
             "full_name": "Jane Smith",
             "address": "987 Oak Ave, Somecity CA",
             "phone": "5559876",
             "email": "janesmith@email.com",
             "delivery_method": 1,
             "payment_method": 1,
-            "total_amount": 11350,
+            "total": 11350,
             "status": 0
         },
         {
+            "user_id": 1,
             "full_name": "Michael Johnson",
             "address": "222 Maple Lane, Bigtown TX",
             "phone": "5554444",
             "email": "mjohnson@mail.com",
             "delivery_method": 0,
             "payment_method": 0,
-            "total_amount": 11350,
+            "total": 11350,
             "status": 0
         },
         {
+            "user_id": 2,
             "full_name": "Emily Davis",
             "address": "654 Pine St, Smallville NY",
             "phone": "5558888",
             "email": "edavis@yahoo.com",
             "delivery_method": 1,
             "payment_method": 1,
-            "total_amount": 14850,
+            "total": 14850,
             "status": 0
         },
         {
+            "user_id": 1,
             "full_name": "David Wilson",
             "address": "321 Cedar Rd, Midtownton IL",
             "phone": "5552222",
             "email": "dwilson@outlook.com",
             "delivery_method": 0,
             "payment_method": 0,
-            "total_amount": 14850,
+            "total": 14850,
             "status": 0
         }
     ],

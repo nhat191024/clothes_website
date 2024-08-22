@@ -29,7 +29,7 @@ class DashboardService
 
     public function getRevenueByDay() {
         $totalRevenue = Bill::whereDate('created_at', now()->toDateString())
-                            ->where('status', 1)->sum('total_amount');
+                            ->where('status', 1)->sum('total');
         return number_format($totalRevenue);
     }
 
@@ -38,7 +38,7 @@ class DashboardService
         $endOfWeek = now()->endOfWeek();
 
         $totalRevenue = Bill::whereBetween('created_at', [$startOfWeek, $endOfWeek])
-                            ->where('status', 1)->sum('total_amount');
+                            ->where('status', 1)->sum('total');
 
         return number_format($totalRevenue);
     }
@@ -48,7 +48,7 @@ class DashboardService
         $endOfMonth = now()->endOfMonth();
 
         $totalRevenue = Bill::whereBetween('created_at', [$startOfMonth, $endOfMonth])
-                            ->where('status', 1)->sum('total_amount');
+                            ->where('status', 1)->sum('total');
 
         return number_format($totalRevenue);
     }
@@ -58,7 +58,7 @@ class DashboardService
         $endOfYear = now()->endOfYear();
 
         $totalRevenue = Bill::whereBetween('created_at', [$startOfYear, $endOfYear])
-                            ->where('status', 1)->sum('total_amount');
+                            ->where('status', 1)->sum('total');
 
         return number_format($totalRevenue);
     }

@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <h5 class="text-gray-900"><strong>Tổng tiền:
-                                </strong>{{ number_format($billInfo->total_amount) }}¥</h5>
+                                </strong>{{ number_format($billInfo->total) }}¥</h5>
                         </div>
                         <p
                             class="{{ $billInfo->status == 0 ? 'text-danger' : ($billInfo->status == 2 ? 'text-warning' : 'text-success') }}">
@@ -131,7 +131,7 @@
                         </table>
                         <div class="form-group text-center">
                             <h3 class="mt-3 text-gray-900"><strong>Tổng tiền:
-                                </strong>{{ number_format($billInfo->total_amount) }}¥</h3>
+                                </strong>{{ number_format($billInfo->total) }}¥</h3>
                         </div>
                     </div>
                 </div>
