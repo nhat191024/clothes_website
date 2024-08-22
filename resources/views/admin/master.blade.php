@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo/logo.svg') }} " />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo/logo.png') }} " />
     <title>MOUSE SHOP - Quản lý</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css">
 
@@ -45,7 +45,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('') . '/' }}admin">
                 <div class="sidebar-brand-icon ">
-                    <img src="{{ asset('img/logo/logo.svg') }}" width="60%">
+                    <img src="{{ asset('img/logo/logo.png') }}" width="60%">
                 </div>
                 <div class="sidebar-brand-text">MOUSE SHOP</div>
             </a>
@@ -447,7 +447,7 @@
             <script src="{{ url('') . '/' }}vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
             <!-- Page level custom scripts -->
-            <script src="{{ url('') . '/' }}js/admin/demo/datatables-demo.js"></script>
+            <script src="{{ url('') . '/' }}js/admin/datatables-demo.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
