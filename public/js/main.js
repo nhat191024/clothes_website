@@ -300,15 +300,21 @@ function parseCurrency(value) {
         var oldValue = $button.parent().find("input").val();
         if ($button.hasClass("inc")) {
             var newVal = parseFloat(oldValue) + 1;
+            if (newVal <= 99) {
+                $button.parent().find("input").val(newVal);
+            }
         } else {
             // Don't allow decrementing below zero
             if (oldValue > 1) {
                 var newVal = parseFloat(oldValue) - 1;
+                if (newVal <= 99) {
+                    $button.parent().find("input").val(newVal);
+                }
             } else {
-                newVal = 1;
+                var newVal = 1;
+                $button.parent().find("input").val(newVal);
             }
         }
-        $button.parent().find("input").val(newVal);
     });
 
     /*-------------------

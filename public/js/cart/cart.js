@@ -23,7 +23,7 @@ $(document).ready(function () {
         var productDetailId = $input.attr('id').split('-')[1];
 
         if ($(this).hasClass('inc')) {
-            updateQuantity(productDetailId, currentQuantity + 1);
+            if(currentQuantity < 99) updateQuantity(productDetailId, currentQuantity + 1);
         } else if ($(this).hasClass('dec') && currentQuantity > 1) {
             updateQuantity(productDetailId, currentQuantity - 1);
         } else if (currentQuantity <= 0) {
@@ -37,6 +37,11 @@ $(document).ready(function () {
         if (isNaN(quantity) || quantity <= 0) {
             $(this).val(1);
             alert('Please enter a valid quantity number that is greater than 0.');
+            return;
+        }
+        if (quantity > 99) {
+            $(this).val(99);
+            alert('Quantity cannot be greater than 99.');
             return;
         }
         updateQuantity(productDetailId, quantity);

@@ -57,7 +57,7 @@ class CartController extends Controller
             'product_id' => 'required|integer',
             'color_id' => 'required|integer',
             'size_id' => 'required|integer',
-            'quantity' => 'required|integer|min:1',
+            'quantity' => 'required|integer|min:1|max:99',
         ]);
 
         return ($this->isLoggedIn) ?
@@ -80,7 +80,7 @@ class CartController extends Controller
     {
         $request->validate([
             'product_detail_id' => 'required|integer',
-            'quantity' => 'required|integer|min:1',
+            'quantity' => 'required|integer|min:1|max:99',
         ]);
 
         return ($this->isLoggedIn) ?
