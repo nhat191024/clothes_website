@@ -78,7 +78,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/login/check', [AdminLoginController::class, 'login'])->name('admin.login');
 });
 
-// Route::middleware(['auth:admin'])->group(function () {
+Route::middleware(['auth:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
 
@@ -191,4 +191,4 @@ Route::prefix('admin')->group(function () {
             Route::get('/{id}', [MessageController::class, 'showMessageDetail'])->name('admin.message.show_detail');
         });
     });
-// });
+});
