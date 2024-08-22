@@ -9,13 +9,14 @@ class Bill extends Model
     protected $table = 'bills';
 
     protected $fillable = [
+        'user_id',
         'full_name',
         'address',
         'phone',
         'email',
         'delivery_method',
         'payment_method',
-        'total_amount',
+        'total',
         'points_for_user',
         'points_use_for_payment',
         'status'

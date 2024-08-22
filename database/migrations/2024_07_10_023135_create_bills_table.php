@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->string('full_name',15);
             $table->text('address');
             $table->string('phone', 10);
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->tinyInteger('payment_method');
             $table->integer('points_for_user')->nullable();
             $table->integer('points_use_for_payment')->nullable();
-            $table->integer('total_amount');
+            $table->integer('total');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
