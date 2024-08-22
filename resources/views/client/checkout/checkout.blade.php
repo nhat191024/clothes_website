@@ -186,12 +186,14 @@
                                     <input type="checkbox" id="paypal" />
                                     <span class="checkmark"></span>
                                 </label> --}}
-                                <label for="point">
-                                    <span>Pay using point ({{ $user->point }})</span>
-                                    <input type="checkbox" id="point"
-                                        @if ($user->point == 0) disabled @endif />
-                                    <span class="checkmark"></span>
-                                </label>
+                                @if ($user)
+                                    <label for="point">
+                                        <span>Pay using point ({{ $user->point }})</span>
+                                        <input type="checkbox" id="point"
+                                            @if ($user->point == 0) disabled @endif />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                @endif
                                 <label for="confirm">
                                     All information above is correct
                                     <input type="checkbox" id="confirm" required />
@@ -243,7 +245,9 @@
 
     <script>
         const total = {{ $total }};
-        const point = {{ $user->point }};
+        @if ($user)
+            const point = {{ $user->point }};
+        @endif
     </script>
 
     <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
