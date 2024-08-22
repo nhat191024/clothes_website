@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
-use App\Service\Client\ContactService;
+use App\Service\client\ContactService;
 use App\Http\Requests\StoreCustomerMessageRequest;
 
 class ContactController extends Controller
