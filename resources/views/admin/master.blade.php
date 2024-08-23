@@ -178,11 +178,11 @@
                     <i class="fas fa-fw fa-birthday-cake"></i>
                     <span>Quản lý phụ kiện</span></a>
             </li> --}}
-            {{-- <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
+            <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.promotion.index') }}">
                     <i class="fas fa-fw fa-calendar"></i>
                     <span>Băng rôn quảng cáo SP</span></a>
-            </li> --}}
+            </li>
             <li class="nav-item {{ Request::is('admin/voucher*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
                     <i class="fas fa-fw fa-money-check"></i>
