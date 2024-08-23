@@ -12,11 +12,13 @@ class CartSessionService
 {
     private $cartService;
     private $voucherService;
+    private $promoService;
 
     public function __construct()
     {
-        $this->cartService =  new cartService();
-        $this->voucherService = new voucherService();
+        $this->cartService = app(CartService::class);
+        $this->voucherService = app(VoucherService::class);
+        $this->promoService = app(PromotionService::class);
     }
 
     public function getCart()
@@ -42,12 +44,12 @@ class CartSessionService
                 }
             }
         }
-
+        $productPrice = $this->promoService->getProductPriceThatHasPromotion($productDetail->product_id);
         $cart[$productDetail->id] = [
             'product_detail_id' => $productDetail->id,
             'name' => $data['name'],
             'quantity' => $data['quantity'],
-            'price' => $productDetail->product->price,
+            'price' => $productPrice,
             'productDetail' => $productDetail
         ];
         session()->put('cart', $cart);
@@ -71,12 +73,18 @@ class CartSessionService
     public function updateQuantity($productDetailId, $quantity)
     {
         $cart = $this->getCart();
-
+        $productPrice = $this->promoService->getProductPriceThatHasPromotionByDetailId($productDetailId);
         if ($cart[$productDetailId]??['product_detail_id'] == $productDetailId) {
             if ($cart instanceof \Illuminate\Support\Collection) {
-                $cart->put($productDetailId, array_merge($cart->get($productDetailId), ['quantity' => $quantity]));
+                $cart->put($productDetailId, array_merge($cart->get($productDetailId),
+                [
+                    'quantity' => $quantity,
+                    'price'=> $productPrice
+                ]
+            ));
             } else {
                 $cart[$productDetailId]['quantity'] = $quantity;
+                $cart[$productDetailId]['price'] = $productPrice;
             }
             session()->put('cart', $cart instanceof \Illuminate\Support\Collection ? $cart->toArray() : $cart);
         }
