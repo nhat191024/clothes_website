@@ -26,9 +26,6 @@ class LoginController extends Controller
         $this->cartService = $cartService;
     }
     public function index(){
-        if(Auth::check()){
-            return redirect()->route('client.home.index');
-        }
         return view('client.login.login');
     }
 
