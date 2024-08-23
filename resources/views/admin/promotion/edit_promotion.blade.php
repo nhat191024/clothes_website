@@ -17,18 +17,22 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <form action="{{ route('admin.promotion.saveEdit') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.promotion.saveEdit') }}" method="post">
                         @csrf
-
                         <div class="form-group">
-                            <label for="product_id">Chọn sản phẩm (sẽ hiển thị lên băng rôn)</label>
+                            <label for="product_id">Chọn sản phẩm (được giamr giá)</label>
                             <select class="form-control selectpicker" id="product_id" name="product_id" data-live-search="true">
                                 @foreach ($products as $product)
                                     <option value="{{ $product->id }}"
-                                        {{ $product->id == $promotion->product_id ? 'selected' : '' }}>{{'Danh mục: ' . $product->name . ' - Sản phẩm ' . $product->name }}
+                                        {{ $product->id == $promotion->product_id ? 'selected' : '' }}>{{'Danh mục: ' . $product->categories[0]->name . ' - Sản phẩm ' . $product->name }}
                                     </option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Nội dung</label>
+                            <input required type="text" class="form-control" id="description" aria-describedby=""
+                                name="description" placeholder="Nhập nội dung" value="{{ $promotion->description }}">
                         </div>
                         <div class="form-group">
                             <label for="discount_percentage">% Giá giảm %</label>
@@ -48,7 +52,7 @@
                                 value="{{ \Carbon\Carbon::parse($promotion->end_time)->format('Y-m-d') }}">
                         </div>
 
-                        <input type="hidden" name="id" value="{{ $promotion->id }}">
+                        <input type="hidden" name="id" value="{{ $id }}">
                         <button class="btn btn-success mt-4" type="submit">Sửa</button>
                     </form>
 
@@ -63,11 +67,4 @@
     <!-- End of Main Content -->
 
     <!-- End of Content Wrapper -->
-    <script>
-        // Add the following code if you want the name of the file appear on select
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
-    </script>
 @endsection
