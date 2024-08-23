@@ -37,4 +37,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Bill::class, 'bill_details', 'product_id', 'bill_id');
     }
+
+    public function promotions()
+    {
+        return $this->hasMany(Promotion::class,'product_id');
+    }
 }
