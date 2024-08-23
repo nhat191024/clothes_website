@@ -53,21 +53,25 @@
                                 <div class="checkout__form__input">
                                     <p>Prefecture<span>*</span></p>
                                     <input type="text" id="prefecture" name="Prefecture" required
-                                        placeholder="Your Prefecture" />
+                                        placeholder="Your Prefecture"
+                                            @if ($user) value="{{ $user->prefecture }}" @endif />
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>City/Town/Village<span>*</span></p>
                                     <input type="text" id="city" name="city" required
-                                        placeholder="Your city/town/village" />
+                                        placeholder="Your city/town/village"
+                                            @if ($user) value="{{ $user->city }}" @endif />
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Street Address<span>*</span></p>
-                                    <input type="text" placeholder="Your street Address" id="address" required />
+                                    <input type="text" placeholder="Your street Address" id="address" required
+                                        @if ($user) value="{{ $user->address }}" @endif />
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Building Name & Room Number</p>
                                     <input type="text" id="buildingName" name="buildingName"
-                                        placeholder="Shibuya Heights 101" />
+                                        placeholder="Shibuya Heights 101"
+                                            @if ($user) value="{{ $user->building_name }}" @endif />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
