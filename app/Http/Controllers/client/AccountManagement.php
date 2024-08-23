@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AccountManagement extends Controller
 {
+    // todo: check lich su don hang (bill da thanh toan)
     public function index(){
         $user = Auth::user();
         return view('client.Account.AccountManagement', compact('user'));
