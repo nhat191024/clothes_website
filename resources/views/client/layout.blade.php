@@ -62,7 +62,7 @@
                         <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                     @else
-                        <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                         <a class="dropdown-item" href="{{ route('client.register.index') }}">Register</a>
                     @endif
                 </div>
@@ -92,7 +92,7 @@
                 </ul>
             @endif
             @if (!Auth::check())
-                <a class="font-bold" href="{{ route('client.login.index') }}">Login</a> <br>
+                <a class="font-bold" href="{{ route('login') }}">Login</a> <br>
                 <a class="font-bold" href="{{ route('client.register.index') }}">Register</a>
             @endif
         </div>
@@ -166,7 +166,7 @@
                                         <div class="border-top"></div>
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else
-                                        <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                                         <a class="dropdown-item"
                                             href="{{ route('client.register.index') }}">Register</a>
                                     @endif

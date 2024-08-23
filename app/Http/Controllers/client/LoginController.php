@@ -39,9 +39,13 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request){
-        $result = $this->loginService->logout($request);
+        $result = $this->loginService->userLogout($request);
         $this->voucherService->clearVoucher();
         $this->cartService->clearCart();
+        return $result;
+    }
+    public function adminLogout(Request $request){
+        $result = $this->loginService->adminLogout($request);
         return $result;
     }
 }
