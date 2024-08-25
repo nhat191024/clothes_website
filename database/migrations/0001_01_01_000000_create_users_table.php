@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('password');
             $table->string('full_name');
             $table->string('email')->unique();
+            $table->string('prefecture')->nullable();
+            $table->string('city')->nullable();
             $table->string('address')->nullable();
+            $table->string('building_name')->nullable();
             $table->string('phone', 16);
             $table->integer('point')->default(0);
             $table->tinyInteger('status')->default(1);

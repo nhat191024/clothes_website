@@ -27,6 +27,7 @@
                             <thead>
                                 <tr>
                                     <th>Tên SP hiển thị</th>
+                                    <th>Nội dung</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
                                     <th>% Giá giảm %</th>
@@ -36,23 +37,25 @@
                             <tfoot>
                                 <tr>
                                     <th>Tên SP hiển thị</th>
+                                    <th>Nội dung</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
                                     <th>% Giá giảm %</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
-                            <tbody>
-                                    <tr>
-                                        <td>{{ $promotion->product->name . ' - ' . $promotion->product->name }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($promotion->start_time)->format('d-m-Y') }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($promotion->end_time)->format('d-m-Y') }}</td>
-                                        <td>{{ number_format($promotion->discount_percentage, 0, ',', '.')}}%</td>
-                                        <td class="text-center"><a class="btn btn-warning"
-                                                href="{{ route('admin.promotion.edit', ['id' => $promotion->id]) }}">Sửa</a>
-                                        </td>
-                                    </tr>
-                            </tbody>
+                            @foreach ($promotions as $promotion)
+                            <tr>
+                                <td>{{ $promotion->product->categories[0]->name . ' - ' . $promotion->product->name }}</td>
+                                <td>{{$promotion->description}}</td>
+                                <td>{{ \Carbon\Carbon::parse($promotion->start_time)->format('d-m-Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($promotion->end_time)->format('d-m-Y') }}</td>
+                                <td>{{ number_format($promotion->discount_percentage, 0, ',', '.')}}%</td>
+                                <td class="text-center"><a class="btn btn-warning"
+                                        href="{{ route('admin.promotion.edit', ['id' => $promotion->id]) }}">Sửa</a>
+                                </td>
+                            </tr>
+                            @endforeach
                         </table>
                     </div>
                 </div>

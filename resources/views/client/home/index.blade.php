@@ -210,29 +210,29 @@
                 <div class="col-lg-6 p-0">
                     <div class="discount__text">
                         <div class="discount__text__title">
-                            <span>Giảm Giá</span>
+                            <span>THIS MONTH'S DISCOUNT</span>
                             <h2>{{ $latestPromotion->description }}</h2>
-                            <h5><span>Giảm</span> {{ $latestPromotion->discount_percentage }}%</h5>
+                            <h5>{{ $latestPromotion->discount_percentage }}% OFF</h5>
                         </div>
                         <div class="discount__countdown" id="countdown-time">
                             <div class="countdown__item">
                                 <span id="days">{{ $latestPromotion->daysDiff }}</span>
-                                <p>Ngày</p>
+                                <p>Days</p>
                             </div>
                             <div class="countdown__item">
                                 <span id="hours">{{ $latestPromotion->hoursDiff }}</span>
-                                <p>Giờ</p>
+                                <p>Hours</p>
                             </div>
                             <div class="countdown__item">
                                 <span id="minutes">{{ $latestPromotion->minsDiff }}</span>
-                                <p>Phút</p>
+                                <p>Minutes</p>
                             </div>
                             <div class="countdown__item">
                                 <span id="seconds">{{ $latestPromotion->secsDiff }}</span>
-                                <p>Giây</p>
+                                <p>Seconds</p>
                             </div>
                         </div>
-                        <a href="{{ route('client.shop.index') }}">Mua ngay</a>
+                        <a href="{{ route('client.shop.detail' , $latestPromotion->product->id) }}">BUY NOW</a>
                     </div>
                 </div>
             </div>

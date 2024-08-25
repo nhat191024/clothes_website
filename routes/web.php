@@ -60,7 +60,7 @@ Route::prefix('contact')->group(function () {
 });
 
 Route::prefix('user')->group(function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('client.login.index');
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::get('/logout', [LoginController::class, 'logout'])->name('client.logout');
     Route::post('/login/check', [LoginController::class, 'login'])->name('client.login');
     Route::get('/register', [RegisterController::class, 'index'])->name('client.register.index');
@@ -72,17 +72,12 @@ Route::prefix('checkout')->group(function () {
     Route::post('/confirm', [CheckoutController::class, 'store'])->name('client.checkout.store');
 });
 
-Route::prefix('admin')->group(function () {
-    Route::get('/login', [AdminLoginController::class, 'index'])->name('login');
-    Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
-    Route::post('/login/check', [AdminLoginController::class, 'login'])->name('admin.login');
-});
-
 Route::middleware(['auth:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
 
         Route::get('/', [DashboardController::class, 'index'])->name('admin.home.index');
+        Route::get('/logout', [LoginController::class, 'adminLogout'])->name('admin.logout');
 
         Route::prefix('/category')->group(function () {
             Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');

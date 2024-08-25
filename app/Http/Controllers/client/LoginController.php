@@ -26,9 +26,6 @@ class LoginController extends Controller
         $this->cartService = $cartService;
     }
     public function index(){
-        if(Auth::check()){
-            return redirect()->route('client.home.index');
-        }
         return view('client.login.login');
     }
 
@@ -39,9 +36,13 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request){
-        $result = $this->loginService->logout($request);
+        $result = $this->loginService->userLogout($request);
         $this->voucherService->clearVoucher();
         $this->cartService->clearCart();
+        return $result;
+    }
+    public function adminLogout(Request $request){
+        $result = $this->loginService->adminLogout($request);
         return $result;
     }
 }

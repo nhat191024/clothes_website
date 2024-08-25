@@ -34,7 +34,7 @@
                             <tbody>
                                 @foreach ($cart as $pd)
                                 <tr class="product-{{ $pd['product_detail_id'] }}">
-                                    <td class="cart__product__item">
+                                    <td class="cart__product__item" onclick="location.href='{{ route('client.shop.detail', ['id' => $pd['productDetail']->product->id]) }}'" style="cursor: pointer">
                                         <img width="80px" src="{{ url('').'/img/product/'.$pd['productDetail']->product->img }}" alt="">
                                         <div class="cart__product__item__title">
                                             <h6>{{ $pd['productDetail']->product->name }}</h6>
@@ -43,13 +43,13 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price cart__price-{{ $pd['product_detail_id'] }}" data-id="{{ $pd['productDetail']->product->price }}">¥{{ number_format($pd['productDetail']->product->price) }}</td>
+                                    <td class="cart__price cart__price-{{ $pd['product_detail_id'] }}" data-id="{{ $pd['price'] }}">¥{{ number_format($pd['price']) }}</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
                                             <input id="productDetail-{{ $pd['product_detail_id'] }}" name="product-quantity" type="text" value="{{ $pd['quantity'] }}">
                                         </div>
                                     </td>
-                                    <td class="cart__total" id="cart__total-{{ $pd['product_detail_id'] }}">¥{{ number_format($pd['productDetail']->product->price * $pd['quantity']) }}</td>
+                                    <td class="cart__total" id="cart__total-{{ $pd['product_detail_id'] }}">¥{{ number_format($pd['price'] * $pd['quantity']) }}</td>
                                     <td class="cart__close_{{ $pd['product_detail_id'] }}" onclick="removeFromCart({{ $pd['product_detail_id'] }})" style="cursor: pointer"><span class="icon_close"></span></td>
                                 </tr>
                                 @endforeach

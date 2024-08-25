@@ -19,7 +19,7 @@
         {
             "avt": "avatar1.png",
             "username": "user456",
-            "password": "hashed_password2",
+            "password": "pass456",
             "full_name": "Tran Thi B",
             "email": "user456@example.com",
             "address": "456 Elm Street",

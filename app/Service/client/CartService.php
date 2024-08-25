@@ -3,17 +3,21 @@
 namespace App\Service\client;
 
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\ProductDetail;
 use App\Service\client\VoucherService;
+use App\Service\client\PromotionService;
 use Illuminate\Support\Facades\Auth;
 
 class CartService
 {
     private $voucherService;
+    private $promoService;
 
     public function __construct()
     {
-        $this->voucherService = new VoucherService();
+        $this->voucherService = app(VoucherService::class);
+        $this->promoService = app(PromotionService::class);
     }
 
     public function getCart()
@@ -37,7 +41,7 @@ class CartService
         if($isDuplicate){
             return $this->updateQuantity($productDetail->id, $data['quantity'] + $cartUser->first()->quantity);
         }
-        $productPrice = $productDetail->product->price;
+        $productPrice = $this->promoService->getProductPriceThatHasPromotionByDetailId($productDetail->id);
         Cart::create(
             [
                 'product_detail_id' => $productDetail->id,
@@ -51,6 +55,7 @@ class CartService
             'success' => false
         ];
     }
+
 
     public function getProductDetail($productId, $colorId, $sizeId)
     {
@@ -69,8 +74,11 @@ class CartService
 
     public function updateQuantity($productDetailId, $quantity)
     {
+        $productDetail = ProductDetail::find($productDetailId);
+        $productPrice = $this->promoService->getProductPriceThatHasPromotionByDetailId($productDetail->id);
         Cart::where('product_detail_id', $productDetailId)->update([
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'price'=> $productPrice
         ]);
         $subTotal = $this->getSubTotal();
         $discount = $this->voucherService->getDiscountAmount($subTotal);
@@ -90,7 +98,7 @@ class CartService
     public function getSubtotal()
     {
         return $this->getCart()->sum(function ($item) {
-            return $item->productDetail->product->price * $item->quantity;
+            return $item->price * $item->quantity;
         });
     }
 

@@ -62,7 +62,7 @@
                         <a class="dropdown-item" href="#">Points: {{ $user ? $user->point : '' }}P</a>
                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                     @else
-                        <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                         <a class="dropdown-item" href="{{ route('client.register.index') }}">Register</a>
                     @endif
                 </div>
@@ -92,7 +92,7 @@
                 </ul>
             @endif
             @if (!Auth::check())
-                <a class="font-bold" href="{{ route('client.login.index') }}">Login</a> <br>
+                <a class="font-bold" href="{{ route('login') }}">Login</a> <br>
                 <a class="font-bold" href="{{ route('client.register.index') }}">Register</a>
             @endif
         </div>
@@ -122,7 +122,7 @@
                                     href="{{ route('client.shop.index') }}">Shop</a></li>
                             <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
                                     href="{{ route('client.cart.index') }}">Cart</a></li>
-                            <li class="{{ Request::url() == route('client.cart.index') ? 'active' : '' }}"><a
+                            <li class="{{ Request::url() == route('client.about') ? 'active' : '' }}"><a
                                     href="{{ route('client.about') }}">About Us</a></li>
                             {{-- <li><a href="#">Page</a>
                                 <ul class="dropdown">
@@ -166,7 +166,7 @@
                                         <div class="border-top"></div>
                                         <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
                                     @else
-                                        <a class="dropdown-item" href="{{ route('client.login.index') }}">Login</a>
+                                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                                         <a class="dropdown-item"
                                             href="{{ route('client.register.index') }}">Register</a>
                                     @endif
@@ -198,7 +198,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-1/ghi_dam.webp">
+                    <div class="instagram__item set-bg" data-setbg="{{ url('') . '/' }}img/product/product-6/cam.webp">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
                             <a href="#">@Mouse_shop</a>

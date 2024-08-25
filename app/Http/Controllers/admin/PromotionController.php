@@ -20,15 +20,15 @@ class PromotionController extends Controller
 
     public function index()
     {
-        $promotion = $this->promotionService->get();
-        return view('admin.promotion.promotion', compact('promotion'));
+        $promotions = $this->promotionService->get();
+        return view('admin.promotion.promotion', compact('promotions'));
     }
 
-    public function showEdit(Request $request)
+    public function showEdit($id)
     {
-        $promotion = $this->promotionService->get();
+        $promotion = $this->promotionService->getById($id);
         $products = $this->productService->getAll();
-        return view('admin.promotion.edit_promotion', compact('promotion','products'));
+        return view('admin.promotion.edit_promotion', compact('promotion','products','id'));
     }
 
     public function saveEdit(Request $request)

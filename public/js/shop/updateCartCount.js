@@ -10,6 +10,8 @@ function updateCartCount() {
         success: function(data) {
             if(data<=0){
                 $('.cartAmount').addClass('d-none');
+            } else {
+                $('.cartAmount').removeClass('d-none');
             }
             $('.cartAmount').text(data);
             addedToCartEffect();
