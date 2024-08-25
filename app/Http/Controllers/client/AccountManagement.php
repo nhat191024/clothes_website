@@ -4,6 +4,11 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Helper\Helper;
+use App\Models\Bill;
+use App\Models\BillDetail;
+use App\Models\Product;
+use App\Service\client\BillService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -89,5 +94,32 @@ class AccountManagement extends Controller
 
         return view('client.Account.AccountManagement', compact('user'));
     }
-
+    public function purchase() {
+        $user = Auth::user();
+        $id = $user->id;
+        $bills = Bill::where('user_id', $id)->get();
+    
+        $billDetails = [];
+    
+        foreach ($bills as $bill) {
+            $details = BillDetail::where('bill_id', $bill->id)->get();
+            $products = [];
+    
+            foreach ($details as $detail) {
+                $product = Product::where('id', $detail->product_id)->first();
+                if ($product) {
+                    $products[] = [
+                        'product' => $product,
+                        'quantity' => $detail->quantity
+                    ];
+                }
+            }
+    
+            $billDetails[$bill->id] = $products;  
+        }
+    
+        return view('client.Account.PurchaseHistory', compact('user', 'bills', 'billDetails'));
+    }
+    
+    
 }

@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{ url('') . '/' }}css/cart/cart-layout.css" type="text/css">
 </head>
 
-<body>
+<body class="client-body">
     <!-- Trình tải trang -->
     <div id="preloder">
         <div class="loader"></div>
@@ -342,18 +342,41 @@
     <!-- Kết thúc Tìm kiếm -->
 
     <!-- Js Plugins -->
-    <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
-    <script src="{{ url('') . '/' }}js/bootstrap.min.js"></script>
-    <script src="{{ url('') . '/' }}js/jquery.magnific-popup.min.js"></script>
-    <script src="{{ url('') . '/' }}js/jquery-ui.min.js"></script>
-    <script src="{{ url('') . '/' }}js/mixitup.min.js"></script>
-    <script src="{{ url('') . '/' }}js/jquery.countdown.min.js"></script>
-    <script src="{{ url('') . '/' }}js/jquery.slicknav.js"></script>
-    <script src="{{ url('') . '/' }}js/owl.carousel.min.js"></script>
-    <script src="{{ url('') . '/' }}js/jquery.nicescroll.min.js"></script>
-    <script src="{{ url('') . '/' }}js/main.js"></script>
-    <script src="{{ url('') . '/' }}js/popper.min.js"></script>
-    <script src="{{ url('') . '/' }}js/shop/updateCartCount.js"></script>
+<script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
+
+<script src="{{ url('') . '/' }}js/popper.min.js"></script>
+
+<script src="{{ url('') . '/' }}js/bootstrap.min.js"></script>
+
+<script src="{{ url('') . '/' }}js/jquery.magnific-popup.min.js"></script>
+<script src="{{ url('') . '/' }}js/jquery-ui.min.js"></script>
+<script src="{{ url('') . '/' }}js/mixitup.min.js"></script>
+<script src="{{ url('') . '/' }}js/jquery.countdown.min.js"></script>
+<script src="{{ url('') . '/' }}js/jquery.slicknav.js"></script>
+<script src="{{ url('') . '/' }}js/owl.carousel.min.js"></script>
+<script src="{{ url('') . '/' }}js/jquery.nicescroll.min.js"></script>
+<script src="{{ url('') . '/' }}js/main.js"></script>
+<script src="{{ url('') . '/' }}js/shop/updateCartCount.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.btn-detail').on('click', function(e) {
+                e.preventDefault();
+
+                var target = $(this).attr('aria-controls'); // Lấy ID của phần tử chứa chi tiết
+
+                // Đóng tất cả các mục chi tiết khác
+                $('.collapse').not('#' + target).each(function() {
+                    if ($(this).hasClass('show')) {
+                        $(this).collapse('hide');
+                    }
+                });
+
+                // Mở mục chi tiết hiện tại
+                $('#' + target).collapse('toggle');
+            });
+        });
+    </script>
 </body>
 
 </html>
