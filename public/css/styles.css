@@ -30,3 +30,66 @@
     background-color: #ca1515;
     border-color: #ca1515;
 }
+.logo{
+	display: inline-block;
+	width: 4rem;
+	padding-top: 0.2rem;
+}
+
+.logo-brand{
+	display: inline-block;
+	font-size: 15px;
+    text-transform: uppercase;
+    color: #111111;
+    font-weight: 500;
+	margin-top: 1rem;
+}
+@media (max-width:500px) {
+	.logo-brand{
+		display: none;
+	}
+}
+.scrollded{
+	 position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+	
+}
+.client-body{
+    padding-top: 84px; 
+}
+
+@media(min-width:992px){
+	nav>ul{
+	text-align: center;
+	}
+}
+div{
+	background-repeat: no-repeat !important ;
+}
+a{
+	color: #212529;
+	text-decoration: none !important;
+}
+a:hover{
+	color: #ca1515;
+	text-decoration: none !important;
+}
+.active-list a {
+	color: #fff ;	
+}
+.collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.collapse.show {
+    max-height: 600px; 
+    transition: max-height 0.5s ease-in;
+}
+.table-container {
+    max-height: 600px; 
+    overflow-y: auto;  
+}
