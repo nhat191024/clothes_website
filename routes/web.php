@@ -40,6 +40,9 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::post('/', [AccountManagement::class, 'changeData']);
     Route::get('/changePassword', [AccountManagement::class, 'pass'])->name('client.account.changepassword');
     Route::post('/changePassword', [AccountManagement::class, 'changePass']);
+    Route::get('/PurchaseHistory', [AccountManagement::class, 'purchase'])->name('client.account.PurchaseHistory');
+
+
 });
 
 Route::prefix('cart')->group(function () {
