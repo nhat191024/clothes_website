@@ -26,9 +26,9 @@
                             <br>
                         </center>
                         <ul class="list-group list-group-flush">
-                            <a href="{{route('client.account.index')}}"><li class="list-group-item active-list">Account info</li></a>
-                            <a href="{{route('client.account.changepassword')}}"><li class="list-group-item">Change password</li></a>
-                            <li class="list-group-item">Purchase history</li>
+                            <li class="list-group-item active-list"><a href="{{route('client.account.index')}}">Account info</a></li>
+                            <li class="list-group-item "><a href="{{route('client.account.changepassword')}}">Change password</a></li>
+                            <li class="list-group-item "><a href="{{route('client.account.PurchaseHistory')}}">Purchase history</a></li>
                           </ul>
                     </div>
                 </div>
