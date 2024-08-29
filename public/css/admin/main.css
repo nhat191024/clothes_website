@@ -31,3 +31,12 @@
     margin-right: 5px;
     vertical-align: middle;
 }
+
+.preview-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px;
+    margin-bottom: 10px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+}
