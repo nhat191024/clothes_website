@@ -71,8 +71,9 @@
                                             <a class="btn btn-info"
                                                 href="{{ route('admin.product.show_edit', ['id' => $item->id]) }}">Chi
                                                 tiết</a>
+                                            <a class="btn btn-secondary"    
+                                                href="{{ route('admin.product.show_photo', ['id' => $item->id]) }}">Kho ảnh</a>
                                         </td>
-
                                     </tr>
                                 @endforeach
                             </tbody>

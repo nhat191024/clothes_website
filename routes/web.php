@@ -125,6 +125,9 @@ Route::middleware(['auth:admin'])->group(function () {
             Route::post('/detail/add', [ProductController::class, 'addDetail'])->name('admin.product.add_detail');
             Route::post('/detail/edit', [ProductController::class, 'editDetail'])->name('admin.product.edit_detail');
             Route::get('/detail/delete', [ProductController::class, 'deleteDetail'])->name('admin.product.delete_detail');
+            Route::get('/photo', [ProductController::class, 'showPhoto'])->name('admin.product.show_photo');
+            Route::post('/photo/add', [ProductController::class, 'addPhoto'])->name('admin.product.add_photo');
+            Route::get('/photo/delete', [ProductController::class, 'deletePhoto'])->name('admin.product.delete_photo');
         });
 
         Route::prefix('/banner')->group(function () {

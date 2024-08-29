@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Service\admin\CategoryService;
 use App\Service\admin\ColorService;
+use App\Service\admin\PhotoService;
 use App\Service\admin\ProductService;
 use App\Service\admin\SizeService;
 use Illuminate\Http\Request;
@@ -16,14 +17,16 @@ class ProductController extends Controller
     private $categoryService;
     private $sizeService;
     private $colorService;
+    private $photoService;
 
     //
-    public function __construct(ProductService $productService, CategoryService $categoryService, SizeService $sizeService, ColorService $colorService)
+    public function __construct(ProductService $productService, CategoryService $categoryService, SizeService $sizeService, ColorService $colorService, PhotoService $photoService)
     {
         $this->productService = $productService;
         $this->categoryService = $categoryService;
         $this->sizeService = $sizeService;
         $this->colorService = $colorService;
+        $this->photoService = $photoService;
     }
 
     public function index()
@@ -64,7 +67,7 @@ class ProductController extends Controller
         $imageName = str_replace(' ', '', time() . '_' . $request->product_image->getClientOriginalName());
         $sizeColors = $request->sizes;
         // Public Folder
-        $request->product_image->move(public_path('img/client/shop'), $imageName);
+        $request->product_image->move(public_path('img/product'), $imageName);
         $this->productService->add($categoryArray, $productName, $productPrice, $productDescription, $imageName, $sizeColors);
         return response()->json([
             'link' => route('admin.product.index')
@@ -116,7 +119,7 @@ class ProductController extends Controller
         if ($request->hasFile('product_image')) {
             // Delete the old image if exists
             if ($product->img) {
-                $oldImagePath = public_path('img/product/product-'. $product->id . $product->img);
+                $oldImagePath = public_path('img/product/' . $product->img);
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -152,5 +155,41 @@ class ProductController extends Controller
         $id = $request->id;
         $this->productService->restore($id);
         return redirect(route('admin.product.index'))->with('success', 'Khôi phục sản phẩm thành công');
+    }
+
+    public function showPhoto(Request $request)
+    {
+        $id = $request->id;
+        $productDetails = $this->productService->getById($id);
+        $images = $this->photoService->getAll($id);
+        return view('admin.product.photo', compact('images', 'productDetails'));
+    }
+
+    public function addPhoto(Request $request)
+    {
+        // Lấy danh sách các tệp ảnh từ yêu cầu
+        $id = $request->id;
+        $images = $request->file('images');
+
+        // Kiểm tra xem có tệp ảnh được gửi lên không
+        if ($request->hasFile('images')) {
+            $this->photoService->addPhoto($id, $images);
+        }
+
+        return response()->json(['message' => 'Tải ảnh lên thành công']);
+    }
+
+    public function deletePhoto(Request $request)
+    {
+        $id = $request->id;
+        $productId = $request->product_id;
+        if ($id == 'all') {
+            $this->photoService->deleteAllPhoto($productId);
+        } else {
+            $this->photoService->deleteOnePhoto($id);
+
+        }
+        $request->session()->flash('success', 'Xóa ảnh thành công');
+        return redirect()->back();
     }
 }
