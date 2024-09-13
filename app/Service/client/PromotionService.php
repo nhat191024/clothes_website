@@ -11,6 +11,9 @@ class PromotionService
     public function getDiscountedPriceByProductId($productId)
     {
         $promo = Promotion::where('id',$productId)->with('product')->first();
+        if ($promo == null) {
+            return Product::where('id',$productId)->first()->price;
+        }
         $discount_percentage = $promo->discount_percentage;
         if($promo->start_time > now() || $promo->end_time < now())
             return $promo->product->price;
@@ -21,7 +24,7 @@ class PromotionService
     {
         $product = Product::where('id',$productId)->first();
         $discountedPrice = $this->getDiscountedPriceByProductId($productId);
-        return $product->price - $discountedPrice;
+        return (($product->price - $discountedPrice) <= 0) ? $product->price : ($product->price - $discountedPrice);
     }
     public function getProductPriceThatHasPromotionByDetailId($productDetailId)
     {
