@@ -1,0 +1,39 @@
+.categories__text p{
+    font-weight: 500;
+    text-shadow: 0 0 .5px white;
+}
+
+.categories__item.categories__large__item .categories__text p , .banner__text span {
+    font-size: 1.5rem;
+}
+
+.categories__text h4 {
+    font-size: xx-large;
+}
+
+.categories__text{
+    text-shadow: 0 0 1px white;
+}
+
+.categories__text a , .categories__text p, .discount__text__title span{
+    font-size: 1rem;
+}
+
+.discount__text {
+    padding-top: 20px;
+}
+
+.filter__controls li , .product__item__text .product__price, .trend__item__text h6 , .trend__item__text .product__price {
+    font-size: 1.2rem;
+}
+
+.section-title h4 , .trend__content .section-title h4{
+    font-size: 1.7rem;
+}
+
+.product__item__text h6 a {
+    font-size: 1.3rem;
+}
+
+
+
