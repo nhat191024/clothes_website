@@ -33,3 +33,27 @@
     -ms-transform: rotate(127deg) scale(0.8) translate(0%, 30%);
     -o-transform: rotate(127deg) scale(0.8) translate(0%, 30%);
 }
+
+h4 {
+    font-size: 2rem;
+}
+
+.nav-item .nav-link.active{
+    font-size: 1.5rem;
+}
+
+h6{
+    font-size: 1.1rem;
+}
+
+.product__details__text p {
+    font-size: 1rem;
+}
+
+.tab-content .tab-pane p:last-child {
+    font-size: 1.1rem;
+}
+
+.product__item__text h6 a, .product__item__text .product__price {
+    font-size: 1.3rem;
+}

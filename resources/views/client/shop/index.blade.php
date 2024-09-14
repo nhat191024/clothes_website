@@ -101,7 +101,7 @@
                             @endforeach
                         </div>
                         @if (count($allColors) > 5)
-                            <a id="see-more" class="pointer">More colors</a>
+                            <a id="see-more" class="pointer">Show more colors</a>
                         @endif
                     </div>
 
