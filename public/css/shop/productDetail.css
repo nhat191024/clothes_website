@@ -23,7 +23,6 @@
 
 .color__checkbox input[type="radio"]:checked + .checkmark {
     border: 2px solid #000; /* Dark border when checked */
-
 }
 
 .color__checkbox input[type="radio"]:checked + .checkmark::after {
