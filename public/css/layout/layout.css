@@ -1,0 +1,16 @@
+.header__menu ul li a {
+    font-size: 1.2rem;
+}
+
+.header__logo a p{
+    font-size: 1.3rem;
+    transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
+}
+
+.footer__newslatter form input{
+    display: none;
+}
