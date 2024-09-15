@@ -34,7 +34,7 @@ class CartController extends Controller
         $subtotal = ($this->isLoggedIn) ?
             $this->cartService->getSubtotal() :
             $this->cartSessionService->getSubtotal();
-
+        $newClientCoupon = $this->cartService->getNewCustomerCoupon();
         $appliedVoucher = $this->voucherService->getActivatedVoucher($subtotal);
         $discount = $this->voucherService->getDiscountAmount($subtotal);
         return view('client.cart.cart')->with([
@@ -42,7 +42,8 @@ class CartController extends Controller
             'subtotal' => $subtotal,
             'discount' => $discount,
             'total' => $subtotal - $discount,
-            'voucher' => $appliedVoucher
+            'voucher' => $appliedVoucher,
+            'newClientCoupon' => $newClientCoupon??null
         ]);
     }
 

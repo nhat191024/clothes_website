@@ -5,6 +5,7 @@ namespace App\Service\client;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductDetail;
+use App\Models\Voucher;
 use App\Service\client\VoucherService;
 use App\Service\client\PromotionService;
 use Illuminate\Support\Facades\Auth;
@@ -110,5 +111,17 @@ class CartService
     public function getCartCount()
     {
         return Cart::where('user_id', Auth::user()->id)->sum('quantity');
+    }
+
+    public function getNewCustomerCoupon()
+    {
+        $user = Auth::user();
+        if ($user) {
+            if ($user->new_comer == 1) {
+                $voucher = Voucher::where('is_for_new_comers', 1)->first();
+                return $voucher->code??null;
+            }
+        }
+        return null;
     }
 }
