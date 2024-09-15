@@ -2,50 +2,74 @@
 
 namespace App\Service\admin;
 
-use App\Models\Food;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
     public function getAll()
     {
-        $user = User::where('status', 1)->get();
-        return $user;
+        return User::all();
     }
 
     public function getById($id) {
-        return Food::where('id', $id)->first();
+        return User::where('id', $id)->first();
     }
 
-    public function add($categoryId, $foodName, $foodPrice, $foodImage)
+    // add($username, $fullname, $email, $phone, $password, $status);
+    public function add($username, $fullname, $email, $phone, $password, $status)
     {
-        Food::create([
-            'category_id' => $categoryId,
-            'name' => $foodName,
-            'price' => $foodPrice,
-            'image' => $foodImage
-        ]);
+        $user = new User();
+        $user->username = $username;
+        $user->full_name = $fullname;
+        $user->email = $email;
+        $user->phone = $phone;
+        $user->point = 0;
+        $user->password = Hash::make($password);
+        $user->status = $status;
+        $user->save();
     }
 
-    public function edit($id, $categoryId, $foodName, $foodPrice, $foodImage)
+    public function edit($id, $username, $fullname = null, $email, $phone, $point = null, $password = null, $status = null, $imageName = null)
     {
-        $food = Food::where('id', $id)->first();
-        $food->category_id = $categoryId;
-        $food->name = $foodName;
-        $food->price = $foodPrice;
-        if ($foodImage != null) {
-            $food->image = $foodImage;
+        $user = User::where('id', $id)->first();
+        $user->username = $username;
+        $user->email = $email;
+        $user->phone = $phone;
+        if ($fullname != null) {
+            $user->full_name = $fullname;
         }
-        $food->save();
+        if ($point != null) {
+            $user->point = $point;
+        }
+        if ($password != null) {
+            $user->password = Hash::make($password);
+        }
+        if ($status != null) {
+            $user->status = $status;
+        }
+        if ($imageName != null) {
+            $user->avt = $imageName;
+        }
+        $user->save();
     }
 
-    public function checkHasChildren($idFood) {
-        return Food::find($idFood)->dish()->get()->count() > 0;
+    public function lock($idUser)
+    {
+        $user = User::find($idUser);
+        $user->status = 0;
+        $user->save();
+    }
+    public function delete($idUser)
+    {
+        $user = User::find($idUser);
+        $user->delete();
     }
 
-    public function delete($idFood) {
-        $food = Food::find($idFood);
-        $food->status = 0;
-        $food->save();
+    public function unlock($idUser)
+    {
+        $user = User::find($idUser);
+        $user->status = 1;
+        $user->save();
     }
 }
