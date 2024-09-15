@@ -140,7 +140,7 @@
             </li>
             <li class="nav-item {{ Request::is('admin/product*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.product.index') }}">
-                    <i class="fas fa-fw fa-cookie"></i>
+                    <i class="fas fa-fw fa-tshirt"></i>
                     <span>Sản phẩm</span></a>
             </li>
             <li class="nav-item {{ Request::is('admin/banner*') ? 'active' : '' }}">
@@ -165,18 +165,18 @@
             </li>
             <li class="nav-item {{ Request::is('admin/size*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.size.index') }}">
-                    <i class="fas fa-fw fa-chevron-circle-right"></i>
+                    <i class="fas fa-fw fa-ruler"></i>
                     <span>Quản lý size</span></a>
             </li>
             <li class="nav-item {{ Request::is('admin/color*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.color.index') }}">
-                    <i class="fas fa-fw fa-chevron-circle-right"></i>
+                    <i class="fas fa-fw fa-palette"></i>
                     <span>Quản lý màu</span></a>
             </li>
-            {{-- <li class="nav-item {{ Request::is('admin/accessory*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.accessory.index') }}">
-                    <i class="fas fa-fw fa-birthday-cake"></i>
-                    <span>Quản lý phụ kiện</span></a>
+            {{-- <li class="nav-item {{ Request::is('admin/point*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.point.index') }}">
+                    <i class="fas fa-fw fa-star-of-david"></i>
+                    <span>Quản lý điểm</span></a>
             </li> --}}
             <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.promotion.index') }}">
@@ -220,13 +220,13 @@
                 <a class="nav-link" href="{{ route('admin.dish.index') }}">
                     <i class="fas fa-fw fa-cloud-meatball"></i>
                     <span>Món ăn</span></a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.user.index') }}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Quản lý tài khoản</span></a>
-            </li> --}}
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
