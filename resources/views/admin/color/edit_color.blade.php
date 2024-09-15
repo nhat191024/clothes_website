@@ -26,7 +26,7 @@
                     <form action="{{ route('admin.color.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Tên mafu</label>
+                            <label for="">Tên màu</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
                                 name="color_name" placeholder="Nhập tên color" value="{{ $colorInfo->name }}">
                         </div>
