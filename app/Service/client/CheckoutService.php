@@ -129,6 +129,7 @@ class CheckoutService
         }
 
         $this->voucherService->clearVoucher();
+        $this->voucherService->setAsUsed();
 
         return response()->json([
             'status' => 200,
