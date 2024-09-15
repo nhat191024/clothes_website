@@ -28,17 +28,23 @@ class VoucherService
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
         ]);
-
+        $quantity = $request->quantity;
+        if ($request->is_for_new_comers==1){
+            $quantity = 1;
+            $this->setAllVoucherAsNotForNewComers();
+        }
         $id = Voucher::create([
             'code' => $request->code,
             'description' => $request->description,
             'discount_percentage' => $request->discount_percentage,
             'min_price' => $request->min_price,
-            'quantity' => $request->quantity,
+            'quantity' => $quantity,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
+            'is_for_new_comers' => $request->is_for_new_comers,
             'status' => 1,
         ])->id;
+
         return $id;
     }
 
@@ -63,6 +69,11 @@ class VoucherService
         $voucher->start_date = $request->start_date;
         $voucher->end_date = $request->end_date;
         $voucher->status = $request->status;
+        $voucher->is_for_new_comers = $request->is_for_new_comers;
+        if ($request->is_for_new_comers==1){
+            $voucher->quantity = 1;
+            $this->setAllVoucherAsNotForNewComers();
+        }
         $voucher->save();
     }
 
@@ -70,5 +81,15 @@ class VoucherService
     {
         $voucher = Voucher::find($id);
         $voucher->delete();
+    }
+
+    public function setAllVoucherAsNotForNewComers()
+    {
+        Voucher::where('is_for_new_comers', 1)->get()->each(function($voucher) {
+            $voucher->end_date = \Carbon\Carbon::now();
+            $voucher->is_for_new_comers = 0;
+            $voucher->quantity = 1;
+            $voucher->save();
+        });
     }
 }

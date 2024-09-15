@@ -52,7 +52,15 @@
                             <input required type="date" class="form-control" id="end-time" aria-describedby=""
                                 name="end_date" placeholder="Ngày kết thúc">
                         </div>
-
+                        <div class="form-group">
+                            <label for="new_customer">Voucher cho khách hàng mới (Voucher này sẽ chỉ được dùng 1 lần duy nhất)</label><br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="new_customer" name="is_for_new_comers">
+                                <label class="form-check-label" for="new_customer">
+                                    Đánh dấu là cho khách hàng mới
+                                </label>
+                            </div>
+                        </div>
                         <button class="btn btn-success mt-4" type="submit">Thêm</button>
                     </form>
 
