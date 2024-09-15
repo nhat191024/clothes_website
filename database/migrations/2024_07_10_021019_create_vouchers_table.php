@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('quantity')->default(1);
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
+            $table->tinyInteger('is_for_new_comers')->default(0)->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

@@ -27,6 +27,7 @@ class User extends Authenticatable
         'building_name',
         'phone',
         'point',
+        'new_comer',
     ];
 
 

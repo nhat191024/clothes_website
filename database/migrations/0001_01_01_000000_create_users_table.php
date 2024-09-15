@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('avt')->nullable();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('full_name');
+            $table->string('full_name')->nullable();
             $table->string('email')->unique();
             $table->string('prefecture')->nullable();
             $table->string('city')->nullable();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('building_name')->nullable();
             $table->string('phone', 16);
             $table->integer('point')->default(0);
+            $table->tinyInteger('new_comer')->default(1);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
