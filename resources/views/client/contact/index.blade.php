@@ -53,10 +53,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="contact__map">
-                        <iframe
-                        src="{{ $contactUs['map'] }}"
-                        height="780" style="border:0" allowfullscreen="">
-                    </iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.401486782854!2d127.67109529999999!3d26.216141199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e5699a0e5f086d%3A0x3876e2d32fc4a9cd!2sMouse%20Shop!5e0!3m2!1svi!2s!4v1727410770102!5m2!1svi!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
