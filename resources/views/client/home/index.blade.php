@@ -274,6 +274,7 @@
                 </div>
             </div>
         </div>
+        <link rel="stylesheet" href="{{ asset('css/home/home.css') }}">
     </section>
     <!-- Phần Dịch Vụ Kết Thúc -->
 @endsection

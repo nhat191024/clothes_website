@@ -17,6 +17,7 @@ class Voucher extends Model
         'quantity',
         'start_date',
         'end_date',
+        'is_for_new_comers',
         'status'
     ];
 }

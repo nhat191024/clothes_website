@@ -60,7 +60,15 @@
                                 <option value="0" @if($voucher->status == 0) selected @endif >Vô hiệu hoá</option>
                             </select>
                         </div>
-
+                        <div class="form-group">
+                            <label for="new_customer">Voucher cho khách hàng mới (Voucher này sẽ chỉ được dùng 1 lần duy nhất)</label><br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="new_customer" name="is_for_new_comers" @if($voucher->is_for_new_comers) checked @endif>
+                                <label class="form-check-label" for="new_customer">
+                                    Đánh dấu là cho khách hàng mới
+                                </label>
+                            </div>
+                        </div>
                         <button class="btn btn-primary mt-4" type="button" onclick="window.history.back()">Quay Lại</button>
                         <button class="btn btn-success mt-4" type="submit">Lưu thay đổi</button>
                     </form>

@@ -2,12 +2,19 @@
     cursor: pointer !important;
 }
 
+.categories__accordion .card-heading a {
+    font-size: 1rem;
+}
 .categories__accordion .card-heading a:hover {
     text-decoration: underline;
 }
 
 .categories__accordion .card-body li label:hover {
     text-decoration: underline;
+}
+
+.sidebar__sizes .size__list label, .sidebar__color .size__list label{
+    font-size: 1rem;
 }
 
 .product__hover{
@@ -61,5 +68,9 @@
 
 .categories__accordion .card-body li:before {
     content: unset;
+}
+
+.product__item__text h6 a, .product__item__text .product__price {
+    font-size: 1.3rem;
 }
 

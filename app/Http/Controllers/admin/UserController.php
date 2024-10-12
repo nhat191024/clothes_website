@@ -23,68 +23,83 @@ class UserController extends Controller
         return view('admin.user.user', compact('allUser'));
     }
 
-    // public function showAddUser()
-    // {
-    //     $allCategory = $this->categoryService->getAll();
-    //     return view('admin.food.add_food', compact('allCategory'));
-    // }
+    public function showAddUser()
+    {
+        return view('admin.user.add_user');
+    }
 
-    // public function addUser(Request $request)
-    // {
-    //     $request->validate([
-    //         'category_id' => 'required',
-    //         'food_name' => 'required',
-    //         'food_price' => 'required',
-    //         'food_image' => 'required',
-    //     ]);
-    //     $categoryId = $request->category_id;
-    //     $foodName = $request->food_name;
-    //     $foodPrice = $request->food_price;
-    //     $imageName = time() . '_' . $request->food_image->getClientOriginalName();
-    //     // Public Folder
-    //     $request->food_image->move(public_path('img'), $imageName);
-    //     $this->foodService->add($categoryId, $foodName, $foodPrice, $imageName);
-    //     return redirect(route('admin.food.index'))->with('success', 'Thêm thực phẩm thành công');
-    // }
+    public function addUser(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|unique:users,username',
+            'password' => 'required',
+            'fullname' => 'nullable',
+            'email' => 'nullable|email|unique:users,email',
+            'phone' => 'nullable|unique:users,phone',
+            'status' => 'required|in:0,1',
+        ]);
+        $username = $request->username;
+        $password = $request->password;
+        $fullname = $request->fullname;
+        $email = $request->email;
+        $phone = $request->phone;
+        $status = $request->status;
+        $this->userService->add($username, $fullname, $email, $phone, $password, $status);
+        return redirect(route('admin.user.index'))->with('success', 'Thêm người dùng mới thành công');
+    }
 
-    // public function showEditUser(Request $request)
-    // {
-    //     $id = $request->id;
-    //     $allCategory = $this->categoryService->getAll();
-    //     $foodInfo = $this->foodService->getById($id);
-    //     return view('admin.food.edit_food', compact('id', 'foodInfo', 'allCategory'));
-    // }
+    public function showEditUser(Request $request)
+    {
+        $id = $request->id;
+        $user = $this->userService->getById($id);
+        return view('admin.user.edit_user', compact('id', 'user'));
+    }
 
-    // public function editUser(Request $request)
-    // {
-    //     $request->validate([
-    //         'id' => 'required',
-    //         'category_id' => 'required',
-    //         'food_name' => 'required',
-    //         'food_price' => 'required',
-    //     ]);
-    //     $id = $request->id;
-    //     $categoryId = $request->category_id;
-    //     $foodName = $request->food_name;
-    //     $foodPrice = $request->food_price;
-    //     if ($request->food_image) {
-    //         $imageName = time() . '_' . $request->food_image->getClientOriginalName();
-    //         $request->food_image->move(public_path('img'), $imageName);
-    //         $oldImagePath = $this->foodService->getById($request->id)->image;
-    //         if (file_exists(public_path('img') . '/' . $oldImagePath)) {
-    //             unlink(public_path('img') . '/' . $oldImagePath);
-    //         }
-    //     }
-    //     $this->foodService->edit($id, $categoryId, $foodName, $foodPrice, $imageName ?? null);
-    //     return redirect(route('admin.food.index'))->with('success', 'Sửa thực phẩm thành công');
-    // }
+    public function editUser(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'username' => 'required',
+            'email' => 'nullable',
+            'phone' => 'nullable',
+        ]);
+        $id = $request->id;
+        $username = $request->username;
+        $fullname = $request->fullname;
+        $email = $request->email;
+        $phone = $request->phone;
+        $point = $request->point;
+        $password = $request->password;
+        $status = $request->status;
 
-    // public function deleteUser(Request $request) {
-    //     $id = $request->id;
-    //     if(!$this->foodService->checkHasChildren($id)) {
-    //         $this->foodService->delete($id);
-    //         return redirect(route('admin.food.index'))->with('success', 'Xóa thực phẩm thành công') ;
-    //     }
-    //     return redirect(route('admin.food.index'))->with('error', 'Thực phẩm đang nằm trong món ăn, không thể xóa !!!');
-    // }
+        if ($request->avt) {
+            $imageName = time() . '_' . $request->avt->getClientOriginalName();
+            $request->avt->move(public_path('img/user'), $imageName);
+            $oldImagePath = $this->userService->getById($request->id)->avt;
+            if (file_exists(public_path('img/user') . '/' . $oldImagePath)) {
+                if($oldImagePath) unlink(public_path('img/user') . '/' . $oldImagePath);
+            }
+        }
+
+        $this->userService->edit($id, $username, $fullname??null, $email, $phone, $point??null, $password??null, $status??null, $imageName??null);
+        return redirect(route('admin.user.index'))->with('success', 'Sửa người dùng thành công');
+    }
+
+    public function lockUser(Request $request) {
+        $id = $request->id;
+        $this->userService->lock($id);
+        return redirect(route('admin.user.index'))->with('success', 'Khoá người dùng thành công') ;
+    }
+
+    public function unlockUser(Request $request) {
+        $id = $request->id;
+        $this->userService->unlock($id);
+        return redirect(route('admin.user.index'))->with('success', 'Mở khoá người dùng thành công') ;
+    }
+
+    public function deleteUser(Request $request) {
+        $id = $request->id;
+        $this->userService->delete($id);
+        return redirect(route('admin.user.index'))->with('success', 'Xoá người dùng thành công') ;
+    }
 }

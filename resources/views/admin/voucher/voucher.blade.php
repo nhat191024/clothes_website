@@ -65,21 +65,16 @@
                                         <td>{{ $item->description }}</td>
                                         <td>{{ $item->discount_percentage }}%</td>
                                         <td>{{ $item->min_price }}¥</td>
-                                        <td>{{ $item->quantity }}</td>
+                                        <td>{{ $item->is_for_new_comers == 1 ? '1 lần duy nhất cho khách hàng mới' : $item->quantity }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->start_date)->format('d-m-Y') }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($item->end_date)->format('d-m-Y') }}</td>
+                                        <td>{{ $item->is_for_new_comers == 1 ? 'Vô thời hạn (Cho khách hàng mới)' : \Carbon\Carbon::parse($item->end_date)->format('d-m-Y') }}</td>
                                         <td>{{ ($item->status == 0 ? 'Đã bị khoá':'Mở') }}</td>
                                             <td class="text-center">
                                             <a class="btn btn-warning"
                                                 href="{{ route('admin.voucher.show_edit', ['id' => $item->id]) }}">Sửa</a>
-
                                                 <a class="btn btn-danger"
                                                     href="{{ route('admin.voucher.delete', ['id' => $item->id]) }}"
                                                     onclick="confirm('Bạn chắc chắn muốn XOÁ voucher {{$item->code}} chứ?')"> XOÁ </a>
-
-                                            {{-- <a class="btn btn-info"
-                                                href="{{ route('admin.voucher.show_detail', ['id' => $item->id]) }}">Chi
-                                                tiết</a> --}}
                                         </td>
 
                                     </tr>

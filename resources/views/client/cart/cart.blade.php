@@ -73,9 +73,13 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="discount__content">
-                        <h6>Discount codes</h6>
+                        @if (isset($newClientCoupon))
+                            <h3 class="mb-2">New to MouseShop? <br>Apply this coupon code now!</h3>
+                        @else
+                            <h6>Discount codes</h6>
+                        @endif
                         <form action="#">
-                            <input type="text" id="voucher_code" placeholder="Enter your voucher code">
+                            <input type="text" id="voucher_code" placeholder="Enter your voucher code" value="{{ $newClientCoupon ?? '' }}">
                             <button type="submit" id="apply_voucher" class="site-btn">Apply</button>
                         </form>
                         <div id="voucher_error" class="text-danger ml-3"></div>

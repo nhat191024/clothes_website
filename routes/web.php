@@ -11,7 +11,7 @@ use App\Http\Controllers\admin\PromotionController;
 use App\Http\Controllers\admin\SizeController;
 use App\Http\Controllers\admin\VoucherController;
 use App\Http\Controllers\admin\AdminLoginController;
-
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\AccountManagement;
@@ -145,14 +145,16 @@ Route::middleware(['auth:admin'])->group(function () {
             Route::get('/edit/{id}', [AboutUsController::class, 'showEditBanner'])->name('admin.about.show_edit');
         });
 
-        // Route::prefix('/user')->group(function () {
-        //     Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
-        //     Route::get('/add', [UserController::class, 'showAddUser'])->name('admin.user.show_add');
-        //     Route::post('/add', [UserController::class, 'addUser'])->name('admin.user.add');
-        //     Route::post('/edit', [UserController::class, 'editUser'])->name('admin.user.edit');
-        //     Route::get('/edit/{id}', [UserController::class, 'showEditUser'])->name('admin.user.show_edit');
-        //     Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('admin.user.delete');
-        // });
+        Route::prefix('/user')->group(function () {
+            Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
+            Route::get('/add', [UserController::class, 'showAddUser'])->name('admin.user.show_add');
+            Route::post('/add', [UserController::class, 'addUser'])->name('admin.user.add');
+            Route::post('/edit', [UserController::class, 'editUser'])->name('admin.user.edit');
+            Route::get('/edit/{id}', [UserController::class, 'showEditUser'])->name('admin.user.show_edit');
+            Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('admin.user.delete');
+            Route::get('/lock/{id}', [UserController::class, 'lockUser'])->name('admin.user.lock');
+            Route::get('/unlock/{id}', [UserController::class, 'unlockUser'])->name('admin.user.unlock');
+        });
 
 
         Route::prefix('/voucher')->group(function () {

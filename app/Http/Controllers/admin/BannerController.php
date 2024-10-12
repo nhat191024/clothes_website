@@ -69,7 +69,7 @@ class BannerController extends Controller
             $request->banner_image->move(public_path('img/banner'), $imageName);
             $oldImagePath = $this->bannerService->getById($request->id)->image;
             if (file_exists(public_path('img/banner') . '/' . $oldImagePath && $oldImagePath != null)) {
-                unlink(public_path('img/banner') . '/' . $oldImagePath);
+                if($oldImagePath) unlink(public_path('img/banner') . '/' . $oldImagePath);
             }
         }
         $this->bannerService->edit($id, $bannerTitle, $bannerContent,$imageName?? null,$link);
