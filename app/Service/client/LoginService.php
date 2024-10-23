@@ -98,4 +98,3 @@ class LoginService
         return $loginData;
     }
 }
-

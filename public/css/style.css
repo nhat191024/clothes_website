@@ -3690,4 +3690,17 @@ ol {
 		width: 100%;
 		font-size: 24px;
 	}
+	.categories__item.categories__large__item {
+		height: 300px !important;
+		padding-left: 70px !important;
+	}
+	h1{
+		font-size : 24px;
+		display: block;
+		margin-block-start: 1.33em;
+		margin-block-end: 1.33em;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+		font-family: 'Times New Roman', Times, serif, fantasy;
+	}
 }

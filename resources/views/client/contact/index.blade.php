@@ -53,10 +53,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="contact__map">
-                        <iframe
-                        src="{{ $contactUs['map'] }}"
-                        height="780" style="border:0" allowfullscreen="">
-                    </iframe>
+                        <iframe src="{{$contactUs->map}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
