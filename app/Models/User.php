@@ -3,12 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,20 +17,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'avt',
-        'username',
-        'password',
-        'full_name',
+        'name',
         'email',
-        'prefecture',
-        'city',
+        'password',
+        'email',
         'address',
-        'building_name',
         'phone',
-        'point',
-        'new_comer',
     ];
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -40,7 +34,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    protected $guarded = ['status'];
 
     /**
      * Get the attributes that should be cast.

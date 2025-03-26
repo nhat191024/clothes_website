@@ -11,7 +11,6 @@ use App\Models\ProductCategory;
 use App\Models\ProductDetail;
 use App\Models\Bill;
 use App\Models\BillDetail;
-use App\Models\Cart;
 use App\Models\Category;
 use App\Models\ContactInfo;
 use App\Models\ContactUs;
@@ -20,11 +19,9 @@ use App\Models\Image;
 use App\Models\Promotion;
 use App\Models\Size;
 use App\Models\Voucher;
-use App\Models\AboutUs;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -42,7 +39,6 @@ class DatabaseSeeder extends Seeder
                 "avt" => $row['avt'],
                 "username" => $row['username'],
                 "password" => Hash::make($row['password']),
-                "full_name" => $row['full_name'],
                 "email" => $row['email'],
                 "address" => $row['address'],
                 "phone" => $row['phone']
@@ -57,9 +53,7 @@ class DatabaseSeeder extends Seeder
                 "status" => $row['status'],
             ]);
         }
-        foreach ($dataArray['about_us'] as $row){
-            AboutUs::create($row);
-        }
+
         foreach ($dataArray['vouchers'] as $row) {
             Voucher::create($row);
         }
@@ -105,7 +99,7 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach ($dataArray['product_categories'] as $row) {
-            Product::find($row['product_id'])->categories()->attach($row['category_id']);
+            ProductCategory::create($row);
         }
 
         foreach ($dataArray['promotions'] as $row) {
@@ -118,10 +112,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($dataArray['bill_details'] as $row) {
             BillDetail::create($row);
-        }
-
-        foreach ($dataArray['carts'] as $row) {
-            Cart::create($row);
         }
     }
 }
