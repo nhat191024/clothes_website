@@ -24,7 +24,7 @@ class MailService
         $this->mail->Password = config('mail.mailers.smtp.password');
         $this->mail->SMTPSecure = config('mail.mailers.smtp.encryption');
         $this->mail->Port = config('mail.mailers.smtp.port');
-        $this->mail->setFrom(config('mail.mailers.smtp.username'), 'Mouse Shop');
+        // $this->mail->setFrom(config('mail.mailers.smtp.username'), 'Mouse Shop');
 
         $this->cartService = new CartService();
         $this->cartSessionService = new CartSessionService();
