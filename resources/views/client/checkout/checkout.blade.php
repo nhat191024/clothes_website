@@ -187,9 +187,9 @@
                                     <span class="checkmark"></span>
                                 </label> --}}
                                 <label for="point">
-                                    <span>Pay using point ({{ $user->point }})</span>
+                                    <span>Pay using point ({{ $user?$user->point:'Not logged in' }})</span>
                                     <input type="checkbox" id="point"
-                                        @if ($user->point == 0) disabled @endif />
+                                        @if ($user?$user->point:0 == 0) disabled @endif />
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="confirm">
@@ -243,7 +243,7 @@
 
     <script>
         const total = {{ $total }};
-        const point = {{ $user->point }};
+        const point = {{ $user?$user->point:0 }};
     </script>
 
     <script src="{{ url('') . '/' }}js/jquery-3.3.1.min.js"></script>
