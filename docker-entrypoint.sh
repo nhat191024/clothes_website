@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+echo "Starting Laravel application setup..."
+
+# Wait for mounted volumes to be available
+sleep 2
+
+# Generate application key
+echo "Generating application key..."
+php artisan key:generate --force
+
+# Clear and cache configurations
+echo "Clearing and caching configurations..."
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+
+# Cache for production
+echo "Caching for production..."
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+#run migrations
+php artisan migrate --force
+
+# Set proper permissions
+echo "Setting permissions..."
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# fix nginx tmp dir permission
+echo "Fixing nginx client_body_temp_path permissions..."
+mkdir -p /var/lib/nginx/tmp/client_body
+chown -R www-data:www-data /var/lib/nginx/
+chmod -R 755 /var/lib/nginx/
+
+echo "Laravel application setup completed!"
+
+# Start Apache
+exec apache2-foreground
