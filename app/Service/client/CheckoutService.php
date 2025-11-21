@@ -61,16 +61,18 @@ class CheckoutService
     public function confirmOrder($request)
     {
         $user = Auth::user();
-        $currentUser = User::where('id', $user->id)->first();
         $total = $this->getCartTotal();
-        $point = $currentUser->point;
-        $newPoint = $total / 100;
+        $newPoint = null;
         $pointUsed = 0;
         $usingPoint = $request->usingPoint;
         $buildingName = $request->buildingName === 'null' ? '' : ', ' . $request->buildingName;
         $address = $request->prefecture . ', ' . $request->city . ', ' . $request->address . $buildingName;
 
         if ($user) {
+            $currentUser = User::where('id', $user->id)->first();
+            $point = $currentUser->point;
+            $newPoint = $total / 100;
+
             if ($usingPoint == "true") {
                 if ($total > $point) {
                     $pointUsed = $point;
