@@ -23,6 +23,10 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\RegisterController;
 use App\Http\Controllers\client\ShopController;
 
+Route::get('/health', function () {
+    return response()->json(['status' => 'OK']);
+})->name('health');
+
 Route::prefix('/')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('client.home.index');
 });
@@ -48,8 +52,8 @@ Route::prefix('cart')->group(function () {
     Route::get('/reset', [CartController::class, 'resetCart'])->name('client.cart.reset');
     Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('client.cart.updateQuantity');
     Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
-    Route::get('/getVoucherDiscount',[CartController::class,'getDiscount'])->name('client.cart.getDiscount');
-    Route::get('/getCount',[CartController::class,'getCartCount'])->name('client.cart.getCartCount');
+    Route::get('/getVoucherDiscount', [CartController::class, 'getDiscount'])->name('client.cart.getDiscount');
+    Route::get('/getCount', [CartController::class, 'getCartCount'])->name('client.cart.getCartCount');
 });
 
 Route::prefix('contact')->group(function () {
@@ -62,7 +66,7 @@ Route::prefix('user')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('client.logout');
     Route::post('/login/check', [LoginController::class, 'login'])->name('client.login');
     Route::get('/register', [RegisterController::class, 'index'])->name('client.register.index');
-    Route::post('/register/create', [RegisterController::class,'create'])->name('client.register');
+    Route::post('/register/create', [RegisterController::class, 'create'])->name('client.register');
 });
 
 Route::prefix('checkout')->group(function () {
